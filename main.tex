@@ -1,0 +1,92 @@
+\input ctustyle3  % The template (in version 3, for OpTeX) is included here.
+
+\worktype [M/CZ] % Type: B = bachelor, M = master, D = Ph.D., O = other
+                 % / the language: CZ = Czech, SK = Slovak, EN = English
+
+\faculty    {F3}  % Type your faculty F1, F2, F3, etc. or MUVS
+            % use main language of your document here:
+\department {Katedra měření}
+\title      {Uživatelsky přívětivé ovládání systému osvětlení školní učebny}
+\subtitle   {User-friendly control of the classroom lighting system}
+            % \subtitle is optional
+\author     {Bc. Kamila Sedláková}
+\date       {Květen 2024}
+\supervisor {Ing. arch. Lenka Maierová, Ph.D}  % One or more supervisors
+\studyinfo  {}  % Study programme etc.
+%\workname   {Dokumentace} % Used only if \worktype [O/*] (Other)
+            % optional more information about the document:
+%\workinfo   {\url{http://petr.olsak.net/ctustyle.html}}
+            % Title / Subtitle in minor language:
+%\titleEN    {CTUstyle -- the user manual}
+%\subtitleEN {the \OpTeX/ template for theses at CTU}
+            % If minor language is other than English
+            % use \titleCZ, \subtitleCZ or \titleSK, \subtitleSK instead it.
+\pagetwo    {}  % The text printed on the page 2 at the bottom.
+
+\abstractEN {
+   This master thesis is about...
+}
+\abstractCZ {
+   Tato diplomová práce se zabývá...
+}           % If your language is Slovak use \abstractSK instead \abstractCZ
+
+\keywordsEN {
+   DALI protocol, lighting, spectrometr
+}
+\keywordsCZ {
+   DALI protokol, osvětlení, spektrometr
+}
+\thanks {           % Use main language here
+   Chtěla bych poděkovat...
+}
+\declaration {      % Use main language here
+   Prohlašuji, že jsem předloženou práci vypracovala
+   samostatně a že jsem uvedla veškeré použité informační zdroje v~souladu
+   s~Metodickým pokynem o~dodržování etických principů při přípravě
+   vysokoškolských závěrečných prací.
+
+   V Praze dne ... 2024 % !!! Attention, you have to change this item.
+   \signature % makes dots
+}
+
+%%%%% <--   % The place for your own macros is here.
+
+%\draft     % Uncomment this if the version of your document is working only.
+%\linespacing=1.7  % uncomment this if you need more spaces between lines
+                   % Warning: this works only when \draft is activated!
+%\savetoner        % Turns off the lightBlue backround of tables and
+                   % verbatims, only for \draft version.
+%\blackwhite       % Use this if you need really Black+White thesis.
+%\onesideprinting  % Use this if you really don't use duplex printing. 
+
+\specification {%
+\vbox to0pt{\vskip-25mm\centerline{\inspic zadani.pdf }\vss}
+}
+
+\makefront  % Mandatory command. Makes title page, acknowledgment, contents etc.
+
+% Teorie
+% \input 01_Teorie/010_Uvod
+% \input 01_Teorie/020_Umele_osvetleni
+% \input 01_Teorie/030_Oko
+% \input 01_Teorie/040_Rizeni_osvetleni  % asi nebudu psat
+% \input 01_Teorie/050_DALI
+
+% Prakticka
+\input 02_Prakticka/000_Cela
+
+
+% Prakticka zatim nepouzivam
+% \input 05_Prakticka/01_mereni_osv_jas
+% \input 05_Prakticka/02_CIE
+% \input 05_Prakticka/03_osvetleni_ucebny
+% \bibchap{
+%     \usebib/c (simple) reference
+% }
+
+%\------------------------------------------------------------------------------------
+%\input uvod    % Files where the source of the document is prepared.
+%\input popis   % Full name is: uvod.tex, popis.tex, the suffix can be omitted.
+% \input prilohy2
+
+\bye
