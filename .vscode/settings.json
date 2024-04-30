@@ -1,0 +1,19 @@
+{
+    "actionButtons": {
+        "commands": [
+            {
+                "name": "OpTeX",
+                "command": "scripts/optex.sh",
+                "terminalName": "OpTeX"
+            },
+            {
+                "name": "OpTeX2",
+                "command": "scripts/optex2.sh",
+                "terminalName": "OpTeX"
+            },
+        ],
+        "defaultColor": "white",
+        "reloadButton": "↻",
+        "loadNpmCommands": false
+    }
+}
