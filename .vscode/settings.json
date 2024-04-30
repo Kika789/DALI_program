@@ -11,6 +11,11 @@
                 "command": "scripts/optex2.sh",
                 "terminalName": "OpTeX"
             },
+            {
+                "name": "Zip",
+                "command": "scripts/create_zip.sh",
+                "terminalName": "OpTeX"
+            },
         ],
         "defaultColor": "white",
         "reloadButton": "↻",
