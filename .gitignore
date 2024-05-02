@@ -2,6 +2,8 @@
 build/
 
 *.log
+*.te~
+
 main.ref
 main.log
 main.pdf
