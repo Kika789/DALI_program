@@ -34,7 +34,19 @@ rychlost dat 1200 bitů za sekundu.
 https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 \medskip
 
+
+\medskip \clabel[logika]{Logika}
+\picw=8cm \cinspic 03_Obrazky/logika.png
+\caption/f Logika
+\medskip
+
 \sec Topologie sběrnice
+
+\medskip \clabel[topolgie]{Topologie sběrnice}
+\picw=8cm \cinspic 03_Obrazky/g38.png
+\caption/f Topologie sběrnice
+\medskip
+
 Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a maximálně šestnáct scén.
 Každá z~těchto šedesáti čtyř jednotek je přiřazena krátká adresa, která je uložena v~zapalovači.
 Každá jednotlivá jednotka může také obsahovat číslo přiřazení ke skupině, hodnoty osvětlovací scény,
@@ -78,9 +90,53 @@ https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en
 
 \sec Shrnutí parametrů DALI protokolu
 
+\medskip \clabel[p]{Parametry}
+\picw=12cm \cinspic 03_Obrazky/specifikace.png
+\caption/f Parametry
+\medskip
+
 \sec Popis Hardwaru
+
+\medskip \clabel[schematic]{Schéma hardwaru}
+\picw=12cm \cinspic 03_Obrazky/schematic.png
+\caption/f Schéma DALI 
+\medskip
+
+\medskip \clabel[schematic2]{Schéma hardwaru 2}
+\picw=12cm \cinspic 03_Obrazky/schematic2.png
+\caption/f Schéma DALI 2
+\medskip
+
 
 
 \sec Popis kabelu
 
+\medskip \clabel[kabel]{kabel}
+\picw=10cm \cinspic 03_Obrazky/kabel.png
+\caption/f Kabel
+\medskip
+
+
+\medskip
 \sec Popis příkazů
+
+\begitems \style o
+* off - Okamžité vypnutí světel
+* set max level - Nastavení maximální hodnoty jasu.
+* set min level - Nastavení minimální hodnoty jasu.
+* Recall max level
+* Recall min level
+* set system failure level - Nastavení jasu při výpadku řidící jednotky.
+* set power on level - Nastavení jasu při zapnutí proudu.
+* set fade time - Nastavení času prolínání.
+* set fade rate - Nastavení rychlosti prolínání.
+* set short adress - Nastavení krátké adresy pro jednotlivé světelná zařízení.
+* set scene - Nastavení světelné scény.
+* go to scene - Přechod mezi jednotlivými scénami. 
+* identify device - Identifikace jednotlivých zařízení - světlené zařízení se rozbliká po dobu 10s. 
+* add to group - Přidání světelného zařízení do skupin.
+* remove from group - Odstranění světelné zařízení ze skupiny.
+* set operating mode - Nastavení operačního módu.
+\enditems
+\medskip
+

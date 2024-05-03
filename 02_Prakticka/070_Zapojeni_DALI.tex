@@ -1,94 +1,157 @@
 \chap Návrh světelného ovládání
 
+Poslední fáze praktické části se věnovala návrhu světelného ovládání. Aktuální stav má 12 tlačítek a cílem bylo jejich počet zredukovat na 3-4 tlačítka. 
+% pridat obrazek aktualniho panelu
+
+\medskip \clabel[ovl0]{Aktuální ovládání}
+\picw=10cm \cinspic 03_Obrazky/ovladani.jpg
+\caption/f Aktuální ovládání
+\medskip
+
+
+Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka. 
+Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k postupnému zvyšování nebo snižování jasu. 
+Avšak toto ovládání není ideální pro uživatele, proto bylo navrženo změnit ovládání na 4 tlačítka, spolu s dvěma tlačítky pro regulaci jasu.
+Tímto způsobem se vytváří pohodlnější a intuitivnější ovládání pro všechny uživatele.
+
+% pridat obrazek navrhu
 \medskip \clabel[ovl1]{Board}
 \picw=10cm \cinspic 03_Obrazky/Ovladani/board.png
 \caption/f Board
 \medskip
 
 \medskip \clabel[ovl2]{Návrh tlačítek}
-\picw=15cm \cinspic 03_Obrazky/Ovladani/buttons.png
+\picw=10cm \cinspic 03_Obrazky/Ovladani/buttons.png
 \caption/f Buttons
 \medskip
 
 
 
+Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahovaly pull-up rezistory.
+Proto bylo nezbytné přidat odpory o hodnotě 10 000kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
+
+Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
+a instalace ve školních prostorách probíhají mimo výukové období. Proto bylo veškeré zapojení provedeno a otestováno v laboratorních podmínkách.
+
+\medskip
+
+Řídící jednotka bylo zvoleno ESP32 WROOM - přidat fotku
+
+{\sbf Postup zapojení}
+\begitems \style o
+* zapojení světel do řídící jednotky
+* připopjit zdroj 12~V
+* zapojení světel do zásuvky
+* nejprve bylo zapotřebí osadit souřástky na plošnou desku
+* poté bylo zapotřebí zapojit tlačítka na řídící jednotku a otestovat funkčnost jednotlivých tlačítek
+* po otestování tlačítek byly přiřazeny krátké adresy jednotlivým zařízením
+* pro kontorlu správného přiřazení slouží příkaz idetify, když adresa byla správně přiřazena, zařízení se rozblikalo na 10s
+* v tomto případě jsou světla nastavena od 0 do 3
+* poté následovalo vytvoření jednotlivých scén ke tlačítkům
+\enditems
+
+\medskip
+
+{\sbf Pro laboratorní účely byly nastaveny tyto scény:}
+\begitems \style o
+* tlacitko off - slouzi k~uplenemu vypnuti
+* tlacitko vyklad - dva světlené prvky jsou zapnuté a dva vypnuté
+* tlacitko pisemka - dva světelné prvky jsou nastaveny na vyšší intenzitu a dva nižší intenzitu
+* tlacitko denní svetlo - každý prvek je nastaven s sjinou intenzitou - od nejnižší po nejvyšší
+* tlacitko regulace jasu, kdy při dlouhem stisku se intenzita zvysovala/snizovala
+\enditems
 
 
-Postup zapojení
-    • Nebude, žádný tam není. Jsou tam jen vypínače připojené na diming vstupy předřadníků.
-    •
 
-    • zapojila jsem světla do zásuvky
-    • zapojila světla do řídící jednotky
-    • a zdroj 12~V
-    • dokumentace řídicí jednotky
-    • byla pouzit protokol DALI
-    • ridici jednotka s~ESP32
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    • na začátku bylo zapotřebí zvolit správné piny pro ovládání světel a tlačítek
-    • dále jsme museli nastavit adresy jednotlivým světelným zařízením - pomcí inicialize a nebo postupným odpojováním/zapojováním
-        světel a pomocí fce set short adress - nastavime pomoci broadcast
-    • použité fce: on, off, set max level, set min level, set systém failure level, set power on level, set fade time,
-        set fade rate, set short adress, set scene, go to scene, identify device, add to group, remove from group,
-        set operating mode
-    • dále jsme si mohli spravne nastaveni adres overit fci identify device, při spravnem nastaveni svetla zacalo
-        blikat po dobu 10s
-    • v~mem pripade mam adresy nastavene od 0-4??? overit
-    • pote jsem nastavila groupy, sceny a dale priradila jednotlive sceny ke konkretnim tlacitkum,
-    • tlacitko off - slouzi k~uplenemu vypnuti
-    • tlacitko vyklad
-    • tlacitko pisemka
-    • tlacitko denní svetlo
-    • tlacitko regulace jasu, kdy při dlouhem stisku se intenzita zvysovala/snizovala
-    • při zmene jasu, se při stiknuti tlacitka s~konkretni scenou, vratila scena do puvodniho stavu
-    • pro budoucí implemenatci jsou sceny navrzeny dle normy viz simulace
-    • pro laboratorni ulohy, abychom navrzene zapojeni mohli overit byly zvoleny tyto scény,
-    • scena off
-    • scena vyklad, svetla prima vypla nahore zapla
-    • scena pisemnka: prima zapla, horni zapla s~mensi intenzitou
-    • scena denní svetlo, svetal s~ruznou intenzitou od nejnizsi po nejvyssi
-    • tlacitka na regulaci jasu
-    • vyvojove diagamy s~logikou tlacitek: při kazdem stisku se zapne konkretni scena, u~regulaci jasu,
-        je i pouzit cas, kde při stisku se jas zvysuje nebo snizuje
-    • zapojeni bylo v~laboratori vyzkouseno a funguje
-    • zapojeni v~praxi nelze nyní uskutecnit, protože vsehcny instalace ve skolach probihaji mino vyukove obdobi
-    •
+% postup nastavování:
+% * přidání jednotuvých zařízení do kupin
+% * poté bylo na skupinu nastavená daná scéna
+% * 
+
+%     • Nebude, žádný tam není. Jsou tam jen vypínače připojené na diming vstupy předřadníků.
+%     •
+
+%     • zapojila jsem světla do zásuvky
+%     • zapojila světla do řídící jednotky
+%     • a zdroj 12~V
+%     • dokumentace řídicí jednotky
+%     • byla pouzit protokol DALI
+%     • ridici jednotka s~ESP32
+
+%     • na začátku bylo zapotřebí zvolit správné piny pro ovládání světel a tlačítek
+%     • dále jsme museli nastavit adresy jednotlivým světelným zařízením - pomcí inicialize a nebo postupným odpojováním/zapojováním
+%         světel a pomocí fce set short adress - nastavime pomoci broadcast
+%     • použité fce: on, off, set max level, set min level, set systém failure level, set power on level, set fade time,
+%         set fade rate, set short adress, set scene, go to scene, identify device, add to group, remove from group,
+%         set operating mode
+%     • dále jsme si mohli spravne nastaveni adres overit fci identify device, při spravnem nastaveni svetla zacalo
+%         blikat po dobu 10s
+%     • v~mem pripade mam adresy nastavene od 0-3??? overit
+%     • pote jsem nastavila groupy, sceny a dale priradila jednotlive sceny ke konkretnim tlacitkum,
+%     • tlacitko off - slouzi k~uplenemu vypnuti
+%     • tlacitko vyklad
+%     • tlacitko pisemka
+%     • tlacitko denní svetlo
+%     • tlacitko regulace jasu, kdy při dlouhem stisku se intenzita zvysovala/snizovala
+%     • při zmene jasu, se při stiknuti tlacitka s~konkretni scenou, vratila scena do puvodniho stavu
+%     • pro budoucí implemenatci jsou sceny navrzeny dle normy viz simulace
+%     • pro laboratorni ulohy, abychom navrzene zapojeni mohli overit byly zvoleny tyto scény,
+%     • scena off
+%     • scena vyklad, svetla prima vypla nahore zapla
+%     • scena pisemnka: prima zapla, horni zapla s~mensi intenzitou
+%     • scena denní svetlo, svetal s~ruznou intenzitou od nejnizsi po nejvyssi
+%     • tlacitka na regulaci jasu
+%     • vyvojove diagamy s~logikou tlacitek: při kazdem stisku se zapne konkretni scena, u~regulaci jasu,
+%         je i pouzit cas, kde při stisku se jas zvysuje nebo snizuje
+%     • zapojeni bylo v~laboratori vyzkouseno a funguje
+%     • zapojeni v~praxi nelze nyní uskutecnit, protože vsehcny instalace ve skolach probihaji mino vyukove obdobi
+%     •
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\medskip
-\medskip
-\medskip
-V~učebně je momentálně instalováno dvanáct tlačítek, která způsobují potíže běžným uživatelům.
-Z~navrhovaných scén bylo vybráno implementovat tlačítko pro úplné vypnutí všech světel, tlačítko pro scénu výuky,
-písemka a denní osvětlení. Dále jsem přidala tlačítko pro regulaci jasu, aby uživatelé měli možnost
-přizpůsobit si osvětlení podle svých preferencí v~případě výrazných změn denního světla.
+% \medskip
+% \medskip
+% \medskip
+% V~učebně je momentálně instalováno dvanáct tlačítek, která způsobují potíže běžným uživatelům.
+% Z~navrhovaných scén bylo vybráno implementovat tlačítko pro úplné vypnutí všech světel, tlačítko pro scénu výuky,
+% písemka a denní osvětlení. Dále jsem přidala tlačítko pro regulaci jasu, aby uživatelé měli možnost
+% přizpůsobit si osvětlení podle svých preferencí v~případě výrazných změn denního světla.
 
-Vzhledem k~tomu, že mi nebylo umožněno změnit ovládací panel v~učebně během školního roku. Ovládací zařízení jsem navrhla
-a zapojila v~laboratorních podmínkách. Jako řídící jednotka byla zvolena ESP3 (viz dokumentace).
-Pro zapojení byly vybrány piny podle schématu. Jedná se o~digitální porty, a k~analogovým prvkům byly
-přidány dva odpory pro vytvoření pull-up rezistoru. Logika tlačítek byla navržena tak, že každým stiskem
-se aktivuje odpovídající scéna. U~tlačítek pro regulaci jasu je nutné stisk držet déle, aby došlo ke změně jasu.
+% Vzhledem k~tomu, že mi nebylo umožněno změnit ovládací panel v~učebně během školního roku. Ovládací zařízení jsem navrhla
+% a zapojila v~laboratorních podmínkách. Jako řídící jednotka byla zvolena ESP3 (viz dokumentace).
+% Pro zapojení byly vybrány piny podle schématu. Jedná se o~digitální porty, a k~analogovým prvkům byly
+% přidány dva odpory pro vytvoření pull-up rezistoru. Logika tlačítek byla navržena tak, že každým stiskem
+% se aktivuje odpovídající scéna. U~tlačítek pro regulaci jasu je nutné stisk držet déle, aby došlo ke změně jasu.
 
-Postup zapojení:
-\begitems
-    * zapojila jsem světla do zásuvky
-    * zapojila světla do řídící jednotky
-    * a zdroj 12
-V~\enditems
-\medskip
-Postup implementace
-\medskip
-Nastaveni pinu
+% Postup zapojení:
+% \begitems
+%     * zapojila jsem světla do zásuvky
+%     * zapojila světla do řídící jednotky
+%     * a zdroj 12
+% V~\enditems
+% \medskip
+% Postup implementace
+% \medskip
+% Nastaveni pinu
 
-\medskip
-\picw=8cm \cinspic 03_Obrazky/koood.png
-% \caption/f Učebna
+% \medskip
+% \picw=8cm \cinspic 03_Obrazky/koood.png
+% % \caption/f Učebna
+% \medskip
+
+% Dale bylo zapotrebi implementovat fucnkce - prikazy
+
+% void setup, void loop, priklad funkce, diagram logiky tlacitka
+
+% % \sec Laboratoř
+
+\medskip \clabel[sceny]{Scény}
+\picw=16cm \cinspic 03_Obrazky/sceny.png
+\caption/f Scény
 \medskip
 
-Dale bylo zapotrebi implementovat fucnkce - prikazy
-
-void setup, void loop, priklad funkce, diagram logiky tlacitka
 
 
 
