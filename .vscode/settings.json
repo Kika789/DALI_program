@@ -20,5 +20,9 @@
         "defaultColor": "white",
         "reloadButton": "↻",
         "loadNpmCommands": false
-    }
+    },
+    "cSpell.language": "cs,en",
+    "cSpell.enableFiletypes": [
+        "optex"
+    ]
 }
