@@ -4,13 +4,13 @@
 
 \mnote{\inoval{DALI}}
 
-\glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
-slouží k~ovládání inteligentní světelné techniky.
-Mezinárodní standart IEC~62386 pro \glref{DALI}, byl vyvinut jako náhrada za analogové
-řízení osvětlovací s~flexibilním digitálním řídicím systémem.
-Jedná se o~obousměrný komunikační protokol.
-\glref{DALI} zařízení jsou adresovatelná, lze pro ně nastavovat skupinové funkce,
-definovat jas scény a~dynamicky měnit intenzitu osvětlení.
+% \glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
+% slouží k~ovládání inteligentní světelné techniky.
+% Mezinárodní standart IEC~62386 pro \glref{DALI}, byl vyvinut jako náhrada za analogové
+% řízení osvětlovací s~flexibilním digitálním řídicím systémem.
+% Jedná se o~obousměrný komunikační protokol.
+% \glref{DALI} zařízení jsou adresovatelná, lze pro ně nastavovat skupinové funkce,
+% definovat jas scény a~dynamicky měnit intenzitu osvětlení.
 
 % DALI může řídit barevné ovládání, změnu barev, testování nouzového osvětlení a~zpětnou vazbu,
 % složité nastavení scén a~mnoho dalších funkcí specifických pro osvětlení.
@@ -28,21 +28,86 @@ definovat jas scény a~dynamicky měnit intenzitu osvětlení.
 %     * Větší funkčnost a~nižší náklady na systém ve srovnání se systémy 1-10V
 % \enditems
 
-\sec Názvosloví IEC~62386
 
-Některé důležité pojmy podle standartu IEC~62386(\cite[iec101],\cite[iec102],\cite[iec103]) jsou:
+\glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
+(jak je uvedeno \cite[dali_quick_start])
+je standardizovaný protokol pro digitální komunikaci v systémech osvětlení.
+Umožňuje obousměrnou výměnu dat mezi řídicími jednotkami a~elektronickými předřadníky světel.
 
+\medskip\noindent
+Technické detaily:
 \begitems
-    * {\sbf Control Device} - Ovládací zařízení
-    \begitems
-        * {\sbf Application Controller} - Aplikační řadič
-        * {\sbf Input Device} - Vstupní zařízení
+    *{\sbf Norma:} IEC 623861
+    *{\sbf Typ }kabelu: Dvoulinková sběrnice.
+    *{\sbf Napájení:} Sběrnice slouží i pro napájení některých zařízení. Napětí se běžně pohybuje okolo
+       16~V v klidovém stavu, ale během komunikace může kolísat.
+    *{\sbf Komunikace:} Digitální, obousměrná.
+    *{\sbf Typy příkazů:}
+    \begitems\style o
+        *{\sbf Ovládání:} Nastavení jasu, aktivace scén, vypnutí světel.
+        *{\sbf Konfigurace:} Úprava délky stmívání, nastavení jasu ve scénách, přiřazení tlačítek ke skupinám.
+        *{\sbf Dotazy:} Zjištění konfigurace světel, aktuálního jasu, hlášení poruch světel.
     \enditems
-
-    * {\sbf Control Gear} - Předřadný přístroj světelného zdroje
-    * {\sbf Ballast} - Předřadník
 \enditems
 
+
+\sec Důležité pojmy v normě IEC 62386:
+
+
+Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých pojmů. Níže je uveden popis vybraných z nich:
+
+\begitems\style n
+* {\sbf Control Device} (Řídicí jednotka):
+
+    \begitems
+    * Toto je obecný termín pro zařízení v systému DALI, které odesílá řídicí příkazy a~dotazy.
+      Řídicí zařízení se dále dělí na dva typy:
+        \begitems\style o
+        * {\sbf Application Controller} (Aplikační řadič): Hlavní řídicí jednotka v systému DALI,
+            která je zodpovědná za celkovou koordinaci osvětlení.
+            Může jím být například tlačítkový panel, počítač nebo inteligentní systém budovy (BMS).
+        * {\sbf Input Device} (Vstupní zařízení): Zařízení, které generuje uživatelské vstupy
+            a~odesílá je do aplikačního řadiče.
+            Typickým příkladem je tlačítko stmívání, pohybový senzor nebo senzor okolního světla.
+        \enditems
+    \enditems
+* {\sbf Control Gear, Ballast} (Předřadník světelného zdroje):
+    \begitems
+        * Toto je elektronické zařízení, které reguluje napájení a~proud dodávaný do světelného zdroje.
+            V~systému DALI může předřadník přijímat řídicí příkazy a~dotazy z~řídicího zařízení a~podle nich
+            upravovat jas a~další parametry světelného zdroje.
+    \enditems
+\enditems
+
+
+Řídící jednotka, předřadník a napájecí zdroje sběrnice jsou
+tři základní typy zařízení, které se vyskytují na sběrnici v systému DALI.
+
+
+\sec DALI verze 2 a DALI verze 1
+
+Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
+řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102].
+To vedlo k nekompatibilitě a nemožnosti vzájemného propojení zařízení od různých dodavatelů.
+
+DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a zahrnuje
+i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v DALI-2 systému vzájemně kompatibilní.
+Kromě toho zavádí DALI-2 certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
+
+\medskip
+Aby se zachovala kompatibilita se staršími systémy, rozlišuje DALI-2 dva typy řídicích jednotek:
+\begitems
+    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s DALI v1 a fungují jako hlavní řídicí prvek v systému.
+    *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a flexibilitu v DALI-2 systémech.
+\enditems
+
+Multi master DALI-2 má striktnější pravidla pro komunikaci. Jedním z příkladů je časování půl bitů:
+\begitems
+    *{\sbf Single master:} 366,7 µs až 466,7 µs (\cite[iec101], kapitola 8.1.1)
+    *{\sbf Multi master:} 400,0 µs až 433,3 µs (\cite[iec101], kapitola 8.3.1)
+\enditems
+Tyto drobné rozdíly v časování můžou u některých starších zařízení způsobovat problémy
+s kompatibilitou a vylučovat je z provozu v multi master systémech.
 
 
 \sec Elektrické specifikace
