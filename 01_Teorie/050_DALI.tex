@@ -4,16 +4,6 @@
 
 \mnote{\inoval{DALI}}
 
-% \glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
-% slouží k~ovládání inteligentní světelné techniky.
-% Mezinárodní standart IEC~62386 pro \glref{DALI}, byl vyvinut jako náhrada za analogové
-% řízení osvětlovací s~flexibilním digitálním řídicím systémem.
-% Jedná se o~obousměrný komunikační protokol.
-% \glref{DALI} zařízení jsou adresovatelná, lze pro ně nastavovat skupinové funkce,
-% definovat jas scény a~dynamicky měnit intenzitu osvětlení.
-
-% DALI může řídit barevné ovládání, změnu barev, testování nouzového osvětlení a~zpětnou vazbu,
-% složité nastavení scén a~mnoho dalších funkcí specifických pro osvětlení.
 
 % \medskip
 % Vlastnosti DALI protokolu:
@@ -65,7 +55,7 @@ Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých poj
         \begitems\style o
         * {\sbf Application Controller} (Aplikační řadič): Hlavní řídicí jednotka v systému DALI,
             která je zodpovědná za celkovou koordinaci osvětlení.
-            Může jím být například tlačítkový panel, počítač nebo inteligentní systém budovy (BMS).
+            Může jím být například tlačítkový panel, počítač nebo inteligentní systém budovy.
         * {\sbf Input Device} (Vstupní zařízení): Zařízení, které generuje uživatelské vstupy
             a~odesílá je do aplikačního řadiče.
             Typickým příkladem je tlačítko stmívání, pohybový senzor nebo senzor okolního světla.
@@ -80,34 +70,56 @@ Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých poj
 \enditems
 
 
-Řídící jednotka, předřadník a napájecí zdroje sběrnice jsou
+Řídící jednotka, předřadník a~napájecí zdroje sběrnice jsou
 tři základní typy zařízení, které se vyskytují na sběrnici v systému DALI.
 
 
-\sec DALI verze 2 a DALI verze 1
+\sec DALI verze 2 a~DALI verze 1
 
 Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
-řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102].
-To vedlo k nekompatibilitě a nemožnosti vzájemného propojení zařízení od různých dodavatelů.
+řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102],
+čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
+To vedlo k nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
-DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a zahrnuje
+Dalším problémem bylo omezení umístění vstupních jednotek, jako jsou tlačítka a~senzory.
+Norma DALI v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
+Musely být připojeny k řídicí jednotce, která pak s nimi komunikovala
+a předávala informace předřadníkům.
+To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systému.
+
+DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
 i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v DALI-2 systému vzájemně kompatibilní.
 Kromě toho zavádí DALI-2 certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
 
 \medskip
 Aby se zachovala kompatibilita se staršími systémy, rozlišuje DALI-2 dva typy řídicích jednotek:
 \begitems
-    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s DALI v1 a fungují jako hlavní řídicí prvek v systému.
-    *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a flexibilitu v DALI-2 systémech.
+    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s DALI v1 a~fungují jako hlavní řídicí prvek v systému.
+    *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a~flexibilitu v DALI-2 systémech.
 \enditems
 
 Multi master DALI-2 má striktnější pravidla pro komunikaci. Jedním z příkladů je časování půl bitů:
 \begitems
-    *{\sbf Single master:} 366,7 µs až 466,7 µs (\cite[iec101], kapitola 8.1.1)
-    *{\sbf Multi master:} 400,0 µs až 433,3 µs (\cite[iec101], kapitola 8.3.1)
+    *{\sbf Single master:} 366,7 až 466,7 µs (\cite[iec101], kapitola 8.1.1)
+    *{\sbf Multi master:} 400,0 až 433,3 µs (\cite[iec101], kapitola 8.3.1)
 \enditems
+
 Tyto drobné rozdíly v časování můžou u některých starších zařízení způsobovat problémy
-s kompatibilitou a vylučovat je z provozu v multi master systémech.
+s kompatibilitou a~vylučovat je z provozu v multi master systémech.
+
+V DALI systémech s více řídicími jednotkami (multi-master) může docházet
+na sběrnici ke kolizím kvůli paralelní komunikaci.
+Tyto řídící jednotky musí být schopny detekovat kolize a~řešit je.
+V single master systému je pouze jedna řídicí jednotka, která odesílá pokyny na sběrnici.
+Nemusí přijímat data, protože je jediným komunikujícím zařízením.
+
+
+Multi-master DALI zařízení jsou pokročilejší a flexibilnější než single-master.
+Díky obousměrné komunikaci a detekci kolizí umožňuje multi-master DALI implementaci
+složitějších funkcí a konfigurací v osvětlovacích systémech. Single-master DALI zařízení
+jsou vhodné pro základní aplikace, kde je potřeba ovládat osvětlení z jednoho centrálního
+bodu, všechny vstupy jsou v dosahu řídící jednotky a není zapotřebí pokročilých funkcí.
+
 
 
 \sec Elektrické specifikace
