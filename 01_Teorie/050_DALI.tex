@@ -4,32 +4,40 @@
 
 \mnote{\inoval{DALI}}
 
-DALI (Digital Addressable Lighting Interface) slouží k~ovládání inteligentní světelné techniky.
-Mezinárodní standart DALI byl vyvinut jako náhrada za analogové osvětlovací řízení s~flexibilním
-digitálním řídicím systémem. Jedná se o~obousměrný komunikační protokol.
-DALI je adresovatelné, lze s~ním snadno nastavovat skupinové funkce, jednotlivé scény a dynamické ovládání.
-DALI je digitální, což umožňuje přesnější kontrolu úrovně světla.
-DALI může řídit barevné ovládání, změnu barev, testování nouzového osvětlení a zpětnou vazbu,
-složité nastavení scén a mnoho dalších funkcí specifických pro osvětlení.
+\glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
+slouží k~ovládání inteligentní světelné techniky.
+Mezinárodní standart IEC~62386 pro \glref{DALI}, byl vyvinut jako náhrada za analogové
+řízení osvětlovací s~flexibilním digitálním řídicím systémem.
+Jedná se o~obousměrný komunikační protokol.
+\glref{DALI} zařízení jsou adresovatelná, lze pro ně nastavovat skupinové funkce,
+definovat jas scény a~dynamicky měnit intenzitu osvětlení.
 
-\medskip
-Vlastnosti DALI protokolu:
-\begitems
-    * Jednoduché zapojení řídících linek
-    * Řízení individuálních jednotek nebo skupin jednotek prostřednictvím adresování
-    * Současné ovládání všech jednotek prostřednictvím vysílání adres
-    * Jednoduchá struktura komunikace
-    * Možnost kontroly stavu jednotlivého nebo skupiny osvětlovacích zařízení včetně chyb, úrovní napájení atd.
-    * Vytváření vlastních scén osvětlení
-    * Logaritmické stmívání odpovídající citlivosti oka
-    * Větší funkčnost a nižší náklady na systém ve srovnání se systémy 1-10V
-\enditems
+% DALI může řídit barevné ovládání, změnu barev, testování nouzového osvětlení a~zpětnou vazbu,
+% složité nastavení scén a~mnoho dalších funkcí specifických pro osvětlení.
+
+% \medskip
+% Vlastnosti DALI protokolu:
+% \begitems
+%     * Jednoduché zapojení řídících linek
+%     * Řízení individuálních jednotek nebo skupin jednotek prostřednictvím adresování
+%     * Současné ovládání všech jednotek prostřednictvím vysílání adres
+%     * Jednoduchá struktura komunikace
+%     * Možnost kontroly stavu jednotlivého nebo skupiny osvětlovacích zařízení včetně chyb, úrovní napájení atd.
+%     * Vytváření vlastních scén osvětlení
+%     * Logaritmické stmívání odpovídající citlivosti oka
+%     * Větší funkčnost a~nižší náklady na systém ve srovnání se systémy 1-10V
+% \enditems
+
+\sec Názvosloví IEC~62386
+
+Standart IEC~62386(\cite[iec101],\cite[iec102],\cite[iec103]) definuje následující pojmy:
+
 
 \sec Elektrické specifikace
 Fyzický nízký stav nebo aktivní stav pro DALI byl definován s~rozhraním napětí < 9,5V. Vysoký stav, nebo stav
-DALI v~klidu, je rozhraní napětí mezi 9,5V a 22,5V, nejčastěji 16V. Maximální proud systému je omezen na 250 mA.
+DALI v~klidu, je rozhraní napětí mezi 9,5V a~22,5V, nejčastěji 16V. Maximální proud systému je omezen na 250 mA.
 Doba odezvy obvodu pro omezení proudu je < 10 μs. Každý komponent připojený k~rozhraní může spotřebovat maximálně 2 mA.
-Konektory na přijímači nejsou polarizované. DALI je obvykle opticky oddělen od mikrokontroléru a má přenosovou
+Konektory na přijímači nejsou polarizované. DALI je obvykle opticky oddělen od mikrokontroléru a~má přenosovou
 rychlost dat 1200 bitů za sekundu.
 \medskip
 https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
@@ -48,16 +56,16 @@ https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 \caption/f Topologie sběrnice
 \medskip
 
-Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a maximálně šestnáct scén.
+Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
 Každá z~těchto šedesáti čtyř jednotek je přiřazena krátká adresa, která je uložena v~zapalovači.
 Každá jednotlivá jednotka může také obsahovat číslo přiřazení ke skupině, hodnoty osvětlovací scény,
-časy zeslabování a úrovně nouzového osvětlení. Krátké adresy mohou být během výroby programovány výrobcem
+časy zeslabování a~úrovně nouzového osvětlení. Krátké adresy mohou být během výroby programovány výrobcem
 do zapalovače, nebo mohou být během instalace programovány designérem. Skupinové adresy jsou obvykle
 přiděleny softwarově během instalace, což umožňuje budoucí změny ve struktuře skupin.
 
 DALI má strukturu drátů volného tvaru, takže jsou povoleny daisy-chained, lineární, hvězdicové nebo smíšené
 struktury drátů, s~výjimkou kruhových struktur spojení. DALI stanoví maximální vzdálenost 300 metrů mezi
-jednotkami a umožňuje maximální úbytek napětí 2 voltů přes propojovací dráty od napájecího zdroje rozhraní
+jednotkami a~umožňuje maximální úbytek napětí 2 voltů přes propojovací dráty od napájecího zdroje rozhraní
 k~jednotlivým jednotkám. Sběrnice DALI pracuje s~baudovou rychlostí 1200 bps, takže není potřeba speciální
 kabely nebo dráty.
 
@@ -65,26 +73,26 @@ kabely nebo dráty.
 Rámcům DALI (datovým paketům) se vytváří pomocí Manchester (bi-fázové) kódování, což se děje pomocí hardwaru UART.
 Kód Manchester je digitální kódovací formát, ve kterém logická '1' reprezentuje nárůstový přechod,
 který se vyskytuje během doby jednoho bitu, zatímco logická '0' reprezentuje poklesový přechod během
-doby jednoho bitu (viz obrázek níže). Startovací a stopovací bity jsou kódovány jako logická '1'.
+doby jednoho bitu (viz obrázek níže). Startovací a~stopovací bity jsou kódovány jako logická '1'.
 \medskip
-Rámců jsou přenášeny s~baudovou rychlostí 1200 bps a každý rámec je vždy odeslán s~nejvýznamnějším bitem (MSb) první.
-Protože baudová rychlost je 1200 bps, trvá každé období bitu 833,33 µs a každé poloviční období bitu trvá 416,67 µs.
+Rámců jsou přenášeny s~baudovou rychlostí 1200 bps a~každý rámec je vždy odeslán s~nejvýznamnějším bitem (MSb) první.
+Protože baudová rychlost je 1200 bps, trvá každé období bitu 833,33 µs a~každé poloviční období bitu trvá 416,67 µs.
 Časy polovičního období jsou důležité, protože Manchesterovo kódování vyžaduje dva přechody bitů pro každý logický datový bit.
 Přední rámec je datový paket přenášený řídícím zařízením na řídicí zařízení nebo vstupní zařízení.
-Přední rámec DALI 1.0 obsahuje Startovací bit, následovaný bytovou adresou, jedním datovým bytem a dvěma Stopovacími bity.
+Přední rámec DALI 1.0 obsahuje Startovací bit, následovaný bytovou adresou, jedním datovým bytem a~dvěma Stopovacími bity.
 \medskip
-Přední rámec DALI 2.0 obsahuje Startovací bit, následovaný bytovou adresou, až dvěma datovými byty a podmínkou Stop (viz obrázek 2).
-Přední 24bitový rámec DALI 2.0, včetně Startovacího a Stopovacího bitu, trvá 23,2 ms, nebo přibližně 56 polovičních období bitů,
+Přední rámec DALI 2.0 obsahuje Startovací bit, následovaný bytovou adresou, až dvěma datovými byty a~podmínkou Stop (viz obrázek 2).
+Přední 24bitový rámec DALI 2.0, včetně Startovacího a~Stopovacího bitu, trvá 23,2 ms, nebo přibližně 56 polovičních období bitů,
 zatímco 16bitový rámec trvá 16,2 ms, nebo 39 polovičních období bitů. Jakmile řídící zařízení dokončí přenos rámce,
 musí řídící zařízení začít přenášet zpětný rámec nejdříve 5,5 ms (přibližně 14 polovičních období bitů)
 a nejpozději 10,5 ms (přibližně 25 polovičních období). Jakmile byl zpětný rámec přijat v~plném rozsahu,
 musí řídící zařízení počkat minimálně 2,4 ms (přibližně šest polovičních období) před odesláním dalšího
 předního rámce (viz obrázek 3).
 Zpětný rámec je odpovědní paket přenášený z~řídícího zařízení na řídící zařízení. Zpětný rámec se skládá
-ze Startovacího bitu, jednoho datového bytu a podmínky Stop (viz obrázek níže). Zpětný rámec, včetně Startovacího a
+ze Startovacího bitu, jednoho datového bytu a~podmínky Stop (viz obrázek níže). Zpětný rámec, včetně Startovacího a
 Stopovacího bitu, trvá 9,95 ms (přibližně 24 polovičních období bitů). Datový byte může mít libovolnou hodnotu,
 v~závislosti na příkazu, který byl vydán řídícím zařízením. Pokud je datový byte zpětného rámce 0xFF,
-je odpověď považována za "ano". Pokud se očekává odpověď a sběrnice zůstane v~klidovém stavu, je odpověď považována za "ne".
+je odpověď považována za "ano". Pokud se očekává odpověď a~sběrnice zůstane v~klidovém stavu, je odpověď považována za "ne".
 \medskip
 https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en-US-1/index.html?GUID-1BB46A02-D54C-415B-9487-617FD3AA8BC9
 \medskip
