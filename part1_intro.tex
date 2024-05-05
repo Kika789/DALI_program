@@ -70,36 +70,3 @@
 
 \makefront  % Mandatory command. Makes title page, acknowledgment, contents etc.
 
-
-
-% Teorie
-\input 01_Teorie/000_Cela
-
-% Prakticka
-\input 02_Prakticka/000_Cela
-
-
-% Prakticka zatim nepouzivam
-% \input 05_Prakticka/01_mereni_osv_jas
-% \input 05_Prakticka/02_CIE
-% \input 05_Prakticka/03_osvetleni_ucebny
-
-
-
-% Zkratky a pouziti zkratek - reference \glref{XXX}
-\app Zkratky  % The appendix begins here.
-
-\par
-\makeglos
-
-
-% Bibliografie  - pouziti \cite{XXX}
-\nocite[*] % This command causes all items in the bibliographic database to be added to the bibliography.
-
-\bibchap{
-   %  \usebib/c (simple) reference
-    \usebib/c (iso690) reference
-}
-
-
-\bye
