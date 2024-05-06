@@ -207,14 +207,14 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 
 \sec Přenosový protokol
 
-Přenosový protokol DALI využívá k přenosu informace hrany signálu (obr. \ref[kodovani])
-s pevně danou přenosovou rychlosti 1200 bps.
-Logické jedničce odpovídá vzestupná hrana signálu a nule dopovídá sestupní hrana signálu.
+Přenosový protokol DALI využívá k přenosu informace hrany signálu (viz obr. \ref[kodovani])
+s~pevně stanovenou přenosovou rychlostí 1200 bps.
+Logické jedničce odpovídá vzestupná hrana signálu a nule odpovídá sestupná hrana signálu.
 
 Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
-ale každá hrana signálu slouží současně k synchronizaci komunikace,
-to znamená, že přijímací strana vždy měří délku pulzu od poslední hrany.
-Tento typ kodovani je znám jako protokol Manchester.
+ale každá hrana signálu slouží současně k synchronizaci komunikace, což znamená,
+že přijímací strana vždy měří délku pulzu od poslední hrany.
+Tento typ kódování je znám jako protokol Manchester.
 
 
 \medskip \clabel[kodovani]{Kodování bitů v protokolu DALI}
