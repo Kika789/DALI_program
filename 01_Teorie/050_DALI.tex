@@ -264,6 +264,14 @@ Datové pakety protokolu DALI se dělí na:
 \enditems
 
 \noindent
+Datový paket {\sbf 8 bitů}:
+\begitems
+ * tento datový rámec slouží k odesílání odpovědí na zprávy řídících a~vstupních jednotek,
+ * norma IEC 62386 \cite[iec101], \cite[iec102] a~\cite[iec103].
+\enditems
+
+
+\noindent
 Datový paket {\sbf16 bitů}:
 \begitems
  * tento datový rámec slouží k odesílání zpráv předřadníkům,
@@ -284,12 +292,6 @@ Datový paket {\sbf 32 bitů}:
  * norma IEC 62386-105\cite[iec105].
 \enditems
 
-\noindent
-Datový paket {\sbf 8 bitů}:
-\begitems
- * tento datový rámec slouží k odesílání odpovědí na zprávy řídících a~vstupních jednotek,
- * norma IEC 62386 \cite[iec101], \cite[iec102] a~\cite[iec103].
-\enditems
 
 
 %  ############################################################################################################
@@ -326,14 +328,15 @@ V další části popíšeme postup práce se zařízeními na sběrnici DALI, k
 Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadníků. Postup činnosti byl následující:
 
 \begitems
-    * {Nastavení operačního modu}
-    * {Generování dlouhých adres}
-    * {Přiřazení krátkých adres}
-    * {Přiřazení do skupin}
-    * {Nastavení jasu scén}
+    * {Nastavení operačního modu.}
+    * {Generování dlouhých adres.}
+    * {Přiřazení krátkých adres.}
+    * {Identifikace zařízení.}
+    * {Přiřazení do skupin.}
+    * {Nastavení jasu scén.}
 \enditems
 
-\noindent
+\medskip \noindent
 {\sbf Nastavení operačního modu}
 
 Zařízení DALI mohou pracovat v různých operačních režimech, které určují jejich chování.
@@ -341,9 +344,9 @@ Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na z
 podle normy IEC 62386-102\cite[iec102].
 
 Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a~provést ho.
-Přepnutí provedeme pomocí broadcast zprávy, proto není nutné znát adresy zařízení.
+Přepnutí provedeme pomocí broadcast zprávy SET OPERATING MODE, proto není nutné znát adresy zařízení.
 
-\noindent
+\medskip \noindent
 Operační módy:
 \begitems
     * Operační mód {\sbf 0x00:} Standardní režim.
@@ -354,14 +357,53 @@ Operační módy:
 Pozn: Před změnou operačního módu je dobré si ověřit, které režimy podporuje dané zařízení
 aby bylo možné se do nich vrátit. Námi použité předřadníky byly schopny pracovat v režimu 0x00 a~0x80.
 
-\noindent
+\medskip \noindent
 {\sbf Generování dlouhých adres}
 
 Dalším krokem k identifikaci jednotlivých světel je generování dlouhých adres.
 Je to mezikrok, který snižuje riziko kolizí při přiřazování krátkých adres.
 
-Po tomto požadavky si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o délce 24 bitů.
+Před dalším postupem se musí zařízení přepnout do inicializačního režimu příkazem INITIALISE.
+Pak se pošle požadavek na vygenerování dlouhých adres pomocí broadcast zprávy RANDOMIZE.
+Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o délce 24 bitů.
 
+
+\medskip \noindent
+{\sbf Přiřazení krátkých adres}
+
+Postupem podle přílohy A.1 \cite[iec101] se určí zařízení s nejnižší dlouhou adresou a té se přiřadí
+volná krátká adresa například 0. Postup se opakuje pro další zařízení s následujícími dlouhými adresami.
+
+Postup nastavení krátkých adres:
+\begitems
+    * Přepnutí do inicializačního režimu příkazem INITIALISE.
+    * Nastavení dlouhé adresy pro vyhledávání nejnižší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL a COMPARE.
+    * Přiřazení krátké adresy příkazem PROGRAM SHORT ADDRESS.
+    * Předřadník se vyloučí z dalšího hledání nejnižší adresy příkazem WITHDRAW.
+    * Proces se opakuje pro další zařízení.
+    * Inicializační režim se ukončí příkazem TERMINATE.
+\enditems
+
+Vyhledávaní nejnižší adresy se provádí binárním dělením intervalu možných adres. Počáteční adresa je
+pro $2^{24}$ adres půlka intervalu tedy $2^{23}$, pak se interval dělí na poloviny až se najde hodnota pod kterou už
+žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz COMPARE odpovídají pouze
+zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR.
+
+Proces končí přiřazením krátkých adres všem zařízením v intervalu 0 až N, kde N je počet zařízení na sběrnici.
+
+Pozn: Je možné přiřadit krátkou adresu i přímo, pokud víme, že na sběrnici máme pouze jedno zařízení.
+Použijeme příkaz SET SHORT ADDRESS.
+
+\medskip \noindent
+{\sbf Identifikace zařízení}
+
+Pokud máme u všech zařízení nastaveny krátké adresy, můžeme začít s identifikací.
+Použijeme příkaz IDENTIFY DEVICE po kterém světlo začne blikat po dobu 10~s.
+
+
+
+\medskip \noindent
+{\sbf Přiřazení do skupin}
 
 
 
