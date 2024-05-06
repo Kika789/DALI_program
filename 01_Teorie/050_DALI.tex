@@ -41,9 +41,9 @@ Technické detaily:
 \enditems
 
 %  ############################################################################################################
-\sec Důležité pojmy v normě IEC 62386:
+\sec Názvosloví
 
-Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých pojmů. Níže je uveden popis vybraných z nich:
+Norma IEC 62386, která definuje protokol DALI, obsahuje řadu specifických pojmů. Níže je uveden popis vybraných z nich:
 
 \begitems\style n
 * {\sbf Řídicí jednotka} (Control Device):
@@ -78,7 +78,13 @@ tři základní typy zařízení, které se vyskytují na sběrnici v systému D
 
 
 %  ############################################################################################################
-\sec DALI verze 2 a~DALI verze 1
+% \sec DALI verze 2 a~DALI verze 1
+\sec Varianty protokolu
+
+V současné době rozlišujeme již několik verzi protokolu  DALI jako například
+{\sbf DALI} (verze 1), {\sbf DALI-2}, {\sbf D4i} a {\sbf DALI+}.
+Z hlediska zaměření diplomové práce se budeme zabývat protokolem DALI-2,
+který rozšiřuje původní verzi DALI v1.
 
 Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
 řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102],
@@ -129,7 +135,7 @@ IEC 62386-101 \cite[iec101].
 
 
 %  ############################################################################################################
-\sec Topologie sběrnice DALI
+\sec Topologie sběrnice
 
 Připojování zařízení v systému DALI může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
 \begitems
@@ -144,9 +150,9 @@ Nedoporučuje se:
     *{\sbf Kruhová topologie:} Připojování zařízení do kruhu {\sbf není} v DALI povoleno.
 \enditems
 
-\medskip \clabel[topolgie]{Topologie sběrnice}
+\medskip \clabel[topolgie]{Topologie sběrnice DALI}
 \picw=8cm \cinspic 03_Obrazky/g38.png
-\caption/f Topologie sběrnice
+\caption/f Topologie sběrnice DALI
 \medskip
 
 
@@ -158,9 +164,9 @@ Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti
 Maximální povolený úbytek napětí na sběrnici je 2 V.
 
 
-\medskip \clabel[kabel]{kabel}
+\medskip \clabel[kabel]{Kabel DALI}
 \picw=10cm \cinspic 03_Obrazky/kabel.png
-\caption/f Kabel
+\caption/f Ukázka použitého kabelu pro sběrnici DALI
 \medskip
 
 % Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
@@ -185,14 +191,14 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
     *{\sbf Polarita:} Rozhraní je nezávislé na polaritě napětí s výjimkou případů, kdy je napájecí zdroj integrován do sběrnice.
     *{\sbf Značení:} Rozhraní by mělo být označeno "da" nebo "DA" pro datové vodiče.
     *{\sbf Napájení:} Napájecí napětí by mělo být mezi 12,0 a~20,5~V, typicky 16~V.
-    *{\sbf Napětí:} Rozhraní má dvě úrovně napětí: nízký a vysoký.
+    *{\sbf Napětí:} Rozhraní má dvě úrovně napětí: nízkou a vysokou.
     \begitems\style o
         * Pro přijímač je nízká úroveň (0 až 6,5~V), vysoká (9,5 až 22,5~V) (tab.8 \cite[iec101]).
         * Pro vysílač je nízká úroveň (0 až 4,5~V), vysoká (10 až 22,5~V) (tab.9 \cite[iec101]).
     \enditems
     *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo odebírat maximálně 2~mA.
     *{\sbf Proud:} Maximální proud na sběrnici je 250~mA.
-    *{\sbf Aktivní stav:} Při nízkém stavu vysílače a odběru 250 mA nesmí výstupní napětí překročit 4,5~V.
+    *{\sbf Aktivní stav:} Při nízkém stavu vysílače a odběru 250 mA nesmí výstupní napětí být vyšší než 4,5~V.
     *{\sbf Hrana signálu:} Náběžná a sestupní hrana signálu, by neměla být kratší než 3 µs, kvůli minimalizaci \glref{EMI} rušení.
 \enditems
 
