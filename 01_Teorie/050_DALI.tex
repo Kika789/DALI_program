@@ -22,13 +22,14 @@
 \glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
 (jak je uvedeno \cite[dali_quick_start])
 je standardizovaný protokol pro digitální komunikaci v systémech osvětlení.
-Umožňuje obousměrnou výměnu dat mezi řídicími jednotkami a~elektronickými předřadníky světel.
+Umožňuje obousměrnou výměnu dat mezi řídicími jednotkami a~elektronickými předřadníky světel
+spolu s~dalšími zařízeními.
 
 \medskip\noindent
 Technické detaily:
 \begitems
     *{\sbf Norma:} IEC 62386.
-    *{\sbf Typ }kabelu: Dvoulinková sběrnice.
+    *{\sbf Typ kabelu:} Dvoulinková sběrnice.
     *{\sbf Napájení:} Sběrnice slouží i pro napájení některých zařízení. Napětí se běžně pohybuje okolo
        16~V v klidovém stavu, ale během komunikace může kolísat.
     *{\sbf Komunikace:} Digitální, obousměrná.
@@ -41,7 +42,7 @@ Technické detaily:
 \enditems
 
 %  ############################################################################################################
-\sec Názvosloví
+\sec Terminologie
 
 Norma IEC 62386, která definuje protokol DALI, obsahuje řadu specifických pojmů. Níže je uveden popis vybraných z nich:
 
@@ -91,7 +92,7 @@ Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifi
 čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
 To vedlo k nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
-Dalším problémem bylo omezení umístění vstupních jednotek, jako jsou tlačítka a~senzory.
+Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou tlačítka a~senzory.
 Norma DALI v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
 Musely být připojeny k řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
@@ -101,6 +102,8 @@ To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systém
 DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
 i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v DALI-2 systému vzájemně kompatibilní.
 Kromě toho zavádí DALI-2 certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
+
+Možnost použití bezdrátové komunikace a IP protokolu byla zavedena až v~normě DALI+.
 
 \medskip
 Aby se zachovala kompatibilita se staršími systémy, rozlišuje DALI-2 dva typy řídicích jednotek:
@@ -115,6 +118,8 @@ Multi master DALI-2 má striktnější pravidla pro komunikaci. Jedním z přík
     *{\sbf Multi master:} 400,0 až 433,3 µs (\cite[iec101], kapitola 8.3.1)
 \enditems
 
+Single master má povolenou odchylku až 10\% od nominální hodnoty doby půl bitu 416,7 µs,
+zatímco multi master pouze 5\%.
 Tyto drobné rozdíly v časování můžou u některých starších zařízení způsobovat problémy
 s kompatibilitou a~vylučovat je z provozu v multi master systémech.
 
@@ -295,7 +300,7 @@ Celkový počet adres na jedné sběrnici je 64 pro předřadníky a 64 pro ří
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
-Existuje 32 skupin pro vstupních jednotky (jako jsou jednotlivá tlačítka v panelu);
+Existuje 32 skupin pro vstupních jednotky (jako jsou jednotlivá tlačítka);
 každé může být členem až 3 z těchto skupin \cite[dali_quick_start].
 
 Některé zařízení mohou obsluhovat více světel, pak mohou používat více adres. Taková zařízení
@@ -313,6 +318,19 @@ Skupiny slouží k ovládání více světel najednou, a to těch které jsou za
 Naproti tomu scény slouží k uložení a následnému vyvolání konkrétního nastavení světel.
 Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení jasu, barvy a další parametry světel.
 
+
+\sec Postup práce se sběrnicí
+
+V další části popíšeme postup práce se zařízeními na sběrnici DALI, který pak byl aplikován v našem projektu.
+
+Naše sběrnice obsahovala jedno řídící zařízení a několik předřadníků. Postup činnosti byl následující:
+\begitems
+    * {\sbf Nastavení operačního modu:}
+    * {\sbf Generování dlouhých adres:}
+    * {\sbf Přiřazení krátkých adres:}
+    * {\sbf Přiřazení do skupin:}
+    * {\sbf Nastavení jasu scén:}
+\enditems
 
 
 
