@@ -15,7 +15,7 @@ cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
 Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka.
 Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k postupnému zvyšování nebo snižování jasu.
 Avšak toto ovládání není ideální pro uživatele, proto bylo navrženo změnit ovládání na 4 tlačítka, spolu s dvěma tlačítky pro regulaci jasu.
-Tímto způsobem se vytváří pohodlnější a intuitivnější ovládání pro všechny uživatele.
+Tímto způsobem se vytváří pohodlnější a~intuitivnější ovládání pro všechny uživatele.
 
 % pridat obrazek navrhu
 \medskip \clabel[ovl1]{Board}
@@ -38,7 +38,7 @@ Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahov
 Proto bylo nezbytné přidat odpory o hodnotě 10 000kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
 
 Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
-a instalace ve školních prostorách probíhají mimo výukové období. Proto bylo veškeré zapojení provedeno a otestováno v laboratorních podmínkách.
+a instalace ve školních prostorách probíhají mimo výukové období. Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
 
 \medskip
 \noindent
@@ -50,7 +50,7 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 * připopjit zdroj 12~V
 * zapojení světel do zásuvky
 * nejprve bylo zapotřebí osadit souřástky na plošnou desku
-* poté bylo zapotřebí zapojit tlačítka na řídící jednotku a otestovat funkčnost jednotlivých tlačítek
+* poté bylo zapotřebí zapojit tlačítka na řídící jednotku a~otestovat funkčnost jednotlivých tlačítek
 * po otestování tlačítek byly přiřazeny krátké adresy jednotlivým zařízením
 * pro kontorlu správného přiřazení slouží příkaz idetify, když adresa byla správně přiřazena, zařízení se rozblikalo na 10s
 * v tomto případě jsou světla nastavena od 0 do 3
@@ -62,8 +62,8 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
 \begitems \style o
 * tlacitko off - slouzi k~uplenemu vypnuti
-* tlacitko vyklad - dva světlené prvky jsou zapnuté a dva vypnuté
-* tlacitko pisemka - dva světelné prvky jsou nastaveny na vyšší intenzitu a dva nižší intenzitu
+* tlacitko vyklad - dva světlené prvky jsou zapnuté a~dva vypnuté
+* tlacitko pisemka - dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva nižší intenzitu
 * tlacitko denní svetlo - každý prvek je nastaven s sjinou intenzitou - od nejnižší po nejvyšší
 * tlacitko regulace jasu, kdy při dlouhem stisku se intenzita zvysovala/snizovala
 \enditems
@@ -82,21 +82,21 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 
 %     • zapojila jsem světla do zásuvky
 %     • zapojila světla do řídící jednotky
-%     • a zdroj 12~V
+%     • a~zdroj 12~V
 %     • dokumentace řídicí jednotky
 %     • byla pouzit protokol DALI
 %     • ridici jednotka s~ESP32
 
-%     • na začátku bylo zapotřebí zvolit správné piny pro ovládání světel a tlačítek
-%     • dále jsme museli nastavit adresy jednotlivým světelným zařízením - pomcí inicialize a nebo postupným odpojováním/zapojováním
-%         světel a pomocí fce set short adress - nastavime pomoci broadcast
+%     • na začátku bylo zapotřebí zvolit správné piny pro ovládání světel a~tlačítek
+%     • dále jsme museli nastavit adresy jednotlivým světelným zařízením - pomcí inicialize a~nebo postupným odpojováním/zapojováním
+%         světel a~pomocí fce set short adress - nastavime pomoci broadcast
 %     • použité fce: on, off, set max level, set min level, set systém failure level, set power on level, set fade time,
 %         set fade rate, set short adress, set scene, go to scene, identify device, add to group, remove from group,
 %         set operating mode
 %     • dále jsme si mohli spravne nastaveni adres overit fci identify device, při spravnem nastaveni svetla zacalo
 %         blikat po dobu 10s
 %     • v~mem pripade mam adresy nastavene od 0-3??? overit
-%     • pote jsem nastavila groupy, sceny a dale priradila jednotlive sceny ke konkretnim tlacitkum,
+%     • pote jsem nastavila groupy, sceny a~dale priradila jednotlive sceny ke konkretnim tlacitkum,
 %     • tlacitko off - slouzi k~uplenemu vypnuti
 %     • tlacitko vyklad
 %     • tlacitko pisemka
@@ -112,7 +112,7 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 %     • tlacitka na regulaci jasu
 %     • vyvojove diagamy s~logikou tlacitek: při kazdem stisku se zapne konkretni scena, u~regulaci jasu,
 %         je i pouzit cas, kde při stisku se jas zvysuje nebo snizuje
-%     • zapojeni bylo v~laboratori vyzkouseno a funguje
+%     • zapojeni bylo v~laboratori vyzkouseno a~funguje
 %     • zapojeni v~praxi nelze nyní uskutecnit, protože vsehcny instalace ve skolach probihaji mino vyukove obdobi
 %     •
 
@@ -123,12 +123,12 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 % \medskip
 % V~učebně je momentálně instalováno dvanáct tlačítek, která způsobují potíže běžným uživatelům.
 % Z~navrhovaných scén bylo vybráno implementovat tlačítko pro úplné vypnutí všech světel, tlačítko pro scénu výuky,
-% písemka a denní osvětlení. Dále jsem přidala tlačítko pro regulaci jasu, aby uživatelé měli možnost
+% písemka a~denní osvětlení. Dále jsem přidala tlačítko pro regulaci jasu, aby uživatelé měli možnost
 % přizpůsobit si osvětlení podle svých preferencí v~případě výrazných změn denního světla.
 
 % Vzhledem k~tomu, že mi nebylo umožněno změnit ovládací panel v~učebně během školního roku. Ovládací zařízení jsem navrhla
-% a zapojila v~laboratorních podmínkách. Jako řídící jednotka byla zvolena ESP3 (viz dokumentace).
-% Pro zapojení byly vybrány piny podle schématu. Jedná se o~digitální porty, a k~analogovým prvkům byly
+% a~zapojila v~laboratorních podmínkách. Jako řídící jednotka byla zvolena ESP3 (viz dokumentace).
+% Pro zapojení byly vybrány piny podle schématu. Jedná se o~digitální porty, a~k~analogovým prvkům byly
 % přidány dva odpory pro vytvoření pull-up rezistoru. Logika tlačítek byla navržena tak, že každým stiskem
 % se aktivuje odpovídající scéna. U~tlačítek pro regulaci jasu je nutné stisk držet déle, aby došlo ke změně jasu.
 
@@ -136,7 +136,7 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 % \begitems
 %     * zapojila jsem světla do zásuvky
 %     * zapojila světla do řídící jednotky
-%     * a zdroj 12
+%     * a~zdroj 12
 % V~\enditems
 % \medskip
 % Postup implementace
@@ -172,13 +172,13 @@ a instalace ve školních prostorách probíhají mimo výukové období. Proto 
 % Navrhla jsem ovládací panel, aby bylo jednodušší ovládání pro uživatelé.
 
 % \medskip
-% Aktuálně je v učebně ovládací panel s 12 tlačítky. Navrhla jsem 3 hlavní scény, které se budou zapínat 3 tlačítky, dále je přidáno tlačítko off na ṕlné vypnutí a také jsem přidala tlačítko na regulaci intenzity jasu. Kdyby docházelo k nečekaným změnám venkovního počasí.
+% Aktuálně je v učebně ovládací panel s 12 tlačítky. Navrhla jsem 3 hlavní scény, které se budou zapínat 3 tlačítky, dále je přidáno tlačítko off na ṕlné vypnutí a~také jsem přidala tlačítko na regulaci intenzity jasu. Kdyby docházelo k nečekaným změnám venkovního počasí.
 
-% Tlačítko výklad, slouží k zapnutí nepřímého osvětlení a vypnutí první světelné řady u tabule.
+% Tlačítko výklad, slouží k zapnutí nepřímého osvětlení a~vypnutí první světelné řady u tabule.
 
 % Tlačítko písemka umožňuje nasvícení místa úkonu na 500 lx, abychom dodržovali zásady normy.
 
-% Tlačítko adaptace na denní světlo rozsvicuje řadu světel u dvěří a a postupnou změnu intezity
+% Tlačítko adaptace na denní světlo rozsvicuje řadu světel u dvěří a~a postupnou změnu intezity
 
 % \medskip
 % Simulace
