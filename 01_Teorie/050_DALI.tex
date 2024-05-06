@@ -321,7 +321,8 @@ Naproti tomu scény slouží k uložení a~následnému vyvolání konkrétního
 Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení jasu, barvy a~další parametry světel.
 
 
-\sec Postup práce se sběrnicí
+% \sec Postup práce se sběrnicí
+\sec Inicializace zařízení
 
 V další části popíšeme postup práce se zařízeními na sběrnici DALI, který pak byl aplikován v našem projektu.
 
@@ -400,10 +401,29 @@ Použijeme příkaz SET SHORT ADDRESS.
 Pokud máme u všech zařízení nastaveny krátké adresy, můžeme začít s identifikací.
 Použijeme příkaz IDENTIFY DEVICE po kterém světlo začne blikat po dobu 10~s.
 
+Je možné použít i jiné příkazy, například vypnutí světla příkazem OFF,
+přepnutí na maximální úroveň RECALL MAX LEVEL a další.
+
+Pokud nám přiřazené krátké adresy nevyhovují můžeme je změnit příkazem PROGRAM SHORT ADDRESS.
 
 
 \medskip \noindent
 {\sbf Přiřazení do skupin}
+
+Nedříve si naplánujeme, jaké skupiny budeme potřebovat a~jaké zařízení do nich zařadíme.
+Například skupina 0 může obsahovat všechna světla v místnosti, skupina 1 přímá světla,
+skupina 2 nepřímá světla a~tak dále.
+
+Pak přiřadíme světla do skupin pomocí příkazů ADD TO GROUP nebo REMOVE FROM GROUP.
+
+Poté můžeme ovládat všechna světla v dané skupině najednou. Můžeme provést identifikaci skupin
+jako v předchozím kroku, příkaz IDENTIFY DEVICE.
+
+
+\medskip \noindent
+{\sbf Nastavení jasu scén}
+
+
 
 
 
