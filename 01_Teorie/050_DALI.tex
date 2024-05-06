@@ -40,9 +40,8 @@ Technické detaily:
     \enditems
 \enditems
 
-
+%  ############################################################################################################
 \sec Důležité pojmy v normě IEC 62386:
-
 
 Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých pojmů. Níže je uveden popis vybraných z nich:
 
@@ -78,6 +77,7 @@ stránky \url{https://www.electropedia.org} a prostudovat si sekci věnovanou os
 tři základní typy zařízení, které se vyskytují na sběrnici v systému DALI.
 
 
+%  ############################################################################################################
 \sec DALI verze 2 a~DALI verze 1
 
 Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
@@ -128,10 +128,7 @@ Příklady použití single-master a multi-master systémů jsou uvedeny v pří
 IEC 62386-101 \cite[iec101].
 
 
-
-
-
-
+%  ############################################################################################################
 \sec Topologie sběrnice DALI
 
 Připojování zařízení v systému DALI může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
@@ -155,10 +152,16 @@ Nedoporučuje se:
 
 Pro kabeláž se používají dva vodiče, které tvoří sběrnici DALI,
 a musí být umístěny ve stejném kabelu nebo kabelovém svazku, aby se minimalizovalo
-nežádoucí ovlivňování jinými signály.
+nežádoucí ovlivňování jinými signály (viz obr. \ref[kabel] ).
 Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti na použitém kabelu
 (tabulka A.1 \cite[iec101]) a okolním rušení.
 Maximální povolený úbytek napětí na sběrnici je 2 V.
+
+
+\medskip \clabel[kabel]{kabel}
+\picw=10cm \cinspic 03_Obrazky/kabel.png
+\caption/f Kabel
+\medskip
 
 % Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
 % Každá z~těchto šedesáti čtyř jednotek je přiřazena krátká adresa, která je uložena v~zapalovači.
@@ -174,7 +177,7 @@ Maximální povolený úbytek napětí na sběrnici je 2 V.
 % kabely nebo dráty.
 
 
-
+%  ############################################################################################################
 \sec Elektrická specifikace
 
 Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v systému DALI. Nejdůležitější z nich jsou:
@@ -194,17 +197,7 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 \enditems
 
 
-
-
-
-% Fyzický nízký stav nebo aktivní stav pro DALI byl definován s~rozhraním napětí < 9,5V. Vysoký stav, nebo stav
-% DALI v~klidu, je rozhraní napětí mezi 9,5V a~22,5V, nejčastěji 16V. Maximální proud systému je omezen na 250 mA.
-% Doba odezvy obvodu pro omezení proudu je < 10 μs. Každý komponent připojený k~rozhraní může spotřebovat maximálně 2 mA.
-% Konektory na přijímači nejsou polarizované. DALI je obvykle opticky oddělen od mikrokontroléru a~má přenosovou
-% rychlost dat 1200 bitů za sekundu.
-
-
-
+%  ############################################################################################################
 \sec Přenosový protokol
 
 Přenosový protokol DALI využívá k přenosu informace hrany signálu (viz obr. \ref[kodovani])
@@ -235,7 +228,7 @@ Na sběrnici rozlišujeme:
 Kromě logických nul a jedniček obsahuje každý datový rámec start a stop bity, které slouží k synchronizaci komunikace.:
 \begitems
 * {\sbf Start bit:} Jednička, která označuje začátek rámce.
-* {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu, a označuje konec rámce.
+* {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu a označuje konec rámce.
 \enditems
 
 \noindent
@@ -247,34 +240,107 @@ Datový rámec obsahuje:
 \enditems
 
 
-\sec Komunikace na sběrnici
-Rámcům DALI (datovým paketům) se vytváří pomocí Manchester (bi-fázové) kódování, což se děje pomocí hardwaru UART.
-Kód Manchester je digitální kódovací formát, ve kterém logická '1' reprezentuje nárůstový přechod,
-který se vyskytuje během doby jednoho bitu, zatímco logická '0' reprezentuje poklesový přechod během
-doby jednoho bitu (viz obrázek níže). Startovací a~stopovací bity jsou kódovány jako logická '1'.
-\medskip
-Rámců jsou přenášeny s~baudovou rychlostí 1200 bps a~každý rámec je vždy odeslán s~nejvýznamnějším bitem (MSb) první.
-Protože baudová rychlost je 1200 bps, trvá každé období bitu 833,33 µs a~každé poloviční období bitu trvá 416,67 µs.
-Časy polovičního období jsou důležité, protože Manchesterovo kódování vyžaduje dva přechody bitů pro každý logický datový bit.
-Přední rámec je datový paket přenášený řídícím zařízením na řídicí zařízení nebo vstupní zařízení.
-Přední rámec DALI 1.0 obsahuje Startovací bit, následovaný bytovou adresou, jedním datovým bytem a~dvěma Stopovacími bity.
-\medskip
-Přední rámec DALI 2.0 obsahuje Startovací bit, následovaný bytovou adresou, až dvěma datovými byty a~podmínkou Stop (viz obrázek 2).
-Přední 24bitový rámec DALI 2.0, včetně Startovacího a~Stopovacího bitu, trvá 23,2 ms, nebo přibližně 56 polovičních období bitů,
-zatímco 16bitový rámec trvá 16,2 ms, nebo 39 polovičních období bitů. Jakmile řídící zařízení dokončí přenos rámce,
-musí řídící zařízení začít přenášet zpětný rámec nejdříve 5,5 ms (přibližně 14 polovičních období bitů)
-a nejpozději 10,5 ms (přibližně 25 polovičních období). Jakmile byl zpětný rámec přijat v~plném rozsahu,
-musí řídící zařízení počkat minimálně 2,4 ms (přibližně šest polovičních období) před odesláním dalšího
-předního rámce (viz obrázek 3).
-Zpětný rámec je odpovědní paket přenášený z~řídícího zařízení na řídící zařízení. Zpětný rámec se skládá
-ze Startovacího bitu, jednoho datového bytu a~podmínky Stop (viz obrázek níže). Zpětný rámec, včetně Startovacího a
-Stopovacího bitu, trvá 9,95 ms (přibližně 24 polovičních období bitů). Datový byte může mít libovolnou hodnotu,
-v~závislosti na příkazu, který byl vydán řídícím zařízením. Pokud je datový byte zpětného rámce 0xFF,
-je odpověď považována za "ano". Pokud se očekává odpověď a~sběrnice zůstane v~klidovém stavu, je odpověď považována za "ne".
-\medskip
-https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en-US-1/index.html?GUID-1BB46A02-D54C-415B-9487-617FD3AA8BC9
-\medskip
+%  ############################################################################################################
+\sec Typy datových paketů
 
+
+Datové pakety protokolu DALI se dělí na:
+\begitems
+    *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány pro základní funkce protokolu DALI.
+    *{\sbf Rezervované:} Tyto pakety mají délku 20 bitů, jsou vyhrazeny a nesmějí se používat.
+    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a slouží k rozšíření funkcí protokolu DALI o specifické funkce daného výrobce.
+        Mohou mít libovolnou délku kromě výše uvedených. Nicméně se nedoporučuje používat pakety o délce 8 až 15 bitů.
+\enditems
+
+\noindent
+Datový paket {\sbf16 bitů}:
+\begitems
+ * tento datový rámec slouží k odesílání zpráv předřadníkům,
+ * norma IEC 62386-102\cite[iec102].
+\enditems
+
+\noindent
+Datový paket {\sbf 24 bitů}:
+\begitems
+ * tento datový rámec slouží k odesílání zpráv řídících a vstupních jednotek,
+ * norma IEC 62386-103\cite[iec103].
+\enditems
+
+\noindent
+Datový paket {\sbf 32 bitů}:
+\begitems
+ * tento datový rámec slouží k aktualizaci firmwaru řídících jednotek a předřadníků,
+ * norma IEC 62386-105\cite[iec105].
+\enditems
+
+\noindent
+Datový paket {\sbf 8 bitů}:
+\begitems
+ * tento datový rámec slouží k odesílání odpovědí na zprávy řídících a vstupních jednotek,
+ * norma IEC 62386 \cite[iec101], \cite[iec102] a \cite[iec103].
+\enditems
+
+
+%  ############################################################################################################
+\sec Adresy, skupiny a scény
+
+Na sběrnici DALI mohou být zařízení identifikována pomocí adres a skupin.
+Celkový počet adres na jedné sběrnici je 64 pro předřadníky a 64 pro řídící jednotky, celkem 128 zařízení.
+
+Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
+Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
+Existuje 32 skupin pro vstupních jednotky (jako jsou jednotlivá tlačítka v panelu);
+každé může být členem až 3 z těchto skupin \cite[dali_quick_start].
+
+Některé zařízení mohou obsluhovat více světel, pak mohou používat více adres. Taková zařízení
+označujeme jako zařízení s logickými jednotkami \cite[dali_quick_start].
+
+
+Obecně je možné adresovat zařízení pomocí adresy v rozsahu 0 až 63, tzv krátká adresa,
+pomocí dlouhé adresy 24 bitů, pomocí skupin a pomocí broadcastů.
+
+Broadcasty jsou zprávy, které jsou určeny všem zařízením na sběrnici, nebo
+pouze zařízením bez přiřazené krátké adresy.
+
+Skupiny slouží k ovládání více světel najednou, a to těch které jsou zařazeny do dané skupiny.
+
+Naproti tomu scény slouží k uložení a následnému vyvolání konkrétního nastavení světel.
+Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení jasu, barvy a další parametry světel.
+
+
+
+
+%  ############################################################################################################
+% \sec Komunikace na sběrnici
+% Rámcům DALI (datovým paketům) se vytváří pomocí Manchester (bi-fázové) kódování, což se děje pomocí hardwaru UART.
+% Kód Manchester je digitální kódovací formát, ve kterém logická '1' reprezentuje nárůstový přechod,
+% který se vyskytuje během doby jednoho bitu, zatímco logická '0' reprezentuje poklesový přechod během
+% doby jednoho bitu (viz obrázek níže). Startovací a~stopovací bity jsou kódovány jako logická '1'.
+% \medskip
+% Rámců jsou přenášeny s~baudovou rychlostí 1200 bps a~každý rámec je vždy odeslán s~nejvýznamnějším bitem (MSb) první.
+% Protože baudová rychlost je 1200 bps, trvá každé období bitu 833,33 µs a~každé poloviční období bitu trvá 416,67 µs.
+% Časy polovičního období jsou důležité, protože Manchesterovo kódování vyžaduje dva přechody bitů pro každý logický datový bit.
+% Přední rámec je datový paket přenášený řídícím zařízením na řídicí zařízení nebo vstupní zařízení.
+% Přední rámec DALI 1.0 obsahuje Startovací bit, následovaný bytovou adresou, jedním datovým bytem a~dvěma Stopovacími bity.
+% \medskip
+% Přední rámec DALI 2.0 obsahuje Startovací bit, následovaný bytovou adresou, až dvěma datovými byty a~podmínkou Stop (viz obrázek 2).
+% Přední 24bitový rámec DALI 2.0, včetně Startovacího a~Stopovacího bitu, trvá 23,2 ms, nebo přibližně 56 polovičních období bitů,
+% zatímco 16bitový rámec trvá 16,2 ms, nebo 39 polovičních období bitů. Jakmile řídící zařízení dokončí přenos rámce,
+% musí řídící zařízení začít přenášet zpětný rámec nejdříve 5,5 ms (přibližně 14 polovičních období bitů)
+% a nejpozději 10,5 ms (přibližně 25 polovičních období). Jakmile byl zpětný rámec přijat v~plném rozsahu,
+% musí řídící zařízení počkat minimálně 2,4 ms (přibližně šest polovičních období) před odesláním dalšího
+% předního rámce (viz obrázek 3).
+% Zpětný rámec je odpovědní paket přenášený z~řídícího zařízení na řídící zařízení. Zpětný rámec se skládá
+% ze Startovacího bitu, jednoho datového bytu a~podmínky Stop (viz obrázek níže). Zpětný rámec, včetně Startovacího a
+% Stopovacího bitu, trvá 9,95 ms (přibližně 24 polovičních období bitů). Datový byte může mít libovolnou hodnotu,
+% v~závislosti na příkazu, který byl vydán řídícím zařízením. Pokud je datový byte zpětného rámce 0xFF,
+% je odpověď považována za "ano". Pokud se očekává odpověď a~sběrnice zůstane v~klidovém stavu, je odpověď považována za "ne".
+% \medskip
+% https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en-US-1/index.html?GUID-1BB46A02-D54C-415B-9487-617FD3AA8BC9
+% \medskip
+
+
+%  ############################################################################################################
 \sec Shrnutí parametrů DALI protokolu
 
 \medskip \clabel[p]{Parametry}
@@ -282,6 +348,7 @@ https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en
 \caption/f Parametry
 \medskip
 
+%  ############################################################################################################
 \sec Popis Hardwaru
 
 \medskip \clabel[schematic]{Schéma hardwaru}
@@ -295,16 +362,7 @@ https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en
 \medskip
 
 
-
-\sec Popis kabelu
-
-\medskip \clabel[kabel]{kabel}
-\picw=10cm \cinspic 03_Obrazky/kabel.png
-\caption/f Kabel
-\medskip
-
-
-\medskip
+%  ############################################################################################################
 \sec Popis příkazů
 
 \begitems \style o
