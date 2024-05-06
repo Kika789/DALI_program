@@ -83,7 +83,7 @@ tři základní typy zařízení, které se vyskytují na sběrnici v systému D
 \sec Varianty protokolu
 
 V současné době rozlišujeme již několik verzi protokolu  DALI jako například
-{\sbf DALI} (verze 1), {\sbf DALI-2}, {\sbf D4i} a {\sbf DALI+}.
+{\sbf DALI} (verze~1), {\sbf DALI-2}, {\sbf D4i} a {\sbf DALI+}.
 Z hlediska zaměření diplomové práce se budeme zabývat protokolem DALI-2,
 který rozšiřuje původní verzi DALI v1.
 
@@ -323,14 +323,45 @@ Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení ja
 
 V další části popíšeme postup práce se zařízeními na sběrnici DALI, který pak byl aplikován v našem projektu.
 
-Naše sběrnice obsahovala jedno řídící zařízení a několik předřadníků. Postup činnosti byl následující:
+Použitá sběrnice obsahovala jednu řídící jednotku a několik předřadníků. Postup činnosti byl následující:
+
 \begitems
-    * {\sbf Nastavení operačního modu:}
-    * {\sbf Generování dlouhých adres:}
-    * {\sbf Přiřazení krátkých adres:}
-    * {\sbf Přiřazení do skupin:}
-    * {\sbf Nastavení jasu scén:}
+    * {Nastavení operačního modu}
+    * {Generování dlouhých adres}
+    * {Přiřazení krátkých adres}
+    * {Přiřazení do skupin}
+    * {Nastavení jasu scén}
 \enditems
+
+\noindent
+{\sbf Nastavení operačního modu}
+
+Zařízení DALI mohou pracovat v různých operačních režimech, které určují jejich chování.
+Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na zprávy z~řídící jednotky
+podle normy IEC 62386-102\cite[iec102].
+
+Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a provést ho.
+Přepnutí provedeme pomocí broadcast zprávy, proto není nutné znát adresy zařízení.
+
+\noindent
+Operační módy:
+\begitems
+    * Operační mód {\sbf 0x00:} Standardní režim.
+    * Operační mód {\sbf 0x01 -- 0x7F:} Rezervováno.
+    * Operační mód {\sbf 0x80 -- 0XFF:} Specifické režimy výrobce.
+\enditems
+
+Pozn: Před změnou operačního módu je dobré si ověřit, které režimy podporuje dané zařízení
+aby bylo možné se do nich vrátit. Námi použité předřadníky byly schopny pracovat v režimu 0x00 a 0x80.
+
+\noindent
+{\sbf Generování dlouhých adres}
+
+Dalším krokem k identifikaci jednotlivých světel je generování dlouhých adres.
+Je to mezikrok, který snižuje riziko kolizí při přiřazování krátkých adres.
+
+Po tomto požadavky si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o délce 24 bitů.
+
 
 
 
