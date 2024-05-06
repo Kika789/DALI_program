@@ -70,6 +70,10 @@ Norma IEC 62386, která definuje protokol DALI, obsahuje řadu důležitých poj
 \enditems
 
 
+Pro sjednocení terminologie v oboru osvětlení se doporučuje navštívit webové
+stránky \url{https://www.electropedia.org} a prostudovat si sekci věnovanou osvětlení (Lighting).
+
+
 Řídící jednotka, předřadník a~napájecí zdroje sběrnice jsou
 tři základní typy zařízení, které se vyskytují na sběrnici v systému DALI.
 
@@ -85,6 +89,7 @@ Dalším problémem bylo omezení umístění vstupních jednotek, jako jsou tla
 Norma DALI v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
 Musely být připojeny k řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
+Nebo se volilo řešení s použitím další sběrnice, jako KNX\cite[isoknx], Modbus\cite[modbus] nebo jiné
 To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systému.
 
 DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
@@ -151,8 +156,9 @@ Nedoporučuje se:
 Pro kabeláž se používají dva vodiče, které tvoří sběrnici DALI,
 a musí být umístěny ve stejném kabelu nebo kabelovém svazku, aby se minimalizovalo
 nežádoucí ovlivňování jinými signály.
-Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti na použitém kabelu (tabulka A.1 \cite[iec101]).
-Současně nesmí být rozdíl napětí na sběrnici mezi libovolnými zařízeními větší než 2 V.
+Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti na použitém kabelu
+(tabulka A.1 \cite[iec101]) a okolním rušení.
+Maximální povolený úbytek napětí na sběrnici je 2 V.
 
 % Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
 % Každá z~těchto šedesáti čtyř jednotek je přiřazena krátká adresa, která je uložena v~zapalovači.
@@ -169,7 +175,7 @@ Současně nesmí být rozdíl napětí na sběrnici mezi libovolnými zařízen
 
 
 
-\sec Elektrické specifikace
+\sec Elektrická specifikace
 
 Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v systému DALI. Nejdůležitější z nich jsou:
 \begitems
@@ -198,15 +204,47 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 % rychlost dat 1200 bitů za sekundu.
 
 
-\medskip
-https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
-\medskip
+
+\sec Přenosový protokol
+
+Přenosový protokol DALI využívá k přenosu informace hrany signálu (obr. \ref[kodovani]).
+Logické jedničce odpovídá vzestupná hrana signálu a nule dopovídá sestupní hrana signálu.
+
+Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
+ale každá hrana signálu slouží současně k synchronizaci komunikace,
+to znamená, že přijímací strana vždy měří délku pulzu od poslední hrany.
+Tento typ kodovani je znám jako protokol Manchester.
 
 
-\medskip \clabel[logika]{Logika}
+\medskip \clabel[kodovani]{Kodování bitů v protokolu DALI}
 \picw=8cm \cinspic 03_Obrazky/logika.png
-\caption/f Logika
+\vbox{\caption/f Kodování bitů v protokolu DALI}
+\vbox{\centerline{(\url{www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530})}}
+% https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 \medskip
+
+\noindent
+Na sběrnici rozlišujeme:
+\begitems
+* {\sbf Klidový stav:} Rozhraní je v~klidovém stavu, pokud je napětí na vysoké úrovni.
+* {\sbf Aktivní stav:} Rozhraní je v~aktivním stavu, pokud je napětí na nízké úrovni.
+\enditems
+
+\noindent
+Kromě logických nul a jedniček obsahuje každý datový rámec start a stop bity, které slouží k synchronizaci komunikace.:
+\begitems
+* {\sbf Start bit:} Jednička, která označuje začátek rámce.
+* {\sbf Stop bit:} Klidový stav který trvá specifikovanou dobu, který označují konec rámce.
+\enditems
+
+\noindent
+Datový rámec obsahuje:
+\begitems
+* {\sbf Start bit:}
+* {\sbf Data:} Data o délce 1 až 32 bitů.
+* {\sbf Stop bit:}
+\enditems
+
 
 \sec Komunikace na sběrnici
 Rámcům DALI (datovým paketům) se vytváří pomocí Manchester (bi-fázové) kódování, což se děje pomocí hardwaru UART.
