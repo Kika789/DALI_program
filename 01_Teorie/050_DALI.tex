@@ -190,7 +190,7 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
     *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo odebírat maximálně 2~mA.
     *{\sbf Proud:} Maximální proud na sběrnici je 250~mA.
     *{\sbf Aktivní stav:} Při nízkém stavu vysílače a odběru 250 mA nesmí výstupní napětí překročit 4,5~V.
-    *{\sbf Hrana signálu:} Náběžná a sestupní hrana signálu, by neměla být kratší než 3 µs, kvůli minimalizaci EMS rušení.
+    *{\sbf Hrana signálu:} Náběžná a sestupní hrana signálu, by neměla být kratší než 3 µs, kvůli minimalizaci \glref{EMI} rušení.
 \enditems
 
 
@@ -207,7 +207,8 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 
 \sec Přenosový protokol
 
-Přenosový protokol DALI využívá k přenosu informace hrany signálu (obr. \ref[kodovani]).
+Přenosový protokol DALI využívá k přenosu informace hrany signálu (obr. \ref[kodovani])
+s pevně danou přenosovou rychlosti 1200 bps.
 Logické jedničce odpovídá vzestupná hrana signálu a nule dopovídá sestupní hrana signálu.
 
 Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
@@ -234,7 +235,7 @@ Na sběrnici rozlišujeme:
 Kromě logických nul a jedniček obsahuje každý datový rámec start a stop bity, které slouží k synchronizaci komunikace.:
 \begitems
 * {\sbf Start bit:} Jednička, která označuje začátek rámce.
-* {\sbf Stop bit:} Klidový stav který trvá specifikovanou dobu, který označují konec rámce.
+* {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu, který označují konec rámce.
 \enditems
 
 \noindent
