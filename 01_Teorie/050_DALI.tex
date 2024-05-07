@@ -640,6 +640,51 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 %  ############################################################################################################
 \sec Popis Hardwaru
 
+Pro komunikaci mikrokontroleru ESP32 po sbernici DALI byl použit interface podle schematu \ref[schematic]
+a interface pro zdroj sběrnice podle schematu \ref[schematic2].
+
+\medskip \clabel[schematic]{Schéma hardwaru}
+\picw=12cm \cinspic 03_Obrazky/schematic.png
+\caption/f Schéma DALI
+\medskip
+
+
+
+\medskip \clabel[schematic2]{Schéma hardwaru 2}
+\picw=12cm \cinspic 03_Obrazky/schematic2.png
+\caption/f Schéma DALI 2
+\medskip
+
+Stejnosměrný externí zdroj napětí 12 -- 21 V je připojen ke vstupům (+) X2-1 a (-) X2-2.
+Za vstupem je umístěn omezovač proudu, maximální proud při výstupu nakrátko
+je dán velikosti odporu R8 a lze ho odhadnout za předpokladu, že mezi konci
+odporu je úbytek napětí přibližně 0,7~V,
+ na $i_{max} = 0.7 / 12 = 60$ mA,
+splňuje požadavek normy aby při odběru 250 mA bylo výstupní
+napětí nižší než 4,5~V.
+
+Pravá strana interface slouží jako zdroj napájení pro řídící jednotku s ESP32.
+IC2 je step-down zdroj napětí, který zajišťuje stabilní napětí 5~V pro ESP32.
+
+Propojky R20 a R21 umožňují galvanicky oddělit napájení sběrnici DALI od mikropočítače.
+Pak je možné mikropočítač napájet z jiného zdroje než je zdroj sběrnice
+o maximálním napěti 12~V
+a~připojit ho ke svorkám (+) X3-1 a (-) X3-2. Za svorkami je umístěna ochrana
+proti přepólovaní napětí tvořená tranzistorem Q3 P-\glref{MOSFET}.
+Současně slouží jako ochrana při náhodném zapojení obou zdrojů napájení.
+
+Propojka R10 umožňuje odpojit 5~V napájení řídící jednotky pokud
+použijeme napájení z USB portu mikropočítače ESP32.
+Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojeném napětí,
+tak není nutné propojku R10 odstraňovat.
+
+Prakticky byl použit pouze jeden zdroj napětí, který byl připojen k svorkám X2-1 a~X2-2
+a~všechny propojky zůstaly zapojené. Současně mikropočítač byl napájen z USB portu
+a~připojen k počítači ze kterého byl programován a testován.
+
+\medskip
+\medskip
+\medskip
 D1: Usměrňovací můstek, aby nezáleželo na polaritě připojení ke sběrnici.
 
 OP1: Přijímací optočlen.
@@ -665,14 +710,5 @@ V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla
 ze dvou tranzistorů a dvou rezistorů.
 
 
-\medskip \clabel[schematic]{Schéma hardwaru}
-\picw=12cm \cinspic 03_Obrazky/schematic.png
-\caption/f Schéma DALI
-\medskip
-
-\medskip \clabel[schematic2]{Schéma hardwaru 2}
-\picw=12cm \cinspic 03_Obrazky/schematic2.png
-\caption/f Schéma DALI 2
-\medskip
 
 
