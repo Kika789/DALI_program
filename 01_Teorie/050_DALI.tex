@@ -372,14 +372,16 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 \medskip \noindent
 {\sbf Přiřazení krátkých adres}
 
-Postupem podle přílohy A.1 \cite[iec101] se určí zařízení s nejnižší dlouhou adresou a té se přiřadí
-volná krátká adresa například 0. Postup se opakuje pro další zařízení s následujícími dlouhými adresami.
+Krátká adresa se každému zařízení na sběrnici DALI přiřazuje podle postupu popsaného
+v příloze A.1 \cite[iec101]. Postup zahrnuje následující kroky:
 
 Postup nastavení krátkých adres:
 \begitems
-    * Přepnutí do inicializačního režimu příkazem INITIALISE.
-    * Nastavení dlouhé adresy pro vyhledávání nejnižší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL a COMPARE.
-    * Přiřazení krátké adresy příkazem PROGRAM SHORT ADDRESS.
+    * Přepnutí do inicializačního režimu se provede příkazem INITIALISE.
+    * Nastavení dlouhé adresy pro vyhledávání nejmenší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL.
+    * Dotazem COMPARE se zjistí jestli mají nějaká zařízení adresu menší rovnou nastavené SEARCHADDR.
+    * Postup se opakuje až najdeme jediné zařízení s adresou rovnou SEARCHADDR.
+    * Tomuto zařízení se přiřadí krátké adresy příkazem PROGRAM SHORT ADDRESS.
     * Předřadník se vyloučí z dalšího hledání nejnižší adresy příkazem WITHDRAW.
     * Proces se opakuje pro další zařízení.
     * Inicializační režim se ukončí příkazem TERMINATE.
@@ -388,43 +390,86 @@ Postup nastavení krátkých adres:
 Vyhledávaní nejnižší adresy se provádí binárním dělením intervalu možných adres. Počáteční adresa je
 pro $2^{24}$ adres půlka intervalu tedy $2^{23}$, pak se interval dělí na poloviny až se najde hodnota pod kterou už
 žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz COMPARE odpovídají pouze
-zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR.
+zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR. Cyklus se opakuje maximálně 24 krát,
+pro jedno zařízení.
 
 Proces končí přiřazením krátkých adres všem zařízením v intervalu 0 až N, kde N je počet zařízení na sběrnici.
 
 Pozn: Je možné přiřadit krátkou adresu i přímo, pokud víme, že na sběrnici máme pouze jedno zařízení.
-Použijeme příkaz SET SHORT ADDRESS.
+Použijeme příkaz SET SHORT ADDRESS(broadcast).
 
 \medskip \noindent
 {\sbf Identifikace zařízení}
 
-Pokud máme u všech zařízení nastaveny krátké adresy, můžeme začít s identifikací.
-Použijeme příkaz IDENTIFY DEVICE po kterém světlo začne blikat po dobu 10~s.
+Pokud jsou u všech zařízení na sběrnici DALI nastaveny krátké adresy, lze provést jejich identifikaci.
+K identifikaci se používá příkaz IDENTIFY DEVICE.
+Po odeslání příkazu IDENTIFY DEVICE vybrané zařízení zareaguje blikáním po dobu 10 sekund.
+Tímto způsobem lze identifikovat jednotlivá zařízení na sběrnici.
 
-Je možné použít i jiné příkazy, například vypnutí světla příkazem OFF,
-přepnutí na maximální úroveň RECALL MAX LEVEL a další.
 
-Pokud nám přiřazené krátké adresy nevyhovují můžeme je změnit příkazem PROGRAM SHORT ADDRESS.
+Kromě příkazu IDENTIFY DEVICE je možné používat i další příkazy pro identifikaci zařízení DALI.
+Mezi příklady patří vypnutí zařízení (příkaz OFF), nastavení maximálního jasu (příkaz RECALL MAX LEVEL)
+a další.
+
+Pokud uživateli nevyhovují aktuálně nastavené krátké adresy, lze je změnit.
+K tomuto účelu slouží příkaz PROGRAM SHORT ADDRESS.
 
 
 \medskip \noindent
 {\sbf Přiřazení do skupin}
 
-Nedříve si naplánujeme, jaké skupiny budeme potřebovat a~jaké zařízení do nich zařadíme.
-Například skupina 0 může obsahovat všechna světla v místnosti, skupina 1 přímá světla,
-skupina 2 nepřímá světla a~tak dále.
+% Nedříve si naplánujeme, jaké skupiny budeme potřebovat a~jaké zařízení do nich zařadíme.
+% Například skupina 0 může obsahovat všechna světla v místnosti, skupina 1 přímá světla,
+% skupina 2 nepřímá světla a~tak dále.
 
-Pak přiřadíme světla do skupin pomocí příkazů ADD TO GROUP nebo REMOVE FROM GROUP.
+% Pak přiřadíme světla do skupin pomocí příkazů ADD TO GROUP nebo REMOVE FROM GROUP.
 
-Poté můžeme ovládat všechna světla v dané skupině najednou. Můžeme provést identifikaci skupin
-jako v předchozím kroku, příkaz IDENTIFY DEVICE.
+% Poté můžeme ovládat všechna světla v dané skupině najednou. Můžeme provést identifikaci skupin
+% jako v předchozím kroku, příkaz IDENTIFY DEVICE.
 
+
+
+
+Před samotným přiřazením zařízení do skupin je nutné naplánovat jejich strukturu. To zahrnuje:
+\begitems
+    * Určení požadovaných skupin a jejich funkcí
+    (např. skupina 0 - osvětlení celé místnosti, skupina 1 - přímé osvětlení, skupina 2 - nepřímé osvětlení atd.).
+    * Výběr zařízení, která budou do jednotlivých skupin zařazena.
+\enditems
+
+
+Po naplánování skupin se zařízení do nich přiřadí pomocí příkazů
+přidat zařízení do vybrané skupiny (příkaz ADD TO GROUP),
+odstranit zařízení z vybrané skupiny (příkaz REMOVE FROM GROUP).
+
+\noindent
+Po přiřazení zařízení do skupin je možné je ovládat najednou. To umožňuje:
+\begitems \style o
+    * Společné zapnutí/vypnutí všech světel ve skupině.
+    * Nastavení stejného jasu pro všechna světla ve skupině.
+    * Vytváření světelných scén s definovanými úrovněmi jasu pro různé skupiny.
+\enditems
 
 \medskip \noindent
 {\sbf Nastavení jasu scén}
 
 
+Scény v DALI slouží k ukládání a vyvolávání předdefinovaných nastavení osvětlení.
+Na rozdíl od skupin, které slouží k rozdělení světel do kategorií, scény uchovávají
+kompletní konfiguraci osvětlení pro daný účel (jas, barva, zapnutí/vypnutí).
+To umožňuje uživateli snadno přepínat mezi různými světelnými režimy bez nutnosti
+manuálního nastavování jednotlivých parametrů.
 
+
+Prvním krokem při práci se scénami je jejich naplánování.
+Určení požadovaných scén a jejich funkcí (např. scéna 1 - přednáška, scéna 2 - písemka atd.).
+Definování nastavení osvětlení pro každou scénu (jas pro různé skupiny světel, barva, zapnutí/vypnutí).
+
+Scény se pak nastaví pomocí příkazu SET SCENE(group, value). Pokud světlo v dané scéně má výt vypnuté
+použije se příkaz REMOVE FROM SCENE.
+
+Aktivace scény se provede příkazem GO TO SCENE(broadcast). Tento příkaz nastaví všechna
+světla ve vybrané skupině na hodnoty uložené v dané scéně.
 
 
 %  ############################################################################################################
