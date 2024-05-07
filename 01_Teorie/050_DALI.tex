@@ -376,7 +376,7 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 {\sbf Přiřazení krátkých adres}
 
 Krátká adresa se každému zařízení na sběrnici DALI přiřazuje podle postupu popsaného
-v příloze A.1 \cite[iec101]. Postup zahrnuje následující kroky:
+v příloze A.1 \cite[iec102]. Postup zahrnuje následující kroky:
 
 Postup nastavení krátkých adres:
 \begitems
@@ -506,12 +506,136 @@ světla ve vybrané skupině na hodnoty uložené v dané scéně.
 
 
 %  ############################################################################################################
-\sec Shrnutí parametrů DALI protokolu
+% \sec Popis příkazů
 
-\medskip \clabel[p]{Parametry}
-\picw=12cm \cinspic 03_Obrazky/specifikace.png
-\caption/f Parametry
-\medskip
+% \begitems \style o
+% * off - Okamžité vypnutí světel
+% * set max level - Nastavení maximální hodnoty jasu.
+% * set min level - Nastavení minimální hodnoty jasu.
+% * Recall max level
+% * Recall min level
+% * set system failure level - Nastavení jasu při výpadku řidící jednotky.
+% * set power on level - Nastavení jasu při zapnutí proudu.
+% * set fade time - Nastavení času prolínání.
+% * set fade rate - Nastavení rychlosti prolínání.
+% * set short adress - Nastavení krátké adresy pro jednotlivé světelná zařízení.
+% * set scene - Nastavení světelné scény.
+% * go to scene - Přechod mezi jednotlivými scénami.
+% * identify device - Identifikace jednotlivých zařízení - světlené zařízení se rozbliká po dobu 10s.
+% * add to group - Přidání světelného zařízení do skupin.
+% * remove from group - Odstranění světelné zařízení ze skupiny.
+% * set operating mode - Nastavení operačního módu.
+% \enditems
+% \medskip
+
+
+\sec Příkazy
+
+\medskip \noindent
+{\sbf Proměnné DRT0, DRT1, DRT2}
+
+Pro pochopení ovládání předřadníků DALI je důležité znát princip odesílání příkazů.
+Některé příkazy, jako je nastavení jasu, jsou vícekrokové.
+% To znamená, že před odesláním samotného příkazu je nutné v každém předřadníku nastavit specifickou proměnnou.
+
+\medskip \noindent
+Příklad nastavení maximální úrovně jasu:
+\begitems
+    * {\sbf DTR0:} Nastavení proměnné pro další krok. Tento krok se provádí najednou pro všechna zařízení.
+    * {\sbf SET MAX LEVEL(device):} Nastavení maximální úrovně jasu pro vybraná zařízení.
+\enditems
+
+Před odesláním příkazu SET MAX LEVEL je nutné nastavit proměnnou DTR0 na požadovanou hodnotu jasu.
+Důvodem je omezení protokolu na dvoubajtové zprávy, kterými nelze v jednom kroku poslat všechny potřebné informace.
+
+\medskip \noindent
+{\sbf Adresovací byte}
+
+Adresovací byte je často první byte v datovém rámci a obsahuje informace
+o adrese zařízení komu je zpráva určena.
+
+\medskip \noindent
+Může mít binární tvar (viz 7.2.1 \cite[iec102]):
+\begitems
+* {\tt 0AAA AAAx} - krátká adresa, kde A je adresa zařízení.
+* {\tt 100G GGGx} - skupina, kde G je číslo skupiny.
+* {\tt 1111 110x} - broadcast, zpráva je určena zařízením bez krátké adresy.
+* {\tt 1111 111x} - broadcast, zpráva je určena všem zařízením.
+\enditems
+
+Pokud  x je "1", jedná se o běžný příkaz,
+pokud je "0", jedná se o příkaz pro přímé ovládání jasu světel \glref{DAPC}.
+
+
+
+\medskip \noindent
+{\sbf Přehled příkazů protokolu DALI}
+
+
+Příkazy protokolu DALI jsou rozděleny do několika skupin podle jejich funkce.
+Omezíme se pouze na přehled některých příkazů pro ovládání předřadníků světel,
+plný seznam je uveden v normě \cite[iec102] v kapitole 11.
+
+\begitems
+    * {\sbf Ovládání jasu:}
+    \begitems \style o
+        * {\sbf OFF:} Vypnutí světel.
+        * {\sbf RECALL MAX LEVEL:} Nastavení jasu na maximální hodnotu.
+        * {\sbf RECALL MIN LEVEL:} Nastavení jasu na minimální hodnotu.
+        * {\sbf SET MAX LEVEL:} Nastavení maximální hodnoty jasu.
+        * {\sbf SET MIN LEVEL:} Nastavení minimální hodnoty jasu.
+        * {\sbf SET SYSTEM FAILURE LEVEL:} Nastavení jasu při výpadku řídící jednotky.
+        * {\sbf SET POWER ON LEVEL:} Nastavení jasu při zapnutí proudu.
+    \enditems
+
+    * {\sbf Prolínání:}
+    \begitems \style o
+        * {\sbf UP:} Zvýšení jasu.
+        * {\sbf DOWN:} Snížení jasu.
+        * {\sbf STEP UP:} Zvýšení jasu o krok.
+        * {\sbf STEP DOWN:} Snížení jasu o krok.
+        * {\sbf SET FADE TIME:} Nastavení času prolínání.
+        * {\sbf SET FADE RATE:} Nastavení rychlosti prolínání.
+    \enditems
+
+    * {\sbf Adresování:}
+    \begitems \style o
+        * {\sbf SET SHORT ADDRESS:} Nastavení krátké adresy pro jednotlivá světla.
+    \enditems
+
+    * {\sbf Scény:}
+    \begitems \style o
+        * {\sbf GO TO SCENE:} Přechod mezi jednotlivými scénami.
+        * {\sbf SET SCENE:} Nastavení světelné scény.
+        * {\sbf REMOVE FROM SCENE:} Odstranění světla ze scény.
+    \enditems
+
+    * {\sbf Identifikace:}
+    \begitems \style o
+        * {\sbf IDENTIFY DEVICE:} Identifikace jednotlivých zařízení - světlo se rozbliká po dobu 10~s.
+    \enditems
+
+    * {\sbf Skupiny:}
+    \begitems \style o
+        * {\sbf ADD TO GROUP:} Přidání světelného zařízení do skupin.
+        * {\sbf REMOVE FROM GROUP:} Odstranění světelného zařízení ze skupiny.
+    \enditems
+
+    * {\sbf Operační mód:}
+    \begitems \style o
+        * {\sbf SET OPERATING MODE:} Nastavení operačního módu.
+    \enditems
+\enditems
+
+
+
+%  ############################################################################################################
+% \sec Shrnutí parametrů DALI protokolu
+
+% \medskip \clabel[p]{Parametry}
+% \picw=12cm \cinspic 03_Obrazky/specifikace.png
+% \caption/f Parametry
+% \medskip
 
 %  ############################################################################################################
 \sec Popis Hardwaru
@@ -538,7 +662,7 @@ které má být považováno za nízkou úroveň. Na rozhodovací úroveň má v
 
 ST1: Proudový stabilizátor omezující proud procházející LED přijímacího optočlenu.
 V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla se jedná o nejjednodušší stabilizátor
-ze dvou tranzistorů a dvou rezistorů. 
+ze dvou tranzistorů a dvou rezistorů.
 
 
 \medskip \clabel[schematic]{Schéma hardwaru}
@@ -551,27 +675,4 @@ ze dvou tranzistorů a dvou rezistorů.
 \caption/f Schéma DALI 2
 \medskip
 
-
-%  ############################################################################################################
-\sec Popis příkazů
-
-\begitems \style o
-* off - Okamžité vypnutí světel
-* set max level - Nastavení maximální hodnoty jasu.
-* set min level - Nastavení minimální hodnoty jasu.
-* Recall max level
-* Recall min level
-* set system failure level - Nastavení jasu při výpadku řidící jednotky.
-* set power on level - Nastavení jasu při zapnutí proudu.
-* set fade time - Nastavení času prolínání.
-* set fade rate - Nastavení rychlosti prolínání.
-* set short adress - Nastavení krátké adresy pro jednotlivé světelná zařízení.
-* set scene - Nastavení světelné scény.
-* go to scene - Přechod mezi jednotlivými scénami.
-* identify device - Identifikace jednotlivých zařízení - světlené zařízení se rozbliká po dobu 10s.
-* add to group - Přidání světelného zařízení do skupin.
-* remove from group - Odstranění světelné zařízení ze skupiny.
-* set operating mode - Nastavení operačního módu.
-\enditems
-\medskip
 
