@@ -435,7 +435,7 @@ K tomuto účelu slouží příkaz PROGRAM SHORT ADDRESS.
 
 Před samotným přiřazením zařízení do skupin je nutné naplánovat jejich strukturu. To zahrnuje:
 \begitems
-    * Určení požadovaných skupin a jejich funkcí
+    * Určení požadovaných skupin a~jejich funkcí
     (např. skupina 0 - osvětlení celé místnosti, skupina 1 - přímé osvětlení, skupina 2 - nepřímé osvětlení atd.).
     * Výběr zařízení, která budou do jednotlivých skupin zařazena.
 \enditems
@@ -457,7 +457,7 @@ Po přiřazení zařízení do skupin je možné je ovládat najednou. To umož�
 {\sbf Nastavení jasu scén}
 
 
-Scény v DALI slouží k ukládání a vyvolávání předdefinovaných nastavení osvětlení.
+Scény v DALI slouží k ukládání a~vyvolávání předdefinovaných nastavení osvětlení.
 Na rozdíl od skupin, které slouží k rozdělení světel do kategorií, scény uchovávají
 kompletní konfiguraci osvětlení pro daný účel (jas, barva, zapnutí/vypnutí).
 To umožňuje uživateli snadno přepínat mezi různými světelnými režimy bez nutnosti
@@ -465,7 +465,7 @@ manuálního nastavování jednotlivých parametrů.
 
 
 Prvním krokem při práci se scénami je jejich naplánování.
-Určení požadovaných scén a jejich funkcí (např. scéna 1 - přednáška, scéna 2 - písemka atd.).
+Určení požadovaných scén a~jejich funkcí (např. scéna 1 - přednáška, scéna 2 - písemka atd.).
 Definování nastavení osvětlení pro každou scénu (jas pro různé skupiny světel, barva, zapnutí/vypnutí).
 
 Scény se pak nastaví pomocí příkazu SET SCENE(group, value). Pokud světlo v dané scéně má výt vypnuté
@@ -549,9 +549,9 @@ Před odesláním příkazu SET MAX LEVEL je nutné nastavit proměnnou DTR0 na 
 Důvodem je omezení protokolu na dvoubajtové zprávy, kterými nelze v jednom kroku poslat všechny potřebné informace.
 
 \medskip \noindent
-{\sbf Adresovací byte}
+{\sbf Adresovací hlavička}
 
-Adresovací byte je často první byte v datovém rámci a obsahuje informace
+Adresovací byte je často první byte v datovém rámci a~obsahuje informace
 o adrese zařízení komu je zpráva určena.
 
 \medskip \noindent
@@ -655,32 +655,48 @@ a interface pro zdroj sběrnice podle schematu \ref[schematic2].
 \caption/f Schéma DALI 2
 \medskip
 
-Stejnosměrný externí zdroj napětí 12 -- 21 V je připojen ke vstupům (+) X2-1 a (-) X2-2.
-Za vstupem je umístěn omezovač proudu, maximální proud při výstupu nakrátko
-je dán velikosti odporu R8 a lze ho odhadnout za předpokladu, že mezi konci
-odporu je úbytek napětí přibližně 0,7~V,
- na $i_{max} = 0.7 / 12 = 60$ mA,
-splňuje požadavek normy aby při odběru 250 mA bylo výstupní
-napětí nižší než 4,5~V.
 
-Pravá strana interface slouží jako zdroj napájení pro řídící jednotku s ESP32.
-IC2 je step-down zdroj napětí, který zajišťuje stabilní napětí 5~V pro ESP32.
+\medskip
+\noindent
+{\sbf Vstupní napájení:}
+\begitems
+    * Stejnosměrný externí zdroj napětí 12 V až 21 V se připojuje ke svorkám (+) X2-1 a~(--) X2-2.
+    * Za vstupem je umístěn omezovač proudu s maximálním proudem při výstupu nakrátko 60 mA. To je dáno velikostí odporu R8 a~předpokladem úbytku napětí na něm cca 0,7 V.
+    * Toto nastavení splňuje požadavek normy, aby při odběru 250 mA bylo výstupní napětí nižší než 4,5 V.
+\enditems
 
-Propojky R20 a R21 umožňují galvanicky oddělit napájení sběrnici DALI od mikropočítače.
-Pak je možné mikropočítač napájet z jiného zdroje než je zdroj sběrnice
-o maximálním napěti 12~V
-a~připojit ho ke svorkám (+) X3-1 a (-) X3-2. Za svorkami je umístěna ochrana
-proti přepólovaní napětí tvořená tranzistorem Q3 P-\glref{MOSFET}.
-Současně slouží jako ochrana při náhodném zapojení obou zdrojů napájení.
+\noindent
+{\sbf Napájení řídící jednotky:}
+\begitems
+    * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s ESP32.
+    * IC2 je step-down měnič napětí, který zajišťuje stabilní napájení 5 V pro ESP32.
+\enditems
 
-Propojka R10 umožňuje odpojit 5~V napájení řídící jednotky pokud
-použijeme napájení z USB portu mikropočítače ESP32.
-Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojeném napětí,
-tak není nutné propojku R10 odstraňovat.
+\noindent
+{\sbf Oddělení napájení:}
+\begitems
+    * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice DALI od mikropočítače.
+    * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
+     a~to připojením k svorkám (+) X3-1 a~(--) X3-2.
+    * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET. Tato ochrana slouží i proti náhodnému zapojení obou zdrojů napájení.
+\enditems
 
-Prakticky byl použit pouze jeden zdroj napětí, který byl připojen k svorkám X2-1 a~X2-2
-a~všechny propojky zůstaly zapojené. Současně mikropočítač byl napájen z USB portu
-a~připojen k počítači ze kterého byl programován a testován.
+\noindent
+{\sbf Napájení z USB portu:}
+\begitems
+    * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače ESP32.
+    * Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
+\enditems
+
+\noindent
+{\sbf Zapojení v praktické části:}
+\begitems
+    * V praktické části byl použit pouze jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2.
+    * Všechny propojky zůstaly zapojeny.
+    * Mikropočítač byl napájen z USB portu a~připojen k počítači pro programování a~testování.
+\enditems
+
+
 
 \medskip
 \medskip
@@ -691,7 +707,7 @@ OP1: Přijímací optočlen.
 
 OP2: Vysílací optočlen.
 
-SW: Spínač používaný k vysílání. Spínač musí být schopen sepnout 250 mA a v případě DALI-2 navíc přežít přímé připojení
+SW: Spínač používaný k vysílání. Spínač musí být schopen sepnout 250 mA a~v případě DALI-2 navíc přežít přímé připojení
 k rozvodné síti (230 V). Starší konstrukce obvykle používají bipolární tranzistor zapojený do Darlingtonova zapojení
 s fototranzistorem v optočlenu, novější MOSFET buzený obvodem, který je schopen udržet ovládací napětí po dobu zkratu.
 
@@ -703,11 +719,11 @@ R3: Rezistor omezující proud procházející skrz LED přijímacího optočlen
 Lepší je na tomto místě použít proudový stabilizátor.
 
 D2: Zenerova dioda zajišťující, aby přijímací optočlen nesvítil při napětí,
-které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i úbytek na LED optočlenu, R3, R2 a CTR optočlenu.
+které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i úbytek na LED optočlenu, R3, R2 a~CTR optočlenu.
 
 ST1: Proudový stabilizátor omezující proud procházející LED přijímacího optočlenu.
 V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla se jedná o nejjednodušší stabilizátor
-ze dvou tranzistorů a dvou rezistorů.
+ze dvou tranzistorů a~dvou rezistorů.
 
 
 
