@@ -31,7 +31,7 @@ Technické detaily:
     *{\sbf Norma:} IEC 62386.
     *{\sbf Typ kabelu:} Dvoulinková sběrnice.
     *{\sbf Napájení:} Sběrnice slouží i pro napájení některých zařízení. Napětí se běžně pohybuje okolo
-       16~V v klidovém stavu, ale během komunikace může kolísat.
+       16~V v klidovém stavu.
     *{\sbf Komunikace:} Digitální, obousměrná.
     *{\sbf Typy příkazů:}
     \begitems\style o
@@ -328,7 +328,7 @@ Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení ja
 % \sec Postup práce se sběrnicí
 \sec Inicializace zařízení
 
-V další části popíšeme postup práce se zařízeními na sběrnici DALI, který pak byl aplikován v našem projektu.
+V další části bude popsán postup práce se zařízeními na sběrnici DALI, který byl aplikován v praktické části.
 
 Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadníků. Postup činnosti byl následující:
 
@@ -349,7 +349,7 @@ Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na z
 podle normy IEC 62386-102\cite[iec102].
 
 Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a~provést ho.
-Přepnutí provedeme pomocí broadcast zprávy SET OPERATING MODE, proto není nutné znát adresy zařízení.
+Přepnutí se provádí pomocí broadcast zprávy SET OPERATING MODE, proto není nutné znát adresy zařízení.
 
 \medskip \noindent
 Operační módy:
@@ -360,7 +360,8 @@ Operační módy:
 \enditems
 
 Pozn: Před změnou operačního módu je dobré si ověřit, které režimy podporuje dané zařízení
-aby bylo možné se do nich vrátit. Námi použité předřadníky byly schopny pracovat v režimu 0x00 a~0x80.
+aby bylo možné se do nich vrátit. 
+% Námi použité předřadníky byly schopny pracovat v režimu 0x00 a~0x80.
 
 \medskip \noindent
 {\sbf Generování dlouhých adres}
@@ -395,7 +396,7 @@ Vyhledávaní nejnižší adresy se provádí binárním dělením intervalu mo�
 pro $2^{24}$ adres půlka intervalu tedy $2^{23}$, pak se interval dělí na poloviny až se najde hodnota pod kterou už
 žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz COMPARE odpovídají pouze
 zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR. Cyklus se opakuje maximálně 24 krát,
-pro jedno zařízení.
+pro jedno zařízení. % postupnym odpojovanim a pripojovani svetelnych zarizeni --- nezapomenout doplnit
 
 Proces končí přiřazením krátkých adres všem zařízením v intervalu 0 až N, kde N je počet zařízení na sběrnici.
 
@@ -638,72 +639,72 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 % \caption/f Parametry
 % \medskip
 
-%  ############################################################################################################
-\sec Popis hardwaru
+%  ############################################################################################################ odtud odremovat
+% \sec Popis hardwaru
 
-Pro komunikaci mikropočítače ESP32 po sběrnici DALI byl použit interface podle schématu na obr. \ref[schematic]
-a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].
+% Pro komunikaci mikropočítače ESP32 po sběrnici DALI byl použit interface podle schématu na obr. \ref[schematic]
+% a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].   %rozhrani? misto interface?
 
-\medskip \clabel[schematic]{Schéma hardwaru}
-\picw=12cm \cinspic 03_Obrazky/schematic.png
-\caption/f Schéma DALI
-\medskip
+% \medskip \clabel[schematic]{Schéma hardwaru}
+% \picw=12cm \cinspic 03_Obrazky/schematic.png
+% \caption/f Schéma DALI
+% \medskip
 
-\medskip
-\noindent
-{\sbf Připojení sběrnice DALI:}
-\begitems
-    * Sběrnice DALI se připojuje ke svorkám X1-1 a X1-2.
-        Polarita připojení nehraje roli.
-    * K mikropočítači se sběrnice připojuje přes optické oddělení realizované optočleny IK1 a IK2 \cite[PC817].
-\enditems
-
-
-\medskip \noindent
-{\sbf Komunikace s mikropočítačem:}
-\begitems
-    * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a nastavuje se jako výstupní s otevřeným kolektorem.
-    * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a nastavuje se jako vstupní.
-\enditems
-
-\medskip \noindent
-{\sbf Pull-up a pull-down odpory:}
-\begitems
-    Pull-up a pull-down rezistory jsou implementovány pomocí R5 a R6,
-    takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
-\enditems
-
-\medskip \noindent
-{\sbf Řízení sběrnice:}
-\begitems
-    * Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a sepne tranzistor Q1, čímž se sběrnice aktivuje (nízká úroveň).
-    * Nastavením TX na 1 dioda v OK2 zhasne a sběrnice se přepne do klidového stavu (vysoká úroveň).
-\enditems
-
-\medskip \noindent
-{\sbf Inicializace sběrnice:}
-\begitems
-    Po spuštění mikropočítač nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
-\enditems
-
-\medskip \noindent
-{\sbf Vstupní strana:}
-\begitems
-    * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a omezovačem proudu IC1.
-    * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerova dioda 5 V)
-    a odpovídá normě, kde aktivní stav je 0 až 6,5 V.
-\enditems
+% \medskip
+% \noindent
+% {\sbf Připojení sběrnice DALI:}
+% \begitems
+%     * Sběrnice DALI se připojuje ke svorkám X1-1 a X1-2.
+%     * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a IK2 \cite[PC817].
+% \enditems
 
 
-\medskip \noindent
-{\sbf Omezovač proudu:}
-\begitems
-    * Omezovač proudu IC1 je nastaven na proud 1 mA odporem R2 = 68 Ω. Norma povoluje odběr v klidovém stavu do 2 mA.
-    Na druhou stranu, při tomto nastavení má IC1 poměrně nízkou rychlost změny signálu (pouze 1 V/$μ$s),
-    což může negativně ovlivnit čtení hodnot ze sběrnice DALI \cite[LM334].
-\enditems
+% \medskip \noindent
+% {\sbf Komunikace s mikropočítačem:}
+% \begitems
+%     * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a nastavuje se jako výstupní s otevřeným kolektorem.
+%     * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a nastavuje se jako vstupní.
+% \enditems
+
+% \medskip \noindent
+% {\sbf Pull-up a pull-down odpory:}
+% \begitems
+%     Pull-up a pull-down rezistory jsou implementovány pomocí R5 a R6,
+%     takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
+% \enditems
+
+% \medskip \noindent
+% {\sbf Řízení sběrnice:}
+% \begitems
+%     * Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a sepne tranzistor Q1, čímž se sběrnice aktivuje (nízká úroveň).
+%     * Nastavením TX na 1 dioda v OK2 zhasne a sběrnice se přepne do klidového stavu (vysoká úroveň).
+% \enditems
+
+% \medskip \noindent
+% {\sbf Inicializace sběrnice:}
+% \begitems
+%     Po spuštění mikropočítač nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
+% \enditems
+
+% \medskip \noindent
+% {\sbf Vstupní strana:}
+% \begitems
+%     * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a omezovačem proudu IC1.
+%     * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerova dioda 5 V)
+%     a odpovídá normě, kde aktivní stav je 0 až 6,5 V.
+% \enditems
 
 
+% \medskip \noindent
+% {\sbf Omezovač proudu:}
+% \begitems
+%     * Omezovač proudu IC1 je nastaven na proud 1 mA odporem R2 = 68 Ω. Norma povoluje odběr v klidovém stavu do 2 mA.
+%     Na druhou stranu, při tomto nastavení má IC1 poměrně nízkou rychlost změny signálu (pouze 1 V/$μ$s),
+%     což může negativně ovlivnit čtení hodnot ze sběrnice DALI \cite[LM334].
+% \enditems
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% odremovat
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
 
 % Sbernice DALI se pripojuje ke svorkám X1-1 a X1-2. Sbernice nerozlisuje polaritu, takze je jedno, jak je pripojena.
 % Pripojeni k mikropocitaci je provedeno pres optické oddělení, ktere je zde realizováno pomocí optoclenů IK1 a IK2.
@@ -730,68 +731,68 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].
 % norma stanovuje odběr v klidovém stavu do 2~mA. Na druhou stranu obvod IC1 při této
 % hodnotě má poměrně omezenou rychlost změny signálu pouze na 1~V/μs což negativně může ovlivnit
 % stav čtení hodnot z DALI sběrnice.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne 
 
 
 
-
-\medskip \clabel[schematic2]{Schéma hardwaru 2}
-\picw=12cm \cinspic 03_Obrazky/schematic2.png
-\caption/f Schéma DALI 2
-\medskip
-
-
-\medskip
-\noindent
-{\sbf Vstupní napájení:}
-\begitems
-    * Stejnosměrný externí zdroj napětí 12 V až 21 V se připojuje ke svorkám (+) X2-1 a~(--) X2-2.
-    * Za vstupem je umístěn omezovač proudu s maximálním proudem při výstupu nakrátko 60 mA.
-    To je dáno velikostí odporu R8 a~předpokladem úbytku napětí na něm cca 0,7 V.
-    * Toto nastavení splňuje požadavek normy, aby při odběru 250 mA bylo výstupní napětí nižší než 4,5 V.
-\enditems
-
-\noindent
-{\sbf Napájení řídící jednotky:}
-\begitems
-    * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s ESP32.
-    * IC2 je step-down měnič napětí, který zajišťuje stabilní napájení 5 V pro ESP32.
-\enditems
-
-\noindent
-{\sbf Oddělení napájení:}
-\begitems
-    * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice DALI od mikropočítače.
-    * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
-     a~to připojením k svorkám (+) X3-1 a~(--) X3-2.
-    * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET.
-    Tato ochrana slouží i proti náhodnému zapojení obou zdrojů napájení.
-\enditems
-
-\noindent
-{\sbf Napájení z USB portu:}
-\begitems
-    * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače ESP32.
-    * Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
-\enditems
-
-\noindent
-{\sbf Zapojení v praktické části:}
-\begitems
-    * V praktické části byl použit pouze jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
-      svorky {X3-1} a~{X3-2} zůstaly nezapojené.
-    * Všechny propojky zůstaly zapojeny.
-    * Mikropočítač byl napájen z USB portu a~připojen k počítači pro programování a~testování.
-\enditems
+% \medskip \clabel[schematic2]{Schéma hardwaru 2}
+% \picw=12cm \cinspic 03_Obrazky/schematic2.png
+% \caption/f Schéma DALI 2
+% \medskip
 
 
-\noindent
-{\sbf Zapojení pro montáž ve třídě:}
-\begitems
-    * Při montáži ve třídě se použily dva zdroje napětí připojené ke svorkám X2-1, X2-2 a~{X3-1}, {X3-2}.
-    * Sběrnice DALI se galvanicky oddělila od řídící jednotky, svorky R20 a~R21 byly rozpojeny.
-\enditems
+% \medskip
+% \noindent
+% {\sbf Vstupní napájení:}
+% \begitems
+%     * Stejnosměrný externí zdroj napětí 12 V až 21 V se připojuje ke svorkám (+) X2-1 a~(--) X2-2.
+%     * Za vstupem je umístěn omezovač proudu s maximálním proudem při výstupu nakrátko 60 mA.
+%     To je dáno velikostí odporu R8 a~předpokladem úbytku napětí na něm cca 0,7 V.
+%     * Toto nastavení splňuje požadavek normy, aby při odběru 250 mA bylo výstupní napětí nižší než 4,5 V.
+% \enditems
+
+% \noindent
+% {\sbf Napájení řídící jednotky:}
+% \begitems
+%     * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s ESP32.
+%     * IC2 je step-down měnič napětí, který zajišťuje stabilní napájení 5 V pro ESP32.
+% \enditems
+
+% \noindent
+% {\sbf Oddělení napájení:}
+% \begitems
+%     * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice DALI od mikropočítače.
+%     * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
+%      a~to připojením k svorkám (+) X3-1 a~(--) X3-2.
+%     * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET.
+%     Tato ochrana slouží i proti náhodnému zapojení obou zdrojů napájení.
+% \enditems
+
+% \noindent
+% {\sbf Napájení z USB portu:}
+% \begitems
+%     * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače ESP32.
+%     * Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
+% \enditems
+
+% \noindent
+% {\sbf Zapojení v praktické části:}
+% \begitems
+%     * V praktické části byl použit pouze jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
+%       svorky {X3-1} a~{X3-2} zůstaly nezapojené.
+%     * Všechny propojky zůstaly zapojeny.
+%     * Mikropočítač byl napájen z USB portu a~připojen k počítači pro programování a~testování.
+% \enditems
 
 
+% \noindent
+% {\sbf Zapojení pro montáž ve třídě:}
+% \begitems
+%     * Při montáži ve třídě se použily dva zdroje napětí připojené ke svorkám X2-1, X2-2 a~{X3-1}, {X3-2}.
+%     * Sběrnice DALI se galvanicky oddělila od řídící jednotky, svorky R20 a~R21 byly rozpojeny.
+% \enditems
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
 % \medskip
 % \medskip
 % \medskip
