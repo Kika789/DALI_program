@@ -516,6 +516,31 @@ světla ve vybrané skupině na hodnoty uložené v dané scéně.
 %  ############################################################################################################
 \sec Popis Hardwaru
 
+D1: Usměrňovací můstek, aby nezáleželo na polaritě připojení ke sběrnici.
+
+OP1: Přijímací optočlen.
+
+OP2: Vysílací optočlen.
+
+SW: Spínač používaný k vysílání. Spínač musí být schopen sepnout 250 mA a v případě DALI-2 navíc přežít přímé připojení
+k rozvodné síti (230 V). Starší konstrukce obvykle používají bipolární tranzistor zapojený do Darlingtonova zapojení
+s fototranzistorem v optočlenu, novější MOSFET buzený obvodem, který je schopen udržet ovládací napětí po dobu zkratu.
+
+R1: Rezistor omezující proud procházející skrz LED vysílacího optočlenu.
+
+R2: Rezistor omezující proud procházející skrz fototranzistor přijímacího optočlenu.
+
+R3: Rezistor omezující proud procházející skrz LED přijímacího optočlenu.
+Lepší je na tomto místě použít proudový stabilizátor.
+
+D2: Zenerova dioda zajišťující, aby přijímací optočlen nesvítil při napětí,
+které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i úbytek na LED optočlenu, R3, R2 a CTR optočlenu.
+
+ST1: Proudový stabilizátor omezující proud procházející LED přijímacího optočlenu.
+V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla se jedná o nejjednodušší stabilizátor
+ze dvou tranzistorů a dvou rezistorů. 
+
+
 \medskip \clabel[schematic]{Schéma hardwaru}
 \picw=12cm \cinspic 03_Obrazky/schematic.png
 \caption/f Schéma DALI
