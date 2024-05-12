@@ -360,7 +360,7 @@ Operační módy:
 \enditems
 
 Pozn: Před změnou operačního módu je dobré si ověřit, které režimy podporuje dané zařízení
-aby bylo možné se do nich vrátit. 
+aby bylo možné se do nich vrátit.
 % Námi použité předřadníky byly schopny pracovat v režimu 0x00 a~0x80.
 
 \medskip \noindent
@@ -378,7 +378,7 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 {\sbf Přiřazení krátkých adres}
 
 Krátká adresa se každému zařízení na sběrnici DALI přiřazuje podle postupu popsaného
-v příloze A.1 \cite[iec102]. Postup zahrnuje následující kroky:
+v příloze A.1 \cite[iec102].
 
 Postup nastavení krátkých adres:
 \begitems
@@ -463,18 +463,18 @@ Scény v DALI slouží k ukládání a~vyvolávání předdefinovaných nastaven
 Na rozdíl od skupin, které slouží k rozdělení světel do kategorií, scény uchovávají
 kompletní konfiguraci osvětlení pro daný účel (jas, barva, zapnutí/vypnutí).
 To umožňuje uživateli snadno přepínat mezi různými světelnými režimy bez nutnosti
-manuálního nastavování jednotlivých parametrů.
+ nastavování jednotlivých parametrů.
 
 
 Prvním krokem při práci se scénami je jejich naplánování.
 Určení požadovaných scén a~jejich funkcí (např. scéna 1 - přednáška, scéna 2 - písemka atd.).
 Definování nastavení osvětlení pro každou scénu (jas pro různé skupiny světel, barva, zapnutí/vypnutí).
 
-Scény se pak nastaví pomocí příkazu SET SCENE(group, value). Pokud světlo v dané scéně má výt vypnuté
+Scény se pak nastaví pomocí příkazu SET SCENE(device, value). Pokud světlo v~dané scéně má výt vypnuté
 použije se příkaz REMOVE FROM SCENE.
 
 Aktivace scény se provede příkazem GO TO SCENE(broadcast). Tento příkaz nastaví všechna
-světla ve vybrané skupině na hodnoty uložené v dané scéně.
+světla na hodnoty uložené v dané scéně.
 
 
 %  ############################################################################################################
@@ -731,7 +731,7 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 % norma stanovuje odběr v klidovém stavu do 2~mA. Na druhou stranu obvod IC1 při této
 % hodnotě má poměrně omezenou rychlost změny signálu pouze na 1~V/μs což negativně může ovlivnit
 % stav čtení hodnot z DALI sběrnice.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
 
 
 
