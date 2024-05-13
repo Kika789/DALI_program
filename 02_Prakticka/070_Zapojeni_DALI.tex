@@ -5,8 +5,6 @@
 % Poslední fáze praktické části se věnovala návrhu světelného ovládání. Aktuální stav má 12 tlačítek a
 % cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
 
-\sec Návrh optimalizovaného ovládání
-
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
 ovládání s cílem zjednodušit jeho obsluhu a zvýšit uživatelský komfort.
 V současnosti je systém vybaven 12 tlačítky, jež slouží k ovládání
@@ -48,7 +46,7 @@ Toto ovládání má svá omezení:
 \sec Návrh optimalizovaného ovládání
 
 Navrhované optimalizované řešení snižuje počet tlačítek na 4 a doplňuje
-je o 2 tlačítka pro regulaci jasu (viz obrázek XXX).
+je o 2 tlačítka pro regulaci jasu (viz obrázek \ref[tlac]).
 
 \medskip \clabel[tlac]{Tlačítka}
 \picw=10cm \cinspic 03_Obrazky/Ovladani/tlacitka.png
@@ -56,7 +54,7 @@ je o 2 tlačítka pro regulaci jasu (viz obrázek XXX).
 \medskip
 
 
-
+\noindent
 Tlačítka jsou rozdělena do dvou sekcí:
 
 \begitems
@@ -79,32 +77,88 @@ Toto řešení přináší následující výhody:
     * {\sbf Univerzální ovládání jasu:} Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
 \enditems
 
-% pridat obrazek navrhu
-\medskip \clabel[ovl1]{Board}
-\picw=10cm \cinspic 03_Obrazky/Ovladani/board.png
-\caption/f Board
-\medskip
+% Zaver
+% Navrhované optimalizované ovládání světel se zaměřuje na zjednodušení a zefektivnění obsluhy systému.
+% Snížení počtu tlačítek, rozdělení funkcí a intuitivní regulace jasu vedou
+% k pohodlnějšímu a uživatelsky přívětivějšímu ovládání.
+% Implementace tohoto řešení by tak mohla významně přispět
+% ke zlepšení uživatelského komfortu a zjednodušení ovládání světel v daném prostoru.
 
-\medskip \clabel[ovl2]{Návrh tlačítek}
+
+
+\sec Elektrické schéma
+
+Elektrické schéma pro optimalizované ovládání světel je znázorněno na obrázku \ref[ovl2].
+Schéma zahrnuje:
+\begitems
+    * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena ke konektoru JP1.
+        K~tlačítkům 5 a 6 jsou pripojeny pull-down rezistory 10 kΩ protože vstupní piny
+        nemají pull-down rezistory pro použité vstupy procesoru.
+    * Tlačítka 1 až 4 mají invertovanou logiku, tj pri stisku se na vstupu procesoru objeví logická nula.
+    * Tlačítka 5 a 6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
+\enditems
+
+% Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahovaly pull-up rezistory.
+% Proto bylo nezbytné přidat odpory o hodnotě 10~kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
+
+
+
+\medskip \clabel[ovl2]{Elektrické schéma}
 \picw=10cm \cinspic 03_Obrazky/Ovladani/buttons.png
-\caption/f Buttons
+\caption/f Elektrické schéma tlačítek
 \medskip
 
-\medskip \clabel[pripojeni]{Připojení tlačítek k pinům}
+
+\sec Plošný spoj
+
+Plošný spoj (PCB) pro optimalizované ovládání světel je znázorněn na obrázku \ref[ovl1].
+PCB obsahuje všechny komponenty uvedené na schématu, včetně:
+\begitems
+    * {\sbf Napájecí konektor:} Konektor pro připojení 5V napájení.
+    * {\sbf Tlačítka:} Tlačítka pro zapnutí/vypnutí a regulaci jasu.
+    * {\sbf Pull-down rezistory:} Rezistory 10 kΩ pro tlačítka regulace jasu.
+\enditems
+
+Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
+
+
+\medskip \clabel[ovl1]{Plošný spoj}
+\picw=10cm \cinspic 03_Obrazky/Ovladani/board.png
+\caption/f Plošný spoj
+\medskip
+
+
+\sec Řídíci jednotka
+
+% Pro řízení světel byla použitá řídící jednotka s mikroprocesor ESP32 WROOM
+% (viz obrázek \ref[pripojeni]).
+Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WROOM, který se vyznačuje vysokým výkonem,
+nízkým odběrem energie a širokou škálou funkcí (viz obrázek \ref[pripojeni]).
+Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel
+a zároveň umožňuje implementaci komplexních funkcí a scénářů.
+Řídící jednotka je připojena k plošnému spoji tlačítek pomocí konektoru JP2.
+
+
+\medskip \clabel[pripojeni]{Řídící jednotka}
 \picw=10cm \cinspic 03_Obrazky/rid_jed.jpg
-\caption/f Připojení tlačítek k pinům
+\caption/f Řídící jednotka
 \medskip
 
 
-Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahovaly pull-up rezistory.
-Proto bylo nezbytné přidat odpory o hodnotě 10~kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
+% Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
+% a instalace ve školních prostorách probíhají mimo výukové období.
+% Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
 
-Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
-a instalace ve školních prostorách probíhají mimo výukové období. Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
+Montáž nově navrženého panelu do učebny musela být z technických důvodů
+odložena na období mimo výuku. Důvodem je probíhající výuka na gymnáziu,
+která vylučuje jakékoli úpravy a instalace ve školních prostorách během
+běžného provozu.
+Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorních podmínkách.
 
-\medskip
-\noindent
-Řídící jednotka bylo zvoleno ESP32 WROOM - přidat fotku
+
+
+
+
 \noindent
 {\sbf Postup zapojení}
 \begitems \style o
