@@ -178,7 +178,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
     * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k příslušným pinům řídící jednotky.
     * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k napájecímu konektoru řídící jednotky.
     * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a napájena síťovým napětím 230 V.
-
+\enditems
 
 \medskip\noindent
 {\sbf Konfigurace adres:}
@@ -190,7 +190,8 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 \enditems
 
 
-\medskip\noindent
+\medskip
+\noindent
 {\sbf Implementace scénářů:}
 \begitems
     * Pro tlačítka byla vytvořena sada scénářů, které definují chování světel při stisknutí daného tlačítka.
@@ -217,15 +218,13 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 \medskip
 \noindent
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
-\begitems \style o
-    * tlačítko {\sbf Off:} slouží k~úplnému vypnutí světel.
-    * tlačítko {\sbf Výklad:} dva světelné prvky jsou zapnuté a~dva vypnuté.
-    * tlačítko {\sbf Písemka:} dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva nižší intenzitu.
-    * tlačítko {\sbf Denní světlo:}  každý prvek je nastaven s jinou intenzitou - od nejnižší po nejvyšší.
-    * tlačítka {\sbf Regulace jasu:} kdy při dlouhem stisku se intenzita zvysovala/snizovala
+\begitems
+    * {\sbf Tlačítko Off:} Slouží k úplnému vypnutí světel.
+    * {\sbf Tlačítko Výklad:} Dva světelné prvky jsou zapnuté a dva vypnuté.
+    * {\sbf Tlačítko Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a dva na nižší intenzitu.
+    * {\sbf Tlačítko Denní světlo:} Každý prvek je nastaven s jinou intenzitou -- od nejnižší po nejvyšší.
+    * {\sbf Tlačítka Regulace jasu:} Při dlouhém stisku se intenzita zvyšuje/snižuje.
 \enditems
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -311,24 +310,54 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 
 % % \sec Laboratoř
 
+
+
 \medskip \clabel[sceny]{Scény}
 \picw=16cm \cinspic 03_Obrazky/sceny.png
 \caption/f Scény
 \medskip
 
-Postup při nastavování scén:
+% Postup pro nastavování scén:
 
-- nastavení set failure system = 180
-- nastavení set power on = 200
-- set max level = 254
-- set min level = 85
-- set fade time
-- set rate time
-- add to group číslo zařízení číslo skupiny
-- set scene č. zařízení číslo scén hodnota jasu
+% - nastavení set failure system = 180
+% - nastavení set power on = 200
+% - set max level = 254
+% - set min level = 85
+% - set fade time
+% - set rate time
+% - add to group číslo zařízení číslo skupiny
+% - set scene č. zařízení číslo scén hodnota jasu
 
+\sec Nastavení scén
 
+Popis kroků pro nastavení scén:
 
+\medskip\noindent
+{\sbf Nastavení výchozích parametrů:}
+\begitems
+    * {\sbf set failure system = 180:} Nastaví časový limit pro reakci systému na příkazy. Doporučená hodnota je 180 sekund.
+    * {\sbf set power on = 200:} Nastaví úroveň jasu při zapnutí zařízení. Hodnota 200 odpovídá 80% maximálnímu jasu.
+    * {\sbf set max level = 254:} Nastaví maximální dosažitelný jas. Hodnota 254 odpovídá 100% jasu.
+    * {\sbf set min level = 85:} Nastaví minimální dosažitelný jas. Hodnota 85 odpovídá 34% jasu.
+    * {\sbf set fade time:} Nastaví čas plynulého rozsvícení/zhasnutí při změně jasu. (Hodnota se zadává v sekundách.)
+    * {\sbf set rate time:} Nastaví čas plynulé změny jasu na požadovanou úroveň. (Hodnota se zadává v sekundách.)
+\enditems
+
+\medskip\noindent
+{\sbf Přidání zařízení do skupin:}
+\begitems
+    * {\sbf add to group číslo zařízení číslo skupiny:}
+        Přidá zadané zařízení (číslo zařízení) do zadané skupiny (číslo skupiny).
+        To umožňuje ovládat více zařízení najednou.
+\enditems
+
+\medskip\noindent
+{\sbf Definování scén:}
+\begitems
+    * {\sbf set scene č. zařízení číslo scén hodnota jasu:}
+        Nastaví úroveň jasu pro zadanou scénu (číslo scény), zadané zařízení
+        (číslo zařízení) a požadovaný jas (hodnota jasu).
+\enditems
 
 
 
