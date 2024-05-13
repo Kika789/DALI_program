@@ -2,9 +2,18 @@
 
 % \mnote{\inoval{DALI zapojeni}}
 
-Poslední fáze praktické části se věnovala návrhu světelného ovládání. Aktuální stav má 12 tlačítek a
-cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
-% pridat obrazek aktualniho panelu
+% Poslední fáze praktické části se věnovala návrhu světelného ovládání. Aktuální stav má 12 tlačítek a
+% cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
+
+\sec Návrh optimalizovaného ovládání
+
+Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
+ovládání s cílem zjednodušit jeho obsluhu a zvýšit uživatelský komfort.
+V současnosti je systém vybaven 12 tlačítky, jež slouží k ovládání
+jednotlivých řad světel.
+Navrhované optimalizované řešení redukuje počet tlačítek
+na 4 a doplňuje je o 2 tlačítka pro regulaci jasu.
+
 
 \medskip \clabel[ovl0]{Aktuální ovládání}
 \picw=10cm \cinspic 03_Obrazky/ovladani.jpg
@@ -12,11 +21,55 @@ cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
 \medskip
 
 
-Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka.
-Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k postupnému zvyšování
-nebo snižování jasu.
-Toto ovládání není ideální, proto bylo navrženo změnit ovládání na 4 tlačítka, spolu s dvěma tlačítky pro regulaci jasu.
-Tímto způsobem chceme vytvořit pohodlnější a~intuitivnější ovládání.
+% Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka.
+% Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k postupnému zvyšování
+% nebo snižování jasu.
+% Toto ovládání není ideální, proto bylo navrženo změnit ovládání na 4 tlačítka, spolu s dvěma tlačítky pro regulaci jasu.
+% Tímto způsobem chceme vytvořit pohodlnější a~intuitivnější ovládání.
+
+\sec Analýza stávajícího ovládání
+
+Stávající systém světelného ovládání se skládá z 12 tlačítek,
+rozdělených do 3 řad po 4~tlačítkách (viz obrázek \ref[ovl0]).
+Každé tlačítko ovládá jednu řadu světel a reaguje na dva typy stisknutí:
+\begitems
+    * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušnou řadu světel.
+    * {\sbf Dlouhé stisknutí:} Postupně zvyšuje nebo snižuje jas světel v dané řadě.
+\enditems
+
+\medskip\noindent
+Toto ovládání má svá omezení:
+\begitems
+    * {\sbf Složitost:} Velký počet tlačítek a dva typy stisknutí pro každé tlačítko mohou být pro uživatele matoucí a obtížně zapamatovatelné.
+    * {\sbf Neintuitivní ovládání:} Postupné zvyšování a snižování jasu dlouhým stisknutím tlačítka nemusí být pro uživatele intuitivní a pohodlné.
+\enditems
+
+
+\sec Návrh optimalizovaného ovládání
+
+Navrhované optimalizované řešení snižuje počet tlačítek na 4 a doplňuje
+je o 2 tlačítka pro regulaci jasu (viz obrázek XXX).
+Tlačítka jsou rozdělena do dvou sekcí:
+
+\begitems
+    * {\sbf Ovládání zapnutí/vypnutí:}
+    \begitems \style o
+        * {\sbf tlačítko 1:} slouží k vypnutí všech světel,
+        * {\sbf tlačítka 2--4:} slouží k zapínání jednotlivých scén světel.
+    \enditems
+    * {\sbf Regulace jasu:}
+        \begitems \style o
+        * {\sbf tlačítka 5--6:}  tlačítka slouží k postupnému zvyšování a snižování jasu všech zapnutých světel.
+        \enditems
+\enditems
+
+\medskip\noindent
+Toto řešení přináší následující výhody:
+\begitems
+    * {\sbf Snížení složitosti:} Menší počet tlačítek a jednodušší typy stisknutí usnadňují pochopení a ovládání systému.
+    * {\sbf Intuitivní ovládání:} Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a pohodlnější ovládání.
+    * {\sbf Univerzální ovládání jasu:} Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
+\enditems
 
 % pridat obrazek navrhu
 \medskip \clabel[ovl1]{Board}
