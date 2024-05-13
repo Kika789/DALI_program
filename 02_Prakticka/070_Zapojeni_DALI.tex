@@ -134,7 +134,7 @@ Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 % (viz obrázek \ref[pripojeni]).
 Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WROOM, který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a širokou škálou funkcí (viz obrázek \ref[pripojeni]).
-Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel
+Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
 a zároveň umožňuje implementaci komplexních funkcí a scénářů.
 Řídící jednotka je připojena k plošnému spoji tlačítek pomocí konektoru JP2.
 
@@ -144,6 +144,9 @@ a zároveň umožňuje implementaci komplexních funkcí a scénářů.
 \caption/f Řídící jednotka
 \medskip
 
+
+
+\sec Realizace řídicího systému
 
 % Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
 % a instalace ve školních prostorách probíhají mimo výukové období.
@@ -157,31 +160,69 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 
 
 
-
-
-\noindent
-{\sbf Postup zapojení}
-\begitems \style o
-* zapojení světel do řídící jednotky,
-* připojit zdroj 12~V,
-* zapojení světel do zásuvky,
-* nejprve bylo zapotřebí osadit součástky na plošnou desku,
-* poté bylo zapotřebí zapojit tlačítka na řídící jednotku a~otestovat funkčnost jednotlivých tlačítek,
-* po otestování tlačítek byly přiřazeny krátké adresy jednotlivým zařízením,
-* pro kontrolu správného přiřazení slouží příkaz identify, když adresa byla správně přiřazena, zařízení se rozblikalo na 10~s,
-* v tomto případě jsou světla nastavena od 0 do 3,
-* poté následovalo vytvoření jednotlivých scén ke tlačítkům.
+\medskip\noindent
+{\sbf Přípravné práce:}
+\begitems
+    * {\sbf Osazení plošného spoje tlačítek:}
+        Nejdříve bylo nutné osadit součástky na plošný spoj tlačítek,
+        včetně rezistorů.
+    * {\sbf Testování funkčnosti tlačítek:}
+    Pomocí testovacích programů se ověřovala reakce řídící jednotky
+    na stisknutí jednotlivých tlačítek.
+    To zajišťovalo bezchybné fungování tlačítek a jejich integraci s řídícím systémem.
 \enditems
+
+\medskip\noindent
+{\sbf Zapojení systému:}
+\begitems
+    * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k příslušným pinům řídící jednotky.
+    * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k napájecímu konektoru řídící jednotky.
+    * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a napájena síťovým napětím 230 V.
+
+
+\medskip\noindent
+{\sbf Konfigurace adres:}
+\begitems
+    * Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě. Adresy
+        byly konfigurovány pomocí příkazu identify a ověřeny pozorováním reakce zařízení (rozblikání na 10 sekund).
+    * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
+        se vytvořila adresní mapa pro komunikaci mezi mikrořadičem a jednotlivými světly.
+\enditems
+
+
+\medskip\noindent
+{\sbf Implementace scénářů:}
+\begitems
+    * Pro tlačítka byla vytvořena sada scénářů, které definují chování světel při stisknutí daného tlačítka.
+        Scénáře zahrnují funkce jako zapnutí/vypnutí, stmívání/zesilování a nastavení barevných teplot.
+    * Implementace scénářů byla provedena v programovacím prostředí pro mikrořadič ESP32 WROOM,
+        s využitím jazyka C++ a knihoven pro komunikaci a ovládání světel.
+\enditems
+
+
+% \noindent
+% {\sbf Postup zapojení}
+% \begitems \style o
+% * zapojení světel do řídící jednotky,
+% * připojit zdroj 12~V,
+% * zapojení světel do zásuvky,
+% * nejprve bylo zapotřebí osadit součástky na plošnou desku,
+% * poté bylo zapotřebí zapojit tlačítka na řídící jednotku a~otestovat funkčnost jednotlivých tlačítek,
+% * po otestování tlačítek byly přiřazeny krátké adresy jednotlivým zařízením,
+% * pro kontrolu správného přiřazení slouží příkaz identify, když adresa byla správně přiřazena, zařízení se rozblikalo na 10~s,
+% * v tomto případě jsou světla nastavena od 0 do 3,
+% * poté následovalo vytvoření jednotlivých scén ke tlačítkům.
+% \enditems
 
 \medskip
 \noindent
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
 \begitems \style o
-* tlačítko off - slouží k~úplnému vypnutí světel
-* tlačítko vyklad - dva světelné prvky jsou zapnuté a~dva vypnuté
-* tlačítko pisemka - dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva nižší intenzitu
-* tlačítko denní svetlo - každý prvek je nastaven s s jinou intenzitou - od nejnižší po nejvyšší
-* tlačítko regulace jasu, kdy při dlouhem stisku se intenzita zvysovala/snizovala
+    * tlačítko {\sbf Off:} slouží k~úplnému vypnutí světel.
+    * tlačítko {\sbf Výklad:} dva světelné prvky jsou zapnuté a~dva vypnuté.
+    * tlačítko {\sbf Písemka:} dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva nižší intenzitu.
+    * tlačítko {\sbf Denní světlo:}  každý prvek je nastaven s jinou intenzitou - od nejnižší po nejvyšší.
+    * tlačítka {\sbf Regulace jasu:} kdy při dlouhem stisku se intenzita zvysovala/snizovala
 \enditems
 
 
