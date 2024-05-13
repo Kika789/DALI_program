@@ -7,6 +7,11 @@
                 "terminalName": "OpTeX"
             },
             {
+                "name": "Draft",
+                "command": "scripts/optex_draft.sh",
+                "terminalName": "OpTeX"
+            },
+            {
                 "name": "OpTeX2",
                 "command": "scripts/optex2.sh",
                 "terminalName": "OpTeX"
