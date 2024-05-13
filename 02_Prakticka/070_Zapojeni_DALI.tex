@@ -7,7 +7,7 @@
 
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
 ovládání s cílem zjednodušit jeho obsluhu a zvýšit uživatelský komfort.
-V současnosti je systém vybaven 12 tlačítky, jež slouží k ovládání
+V současnosti je systém vybaven 12 tlačítky, který slouží k ovládání
 jednotlivých řad světel.
 Navrhované optimalizované řešení redukuje počet tlačítek
 na 4 a doplňuje je o 2 tlačítka pro regulaci jasu.
@@ -31,8 +31,8 @@ Stávající systém světelného ovládání se skládá z 12 tlačítek,
 rozdělených do 3 řad po 4~tlačítkách (viz obrázek \ref[ovl0]).
 Každé tlačítko ovládá jednu řadu světel a reaguje na dva typy stisknutí:
 \begitems
-    * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušnou řadu světel.
-    * {\sbf Dlouhé stisknutí:} Postupně zvyšuje nebo snižuje jas světel v dané řadě.
+    * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
+    * {\sbf Dlouhé stisknutí:} Postupně zvyšuje nebo snižuje jas daného světelného zařízení.
 \enditems
 
 \medskip\noindent
@@ -61,7 +61,7 @@ Tlačítka jsou rozdělena do dvou sekcí:
     * {\sbf Ovládání zapnutí/vypnutí:}
     \begitems \style o
         * {\sbf tlačítko 1:} slouží k vypnutí všech světel,
-        * {\sbf tlačítka 2--4:} slouží k zapínání jednotlivých scén světel.
+        * {\sbf tlačítka 2--4:} slouží k zapínání jednotlivých světelných scén.
     \enditems
     * {\sbf Regulace jasu:}
         \begitems \style o
@@ -184,7 +184,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 {\sbf Konfigurace adres:}
 \begitems
     * Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě. Adresy
-        byly konfigurovány pomocí příkazu identify a ověřeny pozorováním reakce zařízení (rozblikání na 10 sekund).
+        byly konfigurovány pomocí příkazu INICIALE a ověřeny příkazem IDENTIFY, kde při správném nastavení se zařízení rozblikalo na 10 sekund.
     * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
         se vytvořila adresní mapa pro komunikaci mezi mikrořadičem a jednotlivými světly.
 \enditems
@@ -192,11 +192,11 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 
 \medskip
 \noindent
-{\sbf Implementace scénářů:}
+{\sbf Implementace scén:}
 \begitems
-    * Pro tlačítka byla vytvořena sada scénářů, které definují chování světel při stisknutí daného tlačítka.
-        Scénáře zahrnují funkce jako zapnutí/vypnutí, stmívání/zesilování a nastavení barevných teplot.
-    * Implementace scénářů byla provedena v programovacím prostředí pro mikrořadič ESP32 WROOM,
+    * Pro tlačítka byly vytvořeny scény, které definují chování světel při stisknutí daného tlačítka.
+        Scény zahrnují funkce jako zapnutí/vypnutí a stmívání/zesilování.
+    * Implementace scén byla provedena v programovacím prostředí pro mikrořadič ESP32 WROOM,
         s využitím jazyka C++ a knihoven pro komunikaci a ovládání světel.
 \enditems
 
