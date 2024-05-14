@@ -91,11 +91,11 @@ který rozšiřuje původní verzi DALI v1.
 Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
 řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102],
 čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
-To vedlo k nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
+To vedlo k~nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
 Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou tlačítka a~senzory.
 Norma DALI v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
-Musely být připojeny k řídicí jednotce, která pak s nimi komunikovala
+Musely být připojeny k~řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
 Nebo se volilo řešení s použitím další sběrnice, jako KNX\cite[isoknx], Modbus\cite[modbus] nebo jiné.
 To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systému.
@@ -145,8 +145,8 @@ IEC 62386-101 \cite[iec101].
 
 Připojování zařízení v systému DALI může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
 \begitems
-    * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k jednomu napájecímu zdroji.
-    * {\sbf Seriová topologie:} Zařízení jsou propojena v řadě, kdy z jednoho zařízení vede kabel k dalšímu.
+    * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu napájecímu zdroji.
+    * {\sbf Seriová topologie:} Zařízení jsou propojena v řadě, kdy z jednoho zařízení vede kabel k~dalšímu.
     * {\sbf Kombinace obou:} Můžete kombinovat hvězdicovou a~seriovou topologii pro větší flexibilitu.
 \enditems
 
@@ -202,7 +202,7 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
         * Pro přijímač je nízká úroveň (0 až 6,5~V), vysoká (9,5 až 22,5~V) (tab.8 \cite[iec101]).
         * Pro vysílač je nízká úroveň (0 až 4,5~V), vysoká (10 až 22,5~V) (tab.9 \cite[iec101]).
     \enditems
-    *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo odebírat maximálně 2~mA.
+    *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo odebírat maximálně 2~mA v~klidovém stavu.
     *{\sbf Proud:} Maximální proud na sběrnici je 250~mA.
     *{\sbf Aktivní stav:} Při nízkém stavu vysílače a~odběru 250 mA nesmí výstupní napětí být vyšší než 4,5~V.
     *{\sbf Hrana signálu:} Náběžná a~sestupní hrana signálu, by neměla být kratší než 3 µs, kvůli minimalizaci \glref{EMI} rušení.
@@ -212,12 +212,12 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 %  ############################################################################################################
 \sec Přenosový protokol
 
-Přenosový protokol DALI využívá k přenosu informace hrany signálu (viz obr. \ref[kodovani])
+Přenosový protokol DALI využívá k~přenosu informace hrany signálu (viz obr. \ref[kodovani])
 s~pevně stanovenou přenosovou rychlostí 1200 bps.
 Logické jedničce odpovídá vzestupná hrana signálu a~nule odpovídá sestupná hrana signálu.
 
 Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
-ale každá hrana signálu slouží současně k synchronizaci komunikace, což znamená,
+ale každá hrana signálu slouží současně k~synchronizaci komunikace, což znamená,
 že přijímací strana vždy měří délku pulzu od poslední hrany.
 Tento typ kódování je znám jako protokol Manchester.
 
@@ -237,7 +237,7 @@ Na sběrnici rozlišujeme:
 \enditems
 
 \noindent
-Kromě logických nul a~jedniček obsahuje každý datový rámec start a~stop bity, které slouží k synchronizaci komunikace.:
+Kromě logických nul a~jedniček obsahuje každý datový rámec start a~stop bity, které slouží k~synchronizaci komunikace.:
 \begitems
 * {\sbf Start bit:} Jednička, která označuje začátek rámce.
 * {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu a~označuje konec rámce.
@@ -247,7 +247,7 @@ Kromě logických nul a~jedniček obsahuje každý datový rámec start a~stop b
 Datový rámec obsahuje:
 \begitems
 * {\sbf Start bit:}
-* {\sbf Data:} Data o délce 1 až 32 bitů.
+* {\sbf Data:} Data o~délce 1 až 32 bitů.
 * {\sbf Stop bit:}
 \enditems
 
@@ -263,36 +263,36 @@ Datové pakety protokolu DALI se dělí na:
 \begitems
     *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány pro základní funkce protokolu DALI.
     *{\sbf Rezervované:} Tyto pakety mají délku 20 bitů, jsou vyhrazeny a~nesmějí se používat.
-    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k rozšíření funkcí protokolu DALI o specifické funkce daného výrobce.
-        Mohou mít libovolnou délku kromě výše uvedených. Nicméně se nedoporučuje používat pakety o délce 8 až 15 bitů.
+    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k~rozšíření funkcí protokolu DALI o~specifické funkce daného výrobce.
+        Mohou mít libovolnou délku kromě výše uvedených. Nicméně se nedoporučuje používat pakety o~délce 8 až 15 bitů.
 \enditems
 
-\noindent
+\medskip\noindent
 Datový paket {\sbf 8 bitů}:
 \begitems
- * tento datový rámec slouží k odesílání odpovědí na zprávy řídících a~vstupních jednotek,
+ * tento datový rámec slouží k~odesílání odpovědí na zprávy řídících a~vstupních jednotek,
  * norma IEC 62386 \cite[iec101], \cite[iec102] a~\cite[iec103].
 \enditems
 
 
-\noindent
+\medskip\noindent
 Datový paket {\sbf16 bitů}:
 \begitems
- * tento datový rámec slouží k odesílání zpráv předřadníkům,
+ * tento datový rámec slouží k~odesílání zpráv předřadníkům,
  * norma IEC 62386-102\cite[iec102].
 \enditems
 
-\noindent
+\medskip\noindent
 Datový paket {\sbf 24 bitů}:
 \begitems
- * tento datový rámec slouží k odesílání zpráv řídících a~vstupních jednotek,
+ * tento datový rámec slouží k~odesílání zpráv řídících a~vstupních jednotek,
  * norma IEC 62386-103\cite[iec103].
 \enditems
 
-\noindent
+\medskip\noindent
 Datový paket {\sbf 32 bitů}:
 \begitems
- * tento datový rámec slouží k aktualizaci firmwaru řídících jednotek a~předřadníků,
+ * tento datový rámec slouží k~aktualizaci firmwaru řídících jednotek a~předřadníků,
  * norma IEC 62386-105\cite[iec105].
 \enditems
 
@@ -317,9 +317,9 @@ pomocí dlouhé adresy 24 bitů, pomocí skupin a~pomocí broadcastů.
 Broadcasty jsou zprávy, které jsou určeny všem zařízením na sběrnici, nebo
 pouze zařízením bez přiřazené krátké adresy.
 
-Skupiny slouží k ovládání více světel najednou, a~to těch které jsou zařazeny do dané skupiny.
+Skupiny slouží k~ovládání více světel najednou, a~to těch které jsou zařazeny do dané skupiny.
 
-Naproti tomu scény slouží k uložení a~následnému vyvolání konkrétního nastavení světel.
+Naproti tomu scény slouží k~uložení a~následnému vyvolání konkrétního nastavení světel.
 Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení jasu, barvy a~další parametry světel.
 
 
@@ -364,12 +364,12 @@ aby bylo možné se do nich vrátit.
 \medskip \noindent
 {\sbf Generování dlouhých adres}
 
-Dalším krokem k identifikaci jednotlivých světel je generování dlouhých adres.
+Dalším krokem k~identifikaci jednotlivých světel je generování dlouhých adres.
 Je to mezikrok, který snižuje riziko kolizí při přiřazování krátkých adres.
 
 Před dalším postupem se musí zařízení přepnout do inicializačního režimu příkazem INITIALISE.
 Pak se pošle požadavek na vygenerování dlouhých adres pomocí broadcast zprávy RANDOMIZE.
-Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o délce 24 bitů.
+Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o~délce 24 bitů.
 
 
 \medskip \noindent
@@ -384,7 +384,7 @@ Postup nastavení krátkých adres:
     * Nastavení dlouhé adresy pro vyhledávání nejmenší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL.
     * Dotazem COMPARE se zjistí jestli mají nějaká zařízení adresu menší rovnou nastavené SEARCHADDR.
     * Postup se opakuje až najdeme jediné zařízení s adresou rovnou SEARCHADDR.
-    * Tomuto zařízení se přiřadí krátké adresy příkazem PROGRAM SHORT ADDRESS.
+    * Tomuto zařízení se přiřadí krátká adresa příkazem PROGRAM SHORT ADDRESS.
     * Předřadník se vyloučí z dalšího hledání nejnižší adresy příkazem WITHDRAW.
     * Proces se opakuje pro další zařízení.
     * Inicializační režim se ukončí příkazem TERMINATE.
@@ -457,15 +457,15 @@ Po přiřazení zařízení do skupin je možné je ovládat najednou. To umož�
 {\sbf Nastavení jasu scén}
 
 
-Scény v DALI slouží k ukládání a~vyvolávání předdefinovaných nastavení osvětlení.
-Na rozdíl od skupin, které slouží k rozdělení světel do kategorií, scény uchovávají
+Scény v DALI slouží k~ukládání a~vyvolávání předdefinovaných nastavení osvětlení.
+Na rozdíl od skupin, které slouží k~rozdělení světel do kategorií, scény uchovávají
 kompletní konfiguraci osvětlení pro daný účel (jas, barva, zapnutí/vypnutí).
 To umožňuje uživateli snadno přepínat mezi různými světelnými režimy bez nutnosti
  nastavování jednotlivých parametrů.
 
 
 Prvním krokem při práci se scénami je jejich naplánování.
-Určení požadovaných scén a~jejich funkcí (např. scéna 1 - přednáška, scéna 2 - písemka atd.).
+Určení požadovaných scén a~jejich funkcí (např. scéna 1 -- přednáška, scéna 2 -- písemka atd.).
 Definování nastavení osvětlení pro každou scénu (jas pro různé skupiny světel, barva, zapnutí/vypnutí).
 
 Scény se pak nastaví pomocí příkazu SET SCENE(device, value). Pokud světlo v~dané scéně má výt vypnuté
@@ -563,8 +563,8 @@ Může mít binární tvar (viz 7.2.1 \cite[iec102]):
 * {\tt 1111 111x} - broadcast, zpráva je určena všem zařízením.
 \enditems
 
-Pokud  x je "1", jedná se o běžný příkaz,
-pokud je "0", jedná se o příkaz pro přímé ovládání jasu světel \glref{DAPC}.
+Pokud  x je "1", jedná se o~běžný příkaz,
+pokud je "0", jedná se o~příkaz pro přímé ovládání jasu světel \glref{DAPC}.
 
 
 
@@ -592,8 +592,8 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
     \begitems \style o
         * {\sbf UP:} Zvýšení jasu.
         * {\sbf DOWN:} Snížení jasu.
-        * {\sbf STEP UP:} Zvýšení jasu o krok.
-        * {\sbf STEP DOWN:} Snížení jasu o krok.
+        * {\sbf STEP UP:} Zvýšení jasu o~krok.
+        * {\sbf STEP DOWN:} Snížení jasu o~krok.
         * {\sbf SET FADE TIME:} Nastavení času prolínání.
         * {\sbf SET FADE RATE:} Nastavení rychlosti prolínání.
     \enditems
@@ -705,7 +705,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
 
 % Sbernice DALI se pripojuje ke svorkám X1-1 a~X1-2. Sbernice nerozlisuje polaritu, takze je jedno, jak je pripojena.
-% Pripojeni k mikropocitaci je provedeno pres optické oddělení, ktere je zde realizováno pomocí optoclenů IK1 a~IK2.
+% Pripojeni k~mikropocitaci je provedeno pres optické oddělení, ktere je zde realizováno pomocí optoclenů IK1 a~IK2.
 
 % Vystupni port mikropocitace se pripoji ke svorce DALI_TX a~v mikropočítači se port nastaví jako výstupní
 % s otevřeným kolektorem.
@@ -761,7 +761,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \begitems
     * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice DALI od mikropočítače.
     * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
-     a~to připojením k svorkám (+) X3-1 a~(--) X3-2.
+     a~to připojením k~svorkám (+) X3-1 a~(--) X3-2.
     * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET.
     Tato ochrana slouží i~proti náhodnému zapojení obou zdrojů napájení.
 \enditems
@@ -779,7 +779,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
     * V praktické části byl použit pouze jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
       svorky {X3-1} a~{X3-2} zůstaly nezapojené.
     * Všechny propojky zůstaly zapojeny.
-    * Mikropočítač byl napájen z USB portu a~připojen k počítači pro programování a~testování.
+    * Mikropočítač byl napájen z USB portu a~připojen k~počítači pro programování a~testování.
 \enditems
 
 
@@ -803,8 +803,8 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 
 % OP2: Vysílací optočlen.
 
-% SW: Spínač používaný k vysílání. Spínač musí být schopen sepnout 250 mA a~v případě DALI-2 navíc přežít přímé připojení
-% k rozvodné síti (230 V). Starší konstrukce obvykle používají bipolární tranzistor zapojený do Darlingtonova zapojení
+% SW: Spínač používaný k~vysílání. Spínač musí být schopen sepnout 250 mA a~v případě DALI-2 navíc přežít přímé připojení
+% k~rozvodné síti (230 V). Starší konstrukce obvykle používají bipolární tranzistor zapojený do Darlingtonova zapojení
 % s fototranzistorem v optočlenu, novější MOSFET buzený obvodem, který je schopen udržet ovládací napětí po dobu zkratu.
 
 % R1: Rezistor omezující proud procházející skrz LED vysílacího optočlenu.
@@ -818,7 +818,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 % které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i~úbytek na LED optočlenu, R3, R2 a~CTR optočlenu.
 
 % ST1: Proudový stabilizátor omezující proud procházející LED přijímacího optočlenu.
-% V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla se jedná o nejjednodušší stabilizátor
+% V DALI-2 musí vydržet trvalé připojení k~rozvodné síti (230 V). Zpravidla se jedná o~nejjednodušší stabilizátor
 % ze dvou tranzistorů a~dvou rezistorů.
 
 

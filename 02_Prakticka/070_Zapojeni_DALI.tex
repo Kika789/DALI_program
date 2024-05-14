@@ -7,10 +7,10 @@
 
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
 ovládání s cílem zjednodušit jeho obsluhu a~zvýšit uživatelský komfort.
-V současnosti je systém vybaven 12 tlačítky, který slouží k ovládání
+V současnosti je systém vybaven 12 tlačítky, který slouží k~ovládání
 jednotlivých řad světel.
 Navrhované optimalizované řešení redukuje počet tlačítek
-na 4 a~doplňuje je o 2 tlačítka pro regulaci jasu.
+na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
 
 
 \medskip \clabel[ovl0]{Aktuální ovládání}
@@ -20,7 +20,7 @@ na 4 a~doplňuje je o 2 tlačítka pro regulaci jasu.
 
 
 % Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka.
-% Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k postupnému zvyšování
+% Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k~postupnému zvyšování
 % nebo snižování jasu.
 % Toto ovládání není ideální, proto bylo navrženo změnit ovládání na 4 tlačítka, spolu s dvěma tlačítky pro regulaci jasu.
 % Tímto způsobem chceme vytvořit pohodlnější a~intuitivnější ovládání.
@@ -46,7 +46,7 @@ Toto ovládání má svá omezení:
 \sec Návrh optimalizovaného ovládání
 
 Navrhované optimalizované řešení snižuje počet tlačítek na 4 a~doplňuje
-je o 2 tlačítka pro regulaci jasu (viz obrázek \ref[tlac]).
+je o~2~tlačítka pro regulaci jasu (viz obrázek \ref[tlac]).
 
 \medskip \clabel[tlac]{Tlačítka}
 \picw=10cm \cinspic 03_Obrazky/Ovladani/tlacitka.png
@@ -60,12 +60,12 @@ Tlačítka jsou rozdělena do dvou sekcí:
 \begitems
     * {\sbf Ovládání zapnutí/vypnutí:}
     \begitems \style o
-        * {\sbf tlačítko 1:} slouží k vypnutí všech světel,
-        * {\sbf tlačítka 2--4:} slouží k zapínání jednotlivých světelných scén.
+        * {\sbf tlačítko 1:} slouží k~vypnutí všech světel,
+        * {\sbf tlačítka 2--4:} slouží k~zapínání jednotlivých světelných scén.
     \enditems
     * {\sbf Regulace jasu:}
         \begitems \style o
-        * {\sbf tlačítka 5--6:}  tlačítka slouží k postupnému zvyšování a~snižování jasu všech zapnutých světel.
+        * {\sbf tlačítka 5--6:}  tlačítka slouží k~postupnému zvyšování a~snižování jasu všech zapnutých světel.
         \enditems
 \enditems
 
@@ -80,7 +80,7 @@ Toto řešení přináší následující výhody:
 % Zaver
 % Navrhované optimalizované ovládání světel se zaměřuje na zjednodušení a~zefektivnění obsluhy systému.
 % Snížení počtu tlačítek, rozdělení funkcí a~intuitivní regulace jasu vedou
-% k pohodlnějšímu a~uživatelsky přívětivějšímu ovládání.
+% k~pohodlnějšímu a~uživatelsky přívětivějšímu ovládání.
 % Implementace tohoto řešení by tak mohla významně přispět
 % ke zlepšení uživatelského komfortu a~zjednodušení ovládání světel v daném prostoru.
 
@@ -98,8 +98,8 @@ Schéma zahrnuje:
     * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
 \enditems
 
-% Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahovaly pull-up rezistory.
-% Proto bylo nezbytné přidat odpory o hodnotě 10~kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
+% Tlačítka určená pro regulaci jasu byla připojena k~pinům, které neobsahovaly pull-up rezistory.
+% Proto bylo nezbytné přidat odpory o~h~dnotě 10~kΩ, aby bylo zajištěno správné fungování těchto tlačítek.
 
 
 
@@ -136,7 +136,7 @@ Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WR
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
 a zároveň umožňuje implementaci komplexních funkcí a~scénářů.
-Řídící jednotka je připojena k plošnému spoji tlačítek pomocí konektoru JP2.
+Řídící jednotka je připojena k~plošnému spoji tlačítek pomocí konektoru JP2.
 
 
 \medskip \clabel[pripojeni]{Řídící jednotka}
@@ -175,8 +175,8 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \medskip\noindent
 {\sbf Zapojení systému:}
 \begitems
-    * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k příslušným pinům řídící jednotky.
-    * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k napájecímu konektoru řídící jednotky.
+    * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k~příslušným pinům řídící jednotky.
+    * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k~napájecímu konektoru řídící jednotky.
     * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a~napájena síťovým napětím 230 V.
 \enditems
 
@@ -219,7 +219,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \noindent
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
 \begitems
-    * {\sbf Tlačítko Off:} Slouží k úplnému vypnutí světel.
+    * {\sbf Tlačítko Off:} Slouží k~úplnému vypnutí světel.
     * {\sbf Tlačítko Výklad:} Dva světelné prvky jsou zapnuté a~dva vypnuté.
     * {\sbf Tlačítko Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva na nižší intenzitu.
     * {\sbf Tlačítko Denní světlo:} Každý prvek je nastaven s jinou intenzitou -- od nejnižší po nejvyšší.
@@ -370,9 +370,9 @@ Popis kroků pro nastavení scén:
 % Navrhla jsem ovládací panel, aby bylo jednodušší ovládání pro uživatelé.
 
 % \medskip
-% Aktuálně je v učebně ovládací panel s 12 tlačítky. Navrhla jsem 3 hlavní scény, které se budou zapínat 3 tlačítky, dále je přidáno tlačítko off na ṕlné vypnutí a~také jsem přidala tlačítko na regulaci intenzity jasu. Kdyby docházelo k nečekaným změnám venkovního počasí.
+% Aktuálně je v učebně ovládací panel s 12 tlačítky. Navrhla jsem 3 hlavní scény, které se budou zapínat 3 tlačítky, dále je přidáno tlačítko off na ṕlné vypnutí a~také jsem přidala tlačítko na regulaci intenzity jasu. Kdyby docházelo k~nečekaným změnám venkovního počasí.
 
-% Tlačítko výklad, slouží k zapnutí nepřímého osvětlení a~vypnutí první světelné řady u tabule.
+% Tlačítko výklad, slouží k~zapnutí nepřímého osvětlení a~vypnutí první světelné řady u tabule.
 
 % Tlačítko písemka umožňuje nasvícení místa úkonu na 500 lx, abychom dodržovali zásady normy.
 
