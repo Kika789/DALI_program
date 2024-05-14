@@ -28,7 +28,7 @@ Technické detaily:
 \begitems
     *{\sbf Norma:} IEC 62386.
     *{\sbf Typ kabelu:} Dvoulinková sběrnice.
-    *{\sbf Napájení:} Sběrnice slouží i pro napájení některých zařízení. Napětí se běžně pohybuje okolo
+    *{\sbf Napájení:} Sběrnice slouží i~pro napájení některých zařízení. Napětí se běžně pohybuje okolo
        16~V v klidovém stavu.
     *{\sbf Komunikace:} Digitální, obousměrná.
     *{\sbf Typy příkazů:}
@@ -394,11 +394,11 @@ Vyhledávaní nejnižší adresy se provádí binárním dělením intervalu mo�
 pro $2^{24}$ adres půlka intervalu tedy $2^{23}$, pak se interval dělí na poloviny až se najde hodnota pod kterou už
 žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz COMPARE odpovídají pouze
 zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR. Cyklus se opakuje maximálně 24 krát,
-pro jedno zařízení. % postupnym odpojovanim a pripojovani svetelnych zarizeni --- nezapomenout doplnit
+pro jedno zařízení. % postupnym odpojovanim a~pripojovani svetelnych zarizeni --- nezapomenout doplnit
 
 Proces končí přiřazením krátkých adres všem zařízením v intervalu 0 až N, kde N je počet zařízení na sběrnici.
 
-Pozn: Je možné přiřadit krátkou adresu i přímo, pokud víme, že na sběrnici máme pouze jedno zařízení.
+Pozn: Je možné přiřadit krátkou adresu i~přímo, pokud víme, že na sběrnici máme pouze jedno zařízení.
 Použijeme příkaz SET SHORT ADDRESS(broadcast).
 
 \medskip \noindent
@@ -410,7 +410,7 @@ Po odeslání příkazu IDENTIFY DEVICE vybrané zařízení zareaguje blikání
 Tímto způsobem lze identifikovat jednotlivá zařízení na sběrnici.
 
 
-Kromě příkazu IDENTIFY DEVICE je možné používat i další příkazy pro identifikaci zařízení DALI.
+Kromě příkazu IDENTIFY DEVICE je možné používat i~další příkazy pro identifikaci zařízení DALI.
 Mezi příklady patří vypnutí zařízení (příkaz OFF), nastavení maximálního jasu (příkaz RECALL MAX LEVEL)
 a další.
 
@@ -652,30 +652,30 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \noindent
 {\sbf Připojení sběrnice DALI:}
 \begitems
-    * Sběrnice DALI se připojuje ke svorkám X1-1 a X1-2.
-    * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a IK2 \cite[PC817].
+    * Sběrnice DALI se připojuje ke svorkám X1-1 a~X1-2.
+    * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a~IK2 \cite[PC817].
 \enditems
 
 
 \medskip \noindent
 {\sbf Komunikace s mikropočítačem:}
 \begitems
-    * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a nastavuje se jako výstupní s otevřeným kolektorem.
-    * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a nastavuje se jako vstupní.
+    * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a~nastavuje se jako výstupní s otevřeným kolektorem.
+    * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a~nastavuje se jako vstupní.
 \enditems
 
 \medskip \noindent
-{\sbf Pull-up a pull-down odpory:}
+{\sbf Pull-up a~pull-down odpory:}
 \begitems
-    Pull-up a pull-down rezistory jsou implementovány pomocí R5 a R6,
+    Pull-up a~pull-down rezistory jsou implementovány pomocí R5 a~R6,
     takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
 \enditems
 
 \medskip \noindent
 {\sbf Řízení sběrnice:}
 \begitems
-    * Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a sepne tranzistor Q1, čímž se sběrnice aktivuje (nízká úroveň).
-    * Nastavením TX na 1 dioda v OK2 zhasne a sběrnice se přepne do klidového stavu (vysoká úroveň).
+    * Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a~sepne tranzistor Q1, čímž se sběrnice aktivuje (nízká úroveň).
+    * Nastavením TX na 1 dioda v OK2 zhasne a~sběrnice se přepne do klidového stavu (vysoká úroveň).
 \enditems
 
 \medskip \noindent
@@ -687,9 +687,9 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \medskip \noindent
 {\sbf Vstupní strana:}
 \begitems
-    * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a omezovačem proudu IC1.
+    * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a~omezovačem proudu IC1.
     * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerova dioda 5 V)
-    a odpovídá normě, kde aktivní stav je 0 až 6,5 V.
+    a~odpovídá normě, kde aktivní stav je 0 až 6,5 V.
 \enditems
 
 
@@ -704,25 +704,25 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% odremovat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
 
-% Sbernice DALI se pripojuje ke svorkám X1-1 a X1-2. Sbernice nerozlisuje polaritu, takze je jedno, jak je pripojena.
-% Pripojeni k mikropocitaci je provedeno pres optické oddělení, ktere je zde realizováno pomocí optoclenů IK1 a IK2.
+% Sbernice DALI se pripojuje ke svorkám X1-1 a~X1-2. Sbernice nerozlisuje polaritu, takze je jedno, jak je pripojena.
+% Pripojeni k mikropocitaci je provedeno pres optické oddělení, ktere je zde realizováno pomocí optoclenů IK1 a~IK2.
 
-% Vystupni port mikropocitace se pripoji ke svorce DALI_TX a v mikropočítači se port nastaví jako výstupní
+% Vystupni port mikropocitace se pripoji ke svorce DALI_TX a~v mikropočítači se port nastaví jako výstupní
 % s otevřeným kolektorem.
 
-% Vstupní port mikropočítače se pripoji ke svorce DALI_RX a v mikropočítači se port nastaví jako vstupní.
+% Vstupní port mikropočítače se pripoji ke svorce DALI_RX a~v mikropočítači se port nastaví jako vstupní.
 
-% Moznosti pull-up a pull-down rezistoru jsou zde realizovány pomocí odporů R5 a R6 a v mikropočítači
+% Moznosti pull-up a~pull-down rezistoru jsou zde realizovány pomocí odporů R5 a~R6 a~v mikropočítači
 % není nutné nastavovat interní pull-up nebo pull-down rezistory.
 
-% Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a transistor Q1 sepne, tím přejde sběrnice do aktivního stavu
-% tedy nízké urovně. Nastavením TX na 1 dioda v oddělovači OK2 zhasne a sběrnice přejde do klidového stavu,
+% Nastavením TX na 0 se rozsvítí dioda v oddělovači OK2 a~transistor Q1 sepne, tím přejde sběrnice do aktivního stavu
+% tedy nízké urovně. Nastavením TX na 1 dioda v oddělovači OK2 zhasne a~sběrnice přejde do klidového stavu,
 % tedy vysoké urovne.
 
 % Mikropočitac po spustení musí nastavit výstupni port na 1, aby uvedl sbernici do klidoveho stavu.
 
-% Vstupní strana je realizovana oddělovačem OK1, zanerovou diodou D1 a omezovačem napětí IC1. Celkový spád
-% napětí na vstupu je přibližně 6,7~V (dioda 0,7~V, omezovač 1~V, Zenerova dioda 5~V) a odpovída normě
+% Vstupní strana je realizovana oddělovačem OK1, zanerovou diodou D1 a~omezovačem napětí IC1. Celkový spád
+% napětí na vstupu je přibližně 6,7~V (dioda 0,7~V, omezovač 1~V, Zenerova dioda 5~V) a~odpovída normě
 % kdy aktivní stav je 0 až 6,5~V.
 
 % Omezovač napětí IC1 je odporem R2=68~\Omega nastaven na hodnotu 1~mA,
@@ -763,7 +763,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
     * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
      a~to připojením k svorkám (+) X3-1 a~(--) X3-2.
     * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET.
-    Tato ochrana slouží i proti náhodnému zapojení obou zdrojů napájení.
+    Tato ochrana slouží i~proti náhodnému zapojení obou zdrojů napájení.
 \enditems
 
 \noindent
@@ -815,7 +815,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 % Lepší je na tomto místě použít proudový stabilizátor.
 
 % D2: Zenerova dioda zajišťující, aby přijímací optočlen nesvítil při napětí,
-% které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i úbytek na LED optočlenu, R3, R2 a~CTR optočlenu.
+% které má být považováno za nízkou úroveň. Na rozhodovací úroveň má vliv i~úbytek na LED optočlenu, R3, R2 a~CTR optočlenu.
 
 % ST1: Proudový stabilizátor omezující proud procházející LED přijímacího optočlenu.
 % V DALI-2 musí vydržet trvalé připojení k rozvodné síti (230 V). Zpravidla se jedná o nejjednodušší stabilizátor

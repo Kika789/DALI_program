@@ -6,11 +6,11 @@
 % cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
 
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
-ovládání s cílem zjednodušit jeho obsluhu a zvýšit uživatelský komfort.
+ovládání s cílem zjednodušit jeho obsluhu a~zvýšit uživatelský komfort.
 V současnosti je systém vybaven 12 tlačítky, který slouží k ovládání
 jednotlivých řad světel.
 Navrhované optimalizované řešení redukuje počet tlačítek
-na 4 a doplňuje je o 2 tlačítka pro regulaci jasu.
+na 4 a~doplňuje je o 2 tlačítka pro regulaci jasu.
 
 
 \medskip \clabel[ovl0]{Aktuální ovládání}
@@ -29,7 +29,7 @@ na 4 a doplňuje je o 2 tlačítka pro regulaci jasu.
 
 Stávající systém světelného ovládání se skládá z 12 tlačítek,
 rozdělených do 3 řad po 4~tlačítkách (viz obrázek \ref[ovl0]).
-Každé tlačítko ovládá jednu řadu světel a reaguje na dva typy stisknutí:
+Každé tlačítko ovládá jednu řadu světel a~reaguje na dva typy stisknutí:
 \begitems
     * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
     * {\sbf Dlouhé stisknutí:} Postupně zvyšuje nebo snižuje jas daného světelného zařízení.
@@ -38,14 +38,14 @@ Každé tlačítko ovládá jednu řadu světel a reaguje na dva typy stisknutí
 \medskip\noindent
 Toto ovládání má svá omezení:
 \begitems
-    * {\sbf Složitost:} Velký počet tlačítek a dva typy stisknutí pro každé tlačítko mohou být pro uživatele matoucí a obtížně zapamatovatelné.
-    * {\sbf Neintuitivní ovládání:} Postupné zvyšování a snižování jasu dlouhým stisknutím tlačítka nemusí být pro uživatele intuitivní a pohodlné.
+    * {\sbf Složitost:} Velký počet tlačítek a~dva typy stisknutí pro každé tlačítko mohou být pro uživatele matoucí a~obtížně zapamatovatelné.
+    * {\sbf Neintuitivní ovládání:} Postupné zvyšování a~snižování jasu dlouhým stisknutím tlačítka nemusí být pro uživatele intuitivní a~pohodlné.
 \enditems
 
 
 \sec Návrh optimalizovaného ovládání
 
-Navrhované optimalizované řešení snižuje počet tlačítek na 4 a doplňuje
+Navrhované optimalizované řešení snižuje počet tlačítek na 4 a~doplňuje
 je o 2 tlačítka pro regulaci jasu (viz obrázek \ref[tlac]).
 
 \medskip \clabel[tlac]{Tlačítka}
@@ -65,24 +65,24 @@ Tlačítka jsou rozdělena do dvou sekcí:
     \enditems
     * {\sbf Regulace jasu:}
         \begitems \style o
-        * {\sbf tlačítka 5--6:}  tlačítka slouží k postupnému zvyšování a snižování jasu všech zapnutých světel.
+        * {\sbf tlačítka 5--6:}  tlačítka slouží k postupnému zvyšování a~snižování jasu všech zapnutých světel.
         \enditems
 \enditems
 
 \medskip\noindent
 Toto řešení přináší následující výhody:
 \begitems
-    * {\sbf Snížení složitosti:} Menší počet tlačítek a jednodušší typy stisknutí usnadňují pochopení a ovládání systému.
-    * {\sbf Intuitivní ovládání:} Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a pohodlnější ovládání.
+    * {\sbf Snížení složitosti:} Menší počet tlačítek a~jednodušší typy stisknutí usnadňují pochopení a~ovládání systému.
+    * {\sbf Intuitivní ovládání:} Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a~pohodlnější ovládání.
     * {\sbf Univerzální ovládání jasu:} Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
 \enditems
 
 % Zaver
-% Navrhované optimalizované ovládání světel se zaměřuje na zjednodušení a zefektivnění obsluhy systému.
-% Snížení počtu tlačítek, rozdělení funkcí a intuitivní regulace jasu vedou
-% k pohodlnějšímu a uživatelsky přívětivějšímu ovládání.
+% Navrhované optimalizované ovládání světel se zaměřuje na zjednodušení a~zefektivnění obsluhy systému.
+% Snížení počtu tlačítek, rozdělení funkcí a~intuitivní regulace jasu vedou
+% k pohodlnějšímu a~uživatelsky přívětivějšímu ovládání.
 % Implementace tohoto řešení by tak mohla významně přispět
-% ke zlepšení uživatelského komfortu a zjednodušení ovládání světel v daném prostoru.
+% ke zlepšení uživatelského komfortu a~zjednodušení ovládání světel v daném prostoru.
 
 
 
@@ -91,11 +91,11 @@ Toto řešení přináší následující výhody:
 Elektrické schéma pro optimalizované ovládání světel je znázorněno na obrázku \ref[ovl2].
 Schéma zahrnuje:
 \begitems
-    * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena ke konektoru JP1.
-        K~tlačítkům 5 a 6 jsou pripojeny pull-down rezistory 10 kΩ protože vstupní piny
+    * Tlačítka pro zapnutí/vypnutí a~regulaci jasu jsou připojena ke konektoru JP1.
+        K~tlačítkům 5 a~6 jsou pripojeny pull-down rezistory 10 kΩ protože vstupní piny
         nemají pull-down rezistory pro použité vstupy procesoru.
     * Tlačítka 1 až 4 mají invertovanou logiku, tj pri stisku se na vstupu procesoru objeví logická nula.
-    * Tlačítka 5 a 6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
+    * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
 \enditems
 
 % Tlačítka určená pro regulaci jasu byla připojena k pinům, které neobsahovaly pull-up rezistory.
@@ -115,7 +115,7 @@ Plošný spoj (PCB) pro optimalizované ovládání světel je znázorněn na ob
 PCB obsahuje všechny komponenty uvedené na schématu, včetně:
 \begitems
     * {\sbf Napájecí konektor:} Konektor pro připojení 5V napájení.
-    * {\sbf Tlačítka:} Tlačítka pro zapnutí/vypnutí a regulaci jasu.
+    * {\sbf Tlačítka:} Tlačítka pro zapnutí/vypnutí a~regulaci jasu.
     * {\sbf Pull-down rezistory:} Rezistory 10 kΩ pro tlačítka regulace jasu.
 \enditems
 
@@ -133,9 +133,9 @@ Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 % Pro řízení světel byla použitá řídící jednotka s mikroprocesor ESP32 WROOM
 % (viz obrázek \ref[pripojeni]).
 Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WROOM, který se vyznačuje vysokým výkonem,
-nízkým odběrem energie a širokou škálou funkcí (viz obrázek \ref[pripojeni]).
+nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
-a zároveň umožňuje implementaci komplexních funkcí a scénářů.
+a zároveň umožňuje implementaci komplexních funkcí a~scénářů.
 Řídící jednotka je připojena k plošnému spoji tlačítek pomocí konektoru JP2.
 
 
@@ -149,14 +149,14 @@ a zároveň umožňuje implementaci komplexních funkcí a scénářů.
 \sec Realizace řídicího systému
 
 % Nově navržený panel nebylo nyní možné instalovat do učebny kvůli probíhající výuce na gymnáziu, neboť veškeré úpravy
-% a instalace ve školních prostorách probíhají mimo výukové období.
+% a~instalace ve školních prostorách probíhají mimo výukové období.
 % Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
 
 Montáž nově navrženého panelu do učebny musela být z technických důvodů
 odložena na období mimo výuku. Důvodem je probíhající výuka na gymnáziu,
-která vylučuje jakékoli úpravy a instalace ve školních prostorách během
+která vylučuje jakékoli úpravy a~instalace ve školních prostorách během
 běžného provozu.
-Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorních podmínkách.
+Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorních podmínkách.
 
 
 
@@ -169,7 +169,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
     * {\sbf Testování funkčnosti tlačítek:}
     Pomocí testovacích programů se ověřovala reakce řídící jednotky
     na stisknutí jednotlivých tlačítek.
-    To zajišťovalo bezchybné fungování tlačítek a jejich integraci s řídícím systémem.
+    To zajišťovalo bezchybné fungování tlačítek a~jejich integraci s řídícím systémem.
 \enditems
 
 \medskip\noindent
@@ -177,16 +177,16 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 \begitems
     * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k příslušným pinům řídící jednotky.
     * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k napájecímu konektoru řídící jednotky.
-    * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a napájena síťovým napětím 230 V.
+    * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a~napájena síťovým napětím 230 V.
 \enditems
 
 \medskip\noindent
 {\sbf Konfigurace adres:}
 \begitems
     * Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě. Adresy
-        byly konfigurovány pomocí příkazu INICIALE a ověřeny příkazem IDENTIFY, kde při správném nastavení se zařízení rozblikalo na 10 sekund.
+        byly konfigurovány pomocí příkazu INICIALE a~ověřeny příkazem IDENTIFY, kde při správném nastavení se zařízení rozblikalo na 10 sekund.
     * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
-        se vytvořila adresní mapa pro komunikaci mezi mikrořadičem a jednotlivými světly.
+        se vytvořila adresní mapa pro komunikaci mezi mikrořadičem a~jednotlivými světly.
 \enditems
 
 
@@ -195,9 +195,9 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 {\sbf Implementace scén:}
 \begitems
     * Pro tlačítka byly vytvořeny scény, které definují chování světel při stisknutí daného tlačítka.
-        Scény zahrnují funkce jako zapnutí/vypnutí a stmívání/zesilování.
+        Scény zahrnují funkce jako zapnutí/vypnutí a~stmívání/zesilování.
     * Implementace scén byla provedena v programovacím prostředí pro mikrořadič ESP32 WROOM,
-        s využitím jazyka C++ a knihoven pro komunikaci a ovládání světel.
+        s využitím jazyka C++ a~knihoven pro komunikaci a~ovládání světel.
 \enditems
 
 
@@ -220,8 +220,8 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
 \begitems
     * {\sbf Tlačítko Off:} Slouží k úplnému vypnutí světel.
-    * {\sbf Tlačítko Výklad:} Dva světelné prvky jsou zapnuté a dva vypnuté.
-    * {\sbf Tlačítko Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a dva na nižší intenzitu.
+    * {\sbf Tlačítko Výklad:} Dva světelné prvky jsou zapnuté a~dva vypnuté.
+    * {\sbf Tlačítko Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva na nižší intenzitu.
     * {\sbf Tlačítko Denní světlo:} Každý prvek je nastaven s jinou intenzitou -- od nejnižší po nejvyšší.
     * {\sbf Tlačítka Regulace jasu:} Při dlouhém stisku se intenzita zvyšuje/snižuje.
 \enditems
@@ -267,7 +267,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a testování panelu v laboratorn
 %     • scena denní svetlo, svetal s~ruznou intenzitou od nejnizsi po nejvyssi
 %     • tlacitka na regulaci jasu
 %     • vyvojove diagamy s~logikou tlacitek: při kazdem stisku se zapne konkretni scena, u~regulaci jasu,
-%         je i pouzit cas, kde při stisku se jas zvysuje nebo snizuje
+%         je~pouzit cas, kde při stisku se jas zvysuje nebo snizuje
 %     • zapojeni bylo v~laboratori vyzkouseno a~funguje
 %     • zapojeni v~praxi nelze nyní uskutecnit, protože vsehcny instalace ve skolach probihaji mino vyukove obdobi
 %     •
@@ -356,7 +356,7 @@ Popis kroků pro nastavení scén:
 \begitems
     * {\sbf set scene č. zařízení číslo scén hodnota jasu:}
         Nastaví úroveň jasu pro zadanou scénu (číslo scény), zadané zařízení
-        (číslo zařízení) a požadovaný jas (hodnota jasu).
+        (číslo zařízení) a~požadovaný jas (hodnota jasu).
 \enditems
 
 
