@@ -1,5 +1,4 @@
 \chap Umělé osvětlení
-%%%%%%%% pracovni verze
 
 Umělým osvětlením v~uzavřených prostorech se snažíme, co nejvíce přiblížit dennímu světlu, aby se docílilo pracovního komfortu.
 
@@ -20,7 +19,7 @@ Umělé osvětlení dělíme na:
 % požadavky světleného prostředí.
 
 % kdyztak se inspirovat od Krause diplomky - jak zakomponovat směr osvětlení?
-% \medskip
+
 \begitems
 * {\bf celkové} -- rovnoměrné osvětlení v~celém uvažovaném prostoru bez ohledu na zvláštní místní požadavky;
 * {\bf odstupňované} -- v~místech kde přesně známe rozmístění pracovišť, svítidla se umisťují tak, aby vytvořila
@@ -29,7 +28,6 @@ Umělé osvětlení dělíme na:
 * {\bf nouzové}  -- navržené k~použití v~situaci, kdy dojde k~poruše běžného osvětlení.
 \enditems
 \sec Světlo
-
 
 Světlo, které vnímáme zrakem, představuje formu elektromagnetického záření.
 Toto záření se šíří prostorem rychlostí světla a~můžeme ho charakterizovat
@@ -122,22 +120,34 @@ Blízké infračervené (NIR) světlo & 700 -- 1000 \cr
 % \picw=5cm \cinspic 02_Obrazky/osvetleni.png
 % \caption/f Dopad světla
 \begitems
-* {\sbf Světelný tok [Φ]} : 1 lm (lumen) - Světelný tok udává, kolik světla celkem vyzáří zdroj do všech směrů.
-    Jde o~světelný výkon, který je posuzován z~hlediska lidského oka.
-*{\sbf Svítivost [I]} : 1 cd (kandela) - Veličina udává, kolik světelného toku Φ vyzáří světelný zdroj nebo svítidlo
-    do prostorového úhlu Ω v~určitém směru.
 * {\sbf Osvětlenost (intenzita osvětlení) [E]} : 1 lx (lux) - Veličina udává, jak je určitá plocha osvětlována,
     t.j. kolik lm světelného toku dopadá na 1 $m^2$.
 \enditems
 
+$$ E={I \over r^2} \cos α $$
+
+\medskip
+, kde pro bodový zdroj o~svítivosti I [cd] s paprsky dopadajícími pod úhlem $\alpha$ [°] k~normále plochy ve vzdálenosti r [m].
+
+% \medskip \clabel[logo]{Osvětlení}
+% \picw=5cm \cinspic 03_Obrazky/osvetleni.png
+% \caption/f Dopad světla
+
+\begitems
+* {\sbf Světelný tok [Φ]} : 1 lm (lumen) - Světelný tok udává, kolik světla celkem vyzáří zdroj do všech směrů.
+    Jde o~světelný výkon, který je posuzován z~hlediska lidského oka.
+*{\sbf Svítivost [I]} : 1 cd (kandela) - Veličina udává, kolik světelného toku Φ vyzáří světelný zdroj nebo svítidlo
+    do prostorového úhlu Ω v~určitém směru.
+\enditems
+
 \medskip \clabel[lcx]{lumencadelalux}
-\picw=5cm \cinspic 03_Obrazky/lumen_candela_lux2.png
+\picw=8cm \cinspic 03_Obrazky/lumen_candela_lux2.png
 \caption/f Vztah mezi lumenem, kandelou a~luxem
 \medskip
 
 \begitems
 * {\sbf Jas [L]} : 1 cd m$^{-2}$ (kandela na metr čtvereční)
-    as je měřítkem pro vjem světlosti svítícího nebo osvětlovaného povrchu.
+    - je měřítkem pro vjem světlosti svítícího nebo osvětlovaného povrchu.
 * {\sbf Měrný světelný výkon [η]} : 1 lm W$^{-1}$ (lumen na watt) -
     Udává s~jakou účinností je ve zdroji světla elektřina přeměňována na světlo, t.j. kolik
     lm světelného toku se získá z~1 W elektrického příkonu.
@@ -166,6 +176,121 @@ Normy zabývající se touto problematikou:
 \enditems
 
 \noindent
+Norma ČSN EN 12464-1 Světlo a osvětlení - Osvětlení pracovišť - Část 1: Vnitřní pracoviště
+
+Norma stanovuje požadavky na osvětlení pro vnitřní pracoviště z hlediska zrakové pohody a zrakového výkonu osob s normálním nebo korigovaným zrakem.
+
+{\bf Světelné prostředí}
+
+Světelné prostředí dbá na tyto základní lidské potřeby:
+
+\begitems \style o
+* zraková pohoda - aby se pracovníci cítili dobře a přispívalo to k produktivní a kvalitní práci;
+* zrakový výkon - zda jsou pracovníci schopni pracovat dlouho a vydávat dobrý výkon při obtížných podmínkách 
+* bezpečnost
+\enditems
+
+{\bf Rozložení jasu}
+Nesprávné rozložení jasu ovlivňuje zrakovou pohodu, proto je nutné vyloučit:
+\begitems \style o
+* příliš velké jasy a kontrasty jasu, které mohou způsobovat oslnění;
+* příliš velké změny jasy, které mohou způsobovat únavu; 
+* příliš malé jasy, které vytváří monotónní prostředí.
+\enditems
+
+Abychom docílili vyváženého rozložení jasu, musí se zohlednit jasy všech povrchů, které jsou určeny jejich činiteli odrazu a osvětlenosti.
+
+{\bf Činitele odrazu povrchů:}
+Doporučené hodnoty:
+\begitems \style o
+* strop: 0,7 až 0,9
+* stěny: 0,5 až 0,8
+* podlaha: 0,2 až 0,6
+* hlavní předměty (nábytek, strojní vybavení apod.) má být v rozmezí: 0,2 až 0,7
+\enditems
+
+% {\bf Osvětlenost povrchů}
+
+% osvětlenost stěn a stropů spolu s činiteli odrazu povrchů přispívají k jasům a jsou ukazateli vnímané jasnosti místnosti.
+
+{\bf Osvětlenost}
+
+Osvětlenost je důležitým parametrem při posuzování zrakové pohody a výkonu. Místa, která se osvětlují jsou místa zrakových úkolů a činností,
+bezprostřední okolí a pozadí, stěny, strop a předměty v prostoru. (viz obr.)
+
+Ve školských zařízení se většinou jedná při psaní a čtení, že místem zrakového úkolu je sešit studenta, jeho
+bezprostředním okolím je lavice a pozadím je podlaha. Při výkladu učitele a zapojením tabule do
+výuky je zrakovým úkolem četba. Část tabule je tedy jeho místem úkolu, bezprostředním okolím jsou
+zbylé části tabule % a doplněk do 60 0 pohledu studenta ( Obr. 20 ). Zbytek do 90 0 od osy pohledu je pozadím.
+
+Doporučená řada osvětlenosti podle EN 12665:
+
+5 - 7,5 - 10 - 15 - 20 - 30 - 50 - 75 - 100 - 150 - 200 - 300 - 500 - 750 - 1000 - 1 500 - 2 000 - 3 000 - 5 000.
+
+% {\bf Osvětlenosti místa zrakového úkolu }
+% \begitems \style o
+% * Psychologická hlediska, zraková a celková pohoda
+% * Požadavky dle různých činností pro zabezpečení zrakové pohody
+% * Zraková ergonomie
+% * Praktické zkušenosti z historie a z výzkumů
+% * Provozní bezpečnost
+% * Hospodárnost
+% \enditems
+
+Přidat tabulku s osvětlením zrakového úkolu a bezprostředního okolí: % prepsat sbymi slovy
+\begitems \style o
+* Osvětlenost bezprostředního okolí musí být vztažená k osvětlenosti místa zrakového úkolu nebo místa činnosti a má poskytovat
+vyvážené rozložení jasů v zorném poli, Bezprostřední okolí má tvořit pás o šířce alespoň 0,5 m
+kolem místa zrakového úkolu v zorném poli.
+* Osvětlenost bezprostředního okolí může být menší než osvětlenost místa zrakového úkolu,
+avšak nesmí být menší než hodnoty v uvedené tabulce.
+\enditems
+
+\midinsert \clabel[vztah]{Vztah mezi osvětlenostmi}
+\ctable{lrrrrr}{
+\hfil Osvětlenost místa zrakového
+úkolu E úkol (lx) & Osvětlenost bezprostředního okolí úkolu (lx) \crl \tskip 4pt
+>= 750 & 500 \cr
+500    & 300 \cr
+300    & 520 -- 560 \cr
+200    & 570 -- 590 \cr
+<=150  & stejné \cr
+}
+\caption/t Vztah mezi osvětlenostmi
+\endinsert
+
+{\bf Rovnoměrnost osvětlení}
+
+Posuzuje se bez přítomnosti denního světla  a platí jen pro elektrické osvětlení.
+
+
+\begitems \style o
+* Rovnoměrnost osvětlenosti bezprostředního okolí musí  být Uo >= 0,40.
+* Rovnoměrnost osvětlenosti pozadí, stěn a stropu musí být Uo >= 0,10.
+\enditems
+
+% {\bf Osvětlení pracovních míst se zobrazovacími jednotkami (DSE)}
+
+Přidat tabulky
+
+% \midinsert \clabel[vztah]{Vztah mezi osvětlenostmi}
+% \ctable{lrrrrr}{
+% \hfil Osvětlenost místa zrakového
+% úkolu E úkol (lx) & Osvětlenost bezprostředního okolí úkolu (lx) \crl \tskip 4pt
+% >= 750 & 500 \cr
+% 500    & 300 \cr
+% 300    & 520 -- 560 \cr
+% 200    & 570 -- 590 \cr
+% <=150  & stejné \cr
+% }
+% \caption/t Vztah mezi osvětlenostmi
+% \endinsert
+
+
+A pak vypsat z normy pro školní učebny
+
+
+\noindent
 Norma ČSN 73 0580-3 stanovuje požadavky na denní osvětlení škol. Školské stavby jsou děleny na:
 \begitems
 * předškolní zařízení,
@@ -177,13 +302,13 @@ V učebnách je zásadní volba osvětlovacích soustav, které jsou vybrány s 
 Svítidla jsou umístěna tak, aby minimalizovala oslnění odrazem a~přímým oslnění. Proto se vyhýbáme umístění svítidel kolmo nad lavicemi
 a preferujeme jejich podélné umístění, jelikož svítidla mají v příčné rovině obvykle vyšší jas než v podélné.
 
-Srovnávací rovina, umístěná ve výšce 850 mm nad podlahou,
-se v učebnách středních škol zajišťuje pro optimální podmínky. \rfc{optimalni podminky ceho}
+Srovnávací rovina se v učebnách středních škol umísťuje ve výšce 850 mm nad podlahou, pro předškolní zařízení 450 mm
+a v tělocvičnách na úrovni podlahy.
 Zároveň se vylučuje pruh o~šířce 500 mm od stěn, aby se minimalizovaly odrazy.
 
 Pracovní plochy jsou navrženy s rozptylnou, nelesklou úpravou, s doporučenými hodnotami činitele odrazu světla mezi 0,3 a~0,45.
 Prostor lavic a~stolu učitele je považován za místo zrakového úkolu,
-a~proto je průměrná udržovaná osvětlenost 300 lx s rovnoměrností 0,7.\rfc{vysvetlit rovnomernost 0.7}
+a~proto je průměrná udržovaná osvětlenost 300 lx s rovnoměrností 0,7.
 
 Zvláštní pozornost je věnována osvětlení tabule, která musí být dostatečně osvětlena pro snadné sledování.
 Při přechodu z tabule na lavice (a zpět) dochází ke změně pohledu a~oko se musí přizpůsobit
