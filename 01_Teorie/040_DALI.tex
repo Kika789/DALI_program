@@ -42,16 +42,16 @@ Technické detaily:
 %  ############################################################################################################
 \sec Terminologie
 
-Norma IEC 62386, která definuje protokol DALI, obsahuje řadu specifických pojmů. Níže je uveden popis vybraných z nich:
+Norma IEC 62386, která definuje protokol \glref{DALI}, obsahuje řadu specifických pojmů. Níže je uveden popis vybraných z nich:
 
 \begitems\style n
 * {\sbf Řídicí jednotka} (Control Device):
 
     \begitems
-    * Toto je obecný termín pro zařízení v systému DALI, které odesílá řídicí příkazy a~dotazy.
+    * Toto je obecný termín pro zařízení v systému \glref{DALI}, které odesílá řídicí příkazy a~dotazy.
       Řídicí zařízení se dále dělí na dva typy:
         \begitems\style o
-        * {\sbf Aplikační řadič} (Application Controller): Hlavní řídicí jednotka v systému DALI,
+        * {\sbf Aplikační řadič} (Application Controller): Hlavní řídicí jednotka v systému \glref{DALI},
             která je zodpovědná za celkovou koordinaci osvětlení.
             Může jím být například tlačítkový panel, počítač nebo inteligentní systém budovy.
         * {\sbf Vstupní zařízení} (Input Device): Zařízení, které generuje uživatelské vstupy
@@ -62,7 +62,7 @@ Norma IEC 62386, která definuje protokol DALI, obsahuje řadu specifických poj
 * {\sbf Předřadník světelného zdroje} (Control Gear, Ballast):
     \begitems
         * Toto je elektronické zařízení, které reguluje napájení a~proud dodávaný do světelného zdroje.
-            V~systému DALI může předřadník přijímat řídicí příkazy a~dotazy z~řídicího zařízení a~podle nich
+            V~systému \glref{DALI} může předřadník přijímat řídicí příkazy a~dotazy z~řídicího zařízení a~podle nich
             upravovat jas a~další parametry světelného zdroje.
     \enditems
 \enditems
@@ -73,7 +73,7 @@ stránky \url{https://www.electropedia.org} a~prostudovat si sekci věnovanou os
 
 
 Řídící jednotka, předřadník a~napájecí zdroje sběrnice jsou
-tři základní typy zařízení, které se vyskytují na sběrnici v systému DALI.
+tři základní typy zařízení, které se vyskytují na sběrnici v systému \glref{DALI}.
 
 \medskip \clabel[dalicek]{Příklad struktury systému}
 \picw=12cm \cinspic 03_Obrazky/dalicek.png
@@ -83,37 +83,37 @@ tři základní typy zařízení, které se vyskytují na sběrnici v systému D
 % \sec DALI verze 2 a~DALI verze 1
 \sec Varianty protokolu
 
-V současné době rozlišujeme již několik verzi protokolu  DALI jako například
+V současné době rozlišujeme již několik verzi protokolu  \glref{DALI} jako například
 {\sbf DALI} (verze~1), {\sbf DALI-2}, {\sbf D4i} a~{\sbf DALI+}.
-Z hlediska zaměření diplomové práce se budeme zabývat protokolem DALI-2,
-který rozšiřuje původní verzi DALI v1.
+Z hlediska zaměření diplomové práce se budeme zabývat protokolem \glref{DALI-2},
+který rozšiřuje původní verzi \glref{DALI} v1.
 
-Hlavním problémem původní verze DALI (IEC 62386) byla nedostatečná specifikace chování
+Hlavním problémem původní verze \glref{DALI} (IEC 62386) byla nedostatečná specifikace chování
 řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102],
 čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
 To vedlo k~nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
 Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou tlačítka a~senzory.
-Norma DALI v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
+Norma \glref{DALI} v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
 Musely být připojeny k~řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
 Nebo se volilo řešení s použitím další sběrnice, jako KNX\cite[isoknx], Modbus\cite[modbus] nebo jiné.
 To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systému.
 
-DALI-2, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
-i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v DALI-2 systému vzájemně kompatibilní.
-Kromě toho zavádí DALI-2 certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
+\glref{DALI-2}, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
+i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v \glref{DALI-2} systému vzájemně kompatibilní.
+Kromě toho zavádí \glref{DALI-2} certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
 
 Možnost použití bezdrátové komunikace a~IP protokolu byla zavedena až v~normě DALI+.
 
 \medskip
-Aby se zachovala kompatibilita se staršími systémy, rozlišuje DALI-2 dva typy řídicích jednotek:
+Aby se zachovala kompatibilita se staršími systémy, rozlišuje \glref{DALI-2} dva typy řídicích jednotek:
 \begitems
-    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s DALI v1 a~fungují jako hlavní řídicí prvek v systému.
-    *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a~flexibilitu v DALI-2 systémech.
+    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s \glref{DALI} v1 a~fungují jako hlavní řídicí prvek v systému.
+    *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a~flexibilitu v \glref{DALI-2} systémech.
 \enditems
 
-Multi master DALI-2 má striktnější pravidla pro komunikaci. Jedním z příkladů je časování půl bitů:
+Multi master \glref{DALI-2} má striktnější pravidla pro komunikaci. Jedním z příkladů je časování půl bitů:
 \begitems
     *{\sbf Single master:} 366,7 až 466,7 µs (\cite[iec101], kapitola 8.1.1)
     *{\sbf Multi master:} 400,0 až 433,3 µs (\cite[iec101], kapitola 8.3.1)
@@ -124,16 +124,16 @@ zatímco multi master pouze 5\%.
 Tyto drobné rozdíly v časování můžou u některých starších zařízení způsobovat problémy
 s kompatibilitou a~vylučovat je z provozu v multi master systémech.
 
-V DALI systémech s více řídicími jednotkami (multi-master) může docházet
+V \glref{DALI} systémech s více řídicími jednotkami (multi-master) může docházet
 na sběrnici ke kolizím kvůli paralelní komunikaci.
 Tyto řídící jednotky musí být schopny detekovat kolize a~řešit je.
 V single master systému je pouze jedna řídicí jednotka, která odesílá pokyny na sběrnici.
 Nemusí přijímat data, protože je jediným komunikujícím zařízením.
 
 
-Multi-master DALI zařízení jsou pokročilejší a~flexibilnější než single-master.
-Díky obousměrné komunikaci a~detekci kolizí umožňuje multi-master DALI implementaci
-složitějších funkcí a~konfigurací v osvětlovacích systémech. Single-master DALI zařízení
+Multi-master \glref{DALI} zařízení jsou pokročilejší a~flexibilnější než single-master.
+Díky obousměrné komunikaci a~detekci kolizí umožňuje multi-master \glref{DALI} implementaci
+složitějších funkcí a~konfigurací v osvětlovacích systémech. Single-master \glref{DALI} zařízení
 jsou vhodné pro základní aplikace, kde je potřeba ovládat osvětlení z jednoho centrálního
 bodu, všechny vstupy jsou v dosahu řídící jednotky a~není zapotřebí pokročilých funkcí.
 Příklady použití single-master a~multi-master systémů jsou uvedeny v příloze A.2 normy
@@ -143,7 +143,7 @@ IEC 62386-101 \cite[iec101].
 %  ############################################################################################################
 \sec Topologie sběrnice
 
-Připojování zařízení v systému DALI může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
+Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
 \begitems
     * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu napájecímu zdroji.
     * {\sbf Seriová topologie:} Zařízení jsou propojena v řadě, kdy z jednoho zařízení vede kabel k~dalšímu.
@@ -153,16 +153,16 @@ Připojování zařízení v systému DALI může být provedeno několika způs
 \noindent
 Nedoporučuje se:
 \begitems
-    *{\sbf Kruhová topologie:} Připojování zařízení do kruhu {\sbf není} v DALI povoleno.
+    *{\sbf Kruhová topologie:} Připojování zařízení do kruhu {\sbf není} v \glref{DALI} povoleno.
 \enditems
 
-\medskip \clabel[topolgie]{Topologie sběrnice DALI}
+\medskip \clabel[topolgie]{Topologie sběrnice \glref{DALI}}
 \picw=8cm \cinspic 03_Obrazky/g38.png
-\caption/f Topologie sběrnice DALI
+\caption/f Topologie sběrnice \glref{DALI}
 \medskip
 
 
-Pro kabeláž se používají dva vodiče, které tvoří sběrnici DALI,
+Pro kabeláž se používají dva vodiče, které tvoří sběrnici \glref{DALI},
 a musí být umístěny ve stejném kabelu nebo kabelovém svazku, aby se minimalizovalo
 nežádoucí ovlivňování jinými signály (viz obr. \ref[kabel] ).
 Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti na použitém kabelu
@@ -170,12 +170,12 @@ Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti
 Maximální povolený úbytek napětí na sběrnici je 2 V.
 
 
-\medskip \clabel[kabel]{Kabel DALI}
+\medskip \clabel[kabel]{Kabel \glref{DALI}}
 \picw=10cm \cinspic 03_Obrazky/kabel.png
-\caption/f Ukázka použitého kabelu pro sběrnici DALI
+\caption/f Ukázka použitého kabelu pro sběrnici \glref{DALI}
 \medskip
 
-% Protokol DALI omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
+% Protokol \glref{DALI} omezuje systém na maximálně šedesát čtyři jednotky, maximálně šestnáct skupin a~maximálně šestnáct scén.
 % Každá z~těchto šedesáti čtyř jednotek je přiřazena krátká adresa, která je uložena v~zapalovači.
 % Každá jednotlivá jednotka může také obsahovat číslo přiřazení ke skupině, hodnoty osvětlovací scény,
 % časy zeslabování a~úrovně nouzového osvětlení. Krátké adresy mohou být během výroby programovány výrobcem
@@ -192,7 +192,7 @@ Maximální povolený úbytek napětí na sběrnici je 2 V.
 %  ############################################################################################################
 \sec Elektrická specifikace
 
-Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v systému DALI. Nejdůležitější z nich jsou:
+Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
 \begitems
     *{\sbf Polarita:} Rozhraní je nezávislé na polaritě napětí s výjimkou případů, kdy je napájecí zdroj integrován do sběrnice.
     *{\sbf Značení:} Rozhraní by mělo být označeno "da" nebo "DA" pro datové vodiče.
@@ -212,7 +212,7 @@ Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v sy
 %  ############################################################################################################
 \sec Přenosový protokol
 
-Přenosový protokol DALI využívá k~přenosu informace hrany signálu (viz obr. \ref[kodovani])
+Přenosový protokol \glref{DALI} využívá k~přenosu informace hrany signálu (viz obr. \ref[kodovani])
 s~pevně stanovenou přenosovou rychlostí 1200 bps.
 Logické jedničce odpovídá vzestupná hrana signálu a~nule odpovídá sestupná hrana signálu.
 
@@ -222,9 +222,9 @@ ale každá hrana signálu slouží současně k~synchronizaci komunikace, což 
 Tento typ kódování je znám jako protokol Manchester.
 
 
-\medskip \clabel[kodovani]{Kodování bitů v protokolu DALI}
+\medskip \clabel[kodovani]{Kodování bitů v protokolu \glref{DALI}}
 \picw=8cm \cinspic 03_Obrazky/logika.png
-\vbox{\caption/f Kodování bitů v protokolu DALI}
+\vbox{\caption/f Kodování bitů v protokolu \glref{DALI}}
 \vbox{\centerline{(\url{www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530})}}
 % https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 \medskip
@@ -259,11 +259,11 @@ Datový rámec obsahuje:
 \sec Typy datových paketů
 
 
-Datové pakety protokolu DALI se dělí na:
+Datové pakety protokolu \glref{DALI} se dělí na:
 \begitems
-    *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány pro základní funkce protokolu DALI.
+    *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány pro základní funkce protokolu \glref{DALI}.
     *{\sbf Rezervované:} Tyto pakety mají délku 20 bitů, jsou vyhrazeny a~nesmějí se používat.
-    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k~rozšíření funkcí protokolu DALI o~specifické funkce daného výrobce.
+    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k~rozšíření funkcí protokolu \glref{DALI} o~specifické funkce daného výrobce.
         Mohou mít libovolnou délku kromě výše uvedených. Nicméně se nedoporučuje používat pakety o~délce 8 až 15 bitů.
 \enditems
 
@@ -299,7 +299,7 @@ Datový paket {\sbf 32 bitů}:
 %  ############################################################################################################
 \sec Adresy, skupiny a~scény
 
-Na sběrnici DALI mohou být zařízení identifikována pomocí adres a~skupin.
+Na sběrnici \glref{DALI} mohou být zařízení identifikována pomocí adres a~skupin.
 Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídící jednotky, celkem 128 zařízení.
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
@@ -326,7 +326,7 @@ Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení ja
 % \sec Postup práce se sběrnicí
 \sec Inicializace zařízení
 
-V další části bude popsán postup práce se zařízeními na sběrnici DALI, který byl aplikován v praktické části.
+V další části bude popsán postup práce se zařízeními na sběrnici \glref{DALI}, který byl aplikován v praktické části.
 
 Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadníků. Postup činnosti byl následující:
 
@@ -342,7 +342,7 @@ Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadní
 \medskip \noindent
 {\sbf Nastavení operačního modu}
 
-Zařízení DALI mohou pracovat v různých operačních režimech, které určují jejich chování.
+Zařízení \glref{DALI} mohou pracovat v různých operačních režimech, které určují jejich chování.
 Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na zprávy z~řídící jednotky
 podle normy IEC 62386-102\cite[iec102].
 
@@ -375,7 +375,7 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 \medskip \noindent
 {\sbf Přiřazení krátkých adres}
 
-Krátká adresa se každému zařízení na sběrnici DALI přiřazuje podle postupu popsaného
+Krátká adresa se každému zařízení na sběrnici \glref{DALI} přiřazuje podle postupu popsaného
 v příloze A.1 \cite[iec102].
 
 Postup nastavení krátkých adres:
@@ -404,13 +404,13 @@ Použijeme příkaz SET SHORT ADDRESS(broadcast).
 \medskip \noindent
 {\sbf Identifikace zařízení}
 
-Pokud jsou u všech zařízení na sběrnici DALI nastaveny krátké adresy, lze provést jejich identifikaci.
+Pokud jsou u všech zařízení na sběrnici \glref{DALI} nastaveny krátké adresy, lze provést jejich identifikaci.
 K identifikaci se používá příkaz IDENTIFY DEVICE.
 Po odeslání příkazu IDENTIFY DEVICE vybrané zařízení zareaguje blikáním po dobu 10 sekund.
 Tímto způsobem lze identifikovat jednotlivá zařízení na sběrnici.
 
 
-Kromě příkazu IDENTIFY DEVICE je možné používat i~další příkazy pro identifikaci zařízení DALI.
+Kromě příkazu IDENTIFY DEVICE je možné používat i~další příkazy pro identifikaci zařízení \glref{DALI}.
 Mezi příklady patří vypnutí zařízení (příkaz OFF), nastavení maximálního jasu (příkaz RECALL MAX LEVEL)
 a další.
 
@@ -457,7 +457,7 @@ Po přiřazení zařízení do skupin je možné je ovládat najednou. To umož�
 {\sbf Nastavení jasu scén}
 
 
-Scény v DALI slouží k~ukládání a~vyvolávání předdefinovaných nastavení osvětlení.
+Scény v \glref{DALI} slouží k~ukládání a~vyvolávání předdefinovaných nastavení osvětlení.
 Na rozdíl od skupin, které slouží k~rozdělení světel do kategorií, scény uchovávají
 kompletní konfiguraci osvětlení pro daný účel (jas, barva, zapnutí/vypnutí).
 To umožňuje uživateli snadno přepínat mezi různými světelnými režimy bez nutnosti
@@ -534,7 +534,7 @@ světla na hodnoty uložené v dané scéně.
 \medskip \noindent
 {\sbf Proměnné DRT0, DRT1, DRT2}
 
-Pro pochopení ovládání předřadníků DALI je důležité znát princip odesílání příkazů.
+Pro pochopení ovládání předřadníků \glref{DALI} je důležité znát princip odesílání příkazů.
 Některé příkazy, jako je nastavení jasu, jsou vícekrokové.
 % To znamená, že před odesláním samotného příkazu je nutné v každém předřadníku nastavit specifickou proměnnou.
 
@@ -569,10 +569,10 @@ pokud je "0", jedná se o~příkaz pro přímé ovládání jasu světel \glref{
 
 
 \medskip \noindent
-{\sbf Přehled příkazů protokolu DALI}
+{\sbf Přehled příkazů protokolu \glref{DALI}}
 
 
-Příkazy protokolu DALI jsou rozděleny do několika skupin podle jejich funkce.
+Příkazy protokolu \glref{DALI} jsou rozděleny do několika skupin podle jejich funkce.
 Omezíme se pouze na přehled některých příkazů pro ovládání předřadníků světel,
 plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 
@@ -640,19 +640,19 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 %  ############################################################################################################ odtud odremovat
 \sec Popis hardwaru
 
-Pro komunikaci mikropočítače ESP32 po sběrnici DALI byl použit interface podle schématu na obr. \ref[schematic]
+Pro komunikaci mikropočítače ESP32 po sběrnici \glref{DALI} byl použit interface podle schématu na obr. \ref[schematic]
 a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].   %rozhrani? misto interface?
 
 \medskip \clabel[schematic]{Schéma interface}
 \picw=12cm \cinspic 03_Obrazky/schematic.png
-\caption/f Schéma interface DALI
+\caption/f Schéma interface \glref{DALI}
 \medskip
 
 \medskip
 \noindent
-{\sbf Připojení sběrnice DALI:}
+{\sbf Připojení sběrnice \glref{DALI}:}
 \begitems
-    * Sběrnice DALI se připojuje ke svorkám X1-1 a~X1-2.
+    * Sběrnice \glref{DALI} se připojuje ke svorkám X1-1 a~X1-2.
     * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a~IK2 \cite[PC817].
 \enditems
 
@@ -667,7 +667,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \medskip \noindent
 {\sbf Pull-up a~pull-down odpory:}
 \begitems
-    Pull-up a~pull-down rezistory jsou implementovány pomocí R5 a~R6,
+    * Pull-up a~pull-down rezistory jsou implementovány pomocí R5 a~R6,
     takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
 \enditems
 
@@ -681,7 +681,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \medskip \noindent
 {\sbf Inicializace sběrnice:}
 \begitems
-    Po spuštění mikropočítač nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
+    * Po spuštění mikropočítač nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
 \enditems
 
 \medskip \noindent
@@ -689,7 +689,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \begitems
     * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a~omezovačem proudu IC1.
     * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerova dioda 5 V)
-    a~odpovídá normě, kde aktivní stav je 0 až 6,5 V.
+    a~odpovídá normě, kde aktivní stav je 0 až 6,5 V. V tomto intervalu se dioda OK1 nerozsvítí.
 \enditems
 
 
@@ -698,7 +698,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \begitems
     * Omezovač proudu IC1 je nastaven na proud 1 mA odporem R2 = 68 Ω. Norma povoluje odběr v klidovém stavu do 2 mA.
     Na druhou stranu, při tomto nastavení má IC1 poměrně nízkou rychlost změny signálu (pouze 1 V/$μ$s),
-    což může negativně ovlivnit čtení hodnot ze sběrnice DALI \cite[LM334].
+    což může negativně ovlivnit čtení hodnot ze sběrnice \glref{DALI} \cite[LM334].
 \enditems
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% odremovat
@@ -735,7 +735,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 
 \medskip \clabel[schematic2]{Schéma napájení}
 \picw=12cm \cinspic 03_Obrazky/schematic2.png
-\caption/f Schéma napájení DALI
+\caption/f Schéma napájení \glref{DALI}
 \medskip
 
 
@@ -759,7 +759,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \noindent
 {\sbf Oddělení napájení:}
 \begitems
-    * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice DALI od mikropočítače.
+    * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice \glref{DALI} od mikropočítače.
     * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
      a~to připojením k~svorkám (+) X3-1 a~(--) X3-2.
     * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-MOSFET.
