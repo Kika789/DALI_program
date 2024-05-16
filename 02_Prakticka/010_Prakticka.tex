@@ -51,25 +51,25 @@ a~také jen přední řadu u~tabule.
 %Cílem mé práce je minimalizovat počet tlačítek pro jednoduchou a~uživatelsky přívětivou manipulaci s osvětlením.
 
 
+% \medskip\noindent
+% {\sbf Parametry učebny:}
+
 \medskip
-{\sbf Parametry učebny:}
-\medskip
-%\midinsert \clabel[Parametry ucebny]{Parametry učebny}
-\ctable{lrrrrr}{
-\table{llllll}{
+\midinsert \clabel[param_ucebny]{Parametry učebny}
+\ctable{lc}{
 %\hfil Spektrum & Vlnová délka \crl \tskip 4pt
-Půdorys & Obdelníkový \cr
-Rozměry & 9,2 m $\times$ 6,9 m $\times$ 4 m \cr
-Velikost oken & 2,9 m $\times$ 1,84 m \cr
-Výška parapetu & 0,88 m \cr
-Výška světel & 3,1 m \cr
-Lavice & 1,3 m $\times$ 0,5 m $\times$ 0,76 m \cr
-Nižší katedra  & 1 m $\times$ 0,70 m $\times$ 0,77 m \cr
-Vyšší katedra  & 1,91 m $\times$ 0,70 m $\times$ 0,85 m \cr
-Zadní skříně & 6 m $\times$ 0,5 m $\times$ 2,6 m \cr}
+Půdorys           &     Obdelníkový                             \cr
+Rozměry           &     9,2 m $\times$ 6,9 m $\times$ 4 m       \cr
+Velikost oken     &     2,9 m $\times$ 1,84 m                   \cr
+Výška parapetu    &     0,88 m                                  \cr
+Výška světel      &     3,1 m                                   \cr
+Lavice            &     1,3 m $\times$ 0,5 m $\times$ 0,76 m    \cr
+Nižší katedra     &     1 m $\times$ 0,70 m $\times$ 0,77 m     \cr
+Vyšší katedra     &     1,91 m $\times$ 0,70 m $\times$ 0,85 m  \cr
+Zadní skříně      &     6 m $\times$ 0,5 m $\times$ 2,6 m       \cr
 }
-%\caption/t Parametry učebny
-%\endinsert
+\caption/t Parametry učebny
+\endinsert
 
 % \medskip \clabel[ps]{Parametry světla}
 % \picw=15cm \cinspic 02_Obrazky/svspec.png
@@ -77,11 +77,10 @@ Zadní skříně & 6 m $\times$ 0,5 m $\times$ 2,6 m \cr}
 % \medskip
 
 \medskip
-\medskip
-\medskip
-V~učebně jsou nainstalovaná světla: EVA - LED linear light
+V~učebně, s parametry podle tab.~\ref[param_ucebny], jsou nainstalovaná světla: EVA - LED linear light
 % \mnote{\inoval{odkaz}}
-\medskip
+
+\medskip\noindent
 {\sbf Pozitivní vlastnosti svítidel}:
 \begitems
     * vysoká citlivost,
@@ -90,37 +89,43 @@ V~učebně jsou nainstalovaná světla: EVA - LED linear light
     * barevná složka CCT 4000K → podpora kognitivní funkce,
     * hliníkové těleso → přímé a~nepříme svícení.
 \enditems
-\medskip
 
-{\sbf Technické parametry svítidel:}
+
+% \medskip\noindent
+% {\sbf Technické parametry svítidel:}
 %  \mnote{\inoval{odkaz}}
-\medskip
-\ctable{lrrrrr}{
+
+Parametry světel jsou uvedeny v~tab.~\ref[param_svetel].
+
+\midinsert \clabel[param_svetel]{Parametry světel}
+\ctable{lc}{
 % \frame - pridani ramecku
-\table{llllll}{  %pridala jsem
 %\hfil {\sbf Světelné parametry} \crl \tskip 4pt
-{\sbf Světelné parametry} \cr
-Distribuce světla & lze kombinovat přímě a~nepřímé \cr
-Optický systém & difuzor -- opál \cr
-Index podání barev - CRI &   $\leq$ 90 \cr
-Teplota chromatičnosti - CCT & 4000 K~\cr
-Svítivost & 8 000 lm/m \cr
-Životnost & 50 000 h \cr
-UGR  & >19 \cr
-{\sbf Elektronické parametry} \cr
-Světelný zdroj & LED \cr
-Napájecí napětí & AC 230 V / 50 Hz \cr
-Předřadná část & elektronický předřadník \cr
-Možnosti regulace & ano \cr
-{\sbf Parametry produktu} \cr
-Rozměr & 60 $\times$ 60 $\times$ 3000 mm \cr
-Materiál & eloxovaný hliník, PMMA \cr
-Barva & stříbrná \cr}
+    {\sbf Světelné parametry} \cr
+       \quad Distribuce světla              & lze kombinovat přímě a~nepřímé  \cr
+       \quad Optický systém                 & difuzor -- opál                 \cr
+       \quad Index podání barev - CRI       &   $\leq$ 90                     \cr
+       \quad Teplota chromatičnosti - CCT   & 4000 K~                         \cr
+       \quad Svítivost                      & 8 000 lm/m                      \cr
+       \quad Životnost                      & 50 000 h                        \cr
+       \quad UGR                            & >19                             \cr
+    {\sbf Elektronické parametry}                                       \cr
+       \quad Světelný zdroj                 & LED                             \cr
+       \quad Napájecí napětí                & AC 230 V / 50 Hz                \cr
+       \quad Předřadná část                 & elektronický předřadník         \cr
+       \quad Možnosti regulace              & ano                             \cr
+    {\sbf Parametry produktu}                                           \cr
+       \quad Rozměr                         & 60 $\times$ 60 $\times$ 3000 mm \cr
+       \quad Materiál                       & eloxovaný hliník, PMMA          \cr
+       \quad Barva                          & stříbrná                        \cr
 }
+\caption/t Parametry světel
+\endinsert
 
 \sec Aktuální stav učebny:
 
-Ovládání aktuálního stavu světelného zařízení v~učebně (\ref[ucebna]) je řešeno dvanácti tlačítky, což způsobuje složitější ovládání
+Ovládání aktuálního stavu světelného zařízení v~učebně (obr. \ref[ucebna] a \ref[pudorys]) je řešeno dvanácti tlačítky,
+což způsobuje složitější ovládání
 a potíže novým uživatelům. I~přesto však existují pozitiva, která vyplývají z~tohoto systému, když jsou parametry
 osvětlení správně nastaveny. Díky kvalitnímu osvětlení se lépe udržuje pozornost a~zvyšuje se energetická úspornost.
 
@@ -142,7 +147,7 @@ Před měřením proběhla diskuze s~učiteli, kde byly zjištěny pozitivní a~
 \enditems
 
 \medskip\noindent
-Po diskuzi s~učiteli bylo navrženo nastavit:
+Po diskuzi s~učiteli bylo navrženo:
 \begitems
     * {\sbf Tlačítko - Off:} Přidat jednoduché tlačítko umožňující úplné vypnutí osvětlení.
     * {\sbf Scéna - Výklad:} Vytvořit přednastavenou scénu pro situace, kdy probíhá výklad, která optimalizuje
