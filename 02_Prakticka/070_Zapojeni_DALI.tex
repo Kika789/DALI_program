@@ -129,9 +129,9 @@ Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 
 \sec Řídíci jednotka
 
-% Pro řízení světel byla použitá řídící jednotka s mikroprocesor ESP32 WROOM
+% Pro řízení světel byla použitá řídící jednotka s mikroprocesor \glref{ESP32} WROOM
 % (viz obrázek \ref[pripojeni]).
-Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WROOM, který se vyznačuje vysokým výkonem,
+Pro řízení světel byla zvolena řídící jednotka s mikrořadičem \glref{ESP32} WROOM, který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
 a zároveň umožňuje implementaci komplexních funkcí.
@@ -195,7 +195,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \begitems
     * Pro tlačítka byly vytvořeny scény, které definují chování světel při stisknutí daného tlačítka.
         Scény zahrnují funkce jako zapnutí/vypnutí a~stmívání/zesilování.
-    * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér ESP32 WROOM,
+    * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér \glref{ESP32} WROOM,
         s využitím jazyka C++ a~knihoven pro komunikaci a~ovládání světel.
 \enditems
 
@@ -240,7 +240,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 %     • a~zdroj 12~V
 %     • dokumentace řídicí jednotky
 %     • byla pouzit protokol DALI
-%     • ridici jednotka s~ESP32
+%     • ridici jednotka s~\glref{ESP32}
 
 %     • na začátku bylo zapotřebí zvolit správné piny pro ovládání světel a~tlačítek
 %     • dále jsme museli nastavit adresy jednotlivým světelným zařízením - pomcí inicialize a~nebo postupným odpojováním/zapojováním
@@ -311,9 +311,9 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 
 
 
-\medskip \clabel[sceny]{Scény}
+\medskip \clabel[sceny]{Realizované scény}
 \picw=16cm \cinspic 03_Obrazky/sceny.png
-\caption/f Scény
+\caption/f Realizované scény
 \medskip
 
 % Postup pro nastavování scén:

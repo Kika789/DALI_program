@@ -75,9 +75,9 @@ stránky \url{https://www.electropedia.org} a~prostudovat si sekci věnovanou os
 Řídící jednotka, předřadník a~napájecí zdroje sběrnice jsou
 tři základní typy zařízení, které se vyskytují na sběrnici v systému \glref{DALI}.
 
-\medskip \clabel[dalicek]{Příklad struktury systému}
+\medskip \clabel[dalicek]{Příklad struktury systému DALI}
 \picw=12cm \cinspic 03_Obrazky/dalicek.png
-\caption/f Příklad struktury systému
+\caption/f Příklad struktury systému DALI
 
 %  ############################################################################################################
 % \sec DALI verze 2 a~DALI verze 1
@@ -222,12 +222,11 @@ ale každá hrana signálu slouží současně k~synchronizaci komunikace, což 
 Tento typ kódování je znám jako protokol Manchester.
 
 
-\medskip \clabel[kodovani]{Kodování bitů v protokolu \glref{DALI}}
+\medskip \clabel[kodovani]{Kódování bitů v protokolu \glref{DALI}}
 \picw=8cm \cinspic 03_Obrazky/logika.png
-\vbox{\caption/f Kodování bitů v protokolu \glref{DALI}}
-\vbox{\centerline{(\url{www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530})}}
-% https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
+\caption/f Kódování bitů v protokolu \glref{DALI}
 \medskip
+% https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 
 \noindent
 Na sběrnici rozlišujeme:
@@ -261,10 +260,13 @@ Datový rámec obsahuje:
 
 Datové pakety protokolu \glref{DALI} se dělí na:
 \begitems
-    *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány pro základní funkce protokolu \glref{DALI}.
+    *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány
+       pro základní funkce protokolu \glref{DALI}.
     *{\sbf Rezervované:} Tyto pakety mají délku 20 bitů, jsou vyhrazeny a~nesmějí se používat.
-    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k~rozšíření funkcí protokolu \glref{DALI} o~specifické funkce daného výrobce.
-        Mohou mít libovolnou délku kromě výše uvedených. Nicméně se nedoporučuje používat pakety o~délce 8 až 15 bitů.
+    *{\sbf Privátní:} Tyto pakety definují výrobci zařízení a~slouží k~rozšíření funkcí
+        protokolu \glref{DALI} o~specifické funkce daného výrobce.
+        Mohou mít libovolnou délku kromě výše uvedených.
+        Nicméně se nedoporučuje používat pakety o~délce 8 až 15 bitů.
 \enditems
 
 \medskip\noindent
@@ -640,7 +642,7 @@ plný seznam je uveden v normě \cite[iec102] v kapitole 11.
 %  ############################################################################################################ odtud odremovat
 \sec Popis hardwaru
 
-Pro komunikaci mikropočítače ESP32 po sběrnici \glref{DALI} byl použit interface podle schématu na obr. \ref[schematic]
+Pro komunikaci mikropočítače \glref{ESP32} po sběrnici \glref{DALI} byl použit interface podle schématu na obr. \ref[schematic]
 a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].   %rozhrani? misto interface?
 
 \medskip \clabel[schematic]{Schéma interface}
@@ -688,7 +690,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 {\sbf Vstupní strana:}
 \begitems
     * Vstupní strana je realizována oddělovačem OK1, Zenerovou diodou D1 a~omezovačem proudu IC1.
-    * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerova dioda 5 V)
+    * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerová dioda 5 V)
     a~odpovídá normě, kde aktivní stav je 0 až 6,5 V. V tomto intervalu se dioda OK1 nerozsvítí.
 \enditems
 
@@ -752,8 +754,8 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \noindent
 {\sbf Napájení řídící jednotky:}
 \begitems
-    * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s ESP32.
-    * IC2 je step-down měnič napětí, který zajišťuje stabilní napájení 5 V pro ESP32.
+    * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s \glref{ESP32}.
+    * IC2 je step-down měnič napětí, který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.
 \enditems
 
 \noindent
@@ -769,8 +771,8 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \noindent
 {\sbf Napájení z USB portu:}
 \begitems
-    * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače ESP32.
-    * Deska mikropočítače ESP32 obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
+    * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače \glref{ESP32}.
+    * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
 \enditems
 
 \noindent
