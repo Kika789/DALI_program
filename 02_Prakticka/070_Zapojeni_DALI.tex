@@ -28,7 +28,7 @@ na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
 \sec Analýza stávajícího ovládání
 
 Stávající systém světelného ovládání se skládá z 12 tlačítek,
-rozdělených do 3 řad po 4~tlačítkách (viz obrázek \ref[ovl0]).
+rozdělených do 3 částí po 4~tlačítkách (viz obrázek \ref[ovl0]).
 Každé tlačítko ovládá jednu řadu světel a~reaguje na dva typy stisknutí:
 \begitems
     * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
@@ -94,7 +94,7 @@ Schéma zahrnuje:
     * Tlačítka pro zapnutí/vypnutí a~regulaci jasu jsou připojena ke konektoru JP1.
         K~tlačítkům 5 a~6 jsou pripojeny pull-down rezistory 10 kΩ protože vstupní piny
         nemají pull-down rezistory pro použité vstupy procesoru.
-    * Tlačítka 1 až 4 mají invertovanou logiku, tj pri stisku se na vstupu procesoru objeví logická nula.
+    * Tlačítka 1 až 4 mají invertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická nula.
     * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
 \enditems
 
@@ -186,7 +186,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
     * Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě. Adresy
         byly konfigurovány pomocí příkazu INICIALE a~ověřeny příkazem IDENTIFY, kde při správném nastavení se zařízení rozblikalo na 10 sekund.
     * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
-        se vytvořila adresní mapa pro komunikaci mezi mikrořadičem a~jednotlivými světly.
+        se vytvořila adresní mapa pro komunikaci mezi mikrokontrolérem a~jednotlivými světly.
 \enditems
 
 
@@ -196,7 +196,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \begitems
     * Pro tlačítka byly vytvořeny scény, které definují chování světel při stisknutí daného tlačítka.
         Scény zahrnují funkce jako zapnutí/vypnutí a~stmívání/zesilování.
-    * Implementace scén byla provedena v programovacím prostředí pro mikrořadič ESP32 WROOM,
+    * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér ESP32 WROOM,
         s využitím jazyka C++ a~knihoven pro komunikaci a~ovládání světel.
 \enditems
 
@@ -335,7 +335,7 @@ Popis kroků pro nastavení scén:
 \medskip\noindent
 {\sbf Nastavení výchozích parametrů:}
 \begitems
-    * {\sbf set failure system = 180:} Nastaví časový limit pro reakci systému na příkazy. Doporučená hodnota je 180 sekund.
+    * {\sbf set failure system = 180:} Nastaví úroveň jasu světelných zařízení při výpadku mikrokontroléru. Hodnota 180 odpovídá..
     * {\sbf set power on = 200:} Nastaví úroveň jasu při zapnutí zařízení. Hodnota 200 odpovídá 80% maximálnímu jasu.
     * {\sbf set max level = 254:} Nastaví maximální dosažitelný jas. Hodnota 254 odpovídá 100% jasu.
     * {\sbf set min level = 85:} Nastaví minimální dosažitelný jas. Hodnota 85 odpovídá 34% jasu.
