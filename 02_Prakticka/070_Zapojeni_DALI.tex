@@ -26,9 +26,8 @@ na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
 % Tímto způsobem chceme vytvořit pohodlnější a~intuitivnější ovládání.
 
 \sec Analýza stávajícího ovládání
-
-Stávající systém světelného ovládání se skládá z 12 tlačítek,
-rozdělených do 3 částí po 4~tlačítkách (viz obrázek \ref[ovl0]).
+Nový navržený ovládací panel snižuje počet tlačítek na 4 a rozšiřuje je o 2 nová tlačítka
+pro nastavení jasu (viz obrázek \ref[ovl0]).
 Každé tlačítko ovládá jednu řadu světel a~reaguje na dva typy stisknutí:
 \begitems
     * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
@@ -72,9 +71,9 @@ Tlačítka jsou rozdělena do dvou sekcí:
 \medskip\noindent
 Toto řešení přináší následující výhody:
 \begitems
-    * {\sbf Snížení složitosti:} Menší počet tlačítek a~jednodušší typy stisknutí usnadňují pochopení a~ovládání systému.
-    * {\sbf Intuitivní ovládání:} Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a~pohodlnější ovládání.
-    * {\sbf Univerzální ovládání jasu:} Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
+    * Menší počet tlačítek a~jednodušší typy stisknutí usnadňují pochopení a~ovládání systému.
+    * Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a~pohodlnější ovládání.
+    * Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
 \enditems
 
 % Zaver
@@ -91,9 +90,9 @@ Toto řešení přináší následující výhody:
 Elektrické schéma pro optimalizované ovládání světel je znázorněno na obrázku \ref[ovl2].
 Schéma zahrnuje:
 \begitems
-    * Tlačítka pro zapnutí/vypnutí a~regulaci jasu jsou připojena ke konektoru JP1.
-        K~tlačítkům 5 a~6 jsou pripojeny pull-down rezistory 10 kΩ protože vstupní piny
-        nemají pull-down rezistory pro použité vstupy procesoru.
+    * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena k konektoru JP1.
+    K tlačítkům 5 a 6 jsou připojeny pull-down rezistory o hodnotě 10 kΩ, protože vstupní piny procesoru
+    neposkytují pull-down rezistory pro dané vstupy.
     * Tlačítka 1 až 4 mají invertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická nula.
     * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
 \enditems
@@ -114,8 +113,8 @@ Schéma zahrnuje:
 Plošný spoj (PCB) pro optimalizované ovládání světel je znázorněn na obrázku \ref[ovl1].
 PCB obsahuje všechny komponenty uvedené na schématu, včetně:
 \begitems
-    * {\sbf Napájecí konektor:} Konektor pro připojení 5V napájení.
-    * {\sbf Tlačítka:} Tlačítka pro zapnutí/vypnutí a~regulaci jasu.
+    * {\sbf Napájecí konektoru:} Konektor pro připojení 5V napájení.
+    * {\sbf Tlačítek:} Tlačítka pro zapnutí/vypnutí a~regulaci jasu.
     * {\sbf Pull-down rezistory:} Rezistory 10 kΩ pro tlačítka regulace jasu.
 \enditems
 
@@ -135,7 +134,7 @@ Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 Pro řízení světel byla zvolena řídící jednotka s mikrořadičem ESP32 WROOM, který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
-a zároveň umožňuje implementaci komplexních funkcí a~scénářů.
+a zároveň umožňuje implementaci komplexních funkcí.
 Řídící jednotka je připojena k~plošnému spoji tlačítek pomocí konektoru JP2.
 
 
@@ -330,7 +329,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 
 \sec Nastavení scén
 
-Popis kroků pro nastavení scén:
+% Popis kroků pro nastavení scén:
 
 \medskip\noindent
 {\sbf Nastavení výchozích parametrů:}
@@ -359,7 +358,37 @@ Popis kroků pro nastavení scén:
         (číslo zařízení) a~požadovaný jas (hodnota jasu).
 \enditems
 
+Popis kroků pro nastavení scén:
 
+První scéna - dva světelné prvky byly nastavené na intenzitě jasu 200 a dva zbylé byly vypnuté 
+
+\begitems \style n
+* add to group 1 1 - přidání světelného prvku s krátkou adresou 1 do groupy s čislem 1
+* add to group 1 2 - přidání světelného prvku s krátkou adresou 1 do groupy s čislem 1
+* set scene -1 1 0 - nastavení světelné scény pro groupu 1 na hodnotu jasu 0 - tata funkce je volána z důvodu vymazání předšlé scény
+* set scene 101 1 200 - nastavení světelné scény pro groupu 1 na hodnotu jasu 200
+\enditems
+
+obrázek volané funkce v kódu
+
+Druhá scéna - dva světelné prvky byly nastavené na vyšší intenzitě jasu 200 a dva zbylé byly na nižší 120
+
+\begitems \style n
+* set scene 0 2 200  
+* set scene 1 2 120 
+* set scene 2 2 200 
+* set scene 3 2 120 
+\enditems
+
+Zde nebylo zapotřebí vytvářet groupu, protože každému zařízení jsme nastavili hodnotu jasu.
+
+Třetí scéna byla nastavena obdobně. 
+
+Nastavení tlačítka off
+
+Nastavení regulace jasu
+
+Poté je zapotřebí sepsat nějaké shrnutí: funguje, komentář, dává to smysl to tam instalovat?
 
 
 
