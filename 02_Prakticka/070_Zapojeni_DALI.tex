@@ -61,7 +61,7 @@ Tlačítka jsou rozdělena do dvou sekcí:
     \enditems
     * {\sbf Regulace jasu:}
         \begitems \style o
-        * {\sbf tlačítka 5--6:}  tlačítka slouží k~postupnému zvyšování a~snižování jasu všech zapnutých světel.
+        * {\sbf tlačítka 5--6:}  slouží k~postupnému zvyšování a~snižování jasu všech zapnutých světel.
         \enditems
 \enditems
 
@@ -69,8 +69,9 @@ Tlačítka jsou rozdělena do dvou sekcí:
 Toto řešení přináší následující výhody:
 \begitems
     * Menší počet tlačítek a~jednodušší typy stisknutí usnadňují pochopení a~ovládání systému.
-    * Odloučení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a~pohodlnější ovládání.
-    * Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
+    * Oddělení funkce zapnutí/vypnutí od regulace jasu umožňuje intuitivnější a~pohodlnější ovládání.
+    % * Regulace jasu se týká všech zapnutých světel, čímž se eliminuje nutnost samostatného nastavování jasu pro každou sekci.
+    * Regulace jasu ovládá všechna zapnutá světla najednou, takže není potřeba nastavovat jas pro každou sekci zvlášť.
 \enditems
 
 % Zaver
@@ -88,8 +89,8 @@ Elektrické schéma pro optimalizované ovládání světel je znázorněno na o
 Schéma zahrnuje:
 \begitems
     * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena ke konektoru JP1.
-    K~tlačítkům 5 a~6 jsou připojeny pull-down rezistory o hodnotě 10 kΩ, protože vstupní piny procesoru
-    neposkytují pull-down rezistory pro dané vstupy.
+    K~tlačítkům 5 a~6 jsou připojeny pull-down rezistory o hodnotě 10 kΩ,
+    protože vstupní piny procesoru nemají integrované pull-down rezistory pro dané vstupy.
     * Tlačítka 1 až 4 mají invertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická nula.
     * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
 \enditems
@@ -110,9 +111,9 @@ Schéma zahrnuje:
 Plošný spoj (\glref{PCB}) pro optimalizované ovládání světel je znázorněn na obrázku \ref[ovl1].
 \glref{PCB} obsahuje všechny komponenty uvedené na schématu, včetně:
 \begitems
-    * {\sbf Napájecí konektoru:} Konektor pro připojení 5V napájení.
+    * {\sbf Napájecího konektoru:} Konektor pro připojení 5V napájení.
     * {\sbf Tlačítek:} Tlačítka pro zapnutí/vypnutí a~regulaci jasu.
-    * {\sbf Pull-down rezistory:} Rezistory 10 kΩ pro tlačítka regulace jasu.
+    * {\sbf Pull-down rezistorů:} Rezistory 10 kΩ pro tlačítka regulace jasu.
 \enditems
 
 \noindent Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
@@ -160,12 +161,10 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 {\sbf Přípravné práce:}
 \begitems
     * {\sbf Osazení plošného spoje tlačítek:}
-        Nejdříve bylo nutné osadit součástky na plošný spoj tlačítek,
-        včetně rezistorů.
+        Nejprve byl plošný spoj osazen všemi součástkami, včetně rezistorů.
     * {\sbf Testování funkčnosti tlačítek:}
-    Pomocí testovacích programů se ověřovala reakce řídící jednotky
-    na stisknutí jednotlivých tlačítek.
-    To zajišťovalo bezchybné fungování tlačítek a~jejich integraci s řídícím systémem.
+        Reakce řídící jednotky na stisknutí jednotlivých tlačítek byla ověřována pomocí
+        testovacích programů, pro bezchybné fungování tlačítek a jejich integraci s řídicím systémem.
 \enditems
 
 \medskip\noindent
