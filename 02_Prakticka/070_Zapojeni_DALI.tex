@@ -2,18 +2,13 @@
 
 % \mnote{\inoval{DALI zapojeni}}
 
-% Poslední fáze praktické části se věnovala návrhu světelného ovládání. Aktuální stav má 12 tlačítek a
-% cílem bylo jejich počet zredukovat na 3 -- 4 tlačítka.
-
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
 ovládání s cílem zjednodušit jeho obsluhu a~zvýšit uživatelský komfort.
-
 
 \medskip \clabel[ovl0]{Aktuální ovládání}
 \picw=10cm \cinspic 03_Obrazky/ovladani.jpg
 \caption/f Aktuální ovládání
 \medskip
-
 
 % Aktuálně je ovládání světel nastaveno tak, že každá řada světel reaguje na krátké nebo dlouhé stisknutí tlačítka.
 % Krátké stisknutí způsobí buď zapnutí nebo vypnutí světel, zatímco dlouhé stisknutí slouží k~postupnému zvyšování
@@ -25,12 +20,6 @@ ovládání s cílem zjednodušit jeho obsluhu a~zvýšit uživatelský komfort.
 
 V současnosti je systém vybaven 12 tlačítky, které slouží k~ovládání
 jednotlivých řad světel (viz obrázek \ref[ovl0]).
-Navrhované optimalizované řešení redukuje počet tlačítek
-na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
-
-
-Nový navržený ovládací panel snižuje počet tlačítek na 4 a rozšiřuje je o 2 nová tlačítka
-pro nastavení jasu.
 Každé tlačítko ovládá jednu řadu světel a~reaguje na dva typy stisknutí:
 \begitems
     * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
@@ -49,6 +38,11 @@ Toto ovládání má svá omezení:
 
 Navrhované optimalizované řešení snižuje počet tlačítek na 4 a~doplňuje
 je o~2~tlačítka pro regulaci jasu (viz obrázek \ref[tlac]).
+
+% Nový navržený ovládací panel snižuje počet tlačítek na 4 a rozšiřuje je o 2 nová tlačítka
+% pro nastavení jasu.
+
+
 
 \medskip \clabel[tlac]{Tlačítka}
 \picw=10cm \cinspic 03_Obrazky/Ovladani/tlacitka.png
@@ -93,8 +87,8 @@ Toto řešení přináší následující výhody:
 Elektrické schéma pro optimalizované ovládání světel je znázorněno na obrázku \ref[ovl2].
 Schéma zahrnuje:
 \begitems
-    * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena k konektoru JP1.
-    K tlačítkům 5 a 6 jsou připojeny pull-down rezistory o hodnotě 10 kΩ, protože vstupní piny procesoru
+    * Tlačítka pro zapnutí/vypnutí a regulaci jasu jsou připojena ke konektoru JP1.
+    K~tlačítkům 5 a~6 jsou připojeny pull-down rezistory o hodnotě 10 kΩ, protože vstupní piny procesoru
     neposkytují pull-down rezistory pro dané vstupy.
     * Tlačítka 1 až 4 mají invertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická nula.
     * Tlačítka 5 a~6 mají neinvertovanou logiku, tj. při stisku se na vstupu procesoru objeví logická jednička.
@@ -178,15 +172,19 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 {\sbf Zapojení systému:}
 \begitems
     * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k~příslušným pinům řídící jednotky.
-    * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k~napájecímu konektoru řídící jednotky.
+    % * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k~napájecímu konektoru řídící jednotky.
+    * {\sbf Napájení řídicí jednotky:} Dva nezávislé napájecí zdroje 12 V byly připojeny k~napájecím konektorům řídící jednotky.
     * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a~napájena síťovým napětím 230 V.
 \enditems
 
 \medskip\noindent
 {\sbf Konfigurace adres:}
 \begitems
-    * Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě. Adresy
-        byly konfigurovány pomocí příkazu INITIALISE a~ověřeny příkazem IDENTIFY, kde při správném nastavení se zařízení rozblikalo na 10 sekund.
+    * Inicializace zařízení a adres
+      byla provedena postupem uvedeným v kapitole \ref[dali_inicializace].
+      Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě.
+      Základní ověření funkčnosti a identifikace byla ověřena příkazem IDENTIFY.
+      Při správném nastavení se zařízení rozblikalo na 10 sekund.
     * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
         se vytvořila adresní mapa pro komunikaci mezi mikrokontrolérem a~jednotlivými světly.
 \enditems
@@ -198,7 +196,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \begitems
     * Pro tlačítka byly vytvořeny scény, které definují chování světel při stisknutí daného tlačítka.
         Scény zahrnují funkce jako zapnutí/vypnutí a~snižování/zvyšování jasu.
-    * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér \glref{ESP32} WROOM,
+    * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér \glref{ESP32} WROOM
         s využitím jazyka C++ a~knihoven pro komunikaci a~ovládání světel.
 \enditems
 
@@ -221,11 +219,11 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \noindent
 {\sbf Pro laboratorní účely byly nastaveny tyto scény:}
 \begitems
-    * {\sbf Tlačítko Off:} Slouží k~úplnému vypnutí světel.
-    * {\sbf Tlačítko Výklad:} Dva světelné prvky jsou zapnuté a~dva vypnuté.
-    * {\sbf Tlačítko Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva na nižší intenzitu.
-    * {\sbf Tlačítko Denní světlo:} Každý prvek je nastaven s jinou intenzitou -- od nejnižší po nejvyšší.
-    * {\sbf Tlačítka Regulace jasu:} Při dlouhém stisku se intenzita zvyšuje/snižuje.
+    * Tlačítko {\sbf Off:} Slouží k~úplnému vypnutí světel.
+    * Tlačítko {\sbf Výklad:} Dva světelné prvky jsou zapnuté a~dva vypnuté.
+    * Tlačítko {\sbf Písemka:} Dva světelné prvky jsou nastaveny na vyšší intenzitu a~dva na nižší intenzitu.
+    * Tlačítko {\sbf Denní světlo:} Každý prvek je nastaven s jinou intenzitou -- od nejnižší po nejvyšší podle vzdálenosti od oken.
+    * Tlačítka {\sbf Regulace jasu:} Při krátkém nebo dlouhém stisku se intenzita postupně zvyšuje/snižuje.
 \enditems
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -337,33 +335,37 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \medskip\noindent
 {\sbf Nastavení výchozích parametrů:}
 \begitems
-    * {\sbf set failure system = 180:} Nastaví úroveň jasu světelných zařízení při výpadku mikrokontroléru. Hodnota 180 odpovídá 70% jasu.
-    * {\sbf set power on = 200:} Nastaví úroveň jasu při zapnutí zařízení. Hodnota 200 odpovídá 80% maximálnímu jasu.
-    * {\sbf set max level = 254:} Nastaví maximální dosažitelný jas. Hodnota 254 odpovídá 100% jasu.
-    * {\sbf set min level = 85:} Nastaví minimální dosažitelný jas. Hodnota 85 odpovídá 34% jasu.
-    * {\sbf set fade time:} Nastaví čas plynulého rozsvícení/zhasnutí při změně jasu. (Hodnota se zadává v sekundách.)
-    * {\sbf set rate time:} Nastaví čas plynulé změny jasu na požadovanou úroveň. (Hodnota se zadává v sekundách.)
+    * {\sbf set failure system (180):}
+        Nastaví úroveň jasu světelných zařízení při výpadku mikrokontroléru.
+        Hodnota 180 přibližně odpovídá {70~\pcent} maximálně dosažitelného jasu.
+    * {\sbf set power on (200):} Nastaví úroveň jasu při zapnutí zařízení.
+        Hodnota 200 přibližně odpovídá {80~\pcent} maximálně dosažitelného jasu.
+    * {\sbf set max level (254):} Nastaví maximální dosažitelný jas.
+        Hodnota 254 odpovídá {100~\pcent} maximálně dosažitelného jasu.
+    * {\sbf set min level (85):} Nastaví minimální dosažitelný jas.
+        Hodnota 85 přibližně odpovídá {34~\pcent} maximálně dosažitelného jasu.
+    * {\sbf set fade time:} Nastaví čas plynulého rozsvícení/zhasnutí při změně jasu.
+    * {\sbf set rate time:} Nastaví rychlost plynulé změny jasu na požadovanou úroveň.
 \enditems
 
-\medskip\noindent
-{\sbf Přidání zařízení do skupin:}
+
+\medskip\medskip
+\noindent
+V kódu byly vytvořeny funkce pro přidání zařízení do skupin a nastavovaní scén.
+
 \begitems
-    * {\sbf Funkce - add to group (číslo zařízení číslo skupiny):}
-        Přidá zadané zařízení (číslo zařízení) do zadané skupiny (číslo skupiny).
+    * Funkce {\sbf  add to group (dev,grp):} Kde $dev$ je číslo zařízení a $grp$ je číslo skupiny.
+        Přidá zadané zařízení do vybrané skupiny.
         To umožňuje ovládat více zařízení najednou.
-\enditems
-
-\medskip\noindent
-{\sbf Definování scén:}
-\begitems
-    * {\sbf Funkce: set scene (č. zařízení číslo scén hodnota jasu):}
-        Nastaví úroveň jasu pro zadanou scénu (číslo scény), zadané zařízení
-        (číslo zařízení) a~požadovaný jas (hodnota jasu).
+    * Funkce {\sbf set scene (dev, scene, jas):}
+        Nastaví úroveň jasu ($jas$) pro zadanou scénu ($scene$) a zadané zařízení
+        ($dev$).
 \enditems
 
 \noindent {\sbf Popis kroků pro nastavení scén:}
 
-\noindent První scéna - dva světelné prvky byly nastavené na intenzitu jasu 200 a dva zbylé byly vypnuté
+\medskip\noindent
+První scéna - dva světelné prvky byly nastavené na intenzitu jasu 200 a dva zbylé byly vypnuté
 
 \begitems \style n
 * add to group(1,1) - přidání světelného prvku s krátkou adresou 1 do groupy s číslem~1
