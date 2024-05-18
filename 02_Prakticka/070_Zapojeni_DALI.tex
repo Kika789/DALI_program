@@ -7,10 +7,6 @@
 
 Poslední fáze praktické části se zaměřila na optimalizaci stávajícího světelného
 ovládání s cílem zjednodušit jeho obsluhu a~zvýšit uživatelský komfort.
-V současnosti je systém vybaven 12 tlačítky, který slouží k~ovládání
-jednotlivých řad světel.
-Navrhované optimalizované řešení redukuje počet tlačítek
-na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
 
 
 \medskip \clabel[ovl0]{Aktuální ovládání}
@@ -26,8 +22,15 @@ na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
 % Tímto způsobem chceme vytvořit pohodlnější a~intuitivnější ovládání.
 
 \sec Analýza stávajícího ovládání
+
+V současnosti je systém vybaven 12 tlačítky, které slouží k~ovládání
+jednotlivých řad světel (viz obrázek \ref[ovl0]).
+Navrhované optimalizované řešení redukuje počet tlačítek
+na 4 a~doplňuje je o~2~tlačítka pro regulaci jasu.
+
+
 Nový navržený ovládací panel snižuje počet tlačítek na 4 a rozšiřuje je o 2 nová tlačítka
-pro nastavení jasu (viz obrázek \ref[ovl0]).
+pro nastavení jasu.
 Každé tlačítko ovládá jednu řadu světel a~reaguje na dva typy stisknutí:
 \begitems
     * {\sbf Krátké stisknutí:} Zapíná nebo vypíná příslušné světelné zařízení.
@@ -390,7 +393,7 @@ obrázek volané funkce v kódu
 \noindent Nastavení regulace jasu
 
 
-\noindent Poté je zapotřebí dopasat shrnutí: 
+\noindent Poté je zapotřebí dopasat shrnutí:
 \begitems \style o
 * funguje
 * komentář
