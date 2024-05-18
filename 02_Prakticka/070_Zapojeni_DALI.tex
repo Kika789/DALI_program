@@ -115,7 +115,7 @@ Plošný spoj (\glref{PCB}) pro optimalizované ovládání světel je znázorn�
     * {\sbf Pull-down rezistory:} Rezistory 10 kΩ pro tlačítka regulace jasu.
 \enditems
 
-Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
+\noindent Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 
 
 \medskip \clabel[ovl1]{Plošný spoj}
@@ -128,7 +128,7 @@ Rozměry desky plošného spoje jsou 91,5 x 30,5 mm.
 
 % Pro řízení světel byla použitá řídící jednotka s mikroprocesor \glref{ESP32} WROOM
 % (viz obrázek \ref[pripojeni]).
-Pro řízení světel byla zvolena řídící jednotka s mikrořadičem \glref{ESP32} WROOM, který se vyznačuje vysokým výkonem,
+Pro řízení světel byla zvolena řídící jednotka s mikrokontrolérem \glref{ESP32} WROOM, který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
 a zároveň umožňuje implementaci komplexních funkcí.
@@ -182,7 +182,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 \begitems
     * Inicializace zařízení a adres
       byla provedena postupem uvedeným v kapitole \ref[dali_inicializace].
-      Každému světlu byla přiřazena jedinečná adresa v rámci komunikační sítě.
+      Každému světlu byla přiřazena unikátní adresa v rámci komunikační sítě.
       Základní ověření funkčnosti a identifikace byla ověřena příkazem IDENTIFY.
       Při správném nastavení se zařízení rozblikalo na 10 sekund.
     * V tomto případě byla světla nastavena na adresy v rozmezí 0 až 3, čímž
@@ -336,7 +336,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 {\sbf Nastavení výchozích parametrů:}
 \begitems
     * {\sbf set failure system (180):}
-        Nastaví úroveň jasu světelných zařízení při výpadku mikrokontroléru.
+        Nastaví úroveň jasu světelných zařízení při výpadku řídící jednotky.
         Hodnota 180 přibližně odpovídá {70~\pcent} maximálně dosažitelného jasu.
     * {\sbf set power on (200):} Nastaví úroveň jasu při zapnutí zařízení.
         Hodnota 200 přibližně odpovídá {80~\pcent} maximálně dosažitelného jasu.
