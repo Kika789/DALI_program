@@ -18,7 +18,7 @@
 
 
 \glref{DALI} (Digitální adresovatelné rozhraní pro osvětlení)
-(jak je uvedeno \cite[dali_quick_start])
+(jak je uvedeno~\cite[dali_quick_start])
 je standardizovaný protokol pro digitální komunikaci v systémech osvětlení.
 Umožňuje obousměrnou výměnu dat mezi řídicími jednotkami a~elektronickými předřadníky světel
 spolu s~dalšími zařízeními.
@@ -89,7 +89,7 @@ Z hlediska zaměření diplomové práce se budeme zabývat protokolem \glref{DA
 který rozšiřuje původní verzi \glref{DALI} v1.
 
 Hlavním problémem původní verze \glref{DALI} (IEC 62386) byla nedostatečná specifikace chování
-řídicích jednotek. Norma definovala pouze fungování předřadníků \cite[iec102],
+řídicích jednotek. Norma definovala pouze fungování předřadníků~\cite[iec102],
 čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
 To vedlo k~nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
@@ -97,11 +97,11 @@ Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou 
 Norma \glref{DALI} v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
 Musely být připojeny k~řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
-Nebo se volilo řešení s použitím další sběrnice, jako KNX\cite[isoknx], Modbus\cite[modbus] nebo jiné.
+Nebo se volilo řešení s použitím další sběrnice, jako KNX~\cite[isoknx], Modbus~\cite[modbus] nebo jiné.
 To zvyšovalo složitost a~náklady na instalaci a~omezovalo flexibilitu systému.
 
 \glref{DALI-2}, uvedená v roce 2017, tento problém napravuje. Norma rozšiřuje specifikaci a~zahrnuje
-i~chování řídicích jednotek \cite[iec103]. Díky tomu jsou všechna zařízení v \glref{DALI-2} systému vzájemně kompatibilní.
+i~chování řídicích jednotek~\cite[iec103]. Díky tomu jsou všechna zařízení v~\glref{DALI-2} systému vzájemně kompatibilní.
 Kromě toho zavádí \glref{DALI-2} certifikační program, který zaručuje, že všechna certifikovaná zařízení splňují normu IEC 62386.
 
 Možnost použití bezdrátové komunikace a~IP protokolu byla zavedena až v~normě DALI+.
@@ -137,13 +137,13 @@ složitějších funkcí a~konfigurací v osvětlovacích systémech. Single-mas
 jsou vhodné pro základní aplikace, kde je potřeba ovládat osvětlení z jednoho centrálního
 bodu, všechny vstupy jsou v dosahu řídící jednotky a~není zapotřebí pokročilých funkcí.
 Příklady použití single-master a~multi-master systémů jsou uvedeny v příloze A.2 normy
-IEC 62386-101 \cite[iec101].
+IEC 62386-101~\cite[iec101].
 
 
 %  ############################################################################################################
 \sec Topologie sběrnice
 
-Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby\cite[iec101] (obr. \ref[topolgie]):
+Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby~\cite[iec101] (obr. \ref[topolgie]):
 \begitems
     * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu napájecímu zdroji.
     * {\sbf Seriová topologie:} Zařízení jsou propojena v řadě, kdy z jednoho zařízení vede kabel k~dalšímu.
@@ -166,7 +166,7 @@ Pro kabeláž se používají dva vodiče, které tvoří sběrnici \glref{DALI}
 a musí být umístěny ve stejném kabelu nebo kabelovém svazku, aby se minimalizovalo
 nežádoucí ovlivňování jinými signály (viz obr. \ref[kabel] ).
 Maximální vzdálenost mezi jednotkami může být až 300 metrů v~závislosti na použitém kabelu
-(tabulka A.1 \cite[iec101]) a~okolním rušení.
+(tabulka~A.1~\cite[iec101]) a~okolním rušení.
 Maximální povolený úbytek napětí na sběrnici je 2 V.
 
 
@@ -192,7 +192,7 @@ Maximální povolený úbytek napětí na sběrnici je 2 V.
 %  ############################################################################################################
 \sec Elektrická specifikace
 
-Standard IEC 62386\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
+Standard IEC 62386~\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
 \begitems
     *{\sbf Polarita:} Rozhraní je nezávislé na polaritě napětí s výjimkou případů, kdy je napájecí zdroj integrován do sběrnice.
     *{\sbf Značení:} Rozhraní by mělo být označeno "da" nebo "DA" pro datové vodiče.
@@ -281,21 +281,21 @@ Datový paket {\sbf 8 bitů}:
 Datový paket {\sbf16 bitů}:
 \begitems
  * tento datový rámec slouží k~odesílání zpráv předřadníkům,
- * norma IEC 62386-102\cite[iec102].
+ * norma IEC 62386-102~\cite[iec102].
 \enditems
 
 \medskip\noindent
 Datový paket {\sbf 24 bitů}:
 \begitems
  * tento datový rámec slouží k~odesílání zpráv řídících a~vstupních jednotek,
- * norma IEC 62386-103\cite[iec103].
+ * norma IEC 62386-103~\cite[iec103].
 \enditems
 
 \medskip\noindent
 Datový paket {\sbf 32 bitů}:
 \begitems
  * tento datový rámec slouží k~aktualizaci firmwaru řídících jednotek a~předřadníků,
- * norma IEC 62386-105\cite[iec105].
+ * norma IEC 62386-105~\cite[iec105].
 \enditems
 
 %  ############################################################################################################
@@ -307,10 +307,10 @@ Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro ří
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
 Existuje 32 skupin pro vstupních jednotky (jako jsou jednotlivá tlačítka);
-každé může být členem až 3 z těchto skupin \cite[dali_quick_start].
+každé může být členem až 3 z těchto skupin~\cite[dali_quick_start].
 
 Některé zařízení mohou obsluhovat více světel, pak mohou používat více adres. Taková zařízení
-označujeme jako zařízení s logickými jednotkami \cite[dali_quick_start].
+označujeme jako zařízení s logickými jednotkami~\cite[dali_quick_start].
 
 
 Obecně je možné adresovat zařízení pomocí adresy v rozsahu 0 až 63, tzv. krátká adresa,
@@ -346,7 +346,7 @@ Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadní
 
 Zařízení \glref{DALI} mohou pracovat v různých operačních režimech, které určují jejich chování.
 Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na zprávy z~řídící jednotky
-podle normy IEC 62386-102\cite[iec102].
+podle normy IEC 62386-102~\cite[iec102].
 
 Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a~provést ho.
 Přepnutí se provádí pomocí broadcast zprávy SET OPERATING MODE, proto není nutné znát adresy zařízení.
@@ -378,7 +378,7 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 {\sbf Přiřazení krátkých adres}
 
 Krátká adresa se každému zařízení na sběrnici \glref{DALI} přiřazuje podle postupu popsaného
-v příloze A.1 \cite[iec102].
+v příloze A.1~\cite[iec102].
 
 Postup nastavení krátkých adres:
 \begitems
@@ -557,7 +557,7 @@ Adresovací byte je často první byte v datovém rámci a~obsahuje informace
 o adrese zařízení komu je zpráva určena.
 
 \medskip \noindent
-Může mít binární tvar (viz 7.2.1 \cite[iec102]):
+Může mít binární tvar (viz 7.2.1~\cite[iec102]):
 \begitems
 * {\tt 0AAA AAAx} - krátká adresa, kde A je adresa zařízení.
 * {\tt 100G GGGx} - skupina, kde G je číslo skupiny.
@@ -576,7 +576,7 @@ pokud je "0", jedná se o~příkaz pro přímé ovládání jasu světel \glref{
 
 Příkazy protokolu \glref{DALI} jsou rozděleny do několika skupin podle jejich funkce.
 Omezíme se pouze na přehled některých příkazů pro ovládání předřadníků světel,
-plný seznam je uveden v normě \cite[iec102] v kapitole 11.
+plný seznam je uveden v normě~\cite[iec102] v kapitole 11.
 
 \begitems
     * {\sbf Ovládání jasu:}
@@ -655,7 +655,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 {\sbf Připojení sběrnice \glref{DALI}:}
 \begitems
     * Sběrnice \glref{DALI} se připojuje ke svorkám X1-1 a~X1-2.
-    * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a~IK2 \cite[PC817].
+    * K mikropočítači se sběrnice připojuje přes optické oddělovače realizované optočleny IK1 a~IK2~\cite[PC817].
 \enditems
 
 
@@ -755,7 +755,7 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 {\sbf Napájení řídící jednotky:}
 \begitems
     * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s \glref{ESP32}.
-    * IC2 je synchronní step-down měnič napětí s obvodem TPS4005x \cite[tps4005x],
+    * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
     který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.
 \enditems
 
@@ -773,14 +773,14 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 {\sbf Napájení z USB portu:}
 \begitems
     * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače \glref{ESP32}.
-    * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro zdvojené napájení, takže propojku R10 není nutné odstraňovat.
+    * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro zdvojené napájení, propojku R10 není nutné odstraňovat.
 \enditems
 
 \noindent
 {\sbf Zapojení v praktické části:}
 \begitems
-    * V praktické části byl použit pouze jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
-      svorky {X3-1} a~{X3-2} zůstaly nezapojené.
+    * V praktické části byl použit jak jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
+      tak i druhý zdroj připojený ke svorkám {X3-1} a~{X3-2}.
     * Všechny propojky zůstaly zapojeny.
     * Mikropočítač byl napájen z USB portu a~připojen k~počítači pro programování a~testování.
 \enditems
