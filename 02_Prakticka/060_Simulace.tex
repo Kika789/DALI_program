@@ -2,10 +2,18 @@
 
 Pro návrh optimálních světelných scén byla provedena simulace v~programu DIALux.
 
-DIALux je software pro simulaci osvětlení ve vnitřních a~venkovních podmínkách. Umožňuje výpočty,.....
+DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a~venkovních podmínkách. Je výkonný a umožňuje vytvořit 3D model
+pro různé typy prostorů, od malých bytů až po velké komerční budovy. Lze s~ním také vytvářet modely pro venkovní osvětlení,
+jako jsou silnice, parky a~sportovní zařízení. Umožňuje provádět simulace jak s~denním světlem, tak za tmy. Do programu
+lze vložit svítidla od mnoha různých firem, s~nimiž mají uzavřenou smlouvu, a~parametry jednotlivých světelných zařízení
+si můžete sami doladit.
 
-\medskip
-Postup návrhu:
+Slouží tedy k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla, teploty barvy, indexu podání barev,
+energetické účinnosti, oslnění atd.
+
+
+\medskip \noindent
+{\sbf Postup návrhu:}
 
 \begitems \style n
 * nakreslení půdorysu
@@ -28,27 +36,30 @@ Postup návrhu:
 
  
 
-Byly provedeny tři simulace pro navržené scény - Výklad, Písemka a~Denní světlo
+\noindent Byly provedeny tři simulace pro navržené scény - Výklad, Písemka a~Denní světlo
 
 Cílem je vytvořit optimální osvětlené prostředí pro studenty s ohledem na jejich vizuální pohodlí, soustředění a produktivitu.
 
-Nastavení simulace:
+\noindent {\sbf Nastavení simulace:}
 
 - v nastavení byl vybrán typ místnosti: Třída - obecné činnosti
+
 - obrázek
-- u výkladu byla zvolena jen světla nepřímá a~aby bylo požadováno 300-500lx
-- u písemky byly zvoleny přímá a~nepřímá
-- u denního světla - každá řada s jinou intenzitou od nejnižší po nejvyšší jas
+% - u výkladu byla zvolena jen světla nepřímá a~aby bylo požadováno 300-500lx
+% - u písemky byly zvoleny přímá a~nepřímá
+% - u denního světla - každá řada s jinou intenzitou od nejnižší po nejvyšší jas
 
 \sec Simulace - Výklad
 
-\begitems \style o
+\begitems 
 * Zvolený typ osvětlení: Nepřímé
 * Cíl: Zajistit měkké a rovnoměrné osvětlení, které minimalizuje oslnění a umožňuje studentům snadno vidět na tabuli a učitele.
 * Nastavení: Zajistěte, aby intenzita osvětlení na tabuli a v prostoru pro učitele byla 300 - 500 luxů, vyhnout se přímému osvětlení tabule, které by mohlo způsobovat oslnění.
 \enditems
 
-Světelný tok svítidla nastaven pro nepřímá: 4000 lm, pro přímá: 1 lm
+\noindent Světelný tok svítidla nastaven pro nepřímá: 4000 lm, pro přímá: 1 lm
+
+\secc Výsledky simulace
 
 \medskip \clabel[vyklad]{Výklad}
 \picw=10cm \cinspic 04_Grafy/05_simulace/Vyklad.png
@@ -69,9 +80,11 @@ Světelný tok svítidla nastaven pro nepřímá: 4000 lm, pro přímá: 1 lm
 \enditems
 
 
-Při nastavení na 4000~lm přímých světel to vychází na 500~lx
+\noindent Při nastavení na 4000~lm přímých světel to vychází na 500~lx
 
-Světelný tok svítidla nastaven pro nepřímá: 2000~lm, pro přímá: 3000~lm
+\noindent Světelný tok svítidla nastaven pro nepřímá: 2000~lm, pro přímá: 3000~lm
+
+\secc Výsledky simulace
 
 \medskip \clabel[pisemka]{Písemka}
 \picw=10cm \cinspic 04_Grafy/05_simulace/Pisemka.png
@@ -85,14 +98,16 @@ Světelný tok svítidla nastaven pro nepřímá: 2000~lm, pro přímá: 3000~lm
 
 \sec Simula - Denní světlo
 
-\begitems \style o
+\begitems 
 * Zvolený typ osvětlení: kombinace denního a umělého osvětlení
 * Cíl: Využít co nejvíce denního světla a minimalizovat potřebu umělého osvětlení.
 * Nastavení: Použít žaluzie nebo rolety pro regulaci denního světla a zabránění oslnění; v případě potřeby doplňte denní světlo umělým osvětlením tak, aby byla zajištěna požadovaná intenzita osvětlení (300-500 luxů).
 \enditems
 
-Zatažená obloha
-Světelný tok svítidla nastaven pro nepřímá i~přímá: 3000~lx, 2000~lx, 1000~lx
+\noindent Zatažená obloha
+\noindent Světelný tok svítidla nastaven pro nepřímá i~přímá: 3000~lx, 2000~lx, 1000~lx
+
+\secc Výsledky simulace
 
 \medskip \clabel[denni_svetlo]{Denní světlo}
 \picw=10cm \cinspic 04_Grafy/05_simulace/Pisemka.png
