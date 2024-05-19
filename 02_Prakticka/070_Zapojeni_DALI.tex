@@ -189,6 +189,26 @@ Jako vývojové prostředí pro programování řídící jednotky bylo testová
         Umožňuje programování v jazycích C a~C++ a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_esp-idf].
 \enditems
 
+
+Ukazuje se, že nejvhodnějším vývojovým prostředím pro programování řídící jednotky je PlatformIO,
+protože je integrované do vývojového prostředí Visual Studio Code
+s velmi pohodlným textovým editorem a~nabízí širokou škálu funkcí pro vývoj softwaru.
+Nevýhodou je, že mnohé knihovny jsou portovány do prostředí často s výrazným zpožděním.
+Popřípadě je nutné provést ruční konfiguraci knihoven, což může být značně časově náročné.
+
+Nevýhodou Arduino IDE je v současnosti jenom omezené možnosti editoru proti Visual Studio Code.
+
+Framework ESP--IDF je vhodný pro pokročilé uživatele, kteří potřebují využít pokročilé funkce mikrokontroléru ESP32.
+Lze ho použít s libovolným textovým editorem, a integrace s Visual Studio Code je velmi dobrá.
+% Pro využití všech funkcí mikrokontroléru je to nejlepší volba, ale pro jednoduché projekty to může být zbytečně složité.
+
+Pro vývoj řídící jednotky bylo zvoleno vývojové prostředí PlatformIO, z důvodu, že byla
+k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly pomocí protokolu DALI verze 1.
+
+% Pro případ, že by bylo nutné využít pokročilé funkce protokolu DALI verze 2, by bylo vhodné
+% použít některou z knihoven pro ESP32, které jsou dostupné na internetu pro ESP--IDF.
+
+
 \medskip\noindent
 {\sbf Konfigurace adres:}
 \begitems
