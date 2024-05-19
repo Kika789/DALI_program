@@ -182,11 +182,11 @@ Jako vývojové prostředí pro programování řídící jednotky bylo testová
 
 \begitems
     * {\sbf PlatformIO:} PlatformIO je open-source vývojové prostředí pro vývoj softwaru pro mikrokontroléry.
-        Umožňuje programování v jazycích C a~C++ a~podporuje mnoho různých mikrokontrolérů~\cite[platformio_ide].
+        Umožňuje programování v mnoha jazycích a~podporuje mnoho různých mikrokontrolérů~\cite[platformio_ide].
     * {\sbf Arduino IDE:} Arduino IDE je vývojové prostředí pro programování mikrokontrolérů z platformy Arduino.
         Umožňuje programování v jazyce C++~\cite[arduino_ide].
     * {\sbf ESP--IDF (Espressif IoT Development Framework):} ESP--IDF je oficiální vývojové prostředí pro mikrokontroléry ESP32.
-        Umožňuje programování v jazycích C a~C++ a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_esp-idf].
+        Umožňuje programování v jazycích C a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_esp-idf].
 \enditems
 
 
@@ -196,7 +196,10 @@ s velmi pohodlným textovým editorem a~nabízí širokou škálu funkcí pro v�
 Nevýhodou je, že mnohé knihovny jsou portovány do prostředí často s výrazným zpožděním.
 Popřípadě je nutné provést ruční konfiguraci knihoven, což může být značně časově náročné.
 
-Nevýhodou Arduino IDE je v současnosti jenom omezené možnosti editoru proti Visual Studio Code.
+Prostředí Arduino IDE je původní vývojové prostředí pro mikrokontroléry z platformy Arduino
+do kterého je možné nainstalovat knihovny pro ESP32.
+Výhodou je jednoduchá instalace. Pokud je preferencí použít společný editor pro všechny projekty,
+tak platformIO je vhodnější volbou a zahrnuje většinu funkcí Arduino IDE.
 
 Framework ESP--IDF je vhodný pro pokročilé uživatele, kteří potřebují využít pokročilé funkce mikrokontroléru ESP32.
 Lze ho použít s libovolným textovým editorem, a integrace s Visual Studio Code je velmi dobrá.
@@ -392,7 +395,7 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
     \label[eq_fade_rate]
     $$ Fade\;rate = {506 \over {2^{({fade_{rate} \over 2})}}} \eqmark $$
     kde $fade_{rate}$ je hodnota v~rozsahu 1 až 15.
-    Minimální rychlost je 2,8~kroků za s a~maximální rychlost je 358~kroků za~s (viz. tabulka~5 v~\cite[iec102]).
+    Minimální rychlost je 2,8~kroků/s a~maximální rychlost je 358~kroků/s (viz. tabulka~5 v~\cite[iec102]).
 \enditems
 
 
