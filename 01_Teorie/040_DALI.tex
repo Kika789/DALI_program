@@ -763,17 +763,18 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 {\sbf Oddělení napájení:}
 \begitems
     * Propojky R20 a~R21 umožňují galvanicky oddělit napájení sběrnice \glref{DALI} od mikropočítače.
-    * Díky tomu je možné napájet mikropočítač z jiného zdroje (maximálně 12 V) než je zdroj sběrnice,
-     a~to připojením k~svorkám (+) X3-1 a~(--) X3-2.
+    * Tak je možné napájet mikropočítač z jiného zdroje (12~V) než je zdroj sběrnice,
+      připojením k~svorkám (+) X3-1 a~(--) X3-2.
     * Za svorkami je umístěna ochrana proti přepólovaní napětí s tranzistorem Q3 P-\glref{MOSFET}.
-    Tato ochrana slouží i~proti náhodnému zapojení obou zdrojů napájení.
+      Tato ochrana slouží i~proti náhodnému zapojení obou zdrojů napájení.
 \enditems
 
 \noindent
 {\sbf Napájení z USB portu:}
 \begitems
-    * Propojka R10 umožňuje odpojit 5V napájení řídící jednotky, pokud se používá napájení z USB portu mikropočítače \glref{ESP32}.
-    * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro zdvojené napájení, propojku R10 není nutné odstraňovat.
+    * Pokud je připojen USB kabel, mikropočítač je napájen z USB portu a~napájení z IC2 je odpojeno.
+    * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro případ zdvojeného napájení.
+    * Propojka R10 ne nepoužívá.
 \enditems
 
 \noindent
@@ -781,7 +782,6 @@ a interface pro napájení sběrnice podle schématu na obr. \ref[schematic2].  
 \begitems
     * V praktické části byl použit jak jeden zdroj napětí připojený ke svorkám X2-1 a~X2-2,
       tak i druhý zdroj připojený ke svorkám {X3-1} a~{X3-2}.
-    * Všechny propojky zůstaly zapojeny.
     * Mikropočítač byl napájen z USB portu a~připojen k~počítači pro programování a~testování.
 \enditems
 
