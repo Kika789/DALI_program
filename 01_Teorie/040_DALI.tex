@@ -237,7 +237,7 @@ Na sběrnici rozlišujeme:
 \enditems
 
 \noindent
-Kromě logických nul a~jedniček obsahuje každý datový rámec start a~stop bity, které slouží k~synchronizaci komunikace.:
+Kromě logických nul a~jedniček obsahuje každý datový rámec (viz obr.~\ref[paket]) start a~stop bity, které slouží k~synchronizaci komunikace.:
 \begitems
 * {\sbf Start bit:} Jednička, která označuje začátek rámce.
 * {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu a~označuje konec rámce.
@@ -775,7 +775,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \begitems
     * Pokud je připojen USB kabel, mikropočítač je napájen z USB portu a~napájení z IC2 je odpojeno.
     * Deska mikropočítače \glref{ESP32} obsahuje ochrannou diodu pro případ zdvojeného napájení.
-    * Propojka R10 ne nepoužívá.
+    * Propojka R10 se nepoužívá.
 \enditems
 
 \noindent
