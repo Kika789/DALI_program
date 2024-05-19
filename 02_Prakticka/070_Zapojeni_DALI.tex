@@ -127,13 +127,12 @@ Plošný spoj (\glref{PCB}) pro optimalizované ovládání světel je znázorn�
 
 \sec Řídíci jednotka
 
-% Pro řízení světel byla použitá řídící jednotka s mikroprocesor \glref{ESP32} WROOM
-% (viz obrázek \ref[pripojeni]).
-Pro řízení světel byla zvolena řídící jednotka s mikrokontrolérem \glref{ESP32} WROOM, který se vyznačuje vysokým výkonem,
+Pro řízení světel byla zvolena řídící jednotka s mikrokontrolérem \glref{ESP32} WROOM,
+který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
-Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
-a zároveň umožňuje implementaci komplexních funkcí.
 Řídící jednotka je připojena k~plošnému spoji tlačítek pomocí konektoru JP2.
+% Nabízí dostatek výpočetního výkonu pro náročné úlohy řízení světel pomocí protokolu DALI
+% a zároveň umožňuje implementaci komplexních funkcí.
 
 
 \medskip \clabel[pripojeni]{Řídící jednotka}
@@ -171,9 +170,23 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 {\sbf Zapojení systému:}
 \begitems
     * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k~příslušným pinům řídící jednotky.
-    % * {\sbf Napájení řídicí jednotky:} Zdroj 12 V byl připojen k~napájecímu konektoru řídící jednotky.
-    * {\sbf Napájení řídicí jednotky:} Dva nezávislé napájecí zdroje 12 V byly připojeny k~napájecím konektorům řídící jednotky.
+    * {\sbf Napájení řídicí jednotky:} Napájecí zdroje 12 V byly připojeny k~napájecím konektorům řídící jednotky.
     * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a~napájena síťovým napětím 230 V.
+\enditems
+
+
+
+\sec Vývojové prostředí
+
+Jako vývojové prostředí pro programování řídící jednotky bylo testováno:
+
+\begitems
+    * {\sbf PlatformIO:} PlatformIO je open-source vývojové prostředí pro vývoj softwaru pro mikrokontroléry.
+        Umožňuje programování v jazycích C a~C++ a~podporuje mnoho různých mikrokontrolérů~\cite[platformio_ide].
+    * {\sbf Arduino IDE:} Arduino IDE je vývojové prostředí pro programování mikrokontrolérů z rodiny Arduino.
+        Umožňuje programování v jazyce C++~\cite[arduino_ide].
+    * {\sbf ESP--IDF (Espressif IoT Development Framework):} ESP--IDF je oficiální vývojové prostředí pro mikrokontroléry ESP32.
+        Umožňuje programování v jazycích C a~C++ a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_esp-idf].
 \enditems
 
 \medskip\noindent
