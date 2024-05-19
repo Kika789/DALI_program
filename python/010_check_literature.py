@@ -67,4 +67,4 @@ if __name__ == "__main__":
     print(f"Checking literature references - not used:")
     for key, value in citation.items():
         if value == 0:
-            print(f"*** {key} ***")
+            print(f"    {key}")
