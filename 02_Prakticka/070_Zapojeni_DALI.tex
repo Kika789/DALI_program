@@ -357,7 +357,13 @@ Jako vývojové prostředí pro programování řídící jednotky bylo testová
     * {\sbf set min level (85):} Nastaví minimální dosažitelný jas.
         Hodnota 85 přibližně odpovídá {34~\pcent} maximálně dosažitelného jasu.
     * {\sbf set fade time:} Nastaví čas plynulého rozsvícení/zhasnutí při změně jasu.
+
+    $$ 2^{({fade_{time} \over 2} -1)} \eqmark $$
+
     * {\sbf set rate time:} Nastaví rychlost plynulé změny jasu na požadovanou úroveň.
+
+    $$ Fade rate = {506 \over {2^{({fade_{rate} \over 2})}}} \eqmark $$
+
 \enditems
 
 

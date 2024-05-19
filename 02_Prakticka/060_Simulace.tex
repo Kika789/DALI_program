@@ -34,15 +34,20 @@ energetické účinnosti, oslnění atd.
 \caption/f 3D model v~DIALuxu
 \medskip
 
+Ze začátku bylo zapotřebí připravit simulaci. Byl vybrány typ místnosti: Třída - obecné činnosti, kde jsou nastaveny parametry dle normy
+a nelze je měnit. Po nastavení byl nakreslen půdorys z naměřených parametrů učebny. Poté byl vytvořen 3D model a zvoleny materiály
+a barvy, aby se model co nejvíce přiblížil realitě.  Do 3D modelu byly vložena LED svítidla od Spektral.... s parametry (viz. Příloha)
+
+Ze začatku byl ozkoušen model změněných parametrů, ale luxů bylo příliš mnoho - poté bylo podle výsledků z měření nastaveny parametry 
  
 
-\noindent Byly provedeny tři simulace pro navržené scény - Výklad, Písemka a~Denní světlo
+% \noindent Byly provedeny tři simulace pro navržené scény - Výklad, Písemka a~Denní světlo
 
-Cílem je vytvořit optimální osvětlené prostředí pro studenty s ohledem na jejich vizuální pohodlí, soustředění a produktivitu.
+% Cílem je vytvořit optimální osvětlené prostředí pro studenty s ohledem na jejich vizuální pohodlí, soustředění a produktivitu.
 
-\noindent {\sbf Nastavení simulace:}
+% \noindent {\sbf Nastavení simulace:}
 
-- v nastavení byl vybrán typ místnosti: Třída - obecné činnosti
+% - v nastavení byl vybrán typ místnosti: Třída - obecné činnosti
 
 - obrázek
 % - u výkladu byla zvolena jen světla nepřímá a~aby bylo požadováno 300-500lx
@@ -96,7 +101,7 @@ Cílem je vytvořit optimální osvětlené prostředí pro studenty s ohledem n
 \caption/f Písemka2
 \medskip
 
-\sec Simula - Denní světlo
+\sec Simulace - Denní světlo
 
 \begitems 
 * Zvolený typ osvětlení: kombinace denního a umělého osvětlení
@@ -132,7 +137,7 @@ Cílem je vytvořit optimální osvětlené prostředí pro studenty s ohledem n
 % \caption/f Strop
 % \medskip
 
-\sec Shrnutí
+\secc Shrnutí
 
 Návrh osvětlení učebny v DIALuxu umožňuje vytvořit optimální osvětlené prostředí pro studenty s ohledem na jejich
 vizuální pohodlí, soustředění a produktivitu. Důležité je zvážit specifické potřeby pro každou scénu
@@ -144,3 +149,17 @@ Další tipy:
 Při navrhování osvětlení učebny je důležité dodržovat platné normy a předpisy.
 Doporučuje se zapojit do procesu návrhu osvětlení pedagogy a studenty, aby se zohlednily jejich specifické potřeby a preference.
 Je důležité pravidelně kontrolovat a udržovat osvětlovací systém, aby se zajistila jeho optimální funkce.
+
+
+% Uvidim jestli dam shrnuti do tabulky???
+% \medskip
+% \midinsert \clabel[vysl_sim]{Výsledky ze simulace}
+% \ctable{lccc}{
+% %\hfil Spektrum & Vlnová délka \crl \tskip 4pt
+% {\sbf Typ scény}  &    {\sbf Max} [lx] & {\sbf Min} [lx]  &   {\sbf Rovnoměrnost} [-]   \cr
+% Kombinované       &     796       &   350       &       0.4         \cr
+% Přímé             &     505       &   233       &       0.5         \cr
+% Nepřímé           &     291       &   117       &       0.4         \cr
+% }
+% \caption/t Výsledky ze simulace
+% \endinsert
