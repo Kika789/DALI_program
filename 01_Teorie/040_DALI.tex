@@ -666,13 +666,13 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
     * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a~nastavuje se jako výstupní s otevřeným kolektorem.
     * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a~nastavuje se jako vstupní.
 \enditems
-
-\medskip \noindent
-{\sbf Pull-up a~pull-down odpory:}
-\begitems
-    * Pull-up a~pull-down rezistory jsou implementovány pomocí R5 a~R6,
-    takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
-\enditems
+ 
+% \medskip \noindent      % zatim nechci davat
+% {\sbf Pull-up a~pull-down odpory:}
+% \begitems
+%     * Pull-up a~pull-down rezistory jsou implementovány pomocí R5 a~R6,
+%     takže není nutné nastavovat interní pull-up/pull-down v mikropočítači.
+% \enditems
 
 \medskip \noindent
 {\sbf Řízení sběrnice:}
@@ -684,7 +684,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \medskip \noindent
 {\sbf Inicializace sběrnice:}
 \begitems
-    * Po spuštění mikropočítač nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
+    * Po spuštění mikropočítače nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
 \enditems
 
 \medskip \noindent
@@ -696,13 +696,13 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \enditems
 
 
-\medskip \noindent
-{\sbf Omezovač proudu:}
-\begitems
-    * Omezovač proudu IC1 je nastaven na proud 1 mA odporem R2 = 68 Ω. Norma povoluje odběr v klidovém stavu do 2 mA.
-    Na druhou stranu, při tomto nastavení má IC1 poměrně nízkou rychlost změny signálu (pouze 1 V/$μ$s),
-    což může negativně ovlivnit čtení hodnot ze sběrnice \glref{DALI} \cite[LM334].
-\enditems
+% \medskip \noindent         % zatim nechci davat
+% {\sbf Omezovač proudu:}
+% \begitems
+%     * Omezovač proudu IC1 je nastaven na proud 1 mA odporem R2 = 68 Ω. Norma povoluje odběr v klidovém stavu do 2 mA.
+%     Na druhou stranu, při tomto nastavení má IC1 poměrně nízkou rychlost změny signálu (pouze 1 V/$μ$s),
+%     což může negativně ovlivnit čtení hodnot ze sběrnice \glref{DALI} \cite[LM334].
+% \enditems
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% odremovat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tohle ne
@@ -756,8 +756,8 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 {\sbf Napájení řídící jednotky:}
 \begitems
     * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s \glref{ESP32}.
-    * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
-    který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.
+    % * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
+    % který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.   % zatim nechci 
 \enditems
 
 \noindent
