@@ -148,10 +148,10 @@ nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripoje
 % a~instalace ve školních prostorách probíhají mimo výukové období.
 % Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
 
-Montáž nově navrženého panelu do učebny musela být z technických důvodů
+Montáž nově navrženého panelu do učebny musela být z provozních důvodů
 odložena na období mimo výuku. Důvodem je probíhající výuka na gymnáziu,
 která vylučuje jakékoli úpravy a~instalace ve školních prostorách během
-běžného provozu.
+školního roku.
 Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorních podmínkách.
 
 
@@ -163,7 +163,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
         Nejprve byl plošný spoj osazen všemi součástkami, včetně rezistorů.
     * {\sbf Testování funkčnosti tlačítek:}
         Reakce řídící jednotky na stisknutí jednotlivých tlačítek byla ověřována pomocí
-        testovacích programů, pro bezchybné fungování tlačítek a jejich integraci s řídicím systémem.
+        testovacích programů, pro bezchybné fungování tlačítek a~jejich integraci s řídicím systémem.
 \enditems
 
 \medskip\noindent
@@ -178,7 +178,7 @@ Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorn
 
 \sec Vývojové prostředí
 
-Jako vývojové prostředí pro programování řídící jednotky bylo testováno:
+Jako vývojové prostředí pro programování řídící jednotky lze použít:
 
 \begitems
     * {\sbf PlatformIO:} PlatformIO je open-source vývojové prostředí pro vývoj softwaru pro mikrokontroléry.
@@ -452,8 +452,6 @@ void SetScene(int value, int numberScene, int levelScene) {
 * set scene(-1,1,0) - nastavení světelné scény pro groupu 1 na hodnotu jasu~0 - tato funkce je volána z důvodu vymazání předešlé scény
 * set scene(101,1,200) - nastavení světelné scény pro groupu 1 na hodnotu jasu~200
 \enditems
-
-obrázek volané funkce v kódu
 
 \noindent
 {\sbf Druhá scéna} - dva světelné prvky byly nastavené na vyšší intenzitu jasu 200 a dva zbylé byly na nižší 120
