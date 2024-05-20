@@ -651,21 +651,44 @@ if(active_group > 0 && button5_new == PB_ON){
 % \medskip
 
 \sec Shrnutí
-\begitems \style o
-* ověřili
-* komentář
-* dává to smysl to tam instalovat?
-* přidat obrázek ESP32 s piny
+
+% \begitems \style o
+% * ověřili
+% * komentář
+% * dává to smysl to tam instalovat?
+% * přidat obrázek ESP32 s piny
+% \enditems
+
+Cílem této části praktické části bylo navrhnout intuitivní ovládání
+pro regulaci světelného systému. Celkově můžeme říci, že:
+\begitems
+    * Navrhli jsme intuitivní ovládání světelného systému pomocí tří tlačítek pro různé světelné scény.
+    * Otestovali jsme funkčnost řídící jednotky a tlačítek a implementovali scény.
+    * V laboratoři jsme pracovali se čtyřmi světelnými zařízeními s protokolem DALI.
+    * Testy ukázaly jednodušší ovládání pro uživatele bez náhodného zapnutí/vypnutí.
+    * Uživatelé snadno poznají, jak světla vypnout.
+    * Zvolené řešení je vhodné pro uživatele, kteří preferují intuitivní ovládání tlačítky.
 \enditems
 
-Cílem bylo navrhnout intuitivní ovládání pro regulaci světelného systému. Zvolili jsme navrhnout
-tři tlačítka, kterýma se bodou zapinat konkrétní scény, pro komunkaci se světly, byl zvolen sběrnicový systém DALI.
-Ze začatku byla ověřována funkčnost řídíci jednotky a poté tlačítka. Po úspšném testování byly implementovány scény
-pomocí příkazových funkcí.
 
-Měli jsme k dispozici čtyři světelná zařízení v laboratorních podmínkách, která umí komunikaci DALI,
-byly propojeny pomocí svorkovnice a každému byla přidělena unikátní adresa 0 až 3. Správnost adres byla otestována pomíci
-příkazu IDENTYFY, kde se světelné zařízení rozblikalo na 10s.
+
+% Zvolili jsme tři tlačítka, kterými se bodou zapínat konkrétní světelné scény.
+% Nejdříve byla ověřována funkčnost celé řídíci jednotky i s novými tlačítky.
+% Po úspěšném testování byly implementovány scény pomocí příkazových funkcí.
+
+% V laboratorních podmínkách jsme měli k dispozici čtyři světelná zařízení
+% se kterými probíhala komunikace protokolem DALI.
+
+% V průběhu testu su ukázalo, že zvolené řešení je jednodušší pro uživatele.
+% Nedocházelo k náhodnému zapnutí nebo vypnutí světel, když bylo
+% zapotřebí změnit hodnotu jasu, což se často stávalo právě
+% při použití předchozího ovládacího panelu.
+% Take uživatel jednoznačně ví, jak vypnout světla, když se už nevyužívají.
+
+% Ukazuje se že zvolené řešení je vhodné pro uživatele,
+% kteří mohou snadno ovládat světelný systém pomocí tlačítek
+% protože už na první pohled je přehlednější.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \sec Návrh ovládacího panelu
