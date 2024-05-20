@@ -490,7 +490,7 @@ void PrintHelp() {
 V kódu byly vytvořeny funkce pro přidání zařízení do skupin a nastavovaní scén.
 
 \begitems
-    * Funkce {\sbf  add to group (dev,grp):} Kde $dev$ je číslo zařízení a $grp$ je číslo skupiny.
+    * Funkce {\sbf  AddToGroup(dev, grp):} Kde $dev$ je číslo zařízení a $grp$ je číslo skupiny.
         Přidá zadané zařízení do vybrané skupiny.
         To umožňuje ovládat více zařízení najednou.
 
@@ -506,8 +506,8 @@ void AddToGroup (int value, int group) {
 } // add to group
 \endtt
 
-    * Funkce {\sbf SetScene (dev, scene, jas):}
-        Nastaví úroveň jasu ($jas$) pro zadanou scénu ($scene$) a zadané zařízení
+    * Funkce {\sbf SetScene(dev, scene, level):}
+        Nastaví úroveň jasu ($level$) pro zadanou scénu ($scene$) a zadané zařízení
         ($dev$).
 
 \label[c_setscene]
@@ -541,7 +541,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 
 \medskip \clabel[scena01]{Scéna 1}
 \picw=6cm \cinspic 03_Obrazky/Ovladani/01a.jpg
-\caption/f Scéna 1 
+\caption/f Scéna 1
 \medskip
 
 \noindent
@@ -557,7 +557,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 
 \medskip \clabel[scena02]{Scéna 2}
 \picw=6cm \cinspic 03_Obrazky/Ovladani/02b.jpg
-\caption/f Scéna 2 
+\caption/f Scéna 2
 \medskip
 
 \noindent
@@ -573,12 +573,14 @@ void SetScene(int value, int numberScene, int levelScene) {
 
 \medskip \clabel[scena03]{Scéna 3}
 \picw=6cm \cinspic 03_Obrazky/Ovladani/03c.jpg
-\caption/f Scéna 3 
+\caption/f Scéna 3
 \medskip
 
 \noindent U scény 2 a 3 nebylo zapotřebí vytvářet groupu, protože každému zařízení jsme nastavili danou hodnotu jasu.
 
-\noindent {\sbf Nastavení tlačítka off} - slouží k ṕlnému vypnutí světel
+\noindent {\sbf Nastavení tlačítka off}
+
+ Tlačítko {\tt Off} slouží k úlnému vypnutí světel
 
 \label[c_off]
 \begtt\hisyntax{C}
@@ -590,7 +592,10 @@ void Off(int value){
 } // off
 \endtt
 
-\noindent {\sbf Nastavení tlačitek pro regulaci jasu:}
+\noindent {\sbf Nastavení tlačitek pro regulaci jasu}
+
+Tlačítka regulace jasu slouží k postupnému zvyšování nebo snižování intenzity jasu světel.
+Jas se zvýši nebo sníží o krok při každém překročení časového intervalu 30~ms.
 
 \label[c_brightness]
 \begtt\hisyntax{C}
