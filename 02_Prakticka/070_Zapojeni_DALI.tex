@@ -212,6 +212,80 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 % použít některou z knihoven pro ESP32, které jsou dostupné na internetu pro ESP--IDF.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\secc Inicializace řídící jednotky:}
+
+
+\medskip\noindent
+{\sbf Vybrané piny:}
+
+\medskip \clabel[esp32_wroom]{Piny u ESP32 WROOM}
+\picw=10cm \cinspic 03_Obrazky/esp32_wroom.png
+\caption/f Piny u ESP32 WROOM \cite[esp32_wroom]
+\medskip
+
+- z kódu
+
+
+\medskip\noindent
+{\sbf Nastavení pinů:}
+
+\medskip
+\label[c_setup]
+\begtt\hisyntax{C}
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+    digitalWrite(LED_PIN, LOW);
+
+    pinMode(DALI_TX_PIN, OUTPUT);
+    digitalWrite(DALI_TX_PIN, HIGH);
+
+    pinMode(DALI_RX_PIN, INPUT);
+
+    // buttons
+    pinMode(PB1, INPUT_PULLUP);
+    pinMode(PB2, INPUT_PULLUP);
+    pinMode(PB3, INPUT_PULLUP);
+    pinMode(PB4, INPUT_PULLUP);
+    pinMode(PB5, INPUT);           // external pull-down
+    pinMode(PB6, INPUT);           // external pull-down
+    ...
+ }
+\endtt
+
+\medskip\noindent
+{\sbf Seznam příkazů pro práci s řídící jednotkou:}
+
+\medskip
+\label[c_help]
+\begtt\hisyntax{C}
+void PrintHelp() {
+    Serial.println();
+    Serial.println("Help");
+    Serial.println("------------------");
+    Serial.println("-1 = broadcast");
+    Serial.println("(Switch Off) off: device");
+    Serial.println("(Set Max Level) smax: device light level");
+    Serial.println("(Set Min Level) smin: device light level");
+    Serial.println("(Set System Failure Level) sfail:
+                     device light level");
+    Serial.println("(Set Power On Level) spower: device light level");
+    Serial.println("(Set Fade Time) sft: device time");
+    Serial.println("(SetFadeRate) sfr: device rate");
+    Serial.println("(Set Short Address) ssa: device number");
+    Serial.println("(Set Scene) ss: device number_of_scene light level");
+    Serial.println("(Go To Scene) gts: device number_of_scene");
+    Serial.println("(Identify Device) id: device");
+    Serial.println("(Add To Group) atg: device number_of_group");
+    Serial.println("(Remove From Group) rfg: device number_of_group");
+    Serial.println("(Set Operating Mode) som: device
+                     number_of_mode(hex) (0 default)");
+    Serial.println();
+}
+\endtt
+
+
 \medskip\noindent
 {\sbf Konfigurace adres:}
 \begitems
@@ -234,11 +308,6 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
     * Implementace scén byla provedena v programovacím prostředí pro mikrokontrolér \glref{ESP32} WROOM
         s využitím jazyka C++ a~knihoven pro komunikaci a~ovládání světel.
 \enditems
-
-\medskip \clabel[esp32_wroom]{Piny u ESP32 WROOM}
-\picw=10cm \cinspic 03_Obrazky/esp32_wroom.png
-\caption/f Piny u ESP32 WROOM \cite[esp32_wroom]
-\medskip
 
 % \noindent
 % {\sbf Postup zapojení}
@@ -348,13 +417,6 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 % void setup, void loop, priklad funkce, diagram logiky tlacitka
 
 % % \sec Laboratoř
-
-
-
-\medskip \clabel[sceny]{Realizované scény}
-\picw=16cm \cinspic 03_Obrazky/sceny.png
-\caption/f Realizované scény
-\medskip
 
 % Postup pro nastavování scén:
 
@@ -481,64 +543,13 @@ void SetScene(int value, int numberScene, int levelScene) {
 
 \noindent Nastavení regulace jasu - ukazka kodu?
 
-\medskip\noindent
-{\sbf Inicializace řídící jednotky:}
+% \medskip\noindent
+% {\sbf Inicializace řídící jednotky:}
 
-
+\medskip \clabel[sceny]{Realizované scény}
+\picw=16cm \cinspic 03_Obrazky/sceny.png
+\caption/f Realizované scény
 \medskip
-\label[c_setup]
-\begtt\hisyntax{C}
-void setup() {
-    pinMode(LED_PIN, OUTPUT);
-    digitalWrite(LED_PIN, LOW);
-
-    pinMode(DALI_TX_PIN, OUTPUT);
-    digitalWrite(DALI_TX_PIN, HIGH);
-
-    pinMode(DALI_RX_PIN, INPUT);
-
-    // buttons
-    pinMode(PB1, INPUT_PULLUP);
-    pinMode(PB2, INPUT_PULLUP);
-    pinMode(PB3, INPUT_PULLUP);
-    pinMode(PB4, INPUT_PULLUP);
-    pinMode(PB5, INPUT);           // external pull-down
-    pinMode(PB6, INPUT);           // external pull-down
-    ...
- }
-\endtt
-
-\medskip\noindent
-{\sbf Ovládaní řídící jednotky:}
-
-
-\medskip
-\label[c_help]
-\begtt\hisyntax{C}
-void PrintHelp() {
-    Serial.println();
-    Serial.println("Help");
-    Serial.println("------------------");
-    Serial.println("-1 = broadcast");
-    Serial.println("(Switch Off) off: device");
-    Serial.println("(Set Max Level) smax: device light level");
-    Serial.println("(Set Min Level) smin: device light level");
-    Serial.println("(Set System Failure Level) sfail:
-                     device light level");
-    Serial.println("(Set Power On Level) spower: device light level");
-    Serial.println("(Set Fade Time) sft: device time");
-    Serial.println("(SetFadeRate) sfr: device rate");
-    Serial.println("(Set Short Address) ssa: device number");
-    Serial.println("(Set Scene) ss: device number_of_scene light level");
-    Serial.println("(Go To Scene) gts: device number_of_scene");
-    Serial.println("(Identify Device) id: device");
-    Serial.println("(Add To Group) atg: device number_of_group");
-    Serial.println("(Remove From Group) rfg: device number_of_group");
-    Serial.println("(Set Operating Mode) som: device
-                     number_of_mode(hex) (0 default)");
-    Serial.println();
-}
-\endtt
 
 \noindent Poté je zapotřebí dopsat shrnutí:
 \begitems \style o
