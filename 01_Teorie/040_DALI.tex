@@ -68,12 +68,12 @@ Norma IEC 62386, která definuje protokol \glref{DALI}, obsahuje řadu specifick
 \enditems
 
 
-Pro sjednocení terminologie v oboru osvětlení se doporučuje navštívit webové
-stránky \url{https://www.electropedia.org} a~prostudovat si sekci věnovanou osvětlení (Lighting).
+Pro sjednocení terminologie v oboru osvětlení se doporučuje použít webové
+stránky \url{https://www.electropedia.org} sekci osvětlení (Lighting).
 
 
 Řídící jednotka, předřadník a~napájecí zdroje sběrnice jsou
-tři základní typy zařízení, které se vyskytují na sběrnici v systému \glref{DALI}.
+tři základní typy zařízení, které se vyskytují na sběrnici v systému \glref{DALI} (viz obr.~\ref[dalicek]).
 
 \medskip \clabel[dalicek]{Příklad struktury systému DALI}
 \picw=12cm \cinspic 03_Obrazky/dalicek.png
@@ -91,7 +91,7 @@ který rozšiřuje původní verzi \glref{DALI} v1.
 Hlavním problémem původní verze \glref{DALI} (IEC 62386) byla nedostatečná specifikace chování
 řídicích jednotek. Norma definovala pouze fungování předřadníků~\cite[iec102],
 čímž dala výrobcům řídicích jednotek značnou volnost v implementaci.
-To vedlo k~nekompatibilitě a~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
+To vedlo k~nekompatibilitě a~až k~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
 Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou tlačítka a~senzory.
 Norma \glref{DALI} v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
@@ -666,7 +666,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
     * Výstupní port mikropočítače se připojuje ke svorce DALI_TX a~nastavuje se jako výstupní s otevřeným kolektorem.
     * Vstupní port mikropočítače se připojuje ke svorce DALI_RX a~nastavuje se jako vstupní.
 \enditems
- 
+
 % \medskip \noindent      % zatim nechci davat
 % {\sbf Pull-up a~pull-down odpory:}
 % \begitems
@@ -757,7 +757,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \begitems
     * Pravá strana rozhraní slouží jako zdroj napájení pro řídící jednotku s \glref{ESP32}.
     % * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
-    % který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.   % zatim nechci 
+    % který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.   % zatim nechci
 \enditems
 
 \noindent
