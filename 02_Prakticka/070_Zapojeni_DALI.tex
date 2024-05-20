@@ -152,9 +152,13 @@ Montáž nově navrženého panelu do učebny musela být z provozních důvodů
 odložena na období mimo výuku.
 % Důvodem je probíhající výuka na gymnáziu, která vylučuje jakékoli úpravy
 % a~instalace ve školních prostorách během školního roku.
-Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorních podmínkách.
+Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorních podmínkách, byla použita LED světla
+s~teplotou chromatičnosti 2700~K a 4000~K (viz ilustrační obr. \ref[dali_svetla]).
 
-
+\medskip \clabel[dali_svetla]{Zapojení LED světel s protokolem DALI}
+\picw=10cm \cinspic 03_Obrazky/DALI_svetla.png
+\caption/f Zapojení LED světel s protokolem DALI \cite[dali_svetla2]
+\medskip
 
 \medskip\noindent
 {\sbf Přípravné práce:}
@@ -224,6 +228,19 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 \picw=10cm \cinspic 03_Obrazky/esp32_wroom.png
 \caption/f Piny u ESP32 WROOM \cite[esp32_wroom]
 \medskip
+
+\label[c_brightness]
+\begtt\hisyntax{C}
+#define DALI_TX_PIN  GPIO_NUM_32
+#define DALI_RX_PIN  GPIO_NUM_33
+#define LED_PIN      GPIO_NUM_2
+#define PB1          GPIO_NUM_21
+#define PB2          GPIO_NUM_19
+#define PB3          GPIO_NUM_18
+#define PB4          GPIO_NUM_17
+#define PB5          GPIO_NUM_34
+#define PB6          GPIO_NUM_35
+\endtt
 
 \medskip\noindent
 {\sbf Nastavení pinů:}
@@ -598,22 +615,6 @@ pomocí příkazových funkcí.
 Měli jsme k dispozici čtyři světelná zařízení v laboratorních podmínkách, která umí komunikaci DALI,
 byly propojeny pomocí svorkovnice a každému byla přidělena unikátní adresa 0 až 3. Správnost adres byla otestována pomíci
 příkazu IDENTYFY, kde se světelné zařízení rozblikalo na 10s.
-
-
-
-
-\label[c_brightness]
-\begtt\hisyntax{C}
-#define DALI_TX_PIN  GPIO_NUM_32
-#define DALI_RX_PIN  GPIO_NUM_33
-#define LED_PIN      GPIO_NUM_2
-#define PB1          GPIO_NUM_21
-#define PB2          GPIO_NUM_19
-#define PB3          GPIO_NUM_18
-#define PB4          GPIO_NUM_17
-#define PB5          GPIO_NUM_34
-#define PB6          GPIO_NUM_35
-\endtt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \sec Návrh ovládacího panelu
