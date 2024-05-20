@@ -560,7 +560,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 \enditems
 
 
-\label[c_setscene]
+\label[c_off]
 \begtt\hisyntax{C}
 void Off(int value){
     uint8_t device = parse_device(value);
@@ -570,6 +570,30 @@ void Off(int value){
 } // off
 \endtt
 
+
+\label[c_brightness]
+\begtt\hisyntax{C}
+// brightness increase using the button ---------------------------------------
+if(active_group > 0 && button6_new == PB_ON){
+  actual_time=millis();
+  delta_time=actual_time-time_b2;
+  if(delta_time>30){
+    StepUp(100+active_group);
+    time_b2=actual_time;
+  }
+}
+
+// brightness decrease using the button ---------------------------------------
+if(active_group > 0 && button5_new == PB_ON){
+  actual_time=millis();
+  delta_time=actual_time-time_b3;
+  if(delta_time>30){
+    StepDown(100+active_group);
+
+    time_b3=actual_time;
+  }
+}
+\endtt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \sec Návrh ovládacího panelu
