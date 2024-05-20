@@ -223,14 +223,22 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 
 
 \medskip\noindent
-{\sbf Vybrané piny:}
+{\sbf Rozložení portů ESP32 WROOM:}
+
+
+Rozložení portů je vidět na následujícím obrázku \ref[esp32_wroom].
 
 % https://docs.espressif.com/projects/esp-idf/en/stable/esp32/hw-reference/esp32/get-started-devkitc.html
 
-\medskip \clabel[esp32_wroom]{Piny u ESP32 WROOM}
+\medskip \clabel[esp32_wroom]{Rozložení portů ESP32 WROOM}
 \picw=14cm \cinspic 03_Obrazky/esp32_wroom.png
-\caption/f Piny u ESP32 WROOM \cite[esp32_wroom]
+\caption/f Rozložení portů ESP32 WROOM \cite[esp32_wroom]
 \medskip
+
+\medskip\noindent
+{\sbf Nastavení portů:}
+
+V programu byly definovaný následující porty pro řídící jednotku:
 
 \label[c_brightness]
 \begtt\hisyntax{C}
@@ -245,8 +253,7 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 #define PB6          GPIO_NUM_35
 \endtt
 
-\medskip\noindent
-{\sbf Nastavení pinů:}
+Jejích inicializace byla provedena ve funkci {\tt setup()} (viz kód \ref[c_setup]).
 
 \medskip
 \label[c_setup]
