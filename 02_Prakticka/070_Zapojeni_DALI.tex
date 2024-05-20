@@ -225,9 +225,6 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 \caption/f Piny u ESP32 WROOM \cite[esp32_wroom]
 \medskip
 
-- z kódu
-
-
 \medskip\noindent
 {\sbf Nastavení pinů:}
 
@@ -506,7 +503,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 \noindent {\sbf Popis kroků pro nastavení scén:}
 
 \medskip\noindent
-{\sbf První scéna} - dva světelné prvky byly nastavené na intenzitu jasu 200 a dva zbylé byly vypnuté
+{\sbf První scéna} - dva světelné prvky s unikátní adresou 1 a 2 byly nastavené na intenzitu jasu 200 a dva zbylé byly vypnuté
 
 \begitems \style n
 * add to group(1,1) - přidání světelného prvku s krátkou adresou 1 do groupy s číslem~1
@@ -516,7 +513,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 \enditems
 
 \noindent
-{\sbf Druhá scéna} - dva světelné prvky byly nastavené na vyšší intenzitu jasu 200 a dva zbylé byly na nižší 120
+{\sbf Druhá scéna} - dva světelné prvky s unikátní adresou 0 a 2 byly nastavené na vyšší intenzitu jasu 200 a dva zbylé (unikátní adresa 1 a 3) byly na nižší 120
 
 \noindent {\sbf Postup nastavení 2. scény:}
 \begitems \style n
@@ -525,8 +522,6 @@ void SetScene(int value, int numberScene, int levelScene) {
 * set scene(2,2,200) - nastavení intenzity jasu pro zařízení s krátkou adresou~2
 * set scene(3,2,120) - nastavení intenzity jasu pro zařízení s krátkou adresou~3
 \enditems
-
-\noindent U této scény nebylo zapotřebí vytvářet groupu, protože každému zařízení jsme nastavili hodnotu jasu.
 
 \noindent
 {\sbf Třetí scéna} - každý světelný prvek byl nastaven s jinou hodnotou jasu
@@ -539,26 +534,9 @@ void SetScene(int value, int numberScene, int levelScene) {
 * set scene(3,2,180) - nastavení intenzity jasu na 180 pro zařízení s krátkou adresou~3
 \enditems
 
-\noindent Nastavení tlačítka off - ukazka kodu?
+\noindent U scény 2 a 3 nebylo zapotřebí vytvářet groupu, protože každému zařízení jsme nastavili danou hodnotu jasu.
 
-\noindent Nastavení regulace jasu - ukazka kodu?
-
-% \medskip\noindent
-% {\sbf Inicializace řídící jednotky:}
-
-\medskip \clabel[sceny]{Realizované scény}
-\picw=16cm \cinspic 03_Obrazky/sceny.png
-\caption/f Realizované scény
-\medskip
-
-\noindent Poté je zapotřebí dopsat shrnutí:
-\begitems \style o
-* funguje
-* komentář
-* dává to smysl to tam instalovat?
-* přidat obrázek ESP32 s piny
-\enditems
-
+\noindent {\sbf Nastavení tlačítka off} - slouží k ṕlnému vypnutí světel 
 
 \label[c_off]
 \begtt\hisyntax{C}
@@ -570,10 +548,11 @@ void Off(int value){
 } // off
 \endtt
 
+\noindent {\sbf Nastavení tlačitek pro regulaci jasu:} 
 
 \label[c_brightness]
 \begtt\hisyntax{C}
-// brightness increase using the button ---------------------------------------
+// brightness increase using the button --------------
 if(active_group > 0 && button6_new == PB_ON){
   actual_time=millis();
   delta_time=actual_time-time_b2;
@@ -583,7 +562,7 @@ if(active_group > 0 && button6_new == PB_ON){
   }
 }
 
-// brightness decrease using the button ---------------------------------------
+// brightness decrease using the button --------------
 if(active_group > 0 && button5_new == PB_ON){
   actual_time=millis();
   delta_time=actual_time-time_b3;
@@ -594,6 +573,31 @@ if(active_group > 0 && button5_new == PB_ON){
   }
 }
 \endtt
+
+% \medskip\noindent
+% {\sbf Inicializace řídící jednotky:}
+
+\medskip \clabel[sceny]{Realizované scény}
+\picw=16cm \cinspic 03_Obrazky/sceny.png
+\caption/f Realizované scény
+\medskip
+
+\sec Shrnutí
+\begitems \style o
+* ověřili
+* komentář
+* dává to smysl to tam instalovat?
+* přidat obrázek ESP32 s piny
+\enditems
+
+Cílem bylo navrhnout intuitivní ovládání pro regulaci světelného systému. Zvolili jsme navrhnout 
+tři tlačítka, kterýma se bodou zapinat konkrétní scény, pro komunkaci se světly, byl zvolen sběrnicový systém DALI.
+Ze začatku byla ověřována funkčnost řídíci jednotky a poté tlačítka. Po úspšném testování byly implementovány scény
+pomocí příkazových funkcí. 
+
+Měli jsme k dispozici čtyři světelná zařízení v laboratorních podmínkách, která umí komunikaci DALI, 
+byly propojeny pomocí svorkovnice a každému byla přidělena unikátní adresa 0 až 3. Správnost adres byla otestována pomíci
+příkazu IDENTYFY, kde se světelné zařízení rozblikalo na 10s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \sec Návrh ovládacího panelu
