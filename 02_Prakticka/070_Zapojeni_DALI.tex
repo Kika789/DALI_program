@@ -149,9 +149,9 @@ nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripoje
 % Proto bylo veškeré zapojení provedeno a~otestováno v laboratorních podmínkách.
 
 Montáž nově navrženého panelu do učebny musela být z provozních důvodů
-odložena na období mimo výuku. Důvodem je probíhající výuka na gymnáziu,
-která vylučuje jakékoli úpravy a~instalace ve školních prostorách během
-školního roku.
+odložena na období mimo výuku.
+% Důvodem je probíhající výuka na gymnáziu, která vylučuje jakékoli úpravy
+% a~instalace ve školních prostorách během školního roku.
 Z tohoto důvodu proběhlo veškeré zapojení a~testování panelu v laboratorních podmínkách.
 
 
@@ -536,7 +536,7 @@ void SetScene(int value, int numberScene, int levelScene) {
 
 \noindent U scény 2 a 3 nebylo zapotřebí vytvářet groupu, protože každému zařízení jsme nastavili danou hodnotu jasu.
 
-\noindent {\sbf Nastavení tlačítka off} - slouží k ṕlnému vypnutí světel 
+\noindent {\sbf Nastavení tlačítka off} - slouží k ṕlnému vypnutí světel
 
 \label[c_off]
 \begtt\hisyntax{C}
@@ -548,7 +548,7 @@ void Off(int value){
 } // off
 \endtt
 
-\noindent {\sbf Nastavení tlačitek pro regulaci jasu:} 
+\noindent {\sbf Nastavení tlačitek pro regulaci jasu:}
 
 \label[c_brightness]
 \begtt\hisyntax{C}
@@ -590,12 +590,12 @@ if(active_group > 0 && button5_new == PB_ON){
 * přidat obrázek ESP32 s piny
 \enditems
 
-Cílem bylo navrhnout intuitivní ovládání pro regulaci světelného systému. Zvolili jsme navrhnout 
+Cílem bylo navrhnout intuitivní ovládání pro regulaci světelného systému. Zvolili jsme navrhnout
 tři tlačítka, kterýma se bodou zapinat konkrétní scény, pro komunkaci se světly, byl zvolen sběrnicový systém DALI.
 Ze začatku byla ověřována funkčnost řídíci jednotky a poté tlačítka. Po úspšném testování byly implementovány scény
-pomocí příkazových funkcí. 
+pomocí příkazových funkcí.
 
-Měli jsme k dispozici čtyři světelná zařízení v laboratorních podmínkách, která umí komunikaci DALI, 
+Měli jsme k dispozici čtyři světelná zařízení v laboratorních podmínkách, která umí komunikaci DALI,
 byly propojeny pomocí svorkovnice a každému byla přidělena unikátní adresa 0 až 3. Správnost adres byla otestována pomíci
 příkazu IDENTYFY, kde se světelné zařízení rozblikalo na 10s.
 
