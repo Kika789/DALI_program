@@ -186,7 +186,7 @@ Jako vývojové prostředí pro programování řídící jednotky lze použít:
     * {\sbf Arduino IDE:} Arduino IDE je vývojové prostředí pro programování mikrokontrolérů z platformy Arduino.
         Umožňuje programování v jazyce C++~\cite[arduino_ide].
     * {\sbf ESP--IDF (Espressif IoT Development Framework):} ESP--IDF je oficiální vývojové prostředí pro mikrokontroléry ESP32.
-        Umožňuje programování v jazycích C a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_esp-idf].
+        Umožňuje programování v jazycích C a~poskytuje širokou škálu funkcí pro vývoj softwaru~\cite[noauthor_espidf].
 \enditems
 
 
@@ -560,6 +560,15 @@ void SetScene(int value, int numberScene, int levelScene) {
 \enditems
 
 
+\label[c_setscene]
+\begtt\hisyntax{C}
+void Off(int value){
+    uint8_t device = parse_device(value);
+    DaliTransmitCMD(device, OFF_C);
+    delayMilisec(DALI_TWO_PACKET_DELAY);
+    Serial.println("Off");
+} // off
+\endtt
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
