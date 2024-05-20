@@ -594,29 +594,29 @@ void Off(int value){
 
 \noindent {\sbf Nastavení tlačitek pro regulaci jasu}
 
-Tlačítka regulace jasu slouží k postupnému zvyšování nebo snižování intenzity jasu světel.
-Jas se zvýši nebo sníží o krok při každém překročení časového intervalu 30~ms.
+Tlačítka regulace jasu slouží k plynulému zvyšování nebo snižování intenzity světla.
+Po stisknutí a podržení tlačítka se jas bude pomalu a plynule zvyšovat nebo snižovat,
+dokud se tlačítko nepustí. Část kódu pro zvyšování a snižování jasu je uvedena níže.
 
 \label[c_brightness]
 \begtt\hisyntax{C}
 // brightness increase using the button --------------
 if(active_group > 0 && button6_new == PB_ON){
-  actual_time=millis();
-  delta_time=actual_time-time_b2;
-  if(delta_time>30){
-    StepUp(100+active_group);
-    time_b2=actual_time;
+  actual_time = millis();
+  delta_time = actual_time - time_b2;
+  if(delta_time > 30){
+    StepUp(100 + active_group);
+    time_b2 = actual_time;
   }
 }
 
 // brightness decrease using the button --------------
 if(active_group > 0 && button5_new == PB_ON){
-  actual_time=millis();
-  delta_time=actual_time-time_b3;
-  if(delta_time>30){
-    StepDown(100+active_group);
-
-    time_b3=actual_time;
+  actual_time = millis();
+  delta_time = actual_time - time_b3;
+  if(delta_time > 30){
+    StepDown(100 + active_group);
+    time_b3 = actual_time;
   }
 }
 \endtt
