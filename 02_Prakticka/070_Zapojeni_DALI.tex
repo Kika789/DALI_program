@@ -251,10 +251,9 @@ V programu byly definovaný následující porty pro řídící jednotku:
 #define PB6          GPIO_NUM_35
 \endtt
 
-Jejích inicializace byla provedena ve funkci {\tt setup()} (viz kód \ref[c_setup]).
+Inicializace portů byla provedena ve funkci {\tt setup()}.
 
-\medskip
-\label[c_setup]
+\label[csetup]
 \begtt\hisyntax{C}
 void setup() {
     pinMode(LED_PIN, OUTPUT);
@@ -276,10 +275,11 @@ void setup() {
  }
 \endtt
 
+
 \medskip\noindent
 {\sbf Seznam příkazů pro práci s řídící jednotkou:}
 
-Pomocí funkce PrintHelp() byl vytvořen seznam používaných příkazů v kódu.
+Funkce PrintHelp() vypíše seznam používaných příkazů v kódu řídící jednotky.
 
 \medskip
 \label[c_help]
