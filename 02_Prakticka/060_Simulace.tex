@@ -2,8 +2,6 @@
 
 V této části jsme se soustředili na simulaci osvětlení ve 3D modelu učebny v programu DIALux.
 Modelovali jsme osvětlení pro různé školní činnosti, jako je výklad, písemka a adaptace na denní světlo.
-Ano, takhle je to lepší. Text je nyní srozumitelnější a konkrétnější. Zde je vaše upravená verze:
-
 Výsledkem byly číselné parametry jednotlivých scén, které budou využity pro nastavení jasu
 světel v~řídicí jednotce při budoucí realizaci řízení osvětlení v učebně.
 
@@ -226,15 +224,17 @@ lavice: ${2000 \over 11000} = 0,18$
 
 Pro přímé:
 
-tabule: 1500/5500 = 0,27 * 169= 46,1+85 = 131,1 – nastavíme
+tabule: ${1500 \over 5500} = 0,27$
 
+        ${0,27 \cdot 169} = 46,1$
 
-lavice: 3000/11000 = 0,27 * 169= 46,1+85 = 131,1 – nastavíme
+        $46,1 + 85 = 131,1$ – nastavíme
 
+lavice: ${3000 \over 11000} = 0,27$
 
+        ${0,27 \cdot 169} = 46,1$
 
-
-
+        $46,1 + 85 = 131,1$ – nastavíme
 
 \noindent {\sbf Scéna 3: Denní světlo}
 
@@ -243,6 +243,50 @@ světla v učebně. V případě potřeby je denní světlo doplňováno umělý
 intenzita osvětlení (300-500 luxů) v závislosti na denní době a povětrnostních podmínkách. Simulace neprokázala žádné
 problematické oslnění ani tmavé skvrny. Barevná teplota denního světla se mění v závislosti na ročním období a počasí,
 ale v průměru se pohybuje kolem 5000 K, čímž podporuje soustředění a produktivitu studentů.
+
+{\sbf dveře:}
+
+tabule: ${1500 \over 5500} = 0,27$
+
+        ${0,27 \cdot 169} = 46,1$
+
+        $46,1 + 85 = 131,1$ – nastavíme
+
+lavice: ${3000 \ over 11000} = 0,27$ 
+
+        ${0,27 \cdot 169} = 46,1$
+
+        $46,1 + 85 = 131,1$ – nastavíme
+
+{\sbf střed:}
+
+
+tabule: ${1000 \over 5500} = 0,18$ 
+
+        ${0,18 \cdot 169} = 30,7$
+
+        $30,7 + 85 = 114,7$ – nastavíme
+
+lavice: ${2000 \over 11000} = 0,18$ 
+
+        ${0,18 \cdot 169} = 30,7$
+
+        $30,7 + 85 = 114,7$ – nastavíme
+
+{\sbf okno:}
+
+
+tabule: ${500 \over 5500} = 0,09$
+
+        ${0,09 * 169} = 15,4$
+        
+        $15,4 + 85 = 100,4$ – nastavíme
+
+lavice: ${1000 \over 11000} = 0,09$
+
+        ${0,09 \cdot 169} = 15,4$
+        
+        $15,4 + 85 = 100,4$ – nastavíme
 
 \noindent {\sbf Shrnutí}
 
