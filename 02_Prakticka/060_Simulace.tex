@@ -13,9 +13,9 @@ Program umožňuje simulace s denním i nočním světlem a nabízí možnost vk
 od různých výrobců, přičemž parametry těchto svítidel lze individuálně upravit.
 
 
-DIALux slouží k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla,
-teploty barvy, indexu podání barev, energetické účinnosti, oslnění a dalších parametrů osvětlení.
-
+Celkově lze říct, že DIALux slouží k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla,
+teploty barvy, indexu podání barev, energetické účinnosti, oslnění a~dalších parametrů osvětlení.
+V základní verzi je program zdarma a~je dostupný výhradně pro operační systémy Windows~\cite[dialux].
 
 
 \medskip \noindent
@@ -33,45 +33,52 @@ teploty barvy, indexu podání barev, energetické účinnosti, oslnění a dal�
 * výpočty pro zvolené světelné scény -- výklad, písemka, denní světlo,
 * určení parametrů pro řídicí jednotku.
 \enditems
-\medskip
 
 % \medskip \clabel[pudorys2]{Půdorys v~DIALuxu}
 % \picw=8cm \cinspic 03_Obrazky/pudorys2.png
 % \caption/f Půdorys v~DIALuxu
 % \medskip
 
-\medskip \clabel[3D_model]{3D model v~DIALuxu}
-\picw=8cm \cinspic 03_Obrazky/3D_model2.png
-\caption/f 3D model v~DIALuxu
-\medskip
 
-Ze začátku se připravily parametry pro simulaci. Byl vybrány typ místnosti:
-Třída - obecné činnosti, kde jsou nastaveny parametry dle normy
-a~nelze je měnit. Po nastavení byl nakreslen půdorys z naměřených parametrů učebny.
-Poté byl vytvořen 3D model a~zvoleny materiály
-a~barvy, aby se model co nejvíce přiblížil realitě.
-Do 3D modelu byly vložena LED svítidla od Spectrasol - Spectra Mikado Linear 3000~mm
-a~1500~mm (1x~LED linear) s parametry (viz. Příloha \ref[par_svetel])
-
-
-Zpočátku byly připraveny parametry pro simulaci.
-Byl vybrán typ místnosti: Třída - obecné činnosti, kde jsou nastaveny normované parametry, které nelze měnit.
+Podle uvedeného postupu byly připraveny parametry pro simulaci.
+Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny normované parametry, které nelze měnit.
 Po nastavení byl podle naměřených údajů nakreslen půdorys učebny.
 Poté byl vytvořen 3D model, včetně volby materiálů a barev,
 aby se model co nejvíce přiblížil realitě.
-Do 3D modelu byla vložena LED svítidla od Spectrasol - Spectra Mikado Linear 3000 mm a 1500 mm (1x LED linear)
-s odpovídajícími parametry (viz. příloha \ref[par_svetel]).
-
-
+Do 3D modelu byla vložena LED svítidla od {\sbf Spectrasol -- Spectra Mikado Linear} 3000 mm a 1500 mm (1x LED linear)
+s odpovídajícími parametry (viz. příloha \ref[par_svetel]),
+který se jeví jako nejvíce podobný skutečným světlům umístěným v učebně.
 
 \medskip \clabel[para_dial]{parametry v~DIALuxu}
 \picw=14cm \cinspic 04_Grafy/05_simulace/parametry.png
 \caption/f Zvolené parametry v~DIALuxu
 \medskip
 
-Ze začatku byl ozkoušen model změněných parametrů, ale luxů bylo příliš mnoho - poté bylo podle výsledků z měření nastaveny parametry
+Výsledný model je vidět na obrázku \ref[3D_model].
+Současně tento náhled slouží i jako verifikace modelu,
+kde jsme zkontrolovali správnost umístění svítidel a materiálů,
+aby byla simulace co nejvěrnější reálnému prostředí.
+Tento proces ověřuje, že všechny prvky jsou správně
+nastaveny a~připraveny pro další analýzu a optimalizaci osvětlení v učebně.
 
-\secc Validace simulace
+\medskip \clabel[3D_model]{3D model v~DIALuxu}
+\picw=8cm \cinspic 03_Obrazky/3D_model2.png
+\caption/f 3D model v~DIALuxu
+\medskip
+
+
+% Ze začatku byl ozkoušen model změněných parametrů, ale luxů bylo příliš mnoho -
+% poté bylo podle výsledků z měření nastaveny parametry
+
+\sec Validace modelu
+
+Pro ověření přesnosti a správnosti vytvořeného 3D modelu v programu DIALux
+byla provedena důkladná validace.
+Tento krok zahrnuje srovnání simulovaných hodnot s~reálnými měřeními v~učebně a kontrolu,
+zda model splňuje stanovené požadavky a~normy.
+Validace je klíčová pro zajištění, že simulace odpovídá skutečným
+podmínkám a že navržené osvětlení bude efektivní a~funkční v~reálném prostředí.
+
 
 \medskip \clabel[val0]{Validace kombinovaného osvětlení}
 \picw=18cm \cinspic 04_Grafy/05_simulace/validace/010_combi1.png
