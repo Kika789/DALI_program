@@ -250,9 +250,9 @@ a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení nepřímého 
 Pro světelnou scénu {\sbf Denní světlo} byl zvolen typ kombinovaného umělého osvětlení a~přirozené denní světlo.
 
 \begitems
-* Zvolený typ osvětlení: kombinace denního a umělého osvětlení
-* Cíl: Využít co nejvíce denního světla a minimalizovat potřebu umělého osvětlení.
-* Nastavení: V případě potřeby doplnit denní světlo umělým osvětlením tak, aby byla zajištěna požadovaná intenzita
+* {\sbf Typ osvětlení:} kombinace denního a umělého osvětlení
+* {\sbf Cíl:} Využít co nejvíce denního světla a minimalizovat potřebu umělého osvětlení.
+* {\sbf Nastavení:} V případě potřeby doplnit denní světlo umělým osvětlením tak, aby byla zajištěna požadovaná intenzita
 osvětlení (300-500 luxů).
 % Použít žaluzie nebo rolety pro regulaci denního světla a zabránění oslnění;
 
@@ -260,15 +260,14 @@ osvětlení (300-500 luxů).
 
 % \noindent Zatažená obloha
 % \noindent Světelný tok svítidla nastaven pro nepřímá i~přímá u lavic: 3000~lx, 2000~lx, 1000~lx
-
-u tabaule: 1500~lx, 1000~lx, 500~lx
+% u tabaule: 1500~lx, 1000~lx, 500~lx
 
 \midinsert \clabel[param_svetlo]{Parametry světel -- Denní světlo}
 \ctable{lcccc}{
 {\sbf Typ osvětlení}  &    {\sbf Světla u dveří} & {\sbf Světla ve středu}   &  {\sbf Světla u okna} & {\sbf \glref{CCT}}  \cr
-                      &    [lm]                  &        [lm]               &    [lm]               &      [K]             \crl
+                      &    [lm]                  &        [lm]               &    [lm]               &  [K]             \crl
 {\sbf Nepřímé}        &     3 000                &     2 000                 &    1000               &  5 470              \cr
-{\sbf Přímé}          &     1 500                &     1 000                 &     500               & 5 470               \cr
+{\sbf Přímé}          &     1 500                &     1 000                 &     500               &  5 470               \cr
 }
 \caption/t Nastavené parametry světel pro scénu -- Denní světlo
 \endinsert
@@ -277,8 +276,9 @@ u tabaule: 1500~lx, 1000~lx, 500~lx
 % \secc Výsledky simulace
 
 Na následujícím obrázku vidíme výsledky simulace osvětlení v učebně pro scénu Denní světlo
-se srovnávací rovinou ve výšce 800~mm nad podlahou (levý obrázek \ref[simulace1]).
-Vlevo je obrázek simulace příspěvku denního světla s kombinací umělého osvětlení a vpravo výsledky simulace ze zatažené oblohy.
+se srovnávací rovinou ve výšce 800~mm nad podlahou.
+Vlevo na obrázku \ref[simulace2] je simulace příspěvku denního
+světla s kombinací umělého osvětlení a~vpravo výsledky simulace ze zatažené oblohy.
 
 \medskip \clabel[simulace2]{Simulace scény denní světlo}
 \picw=18cm \cinspic 04_Grafy/05_simulace/sceny/030_svetlo1.png
@@ -303,120 +303,100 @@ Vlevo je obrázek simulace příspěvku denního světla s kombinací umělého 
 % \caption/f Strop
 % \medskip
 
-\secc Shrnutí
+\sec Shrnutí
 
 % zavislost intenzity osvětlení a vykon osvetleni
 % https://ozuno.com/blog/step-darkness-dali-brightness-levels/
 
 \noindent {\sbf Scéna 1: Výklad}
-
 Simulace osvětlení pro scénu Výklad ukázala, že nepřímé osvětlení zajišťuje měkké
-a rovnoměrné osvětlení v celé učebně. Intenzita osvětlení v prostoru dosahuje 200-350 luxů,
+a rovnoměrné osvětlení v celé učebně. Intenzita osvětlení v prostoru dosahuje 200--350 luxů,
 což splňuje požadované normy. Simulace neprokázala žádné problematické oslnění ani tmavé skvrny. Barevná teplota
-osvětlení 4500 K vytváří příjemnou atmosféru, která podporuje soustředění studentů.
+osvětlení 5470~K vytváří příjemnou atmosféru, která podporuje soustředění studentů.
 
-Výpočet: interval: 85 – 254, 254 – 85 = 169 → 100 \pcent
+Z poměru světelného toku (tab.~\ref[param_vyklad])
+a světelného toku pro maximální intenzitu (tab.~\ref[nastav_parametry])
+plyne, že světelný tok nepřímých svítidel pro tuto scénu je nastaven na 45~{\pcent } maximálního světelného toku.
 
-tabule: ${2500 \over 5500} = 0,45$
 
-        ${0,45 \cdot 169} = 76,8$
 
-        $76,8 + 85 = 161,8$ – nastavíme
-
-lavice: ${5000 \over 11000} = 0,45$
-
-        ${0,45 \cdot 169} = 76,8$
-
-        $76,8 + 85 = 161,8$ – nastavíme
+% Výpočet: interval: 85 – 254, 254 – 85 = 169 → 100 \pcent
+% tabule: ${2500 \over 5500} = 0,45$
+%         ${0,45 \cdot 169} = 76,8$
+%         $76,8 + 85 = 161,8$ – nastavíme
+% lavice: ${5000 \over 11000} = 0,45$
+%         ${0,45 \cdot 169} = 76,8$
+%         $76,8 + 85 = 161,8$ – nastavíme
 
 \noindent {\sbf Scéna 2: Písemka}
-
 Kombinace přímého a nepřímého osvětlení v simulaci scény Písemka zajišťuje dostatek osvětlení na pracovních plochách studentů
-(500lx) a zároveň minimalizuje oslnění a únavu očí.
+(500~lx) a zároveň minimalizuje oslnění a únavu očí.
 Simulace neprokázala žádné problematické stíny ani tmavé skvrny.
 
-Pro nepřímé:
+Z poměru světelného toku (tab.~\ref[param_pisemka])
+a světelného toku pro maximální intenzitu (tab.~\ref[nastav_parametry])
+plyne, že světelný tok nepřímých svítidel pro tuto scénu je nastaven na 18~{\pcent } maximálního světelného toku
+a světelný tok přímých svítidel na 27~{\pcent } maximálního světelného toku.
 
-tabule: ${1000 \over 5500} = 0,18$
+% Pro nepřímé:
+% tabule: ${1000 \over 5500} = 0,18$
+%         ${0,18 \cdot 169} = 30,7$
+%         $30,7 + 85 = 115,7$ – nastavíme
+% lavice: ${2000 \over 11000} = 0,18$
+%         ${0,18 \cdot 169} = 30,7$
+%         $30,7 + 85 = 115,7$ – nastavíme
+% Pro přímé:
+% tabule: ${1500 \over 5500} = 0,27$
+%         ${0,27 \cdot 169} = 46,1$
+%         $46,1 + 85 = 131,1$ – nastavíme
+% lavice: ${3000 \over 11000} = 0,27$
+%         ${0,27 \cdot 169} = 46,1$
+%         $46,1 + 85 = 131,1$ – nastavíme
 
-        ${0,18 \cdot 169} = 30,7$
-
-        $30,7 + 85 = 115,7$ – nastavíme
-
-lavice: ${2000 \over 11000} = 0,18$
-
-        ${0,18 \cdot 169} = 30,7$
-
-        $30,7 + 85 = 115,7$ – nastavíme
-
-Pro přímé:
-
-tabule: ${1500 \over 5500} = 0,27$
-
-        ${0,27 \cdot 169} = 46,1$
-
-        $46,1 + 85 = 131,1$ – nastavíme
-
-lavice: ${3000 \over 11000} = 0,27$
-
-        ${0,27 \cdot 169} = 46,1$
-
-        $46,1 + 85 = 131,1$ – nastavíme
 
 \noindent {\sbf Scéna 3: Denní světlo}
-
 Simulace scény Denní světlo ukázala, že správně orientovaná okna umožňují optimální využití denního
 světla v učebně. V případě potřeby je denní světlo doplňováno umělým osvětlením tak, aby byla zajištěna požadovaná
-intenzita osvětlení (300-500 luxů) v závislosti na počasí. Simulace neprokázala žádné
+intenzita osvětlení (300--500 luxů) v závislosti na počasí. Simulace neprokázala žádné
 problematické oslnění ani tmavé skvrny. Barevná teplota denního světla se mění v závislosti na ročním období a počasí,
-ale v průměru se pohybuje kolem 5000 K, čímž podporuje soustředění a produktivitu studentů.
-
-{\sbf dveře:}
-
-tabule: ${1500 \over 5500} = 0,27$
-
-        ${0,27 \cdot 169} = 46,1$
-
-        $46,1 + 85 = 131,1$ – nastavíme
-
-lavice: ${3000 \ over 11000} = 0,27$
-
-        ${0,27 \cdot 169} = 46,1$
-
-        $46,1 + 85 = 131,1$ – nastavíme
-
-{\sbf střed:}
+ale v průměru se pohybuje kolem 5000~K, čímž podporuje soustředění a produktivitu studentů.
 
 
-tabule: ${1000 \over 5500} = 0,18$
-
-        ${0,18 \cdot 169} = 30,7$
-
-        $30,7 + 85 = 114,7$ – nastavíme
-
-lavice: ${2000 \over 11000} = 0,18$
-
-        ${0,18 \cdot 169} = 30,7$
-
-        $30,7 + 85 = 114,7$ – nastavíme
-
-{\sbf okno:}
+Z poměru světelného toku (tab.~\ref[param_svetlo])
+a světelného toku pro maximální intenzitu (tab.~\ref[nastav_parametry])
+plyne, že světelný tok nepřímých svítidel
+je u dveří nastaven na 27~{\pcent }, uprostřed na 18~{\pcent } a u okna na 9~{\pcent }
+maximálního světelného toku
+a světelný tok přímých svítidel
+je u dveří nastaven na 14~{\pcent }, uprostřed na 9~{\pcent } a u okna na 5~{\pcent }
+maximálního světelného toku.
 
 
-tabule: ${500 \over 5500} = 0,09$
+% {\sbf dveře:}
+% tabule: ${1500 \over 5500} = 0,27$
+%         ${0,27 \cdot 169} = 46,1$
+%         $46,1 + 85 = 131,1$ – nastavíme
+% lavice: ${3000 \ over 11000} = 0,27$
+%         ${0,27 \cdot 169} = 46,1$
+%         $46,1 + 85 = 131,1$ – nastavíme
+% {\sbf střed:}
 
-        ${0,09 * 169} = 15,4$
+% tabule: ${1000 \over 5500} = 0,18$
+%         ${0,18 \cdot 169} = 30,7$
+%         $30,7 + 85 = 114,7$ – nastavíme
+% lavice: ${2000 \over 11000} = 0,18$
+%         ${0,18 \cdot 169} = 30,7$
+%         $30,7 + 85 = 114,7$ – nastavíme
+% {\sbf okno:}
 
-        $15,4 + 85 = 100,4$ – nastavíme
-
-lavice: ${1000 \over 11000} = 0,09$
-
-        ${0,09 \cdot 169} = 15,4$
-
-        $15,4 + 85 = 100,4$ – nastavíme
+% tabule: ${500 \over 5500} = 0,09$
+%         ${0,09 * 169} = 15,4$
+%         $15,4 + 85 = 100,4$ – nastavíme
+% lavice: ${1000 \over 11000} = 0,09$
+%         ${0,09 \cdot 169} = 15,4$
+%         $15,4 + 85 = 100,4$ – nastavíme
 
 \noindent {\sbf Shrnutí}
-
 Simulace osvětlení učebny v programu DIALux pro scény Výklad, Písemka a Denní světlo ukázaly, že navržené osvětlení
 splňuje všechny platné normy a předpisy, a zajišťuje optimální vizuální komfort a vhodné podmínky pro studenty.
 Osvětlení je rovnoměrné, bez oslnění a tmavých míst, a jeho barevná teplota podporuje soustředění a produktivitu.
