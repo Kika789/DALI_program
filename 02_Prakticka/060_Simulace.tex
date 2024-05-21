@@ -3,33 +3,39 @@
 V této části jsme se zaměřili na vytvoření 3D světelného modelu učebny.
 Simulaci osvětlení jsme provedli v~programu DIALux.
 Dále bylo modelováno osvětlení pro různé činnosti - výklad, písemka a~denní světlo.
-Výsledkem by měly být parametry pro řídící jednotku, která bude řídit světla v~učebně.
+Výsledkem byly číselné parametry jednotlivých scén, které slouží
+pro řídící jednotku pro řízení osvětlení v~učebně.
 
-% Pro návrh optimálních světelných scén byla provedena simulace v~programu DIALux.
 
-DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a~venkovních podmínkách.
-Pomocí něj lze 3D modelovat
-různé typy prostorů, od malých bytů až po velké komerční budovy.
-Lze s~ním také vytvářet modely pro venkovní osvětlení,
-jako jsou silnice, parky a~sportovní zařízení.
-Umožňuje provádět simulace jak s~denním světlem, tak za tmy.
-Do programu lze vložit svítidla od mnoha různých firem, s~nimiž
-mají uzavřenou smlouvu, a~parametry jednotlivých světelných zařízení
-si můžete sami doladit.
+
+DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a venkovních podmínkách.
+Umožňuje 3D modelování různých typů prostorů, od malých bytů po velké komerční budovy,
+a~vytváření modelů pro venkovní osvětlení, jako jsou silnice, parky a sportovní zařízení.
+Program umožňuje simulace s denním i nočním světlem a nabízí možnost vkládání svítidel
+od různých výrobců, přičemž parametry těchto svítidel lze individuálně upravit.
+
+
 
 Slouží tedy k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla, teploty barvy, indexu podání barev,
 energetické účinnosti, oslnění atd.
 
+DIALux slouží k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla,
+teploty barvy, indexu podání barev, energetické účinnosti, oslnění a dalších parametrů osvětlení.
+
+
 
 \medskip \noindent
-{\sbf Postup návrhu:}
+{\sbf Postup návrhu pro vytvoření modelu v DIALuxu:}
 
-\begitems \style n
-* nakreslení půdorysu
-* vytvoření 3D modelu učebny
-* zvolení světelných prvků
-* nastavení parametrů světel
-* výpočty pro zvolené světelné scény - výklad, písemka, denní světlo
+\begitems % \style x
+* nakreslení půdorysu,
+* vytvoření 3D modelu učebny,
+* zvolení světelných prvků,
+* nastavení parametrů světel,
+* verifikace modelu,
+* validace modelu,
+* výpočty pro zvolené světelné scény -- výklad, písemka, denní světlo,
+* určení parametrů pro řídící jednotku.
 \enditems
 \medskip
 
