@@ -1,20 +1,20 @@
 \chap Simulace v~DIALuxu
 
-V této části jsme se soustředili na simulaci osvětlení ve 3D modelu učebny v programu DIALux.
-Modelovali jsme osvětlení pro různé školní činnosti, jako je výklad, písemka a adaptace na denní světlo.
+V této části jsme se soustředili na simulaci osvětlení ve 3D modelu učebny v~programu DIALux.
+Modelovali jsme osvětlení pro různé školní činnosti, jako je výklad, písemka a~adaptace na denní světlo.
 Výsledkem simulace byly číselné parametry jednotlivých scén, které budou využity pro nastavení jasu
-světel v~řídicí jednotce při budoucí realizaci řízení osvětlení v učebně.
+světel v~řídicí jednotce při budoucí realizaci řízení osvětlení v~učebně.
 
-DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a venkovních podmínkách.
+DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a~venkovních podmínkách.
 Umožňuje 3D modelování různých typů prostorů, od malých bytů po velké komerční budovy,
-a~vytváření modelů pro venkovní osvětlení, jako jsou silnice, parky a sportovní zařízení.
-Program umožňuje simulace s denním i nočním světlem a nabízí možnost vkládání svítidel
+a~vytváření modelů pro venkovní osvětlení, jako jsou silnice, parky a~sportovní zařízení.
+Program umožňuje simulace s~denním i~nočním světlem a~nabízí možnost vkládání svítidel
 od různých výrobců, přičemž parametry těchto svítidel lze individuálně upravit.
 
 
-Celkově lze říct, že DIALux slouží k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla,
+Celkově lze říct, že DIALux slouží k~návrhu, vizualizaci a~analýze osvětlenosti, jasu, distribuce světla,
 teploty barvy, indexu podání barev, energetické účinnosti, oslnění a~dalších parametrů osvětlení.
-V základní verzi je program zdarma~\cite[dialux].
+V~základní verzi je program zdarma~\cite[dialux].
 % a~je dostupný výhradně pro operační systémy Windows
 
 
@@ -41,12 +41,12 @@ V základní verzi je program zdarma~\cite[dialux].
 
 
 Podle uvedeného postupu byly připraveny parametry pro simulaci.
-Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny parametry z normy, které nelze měnit.
+Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny parametry z~normy, které nelze měnit.
 Po nastavení byl podle naměřených údajů nakreslen půdorys učebny.
 Poté byl vytvořen 3D model, včetně volby materiálů a barev,
 aby se co nejvíce přiblížil realitě.
-Do 3D modelu byla vložena LED svítidla od {\sbf Spectrasol -- Spectra Mikado Linear} 3000 mm a 1500 mm (1x LED linear)
-s odpovídajícími parametry (viz. příloha \ref[par_svetel]),
+Do 3D modelu byla vložena LED svítidla od {\sbf Spectrasol -- Spectra Mikado Linear} 3000~mm a 1500~mm (1x LED linear)
+s~odpovídajícími parametry (viz. příloha \ref[par_svetel]),
 která se jeví jako nejvíce podobná skutečným světlům umístěným v učebně.
 
 \medskip \clabel[para_dial]{parametry v~DIALuxu}
@@ -55,11 +55,11 @@ která se jeví jako nejvíce podobná skutečným světlům umístěným v uče
 \medskip
 
 Výsledný model je vidět na obrázku \ref[3D_model].
-Současně tento náhled slouží i jako verifikace modelu,
-kde jsme zkontrolovali správnost umístění svítidel a materiálů,
+Současně tento náhled slouží i~jako verifikace modelu,
+kde jsme zkontrolovali správnost umístění svítidel a~materiálů,
 aby simulace co nejlépe odpovídala reálnému prostředí.
 Tento proces ověřuje, že všechny prvky jsou správně
-nastaveny a~připraveny pro další analýzu a optimalizaci osvětlení v učebně.
+nastaveny a~připraveny pro další analýzu a~optimalizaci osvětlení v~učebně.
 
 \medskip \clabel[3D_model]{3D model v~DIALuxu}
 \picw=8cm \cinspic 03_Obrazky/3D_model2.png
@@ -72,12 +72,12 @@ nastaveny a~připraveny pro další analýzu a optimalizaci osvětlení v učebn
 
 \sec Validace modelu
 
-Pro ověření přesnosti a správnosti vytvořeného 3D modelu v programu DIALux
+Pro ověření přesnosti a~správnosti vytvořeného 3D modelu v~programu DIALux
 byla provedena důkladná validace.
-Tento krok zahrnuje srovnání simulovaných hodnot s~reálnými měřeními v~učebně a kontrolu,
+Tento krok zahrnuje srovnání simulovaných hodnot s~reálným měřením v~učebně a~kontrolu,
 zda model splňuje stanovené požadavky a~normy.
 Validace je klíčová pro zajištění, že simulace odpovídá skutečným
-podmínkám a že navržené osvětlení bude efektivní a~funkční v~reálném prostředí.
+podmínkám a~že navržené osvětlení bude efektivní a~funkční v~reálném prostředí.
 
 
 Nastavené parametry světel:
@@ -136,7 +136,7 @@ Srovnaní kombinovaného osvětlení:
 
 \begitems
 * Zvolený typ osvětlení: Nepřímé
-* Cíl: Zajistit měkké a rovnoměrné osvětlení, které minimalizuje oslnění a umožňuje studentům snadno vidět na tabuli a učitele.
+* Cíl: Zajistit měkké a rovnoměrné osvětlení, které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli a učitele.
 * Nastavení: Zajistěte, aby intenzita osvětlení na tabuli a v prostoru pro učitele byla 300 - 500 luxů, vyhnout se přímému osvětlení tabule, které by mohlo způsobovat oslnění.
 \enditems
 
