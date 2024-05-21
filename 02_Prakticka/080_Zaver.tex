@@ -1,25 +1,63 @@
 \nonum\chap Závěr
 
-Cílem diplomové práce bylo provést komplexní analýzu osvětlení ve školní učebně a~na základě získaných dat
-navrhnout nový ovládací panel pro osvětlení, zjednodušující ovládání a~zlepšující uživatelský komfort.
+Cílem diplomové práce byla navrhnout optimální ovládací panel pro učebnu biologie na gymnáziu U Libeňského zámku. Aktuální
+ovládání se skládá z dvanácti tlačítek a je velmi obtížné s ním zacházet. Bylo zapotření tento počet snížit na 3 tlačítka, 
+která by zapínala konkretní světlené scé pro rinnosti v učebně.
 
-V teoretické části práce jsme se seznámili s~legislativními požadavky na osvětlení ve školních prostorech,
-fyziologií oka a protokolem DALI.
+V teoretické části proběhlo seznámení se s~legislativními požadavky na osvětlení ve školních prostorech, abychom podle toho mohli
+narvhnout optimální scény. Dále proběhlo seznámení se s fyziolohii oka, abychom věděli jak se naše lidké oko chová při kontaktu 
+se světlem a dále seznámení s protokolem DALI, jeližos pomocí něho budeme ovládat nový navržený ovládací panel.
 
-V praktické části práce bylo provedeno měření osvětlenosti v~učebně gymnázia U~Libeňského zámku pomocí spektrometru
-a~jasového analyzátoru. Analýza proběhla na horizontální a~vertikální rovině. Dále byla provedena spektrální analýza,
-aby bylo možné získat informace o spektrálním složení světla a~jeho vnímání z pohledu uživatelů. Na základě těchto měření
-byla identifikována nejsvětlejší a~nejtemnější místa v učebně a~byly vyhodnoceny kontrasty mezi tabulí, lavicemi
-a~okolním prostorem.
+V praktické části na začatku proběhla aktuální analýza osvětlenosti. Byla změřena osvětlenost a spektrální složení světla
+na horizontální rovině ve výšce pracovní plochy 800 mm a na vertikální rovině ve výšce oší průměrného žáka 1200 mm. Dále proběhlo
+měřění jasových kontrastů pomocí jasového analyzátoru. Bylo zjistěno, že že kontrasty jsou optimální i osvětlenost.
+Měřili se různé světelné scény při maximální intenzitě jasu světel. Byly změřené různé kombinace. Jen přímé osvětlení, nebo nepříme
+nebo jejich kombinace a i zapínaní jen jednotlicých řad - řada u dvěří, ve středu a u okna.
 
-V softwaru DIALux byla provedena simulace navržených světelných scén, které zohledňují různé činnosti probíhající v~učebně.
-Byl sestaven ovládací panel pro jednoduché přepínání mezi světelnými scénami v~laboratorních podmínkách.
-Touto prací jsme chtěli zdůraznit, že i~když se řeší inteligentní osvětlení, často se opomíjí
-intuitivního ovládání. Bez tohoto důležitého prvku může být instalace buď zbytečná, obtížně použitelná nebo dokonce nevyužitelná.
+V softwatu DIALux proběhla simulace navržených světelných scén pro činnsoti - Výklad, Písemka a Adaptace na denní světlo, abychom 
+minimalizovali používaní umělého osvětleni. Z výsledků simulace byly navržené optimální scény, ketré se boudou v budocbu realizovat v učebně.
+Nyná realizace v učebně neproběhla z provozních důvodů, stále porbíhá školní výuka.
+
+Proto navržené scény byly implementovány v laboratorních podmínkach. Tyto tri sceny se zpainaji pomoc tri tlacitek a je tam dalsi tlaictko
+off pro uplne yúnuti sevtel a dve tlacitka pro relugaci jasu. Svetla umi komunikovat pres DALI protokol, proto veskera logika byla 
+napsna v jazy C++ a byl ovladací panel zrealizovan v laboratori.
+
+Touto praci jsme chteli poukazat, že i kdyz se resi inteligentni osvteleni, casto se opomiji intuitivni ovladani a bez tohoto 
+duleziteho prvku muze byt instalace buď zbytečná, obtížně použitelná nebo dokonce nevyužitelná.
 
 Do navrženého systému by v budoucnu mohly být integrovány senzory pro automatické přizpůsobení osvětlení dennímu světlu,
 dotykový panel pro intuitivní regulaci jasu, Wi-Fi připojení pro vzdálené ovládání a aplikace pro chytré telefony.
-Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů.
+Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů
+
+---------------------------------------------
+
+v tomto odstavci by mohla byt jedna/dve vety o tom, co analyza ukazala
+(dobrou rovnomernost, nadstandardni osvetlenost a spektralni kvalitu)
+
+nechcete zde ty navrzene sceny vyjmenovat nebo strucne popsat?
+
+---------------------------------------------
+% Cílem diplomové práce bylo provést komplexní analýzu osvětlení ve školní učebně biologie na gymnáziu
+% U Libeňského zámku a~na základě získaných dat navrhnout nový ovládací panel pro regulaci navržených světelných scén
+% zjednodušující ovládání a~zlepšující uživatelský komfort.
+
+% V teoretické části práce jsme se seznámili s~legislativními požadavky na osvětlení ve školních prostorech,
+% fyziologií oka a protokolem DALI.
+
+% V praktické části práce bylo provedeno měření osvětlenosti v~učebně gymnázia U~Libeňského zámku pomocí spektrometru
+% a~jasového analyzátoru. Analýza proběhla na horizontální a~vertikální rovině. Dále byla provedena spektrální analýza,
+% aby bylo možné získat informace o spektrálním složení světla a~jeho vnímání z pohledu uživatelů. Na základě těchto měření
+% byla identifikována nejsvětlejší a~nejtemnější místa v učebně a~byly vyhodnoceny kontrasty mezi tabulí, lavicemi
+% a~okolním prostorem.
+
+% V softwaru DIALux byla provedena simulace navržených světelných scén, které zohledňují různé činnosti probíhající v~učebně.
+% Byl sestaven ovládací panel pro jednoduché přepínání mezi světelnými scénami v~laboratorních podmínkách.
+% Touto prací jsme chtěli zdůraznit, že i~když se řeší inteligentní osvětlení, často se opomíjí
+% intuitivního ovládání. Bez tohoto důležitého prvku může být instalace buď zbytečná, obtížně použitelná nebo dokonce nevyužitelná.
+
+% Do navrženého systému by v budoucnu mohly být integrovány senzory pro automatické přizpůsobení osvětlení dennímu světlu,
+% dotykový panel pro intuitivní regulaci jasu, Wi-Fi připojení pro vzdálené ovládání a aplikace pro chytré telefony.
+% Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů.
 
 
 
