@@ -127,7 +127,7 @@ Plošný spoj (\glref{PCB}) pro optimalizované ovládání světel je znázorn�
 
 \sec Řídíci jednotka
 
-Pro řízení světel byla zvolena řídící jednotka s mikrokontrolérem \glref{ESP32} WROOM,
+Pro řízení světel byla zvolena řídicí jednotka s mikrokontrolérem \glref{ESP32} WROOM,
 který se vyznačuje vysokým výkonem,
 nízkým odběrem energie a~širokou škálou funkcí (viz obrázek \ref[pripojeni]).
 Řídící jednotka je připojena k~plošnému spoji tlačítek pomocí konektoru JP2.
@@ -166,15 +166,15 @@ s~teplotou chromatičnosti 2700~K a 4000~K (viz ilustrační obr. \ref[dali_svet
     * {\sbf Osazení plošného spoje tlačítek:}
         Nejprve byl plošný spoj osazen všemi součástkami, včetně rezistorů.
     * {\sbf Testování funkčnosti tlačítek:}
-        Reakce řídící jednotky na stisknutí jednotlivých tlačítek byla ověřována pomocí
+        Reakce řídicí jednotky na stisknutí jednotlivých tlačítek byla ověřována pomocí
         testovacích programů, pro bezchybné fungování tlačítek a~jejich integraci s řídicím systémem.
 \enditems
 
 \medskip\noindent
 {\sbf Zapojení systému:}
 \begitems
-    * {\sbf Propojení světel s řídící jednotkou:} Vodiče sběrnice DALI byly připojeny k~příslušným pinům řídící jednotky.
-    * {\sbf Napájení řídicí jednotky:} Napájecí zdroje 12 V byly připojeny k~napájecím konektorům řídící jednotky.
+    * {\sbf Propojení světel s řídicí jednotkou:} Vodiče sběrnice DALI byly připojeny k~příslušným pinům řídicí jednotky.
+    * {\sbf Napájení řídicí jednotky:} Napájecí zdroje 12 V byly připojeny k~napájecím konektorům řídicí jednotky.
     * {\sbf Zapojení světel do zásuvky}: Světla byla zapojena do zásuvky a~napájena síťovým napětím 230 V.
 \enditems
 
@@ -182,7 +182,7 @@ s~teplotou chromatičnosti 2700~K a 4000~K (viz ilustrační obr. \ref[dali_svet
 
 \sec Vývojové prostředí
 
-Jako vývojové prostředí pro programování řídící jednotky lze použít:
+Jako vývojové prostředí pro programování řídicí jednotky lze použít:
 
 \begitems
     * {\sbf PlatformIO:} PlatformIO je open-source vývojové prostředí pro vývoj softwaru pro mikrokontroléry.
@@ -195,7 +195,7 @@ Jako vývojové prostředí pro programování řídící jednotky lze použít:
 
 \rfc{Umožňuje 3x opravit}
 
-Ukazuje se, že nejvhodnějším vývojovým prostředím pro programování řídící jednotky je PlatformIO,
+Ukazuje se, že nejvhodnějším vývojovým prostředím pro programování řídicí jednotky je PlatformIO,
 protože je integrované do vývojového prostředí Visual Studio Code
 s velmi pohodlným textovým editorem a~nabízí širokou škálu funkcí pro vývoj softwaru.
 Nevýhodou je, že mnohé knihovny jsou portovány do prostředí často s výrazným zpožděním.
@@ -210,8 +210,8 @@ Framework ESP--IDF je vhodný pro uživatele, kteří potřebují využít pokro
 Lze ho použít s libovolným textovým editorem, a~integrace s~Visual Studio Code je velmi dobrá.
 % Pro využití všech funkcí mikrokontroléru je to nejlepší volba, ale pro jednoduché projekty to může být zbytečně složité.
 
-Pro vývoj řídící jednotky bylo zvoleno vývojové prostředí PlatformIO, z důvodu, že byla
-k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly pomocí protokolu DALI verze 1.
+Pro vývoj řídicí jednotky bylo zvoleno vývojové prostředí PlatformIO, z důvodu, že byla
+k dispozici jednoduchá knihovna pro komunikaci řídicí jednotky se světly pomocí protokolu DALI verze 1.
 
 % Pro případ, že by bylo nutné využít pokročilé funkce protokolu DALI verze 2, by bylo vhodné
 % použít některou z knihoven pro ESP32, které jsou dostupné na internetu pro ESP--IDF.
@@ -219,7 +219,7 @@ k dispozici jednoduchá knihovna pro komunikaci řídící jednotky se světly p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\sec Inicializace řídící jednotky:
+\sec Inicializace řídicí jednotky:
 
 \noindent
 {\sbf Rozložení portů ESP32 WROOM:}
@@ -235,7 +235,7 @@ Rozložení portů je vidět na následujícím obrázku \ref[esp32_wroom].
 \medskip\noindent
 {\sbf Nastavení portů:}
 
-V programu byly definovaný následující porty pro řídící jednotku:
+V programu byly definovaný následující porty pro řídicí jednotku:
 
 \label[c_brightness]
 \begtt\hisyntax{C}
@@ -276,9 +276,9 @@ void setup() {
 
 
 \medskip\noindent
-{\sbf Seznam příkazů pro práci s řídící jednotkou:}
+{\sbf Seznam příkazů pro práci s řídicí jednotkou:}
 
-Funkce PrintHelp() vypíše seznam používaných příkazů v kódu řídící jednotky.
+Funkce PrintHelp() vypíše seznam používaných příkazů v kódu řídicí jednotky.
 
 \medskip
 \label[c_help]
@@ -345,7 +345,7 @@ void PrintHelp() {
 %     •
 
 %     • zapojila jsem světla do zásuvky
-%     • zapojila světla do řídící jednotky
+%     • zapojila světla do řídicí jednotky
 %     • a~zdroj 12~V
 %     • dokumentace řídicí jednotky
 %     • byla pouzit protokol DALI
@@ -391,7 +391,7 @@ void PrintHelp() {
 % přizpůsobit si osvětlení podle svých preferencí v~případě výrazných změn denního světla.
 
 % Vzhledem k~tomu, že mi nebylo umožněno změnit ovládací panel v~učebně během školního roku. Ovládací zařízení jsem navrhla
-% a~zapojila v~laboratorních podmínkách. Jako řídící jednotka byla zvolena ESP3 (viz dokumentace).
+% a~zapojila v~laboratorních podmínkách. Jako řídicí jednotka byla zvolena ESP3 (viz dokumentace).
 % Pro zapojení byly vybrány piny podle schématu. Jedná se o~digitální porty, a~k~analogovým prvkům byly
 % přidány dva odpory pro vytvoření pull-up rezistoru. Logika tlačítek byla navržena tak, že každým stiskem
 % se aktivuje odpovídající scéna. U~tlačítek pro regulaci jasu je nutné stisk držet déle, aby došlo ke změně jasu.
@@ -399,7 +399,7 @@ void PrintHelp() {
 % Postup zapojení:
 % \begitems
 %     * zapojila jsem světla do zásuvky
-%     * zapojila světla do řídící jednotky
+%     * zapojila světla do řídicí jednotky
 %     * a~zdroj 12
 % V~\enditems
 % \medskip
@@ -436,7 +436,7 @@ void PrintHelp() {
 {\sbf Nastavení výchozích parametrů:}
 \begitems
     * {\sbf set failure system (180):}
-        Nastaví úroveň jasu světelných zařízení při výpadku řídící jednotky.
+        Nastaví úroveň jasu světelných zařízení při výpadku řídicí jednotky.
         Hodnota 180 přibližně odpovídá {70~\pcent} maximálně dosažitelného jasu.
     * {\sbf set power on (200):} Nastaví úroveň jasu při zapnutí zařízení.
         Hodnota 200 přibližně odpovídá {80~\pcent} maximálně dosažitelného jasu.
@@ -644,7 +644,7 @@ if(active_group > 0 && button5_new == PB_ON){
 \endtt
 
 % \medskip\noindent
-% {\sbf Inicializace řídící jednotky:}
+% {\sbf Inicializace řídicí jednotky:}
 
 % \medskip \clabel[sceny]{Realizované scény}
 % \picw=16cm \cinspic 03_Obrazky/sceny.png
@@ -664,7 +664,7 @@ Cílem této části praktické části bylo navrhnout intuitivní ovládání
 pro regulaci světelného systému. Celkově můžeme říci, že:
 \begitems
     * Jsme navrhli intuitivní ovládání světelného systému pomocí čtyř tlačítek pro různé světelné scény a dvou tlačítek pro regulaci jasu.
-    * Otestovali jsme funkčnost řídící jednotky, tlačítek a implementovali scény, které se co nejvíce přiblížily budoucí realizaci.
+    * Otestovali jsme funkčnost řídicí jednotky, tlačítek a implementovali scény, které se co nejvíce přiblížily budoucí realizaci.
     * V laboratoři jsme pracovali se čtyřmi světelnými zařízeními s protokolem DALI.
     * Testy ukázaly jednodušší ovládání pro uživatele než aktuální instalovaný panel v~učebně biologie.
     * Uživatelé snadno pochopí, jak světla vypnout.

@@ -273,7 +273,7 @@ Datové pakety protokolu \glref{DALI} se dělí na:
 \medskip\noindent
 Datový paket {\sbf 8 bitů}:
 \begitems
- * tento datový rámec slouží k~odesílání odpovědí na zprávy řídících a~vstupních jednotek,
+ * tento datový rámec slouží k~odesílání odpovědí na zprávy řídicích a~vstupních jednotek,
  * norma IEC 62386 \cite[iec101], \cite[iec102] a~\cite[iec103].
 \enditems
 
@@ -288,14 +288,14 @@ Datový paket {\sbf16 bitů}:
 \medskip\noindent
 Datový paket {\sbf 24 bitů}:
 \begitems
- * tento datový rámec slouží k~odesílání zpráv řídících a~vstupních jednotek,
+ * tento datový rámec slouží k~odesílání zpráv řídicích a~vstupních jednotek,
  * norma IEC 62386-103~\cite[iec103].
 \enditems
 
 \medskip\noindent
 Datový paket {\sbf 32 bitů}:
 \begitems
- * tento datový rámec slouží k~aktualizaci firmwaru řídících jednotek a~předřadníků,
+ * tento datový rámec slouží k~aktualizaci firmwaru řídicích jednotek a~předřadníků,
  * norma IEC 62386-105~\cite[iec105].
 \enditems
 
@@ -303,7 +303,7 @@ Datový paket {\sbf 32 bitů}:
 \sec Adresy, skupiny a~scény
 
 Na sběrnici \glref{DALI} mohou být zařízení identifikována pomocí adres a~skupin.
-Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídící jednotky, celkem 128 zařízení.
+Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídicí jednotky, celkem 128 zařízení.
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
@@ -331,7 +331,7 @@ Celkově může být uloženo až 16 scén, které mohou obsahovat nastavení ja
 
 V další části bude popsán postup práce se zařízeními na sběrnici \glref{DALI}, který byl aplikován v praktické části.
 
-Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadníků. Postup činnosti byl následující:
+Použitá sběrnice obsahovala jednu řídicí jednotku a~několik předřadníků. Postup činnosti byl následující:
 
 \begitems
     * {Nastavení operačního módu.}
@@ -346,7 +346,7 @@ Použitá sběrnice obsahovala jednu řídící jednotku a~několik předřadní
 {\sbf Nastavení operačního módu}
 
 Zařízení \glref{DALI} mohou pracovat v různých operačních režimech, které určují jejich chování.
-Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na zprávy z~řídící jednotky
+Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na zprávy z~řídicí jednotky
 podle normy IEC 62386-102~\cite[iec102].
 
 Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a~provést ho.
@@ -488,20 +488,20 @@ světla na hodnoty uložené v dané scéně.
 % Rámců jsou přenášeny s~baudovou rychlostí 1200 bps a~každý rámec je vždy odeslán s~nejvýznamnějším bitem (MSb) první.
 % Protože baudová rychlost je 1200 bps, trvá každé období bitu 833,33 µs a~každé poloviční období bitu trvá 416,67 µs.
 % Časy polovičního období jsou důležité, protože Manchesterovo kódování vyžaduje dva přechody bitů pro každý logický datový bit.
-% Přední rámec je datový paket přenášený řídícím zařízením na řídicí zařízení nebo vstupní zařízení.
+% Přední rámec je datový paket přenášený řídicím zařízením na řídicí zařízení nebo vstupní zařízení.
 % Přední rámec DALI 1.0 obsahuje Startovací bit, následovaný bytovou adresou, jedním datovým bytem a~dvěma Stopovacími bity.
 % \medskip
 % Přední rámec DALI 2.0 obsahuje Startovací bit, následovaný bytovou adresou, až dvěma datovými byty a~podmínkou Stop (viz obrázek 2).
 % Přední 24bitový rámec DALI 2.0, včetně Startovacího a~Stopovacího bitu, trvá 23,2 ms, nebo přibližně 56 polovičních období bitů,
-% zatímco 16bitový rámec trvá 16,2 ms, nebo 39 polovičních období bitů. Jakmile řídící zařízení dokončí přenos rámce,
-% musí řídící zařízení začít přenášet zpětný rámec nejdříve 5,5 ms (přibližně 14 polovičních období bitů)
+% zatímco 16bitový rámec trvá 16,2 ms, nebo 39 polovičních období bitů. Jakmile řídicí zařízení dokončí přenos rámce,
+% musí řídicí zařízení začít přenášet zpětný rámec nejdříve 5,5 ms (přibližně 14 polovičních období bitů)
 % a~nejpozději 10,5 ms (přibližně 25 polovičních období). Jakmile byl zpětný rámec přijat v~plném rozsahu,
-% musí řídící zařízení počkat minimálně 2,4 ms (přibližně šest polovičních období) před odesláním dalšího
+% musí řídicí zařízení počkat minimálně 2,4 ms (přibližně šest polovičních období) před odesláním dalšího
 % předního rámce (viz obrázek 3).
-% Zpětný rámec je odpovědní paket přenášený z~řídícího zařízení na řídící zařízení. Zpětný rámec se skládá
+% Zpětný rámec je odpovědní paket přenášený z~řídicího zařízení na řídicí zařízení. Zpětný rámec se skládá
 % ze Startovacího bitu, jednoho datového bytu a~podmínky Stop (viz obrázek níže). Zpětný rámec, včetně Startovacího a
 % Stopovacího bitu, trvá 9,95 ms (přibližně 24 polovičních období bitů). Datový byte může mít libovolnou hodnotu,
-% v~závislosti na příkazu, který byl vydán řídícím zařízením. Pokud je datový byte zpětného rámce 0xFF,
+% v~závislosti na příkazu, který byl vydán řídicím zařízením. Pokud je datový byte zpětného rámce 0xFF,
 % je odpověď považována za "ano". Pokud se očekává odpověď a~sběrnice zůstane v~klidovém stavu, je odpověď považována za "ne".
 % \medskip
 % https://onlinedocs.microchip.com/pr/GUID-0CDBB4BA-5972-4F58-98B2-3F0408F3E10B-en-US-1/index.html?GUID-1BB46A02-D54C-415B-9487-617FD3AA8BC9
@@ -587,7 +587,7 @@ plný seznam je uveden v normě~\cite[iec102] v kapitole 11.
         * {\sbf RECALL MIN LEVEL:} Nastavení jasu na minimální hodnotu.
         * {\sbf SET MAX LEVEL:} Nastavení maximální hodnoty jasu.
         * {\sbf SET MIN LEVEL:} Nastavení minimální hodnoty jasu.
-        * {\sbf SET SYSTEM FAILURE LEVEL:} Nastavení jasu při výpadku řídící jednotky.
+        * {\sbf SET SYSTEM FAILURE LEVEL:} Nastavení jasu při výpadku řídicí jednotky.
         * {\sbf SET POWER ON LEVEL:} Nastavení jasu při zapnutí proudu.
     \enditems
 
@@ -754,9 +754,9 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \enditems
 
 \noindent
-{\sbf Napájení řídící jednotky:}
+{\sbf Napájení řídicí jednotky:}
 \begitems
-    * Pravá strana rozhraní s IC2 slouží jako zdroj napájení pro řídící jednotku s \glref{ESP32}.
+    * Pravá strana rozhraní s IC2 slouží jako zdroj napájení pro řídicí jednotku s \glref{ESP32}.
     % * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
     % který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.   % zatim nechci
 \enditems
@@ -792,7 +792,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 % {\sbf Zapojení pro montáž ve třídě:}
 % \begitems
 %     * Při montáži ve třídě se použily dva zdroje napětí připojené ke svorkám X2-1, X2-2 a~{X3-1}, {X3-2}.
-%     * Sběrnice DALI se galvanicky oddělila od řídící jednotky, svorky R20 a~R21 byly rozpojeny.
+%     * Sběrnice DALI se galvanicky oddělila od řídicí jednotky, svorky R20 a~R21 byly rozpojeny.
 % \enditems
 
 
