@@ -67,9 +67,6 @@ nastaveny a~připraveny pro další analýzu a~optimalizaci osvětlení v~učebn
 \medskip
 
 
-% Ze začatku byl ozkoušen model změněných parametrů, ale luxů bylo příliš mnoho -
-% poté bylo podle výsledků z měření nastaveny parametry
-
 \sec Validace modelu
 
 Pro ověření přesnosti a~správnosti vytvořeného 3D modelu v~programu DIALux
@@ -82,25 +79,25 @@ podmínkám a~že navržené osvětlení bude efektivní a~funkční v~reálném
 
 
 \medskip
-\noindent{\sbf Podmínky validace:}
+\noindent{\sbf Postup provedení validace:}
 \begitems
-    * Data hodnotíme pouze vizuálně.
-    * Srovnáváme kombinované, nepřímé a přímé osvětlení.
-    * Hodnotíme tvarovou shodu isofot.
-    * Intenzitu osvětlení hodnotíme s rezervou  10~{\pcent} až 15~{\pcent}.
+    %* Data hodnotíme pouze vizuálně.
+    * Srovnáváme kombinované, nepřímé a přímé osvětlení mezi měřením a simulaci.
+    * Hodnotíme míru tvarové shody isofot.
+    * Porovnáme intenzitu osvětlení s rezervou  10~{\pcent} až 15~{\pcent}.
 \enditems
 
 
-% Nastavené parametry světel:
-% nepřímé: tabule = 5500, lavice = 11 000, CCT = 5470K
-% přímé: tabule = 2500, lavice = 5000, CCT = 5470K
+Parametry světel, které nejvíce odpovídaly měřeným hodnotám,
+vidíme v tabulce~\ref[nastav_parametry].
 
 \medskip
 \midinsert \clabel[nastav_parametry]{Nastavené parametry světel}
 \ctable{lccc}{
-{\sbf Typ osvětlení}  &    {\sbf Tabule} [lm] & {\sbf Lavice} [lm]  &   {\sbf CCT} [K]   \cr
-Nepřímé      &     5 500       &   11 000       &       5 470         \cr
-Přímé        &     2 500       &    5 000       &       5 470         \cr
+{\sbf Typ osvětlení}  &    {\sbf Světla u tabule} & {\sbf Světla nad lavicemi}   &   {\sbf \glref{CCT}}  \cr
+                      &    [lm]                   &       [lm]              &   [K]   \crl
+{\sbf Nepřímé}      &     5 500       &   11 000       &       5 470         \cr
+{\sbf Přímé}        &     2 500       &    5 000       &       5 470         \cr
 }
 \caption/t Nastavené parametry světel
 \endinsert
@@ -110,8 +107,8 @@ Přímé        &     2 500       &    5 000       &       5 470         \cr
 \noindent{\sbf Srovnaní kombinovaného osvětlení:}
 
 
-Kombinované osvětlení podle měření \ref[svet_mapa] dosahuje maxima kolem 600 luxů,
-což odpovídá simulovaným hodnotám obr.~\ref[val0].
+Kombinované osvětlení podle měření z obr.~\ref[svet_mapa] dosahuje maxima kolem 600 luxů,
+což odpovídá simulovaným hodnotám na obr.~\ref[val0].
 Tvarově se obě data velmi dobře shodují, což potvrzuje správnost modelu.
 Simulace věrně kopíruje rozložení osvětlenosti v místnosti,
 což je klíčové pro validaci modelu.
@@ -120,8 +117,13 @@ je v modelu přesně zachyceno, což je důležité pro přesné řízení svět
 
 
 Podobné výsledky byly získány také při porovnání měřených a simulovaných dat
-u nepřímého osvětlení obr.~\ref[svet_mapa2] a obr.~\ref[val1]
-a~přímého osvětlení \ref[svet_mapa3] a obr.~\ref[val2].
+u~nepřímého osvětlení na obr.~\ref[svet_mapa2] a obr.~\ref[val1]
+a~přímého osvětlení na obr.~\ref[svet_mapa3] a obr.~\ref[val2].
+
+Všechny simulované obrázky ukazují, že katedra u tabule má nedostatečné osvětlení.
+Důvodem je, že simulační rovina byla umístěna do výšky lavic.
+Katedra je ale umístěna na vyvýšeném pódiu, takže se nachází nad simulační rovinou
+a~to co vidíme je vlastně osvětlení pod stolem.
 
 
 \medskip \clabel[val0]{Validace kombinovaného osvětlení}
@@ -151,6 +153,10 @@ a~přímého osvětlení \ref[svet_mapa3] a obr.~\ref[val2].
 % - u výkladu byla zvolena jen světla nepřímá a~aby bylo požadováno 300-500lx
 % - u písemky byly zvoleny přímá a~nepřímá
 % - u denního světla - každá řada s jinou intenzitou od nejnižší po nejvyšší jas
+
+
+
+Na základě validačních výsledků můžeme teď přistoupit k optimalizaci parametrů osvětlení v učebně pro různé scény.
 
 \sec Simulace - Výklad
 
