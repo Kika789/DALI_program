@@ -155,21 +155,20 @@ a~to co vidíme je vlastně osvětlení pod stolem.
 % - u denního světla - každá řada s jinou intenzitou od nejnižší po nejvyšší jas
 
 
-Na základě úspěšných validačních výsledků lze přistoupit k optimalizaci parametrů osvětlení v učebně pro různé scény.
+Na základě úspěšné validace modelu lze přistoupit k optimalizaci parametrů osvětlení v učebně pro různé scény.
 
 \sec Simulace - Výklad
 
-V této sekci se budeme zabývat simulací osvětlení v učebně, které označíme jako {\sbf Výklad}.
-Pro tento typ činnosti byl zvolen typ nepřímého osvětlení.
+Pro světelnou scénu {\sbf Výklad} byl zvolen typ nepřímého osvětlení.
 
 \noindent {\sbf Parametry a cíle pro simulaci:}
 \begitems
 * {\sbf Typ osvětlení:} {Nepřímé.}
 * {\sbf Cíl:} Zajistit měkké a rovnoměrné osvětlení,
-        které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli a učitele.
+        které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli.
 * {\sbf Osvětlení:} Požadavkem je, aby intenzita osvětlení na tabuli
-a v prostoru pro učitele byla 300--500 luxů a vyhnout se přímému osvětlení tabule,
-které by mohlo způsobovat oslnění.
+a~v~prostoru byla 300--500 luxů a~vyhnout se přímému osvětlení tabule,
+které by mohlo způsobovat nižší viditelnost na interaktivní tabuli.
 \enditems
 
 
@@ -203,8 +202,7 @@ a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení.
 
 \sec Simulace - Písemka
 
-V této sekci se budeme zabývat simulací osvětlení v učebně, které označíme jako {\sbf Písemka}.
-Pro tento typ činnosti byl zvolen typ kombinovaného osvětlení.
+Pro světelnou scénu {\sbf Písemka} byl zvolen typ kombinovaného osvětlení.
 
 
 \begitems
@@ -212,7 +210,7 @@ Pro tento typ činnosti byl zvolen typ kombinovaného osvětlení.
 * {\sbf Cíl:} Zajistit dostatek osvětlení na pracovní plochy
          studentů a zároveň minimalizovat oslnění a únavu očí.
 * {\sbf Nastavení:} Požadavkem je, aby intenzita osvětlení na pracovních plochách
-        studentů byla 300--500 luxů, a vyhnout se přímému osvětlení očí studentů.
+        studentů byla 300--500 luxů a vyhnout se přímému osvětlení očí studentů.
 \enditems
 
 
@@ -249,18 +247,38 @@ a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení nepřímého 
 
 \sec Simulace - Denní světlo
 
+Pro světelnou scénu {\sbf Denní světlo} byl zvolen typ kombinovaného umělého osvětlení a~přirozené denní světlo.
+
 \begitems
 * Zvolený typ osvětlení: kombinace denního a umělého osvětlení
 * Cíl: Využít co nejvíce denního světla a minimalizovat potřebu umělého osvětlení.
-* Nastavení: Použít žaluzie nebo rolety pro regulaci denního světla a zabránění oslnění; v případě potřeby doplňte denní světlo umělým osvětlením tak, aby byla zajištěna požadovaná intenzita osvětlení (300-500 luxů).
+* Nastavení: V případě potřeby doplnit denní světlo umělým osvětlením tak, aby byla zajištěna požadovaná intenzita
+osvětlení (300-500 luxů).
+% Použít žaluzie nebo rolety pro regulaci denního světla a zabránění oslnění;
+
 \enditems
 
-\noindent Zatažená obloha
-\noindent Světelný tok svítidla nastaven pro nepřímá i~přímá u lavic: 3000~lx, 2000~lx, 1000~lx
+% \noindent Zatažená obloha
+% \noindent Světelný tok svítidla nastaven pro nepřímá i~přímá u lavic: 3000~lx, 2000~lx, 1000~lx
 
 u tabaule: 1500~lx, 1000~lx, 500~lx
 
-\secc Výsledky simulace
+\midinsert \clabel[param_svetlo]{Parametry světel -- Denní světlo}
+\ctable{lcccc}{
+{\sbf Typ osvětlení}  &    {\sbf Světla u dveří} & {\sbf Světla ve středu}   &  {\sbf Světla u okna} & {\sbf \glref{CCT}}  \cr
+                      &    [lm]                  &        [lm]               &    [lm]               &      [K]             \crl
+{\sbf Nepřímé}        &     3 000                &     2 000                 &    1000               &  5 470              \cr
+{\sbf Přímé}          &     1 500                &     1 000                 &     500               & 5 470               \cr
+}
+\caption/t Nastavené parametry světel pro scénu -- Denní světlo
+\endinsert
+
+
+% \secc Výsledky simulace
+
+Na následujícím obrázku vidíme výsledky simulace osvětlení v učebně pro scénu Denní světlo
+se srovnávací rovinou ve výšce 800~mm nad podlahou (levý obrázek \ref[simulace1]).
+Vlevo je obrázek simulace příspěvku denního světla s kombinací umělého osvětlení a vpravo výsledky simulace ze zatažené oblohy.
 
 \medskip \clabel[simulace2]{Simulace scény denní světlo}
 \picw=18cm \cinspic 04_Grafy/05_simulace/sceny/030_svetlo1.png
@@ -293,7 +311,7 @@ u tabaule: 1500~lx, 1000~lx, 500~lx
 \noindent {\sbf Scéna 1: Výklad}
 
 Simulace osvětlení pro scénu Výklad ukázala, že nepřímé osvětlení zajišťuje měkké
-a rovnoměrné osvětlení v celé učebně. Intenzita osvětlení na tabuli a v prostoru pro učitele dosahuje 200-350 luxů,
+a rovnoměrné osvětlení v celé učebně. Intenzita osvětlení v prostoru dosahuje 200-350 luxů,
 což splňuje požadované normy. Simulace neprokázala žádné problematické oslnění ani tmavé skvrny. Barevná teplota
 osvětlení 4500 K vytváří příjemnou atmosféru, která podporuje soustředění studentů.
 
@@ -349,7 +367,7 @@ lavice: ${3000 \over 11000} = 0,27$
 
 Simulace scény Denní světlo ukázala, že správně orientovaná okna umožňují optimální využití denního
 světla v učebně. V případě potřeby je denní světlo doplňováno umělým osvětlením tak, aby byla zajištěna požadovaná
-intenzita osvětlení (300-500 luxů) v závislosti na denní době a povětrnostních podmínkách. Simulace neprokázala žádné
+intenzita osvětlení (300-500 luxů) v závislosti na počasí. Simulace neprokázala žádné
 problematické oslnění ani tmavé skvrny. Barevná teplota denního světla se mění v závislosti na ročním období a počasí,
 ale v průměru se pohybuje kolem 5000 K, čímž podporuje soustředění a produktivitu studentů.
 
