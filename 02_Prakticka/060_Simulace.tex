@@ -1,10 +1,11 @@
 \chap Simulace v~DIALuxu
 
-V této části jsme se soustředili na vytvoření 3D světelného modelu učebny
-a~simulaci osvětlení v programu DIALux.
-Modelovali jsme osvětlení pro různé činnosti, jako je výklad, písemka a denní světlo.
-Výsledkem byly číselné parametry jednotlivých scén, které slouží řídicí jednotce pro řízení osvětlení v učebně.
+V této části jsme se soustředili na simulaci osvětlení ve 3D modelu učebny v programu DIALux.
+Modelovali jsme osvětlení pro různé školní činnosti, jako je výklad, písemka a adaptace na denní světlo.
+Ano, takhle je to lepší. Text je nyní srozumitelnější a konkrétnější. Zde je vaše upravená verze:
 
+Výsledkem byly číselné parametry jednotlivých scén, které budou využity pro nastavení jasu
+světel v~řídicí jednotce při budoucí realizaci řízení osvětlení v učebně.
 
 DIALux \cite[dialux] je software pro simulaci osvětlení ve vnitřních a venkovních podmínkách.
 Umožňuje 3D modelování různých typů prostorů, od malých bytů po velké komerční budovy,
@@ -15,7 +16,8 @@ od různých výrobců, přičemž parametry těchto svítidel lze individuáln�
 
 Celkově lze říct, že DIALux slouží k návrhu, vizualizaci a analýze osvětlenosti, jasu, distribuce světla,
 teploty barvy, indexu podání barev, energetické účinnosti, oslnění a~dalších parametrů osvětlení.
-V základní verzi je program zdarma a~je dostupný výhradně pro operační systémy Windows~\cite[dialux].
+V základní verzi je program zdarma~\cite[dialux]. 
+% a~je dostupný výhradně pro operační systémy Windows
 
 
 \medskip \noindent
@@ -41,10 +43,10 @@ V základní verzi je program zdarma a~je dostupný výhradně pro operační sy
 
 
 Podle uvedeného postupu byly připraveny parametry pro simulaci.
-Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny normované parametry, které nelze měnit.
+Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny parametry z normy, které nelze měnit.
 Po nastavení byl podle naměřených údajů nakreslen půdorys učebny.
 Poté byl vytvořen 3D model, včetně volby materiálů a barev,
-aby se model co nejvíce přiblížil realitě.
+aby se co nejvíce přiblížil realitě.
 Do 3D modelu byla vložena LED svítidla od {\sbf Spectrasol -- Spectra Mikado Linear} 3000 mm a 1500 mm (1x LED linear)
 s odpovídajícími parametry (viz. příloha \ref[par_svetel]),
 který se jeví jako nejvíce podobný skutečným světlům umístěným v učebně.
@@ -57,7 +59,7 @@ který se jeví jako nejvíce podobný skutečným světlům umístěným v uče
 Výsledný model je vidět na obrázku \ref[3D_model].
 Současně tento náhled slouží i jako verifikace modelu,
 kde jsme zkontrolovali správnost umístění svítidel a materiálů,
-aby byla simulace co nejvěrnější reálnému prostředí.
+aby simulace co nejlépe odpovídala reálnému prostředí.
 Tento proces ověřuje, že všechny prvky jsou správně
 nastaveny a~připraveny pro další analýzu a optimalizaci osvětlení v učebně.
 
