@@ -691,7 +691,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 % {\sbf Vstupní strana:}
 {\sbf Čtení dat ze sběrnice:}
 \begitems
-    * Čtení dat ze sběrnice je realizováno oddělovačem OK1, Zenerovou diodou D1 a~omezovačem proudu IC1.
+    * Čtení dat ze sběrnice je realizováno oddělovačem OK1, Zenerovou diodou D1 a~omezovačem proudu IC1 \cite[LM334].
     * Celkový spád napětí na vstupu je cca 6,7 V (dioda 0,7 V, omezovač 1 V, Zenerová dioda 5 V)
     a~odpovídá normě, kde aktivní stav je 0 až 6,5 V. V tomto intervalu se dioda OK1 nerozsvítí.
 \enditems
@@ -747,18 +747,18 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \noindent
 {\sbf Vstupní napájení:}
 \begitems
-    * Stejnosměrný externí zdroj napětí 12 V až 21 V se připojuje ke svorkám (+) X2-1 a~(--) X2-2.
-    * Za vstupem je umístěn omezovač proudu s maximálním proudem při výstupu nakrátko 60 mA.
-    To je dáno velikostí odporu R8 a~předpokladem úbytku napětí na něm cca 0,7 V.
+    * Stejnosměrný externí zdroj napětí 12~V až 21~V se připojuje ke svorkám (+) X2-1 a~(--) X2-2.
+    * Za vstupem je umístěn omezovač proudu s maximálním proudem při výstupu nakrátko 60~mA.
+    To je dáno velikostí odporu R8 a~předpokladem úbytku napětí na něm cca 0,7~V.
     * Toto nastavení splňuje požadavek normy, aby při odběru 250 mA bylo výstupní napětí nižší než 4,5 V.
 \enditems
 
 \noindent
 {\sbf Napájení řídicí jednotky:}
 \begitems
-    * Pravá strana rozhraní s IC2 slouží jako zdroj napájení pro řídicí jednotku s \glref{ESP32}.
+    * Pravá strana rozhraní s IC2(\cite[tps4005x]) slouží jako zdroj napájení pro řídicí jednotku s~\glref{ESP32}.
     % * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
-    % který zajišťuje stabilní napájení 5 V pro \glref{ESP32}.   % zatim nechci
+    % který zajišťuje stabilní napájení 5~V pro \glref{ESP32}.   % zatim nechci
 \enditems
 
 \noindent
