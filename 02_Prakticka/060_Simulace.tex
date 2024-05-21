@@ -168,7 +168,7 @@ Pro tento typ činnosti byl zvolen typ nepřímého osvětlení.
 * {\sbf Cíl:} Zajistit měkké a rovnoměrné osvětlení,
         které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli a učitele.
 * {\sbf Osvětlení:} Požadavkem je, aby intenzita osvětlení na tabuli
-a v prostoru pro učitele byla 300 -- 500 luxů a vyhnout se přímému osvětlení tabule,
+a v prostoru pro učitele byla 300--500 luxů a vyhnout se přímému osvětlení tabule,
 které by mohlo způsobovat oslnění.
 \enditems
 
@@ -192,7 +192,8 @@ Ze simulace vyplývá, že nastavení světelného toku svítidel pro nepřímé
 % \secc Výsledky simulace
 
 Na následujícím obrázku vidíme výsledky simulace osvětlení v učebně pro scénu Výklad
-s výpočetní rovinou v~800~mm nad podlahou.
+se srovnávací rovinou ve výšce 800~mm nad podlahou (levý obrázek \ref[simulace0])
+a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení.
 
 
 \medskip \clabel[simulace0]{Simulace scény výklad}
@@ -202,21 +203,44 @@ s výpočetní rovinou v~800~mm nad podlahou.
 
 \sec Simulace - Písemka
 
+V této sekci se budeme zabývat simulací osvětlení v učebně, které označíme jako {\sbf Písemka}.
+Pro tento typ činnosti byl zvolen typ kombinovaného osvětlení.
+
 
 \begitems
-* Zvolený typ osvětlení: Kombinace přímého a nepřímého
-* Cíl: Zajistit dostatek osvětlení na pracovní plochy studentů a zároveň minimalizovat oslnění a únavu očí.
-* Nastavení: Zajistit, aby intenzita osvětlení na pracovních plochách studentů byla 300-500 luxů, vyhněte se přímému osvětlení očí studentů.
+* {\sbf Typ osvětlení:} Kombinace přímého a nepřímého
+* {\sbf Cíl:} Zajistit dostatek osvětlení na pracovní plochy
+         studentů a zároveň minimalizovat oslnění a únavu očí.
+* {\sbf Nastavení:} Požadavkem je, aby intenzita osvětlení na pracovních plochách
+        studentů byla 300--500 luxů, a vyhnout se přímému osvětlení očí studentů.
 \enditems
 
 
-\noindent Při nastavení na 4000~lm přímých světel to vychází na 500~lx
+% \noindent Při nastavení na 4000~lm přímých světel to vychází na 500~lx
+% \noindent Světelný tok svítidla nastaven pro nepřímé: tabule = 1000~lm, lavice = 2000~lm
+% pro přímé: tabule = 1500~lm, lavice = 3000~lm
 
-\noindent Světelný tok svítidla nastaven pro nepřímé: tabule = 1000~lm, lavice = 2000~lm
+Ze simulace vyplývá, že nastavení světelného toku svítidel pro přímé a nepřímé osvětlení je následující:
 
-pro přímé: tabule = 1500~lm, lavice = 3000~lm
+% \medskip
+\midinsert \clabel[param_pisemka]{Parametry světel -- Písemka}
+\ctable{lccc}{
+{\sbf Typ osvětlení}  &    {\sbf Světla u tabule} & {\sbf Světla nad lavicemi}   &   {\sbf \glref{CCT}}  \cr
+                      &    [lm]                   &       [lm]              &   [K]   \crl
+{\sbf Nepřímé}      &     1 000       &    2 000       &       5 470         \cr
+{\sbf Přímé}        &     1 500       &    3 000       &       5 470         \cr
+}
+\caption/t Nastavené parametry světel pro scénu -- Písemka
+\endinsert
 
-\secc Výsledky simulace
+
+% \secc Výsledky simulace
+
+
+Na následujícím obrázku vidíme výsledky simulace osvětlení v učebně pro scénu Písemka
+se srovnávací rovinou ve výšce 800~mm nad podlahou (levý obrázek \ref[simulace1])
+a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení nepřímého světla.
+
 
 \medskip \clabel[simulace1]{Simulace scény písemka}
 \picw=15cm \cinspic 04_Grafy/05_simulace/sceny/010_pisemka.png
