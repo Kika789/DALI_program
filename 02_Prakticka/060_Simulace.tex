@@ -80,8 +80,18 @@ Validace je klíčová pro zajištění, že simulace odpovídá skutečným
 podmínkám a~že navržené osvětlení bude efektivní a~funkční v~reálném prostředí.
 
 
-Nastavené parametry světel:
 
+\medskip
+\noindent{\sbf Podmínky validace:}
+\begitems
+    * Data hodnotíme pouze vizuálně.
+    * Srovnáváme kombinované, nepřímé a přímé osvětlení.
+    * Hodnotíme tvarovou shodu.
+    * Intenzitu osvětlení hodnotíme s rezervou  10~\pcent až 15~\pcent.
+\enditems
+
+
+% Nastavené parametry světel:
 % nepřímé: tabule = 5500, lavice = 11 000, CCT = 5470K
 % přímé: tabule = 2500, lavice = 5000, CCT = 5470K
 
@@ -96,12 +106,22 @@ Přímé        &     2 500       &    5 000       &       5 470         \cr
 \endinsert
 
 
-Ve validaci byly porovnány tři základní typy osvětlení:
-kombinované, nepřímé a přímé s~měřením provedeným v kapitole \ref[vysledky_mereni_horizontalni].
+\medskip
+\noindent{\sbf Srovnaní kombinovaného osvětlení:}
 
 
-Srovnaní kombinovaného osvětlení:
+Kombinované osvětlení podle měření \ref[svet_mapa] dosahuje maxima kolem 600 luxů,
+což odpovídá simulovaným hodnotám obr.~\ref[val0].
+Tvarově se obě data velmi dobře shodují, což potvrzuje správnost modelu.
+Simulace věrně kopíruje rozložení osvětlenosti v místnosti,
+což je klíčové pro validaci modelu.
+Toto srovnání ukazuje, že jak přímé, tak nepřímé osvětlení
+je v modelu přesně zachyceno, což je důležité pro přesné řízení světelných scén.
 
+
+Podobné výsledky byly získány také při porovnání měřených a simulovaných dat
+u nepřímého osvětlení obr.~\ref[svet_mapa2] a obr.~\ref[val1]
+a~přímého osvětlení \ref[svet_mapa3] a obr.~\ref[val2].
 
 
 \medskip \clabel[val0]{Validace kombinovaného osvětlení}
