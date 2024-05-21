@@ -155,20 +155,45 @@ a~to co vidíme je vlastně osvětlení pod stolem.
 % - u denního světla - každá řada s jinou intenzitou od nejnižší po nejvyšší jas
 
 
-
-Na základě validačních výsledků můžeme teď přistoupit k optimalizaci parametrů osvětlení v učebně pro různé scény.
+Na základě úspěšných validačních výsledků lze přistoupit k optimalizaci parametrů osvětlení v učebně pro různé scény.
 
 \sec Simulace - Výklad
 
+V této sekci se budeme zabývat simulací osvětlení v učebně, které označíme jako {\sbf Výklad}.
+Pro tento typ činnosti byl zvolen typ nepřímého osvětlení.
+
+\noindent {\sbf Parametry a cíle pro simulaci:}
 \begitems
-* Zvolený typ osvětlení: Nepřímé
-* Cíl: Zajistit měkké a rovnoměrné osvětlení, které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli a učitele.
-* Nastavení: Zajistěte, aby intenzita osvětlení na tabuli a v prostoru pro učitele byla 300 - 500 luxů, vyhnout se přímému osvětlení tabule, které by mohlo způsobovat oslnění.
+* {\sbf Typ osvětlení:} {Nepřímé.}
+* {\sbf Cíl:} Zajistit měkké a rovnoměrné osvětlení,
+        které minimalizuje oslnění a~umožňuje studentům snadno vidět na tabuli a učitele.
+* {\sbf Osvětlení:} Požadavkem je, aby intenzita osvětlení na tabuli
+a v prostoru pro učitele byla 300 -- 500 luxů a vyhnout se přímému osvětlení tabule,
+které by mohlo způsobovat oslnění.
 \enditems
 
-\noindent Světelný tok svítidla nastaven pro nepřímá: tabule = 2500~lm, lavice = 5000~lm
 
-\secc Výsledky simulace
+
+% \noindent Světelný tok svítidla nastaven pro nepřímá: tabule = 2500~lm, lavice = 5000~lm
+Ze simulace vyplývá, že nastavení světelného toku svítidel pro nepřímé osvětlení je následující:
+
+% \medskip
+\midinsert \clabel[param_vyklad]{Parametry světel -- Výklad}
+\ctable{lccc}{
+{\sbf Typ osvětlení}  &    {\sbf Světla u tabule} & {\sbf Světla nad lavicemi}   &   {\sbf \glref{CCT}}  \cr
+                      &    [lm]                   &       [lm]              &   [K]   \crl
+{\sbf Nepřímé}      &     2 500       &   5 000       &       5 470         \cr
+%{\sbf Přímé}        &     2 500       &    5 000       &       5 470         \cr
+}
+\caption/t Nastavené parametry světel pro scénu -- Výklad
+\endinsert
+
+
+% \secc Výsledky simulace
+
+Na následujícím obrázku vidíme výsledky simulace osvětlení v učebně pro scénu Výklad
+s výpočetní rovinou v~800~mm nad podlahou.
+
 
 \medskip \clabel[simulace0]{Simulace scény výklad}
 \picw=15cm \cinspic 04_Grafy/05_simulace/sceny/020_vyklad.png
@@ -176,6 +201,7 @@ Na základě validačních výsledků můžeme teď přistoupit k optimalizaci p
 \medskip
 
 \sec Simulace - Písemka
+
 
 \begitems
 * Zvolený typ osvětlení: Kombinace přímého a nepřímého
