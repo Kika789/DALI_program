@@ -213,9 +213,9 @@ Standard IEC 62386~101~\cite[iec101] specifikuje elektrické parametry sběrnice
 %  ############################################################################################################
 \sec Přenosový protokol
 
-Přenosový protokol \glref{DALI} využívá k~přenosu informace hrany signálu (viz obr.~\ref[kodovani])
+Přenosový protokol \glref{DALI} využívá k~přenosu informace hrany signálu
 s~pevně stanovenou přenosovou rychlostí 1200 bps.
-Logické jedničce odpovídá vzestupná hrana signálu a~nule odpovídá sestupná hrana signálu.
+Logické jedničce odpovídá vzestupná hrana signálu a~nule odpovídá sestupná hrana signálu (viz obr.~\ref[kodovani]).
 
 Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
 ale každá hrana signálu slouží současně k~synchronizaci komunikace, což znamená,
@@ -237,7 +237,8 @@ Na sběrnici rozlišujeme:
 \enditems
 
 \noindent
-Kromě logických nul a~jedniček obsahuje každý datový rámec (viz obr.~\ref[paket]) start a~stop bity, které slouží k~synchronizaci komunikace.:
+Kromě logických nul a~jedniček obsahuje každý datový rámec start a~stop bity,
+které slouží k~synchronizaci komunikace (viz obr.~\ref[paket]):
 \begitems
 * {\sbf Start bit:} Jednička, která označuje začátek rámce.
 * {\sbf Stop bit:} Klidový stav, který trvá specifikovanou dobu a~označuje konec rámce.
