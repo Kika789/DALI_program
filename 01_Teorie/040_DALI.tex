@@ -110,7 +110,7 @@ Možnost použití bezdrátové komunikace a~IP protokolu byla zavedena až v~no
 \medskip
 Aby se zachovala kompatibilita se staršími systémy, rozlišuje \glref{DALI-2} dva typy řídicích jednotek:
 \begitems
-    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s \glref{DALI} v1 a~fungují jako hlavní řídicí prvek v systému.
+    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s \glref{DALI} v1 a~slouží jako hlavní řídicí prvek v systému.
     *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a~flexibilitu v \glref{DALI-2} systémech.
 \enditems
 
@@ -121,10 +121,10 @@ například odlišné časové limity pro jednotlivé půlbity:
     *{\sbf Multi master:} 400,0 až 433,3 µs (\cite[iec101], kapitola 8.3.1)
 \enditems
 
-Single master má povolenou odchylku až 10\% od nominální hodnoty doby půl bitu 416,7 µs,
-zatímco multi master pouze 5\%.
+Single master má povolenou odchylku od nominální hodnoty doby půl bitu 416,7 µs až o 10{ \pcent},
+zatímco multi master pouze o 5{ \pcent}.
 Tyto drobné rozdíly v časování můžou u některých starších zařízení způsobovat problémy
-s kompatibilitou a~vylučovat je z provozu v multi master systémech.
+s kompatibilitou a~vylučovat je z~provozu v multi master systémech.
 
 V \glref{DALI} systémech s více řídicími jednotkami (multi-master) může docházet
 na sběrnici ke kolizím kvůli paralelní komunikaci.
@@ -145,10 +145,11 @@ v~příloze A.2 Systémové architektury, normy IEC 62386-101~\cite[iec101].
 %  ############################################################################################################
 \sec Topologie sběrnice
 
-Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby~\cite[iec101] (obr.~\ref[topolgie]):
+Zařízení v systému \glref{DALI} se dají propojit několika způsoby~\cite[iec101] (obr.~\ref[topolgie]):
+% Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby~\cite[iec101] (obr.~\ref[topolgie]):
 \begitems
-    * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu napájecímu zdroji.
-    * {\sbf Seriová topologie:} Zařízení jsou propojena v řadě, kdy z jednoho zařízení vede kabel k~dalšímu.
+    * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu zařízení.
+    * {\sbf Sériová topologie:} Zařízení jsou propojena v řadě, jedno za druhým.
     * {\sbf Kombinace obou:} Můžete kombinovat hvězdicovou a~seriovou topologii pro větší flexibilitu.
 \enditems
 
