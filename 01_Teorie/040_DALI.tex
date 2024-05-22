@@ -303,16 +303,16 @@ Datový paket {\sbf 32 bitů}:
 \sec Adresy, skupiny a~scény
 
 Na sběrnici \glref{DALI} mohou být zařízení identifikována pomocí adres a~skupin.
-Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídicí jednotky,
+Celkový počet adres na jedné sběrnici je~64 pro předřadníky a~64 pro řídicí jednotky,
 celkem 128 zařízení \cite[iec101,iec102,iec103].
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
 Existuje 32 skupin pro vstupních jednotky (jako jsou jednotlivá tlačítka);
-každé může být členem až 3 z těchto skupin~\cite[dali_quick_start].
+každé může být členem až 3 z~těchto skupin~\cite[dali_quick_start].
 
 Některé zařízení mohou obsluhovat více světel, pak mohou používat více adres. Taková zařízení
-označujeme jako zařízení s logickými jednotkami~\cite[dali_quick_start].
+označujeme jako zařízení s~logickými jednotkami~\cite[dali_quick_start].
 
 
 Obecně je možné adresovat zařízení pomocí adresy v rozsahu 0 až 63, tzv. krátká adresa,
@@ -561,7 +561,7 @@ o adrese zařízení komu je zpráva určena.
 \medskip \noindent
 Může mít binární tvar (viz 7.2.1~\cite[iec102]):
 \begitems
-* {\tt 0AAA AAAx} - krátká adresa, kde A je adresa zařízení.
+* {\tt 0AAA AAAx} - krátká adresa, kde~A je adresa zařízení.
 * {\tt 100G GGGx} - skupina, kde G je číslo skupiny.
 * {\tt 1111 110x} - broadcast, zpráva je určena zařízením bez krátké adresy.
 * {\tt 1111 111x} - broadcast, zpráva je určena všem zařízením.
