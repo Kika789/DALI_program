@@ -193,7 +193,7 @@ Maximální povolený úbytek napětí na sběrnici je 2 V.
 %  ############################################################################################################
 \sec Elektrická specifikace
 
-Standard IEC 62386~\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
+Standard IEC 62386~101~\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
 \begitems
     *{\sbf Polarita:} Rozhraní je nezávislé na polaritě napětí s výjimkou případů, kdy je napájecí zdroj integrován do sběrnice.
     *{\sbf Značení:} Rozhraní by mělo být označeno "da" nebo "DA" pro datové vodiče.
@@ -220,12 +220,12 @@ Logické jedničce odpovídá vzestupná hrana signálu a~nule odpovídá sestup
 Komunikace po sběrnici je sice asynchronní, tedy bez synchronizačního signálu,
 ale každá hrana signálu slouží současně k~synchronizaci komunikace, což znamená,
 že přijímací strana vždy měří délku pulzu od poslední hrany.
-Tento typ kódování je znám jako protokol Manchester.
+Tento typ kódování je znám jako protokol Manchester~\cite[manchester_code].
 
 
 \medskip \clabel[kodovani]{Kódování bitů v protokolu \glref{DALI}}
 \picw=8cm \cinspic 03_Obrazky/logika.png
-\caption/f Kódování bitů v protokolu \glref{DALI}
+\caption/f Kódování bitů v protokolu \glref{DALI} \cite[bus_communication]
 \medskip
 % https://www.researchgate.net/figure/DALI-Electrical-Specification_fig2_344319530
 
@@ -244,7 +244,7 @@ Kromě logických nul a~jedniček obsahuje každý datový rámec (viz obr.~\ref
 \enditems
 
 \noindent
-Datový rámec obsahuje:
+Datový rámec obsahuje \cite[iec101]:
 \begitems
 * {\sbf Start bit:}
 * {\sbf Data:} Data o~délce 1 až 32 bitů.
@@ -259,7 +259,7 @@ Datový rámec obsahuje:
 \sec Typy datových paketů
 
 
-Datové pakety protokolu \glref{DALI} se dělí na:
+Datové pakety protokolu \glref{DALI} se dělí na \cite[iec101]:
 \begitems
     *{\sbf Standardní:} Tyto pakety mohou mít délku 8, 16, 24 nebo 32 bitů a~jsou používány
        pro základní funkce protokolu \glref{DALI}.
@@ -274,7 +274,7 @@ Datové pakety protokolu \glref{DALI} se dělí na:
 Datový paket {\sbf 8 bitů}:
 \begitems
  * tento datový rámec slouží k~odesílání odpovědí na zprávy řídicích a~vstupních jednotek,
- * norma IEC 62386 \cite[iec101], \cite[iec102] a~\cite[iec103].
+ * norma IEC 62386 \cite[iec101,iec102,iec103].
 \enditems
 
 
@@ -303,7 +303,8 @@ Datový paket {\sbf 32 bitů}:
 \sec Adresy, skupiny a~scény
 
 Na sběrnici \glref{DALI} mohou být zařízení identifikována pomocí adres a~skupin.
-Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídicí jednotky, celkem 128 zařízení.
+Celkový počet adres na jedné sběrnici je 64 pro předřadníky a~64 pro řídicí jednotky,
+celkem 128 zařízení \cite[iec101,iec102,iec103].
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
