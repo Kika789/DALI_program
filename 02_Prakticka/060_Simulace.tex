@@ -43,9 +43,8 @@ V~základní verzi je program zdarma~\cite[dialux].
 Podle uvedeného postupu byly připraveny parametry pro simulaci.
 Byl vybrán typ místnosti: {\sbf Třída} -- obecné činnosti (viz obr.~\ref[para_dial]), kde jsou nastaveny parametry z~normy, které nelze měnit.
 Po nastavení byl podle naměřených údajů nakreslen půdorys učebny.
-Poté byl vytvořen 3D model, včetně volby materiálů a barev,
-aby se co nejvíce přiblížil realitě.
-Do 3D modelu byla vložena LED svítidla od {\sbf Spectrasol -- Spectra Mikado Linear} 3000~mm a 1500~mm (1x LED linear)
+Poté byl vytvořen 3D model, včetně volby materiálů a barev.
+Do 3D modelu byla vložena LED svítidla firmy {\sbf Spectrasol -- Spectra Mikado Linear} 3000~mm a 1500~mm (1~$\times$~LED linear)
 s~odpovídajícími parametry (viz. příloha \ref[par_svetel]),
 která se jeví jako nejvíce podobná skutečným světlům umístěným v učebně.
 
@@ -58,7 +57,7 @@ Výsledný model je vidět na obrázku \ref[3D_model].
 Současně tento náhled slouží i~jako verifikace modelu,
 kde jsme zkontrolovali správnost umístění svítidel a~materiálů,
 aby simulace co nejlépe odpovídala reálnému prostředí.
-Tento proces ověřuje, že všechny prvky jsou správně
+Tento krok ověřuje, že všechny prvky jsou správně
 nastaveny a~připraveny pro další analýzu a~optimalizaci osvětlení v~učebně.
 
 \medskip \clabel[3D_model]{3D model v~DIALuxu}
@@ -161,7 +160,7 @@ Na základě úspěšné validace modelu lze přistoupit k optimalizaci parametr
 
 Pro světelnou scénu {\sbf Výklad} byl zvolen typ nepřímého osvětlení.
 
-\noindent {\sbf Parametry a cíle pro simulaci:}
+% \noindent {\sbf Parametry a cíle pro simulaci:}
 \begitems
 * {\sbf Typ osvětlení:} {Nepřímé.}
 * {\sbf Cíl:} Zajistit měkké a rovnoměrné osvětlení,
@@ -197,7 +196,7 @@ a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení.
 
 \medskip \clabel[simulace0]{Simulace scény výklad}
 \picw=15cm \cinspic 04_Grafy/05_simulace/sceny/020_vyklad.png
-\caption/f Simulace scény výklad
+\caption/f Simulace scény {\sbf výklad}. Vlevo srovnávací rovina 800~mm, vpravo strop. Isofoty v luxech.
 \medskip
 
 \sec Simulace - Písemka
@@ -242,7 +241,7 @@ a osvětlenost na stropě jako kontrola rovnoměrnosti osvětlení nepřímého 
 
 \medskip \clabel[simulace1]{Simulace scény písemka}
 \picw=15cm \cinspic 04_Grafy/05_simulace/sceny/010_pisemka.png
-\caption/f Simulace scény písemka
+\caption/f Simulace scény {\sbf písemka}. Vlevo srovnávací rovina 800~mm, vpravo strop. Isofoty v luxech.
 \medskip
 
 \sec Simulace - Denní světlo
@@ -282,7 +281,7 @@ světla s kombinací umělého osvětlení a~vpravo výsledky simulace ze zataž
 
 \medskip \clabel[simulace2]{Simulace scény denní světlo}
 \picw=18cm \cinspic 04_Grafy/05_simulace/sceny/030_svetlo1.png
-\caption/f Simulace scény denní světlo
+\caption/f Simulace scény {\sbf denní světlo}. Vlevo denní a umělé osvětlení, vpravo zatažená obloha. Srovnávací rovina 800~mm. Isofoty v luxech.
 \medskip
 
 % Osvětlenost
@@ -303,12 +302,15 @@ světla s kombinací umělého osvětlení a~vpravo výsledky simulace ze zataž
 % \caption/f Strop
 % \medskip
 
+\medskip
 \sec Vyhodnocení simulace
 
 % zavislost intenzity osvětlení a vykon osvetleni
 % https://ozuno.com/blog/step-darkness-dali-brightness-levels/
 
-\noindent {\sbf Scéna 1: Výklad}
+\medskip
+\noindent {\sbf Scéna Výklad:}
+
 Simulace osvětlení pro scénu Výklad ukázala, že nepřímé osvětlení zajišťuje měkké
 a rovnoměrné osvětlení v celé učebně. Intenzita osvětlení v prostoru dosahuje 200--350 luxů,
 což splňuje požadované normy. Simulace neprokázala žádné problematické oslnění ani tmavé skvrny. Barevná teplota
@@ -328,7 +330,9 @@ plyne, že světelný tok nepřímých svítidel pro tuto scénu je nastaven na 
 %         ${0,45 \cdot 169} = 76,8$
 %         $76,8 + 85 = 161,8$ – nastavíme
 
-\noindent {\sbf Scéna 2: Písemka}
+\medskip
+\noindent {\sbf Scéna Písemka:}
+
 Kombinace přímého a nepřímého osvětlení v simulaci scény Písemka zajišťuje dostatek osvětlení na pracovních plochách studentů
 (500~lx) a zároveň minimalizuje oslnění a únavu očí.
 Simulace neprokázala žádné problematické stíny ani tmavé skvrny.
@@ -353,8 +357,9 @@ a světelný tok přímých svítidel na 27~{\pcent } maximálního světelného
 %         ${0,27 \cdot 169} = 46,1$
 %         $46,1 + 85 = 131,1$ – nastavíme
 
+\medskip
+\noindent {\sbf Scéna Denní světlo:}
 
-\noindent {\sbf Scéna 3: Denní světlo}
 Simulace scény Denní světlo ukázala, že správně orientovaná okna umožňují optimální využití denního
 světla v učebně. V případě potřeby je denní světlo doplňováno umělým osvětlením tak, aby byla zajištěna požadovaná
 intenzita osvětlení (300--500 luxů) v závislosti na počasí. Simulace neprokázala žádné
@@ -396,10 +401,12 @@ maximálního světelného toku.
 %         ${0,09 \cdot 169} = 15,4$
 %         $15,4 + 85 = 100,4$ – nastavíme
 
-\noindent {\sbf Shrnutí}
+\medskip
+\noindent {\sbf Shrnutí:}
+
 Simulace osvětlení učebny v programu DIALux pro scény Výklad, Písemka a Denní světlo ukázaly, že navržené osvětlení
 splňuje všechny platné normy a předpisy, a~zajišťuje optimální vizuální komfort a vhodné podmínky pro studenty.
-Osvětlení je rovnoměrné, bez oslnění a~tmavých míst, a~jeho barevná teplota podporuje soustředění a~produktivitu.
+Osvětlení je rovnoměrné, bez oslnění a~tmavých míst, jeho barevná teplota podporuje soustředění a~produktivitu.
 Využití denního světla snižuje spotřebu energie a~zvyšuje celkovou pohodu studentů.
 
 % Návrh osvětlení učebny v DIALuxu umožňuje vytvořit optimální osvětlené prostředí pro studenty s ohledem na jejich
