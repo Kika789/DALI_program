@@ -146,11 +146,11 @@ v~příloze A.2 Systémové architektury, normy IEC 62386-101~\cite[iec101].
 \sec Topologie sběrnice
 
 Zařízení v systému \glref{DALI} se dají propojit několika způsoby~\cite[iec101] (obr.~\ref[topolgie]):
-% Připojování zařízení v systému \glref{DALI} může být provedeno několika způsoby~\cite[iec101] (obr.~\ref[topolgie]):
 \begitems
     * {\sbf Hvězdicová topologie:} Kabely od všech zařízení jsou vedeny centrálně k~jednomu zařízení.
     * {\sbf Sériová topologie:} Zařízení jsou propojena v řadě, jedno za druhým.
-    * {\sbf Kombinace obou:} Můžete kombinovat hvězdicovou a~seriovou topologii pro větší flexibilitu.
+    * {\sbf Kombinace obou:} Můžete kombinovat hvězdicovou a~seriovou topologii.
+    % pro větší flexibilitu.
 \enditems
 
 \noindent
@@ -198,17 +198,18 @@ Maximální povolený úbytek napětí na sběrnici je 2 V.
 Standard IEC 62386~101~\cite[iec101] specifikuje elektrické parametry sběrnice v systému \glref{DALI}. Nejdůležitější z nich jsou:
 \begitems
     *{\sbf Polarita:} Rozhraní je nezávislé na polaritě napětí s výjimkou případů, kdy je napájecí zdroj integrován do sběrnice.
-    *{\sbf Značení:} Rozhraní by mělo být označeno "da" nebo "DA" pro datové vodiče.
+    *{\sbf Značení:}  Datové vodiče by měly být označeny "da" nebo "DA".
     *{\sbf Napájení:} Napájecí napětí by mělo být mezi 12,0 a~20,5~V, typicky 16~V.
     *{\sbf Napětí:} Rozhraní má dvě úrovně napětí: nízkou a~vysokou.
     \begitems\style o
         * Pro přijímač je nízká úroveň (0 až 6,5~V), vysoká (9,5 až 22,5~V) (tab.8 \cite[iec101]).
         * Pro vysílač je nízká úroveň (0 až 4,5~V), vysoká (10 až 22,5~V) (tab.9 \cite[iec101]).
     \enditems
-    *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo odebírat maximálně 2~mA v~klidovém stavu.
-    *{\sbf Proud:} Maximální proud na sběrnici je 250~mA.
-    *{\sbf Aktivní stav:} Při nízkém stavu vysílače a~odběru 250 mA nesmí výstupní napětí být vyšší než 4,5~V.
-    *{\sbf Hrana signálu:} Náběžná a~sestupní hrana signálu, by neměla být kratší než 3 µs, kvůli minimalizaci \glref{EMI} rušení.
+    *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo v~klidovém stavu maximálně odebírat 2~mA.
+    *{\sbf Proud:} Maximální povolený proud na sběrnici je 250~mA.
+    *{\sbf Aktivní stav:} Při nízkém stavu vysílače a~odběru 250 mA nesmí výstupní napětí překročit než 4,5~V.
+    *{\sbf Hrana signálu:} Náběžná a~sestupní hrana signálu, by neměla být kratší než 3 µs,
+           aby se minimalizovalo rušení  \glref{EMI}.
 \enditems
 
 

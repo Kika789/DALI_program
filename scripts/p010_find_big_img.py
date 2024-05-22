@@ -16,6 +16,7 @@ def find_big_img(path: Path):
         elif child.is_file() and child.suffix in ['.jpg', '.png']:
             # relative path
             rel_child = child.relative_to(script_dir.parent)
+            # print(f'opening: {rel_child}:')
             with Image.open(child) as img:
                 width, height = img.size
                 # get size on disk
