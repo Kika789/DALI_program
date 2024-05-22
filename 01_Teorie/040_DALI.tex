@@ -27,15 +27,15 @@ spolu s~dalšími zařízeními.
 Technické detaily:
 \begitems
     *{\sbf Norma:} IEC 62386.
-    *{\sbf Typ kabelu:} Dvoulinková sběrnice.
+    *{\sbf Typ kabelu:} Dvouvodičová sběrnice.
     *{\sbf Napájení:} Sběrnice slouží i~pro napájení některých zařízení. Napětí se běžně pohybuje okolo
        16~V v klidovém stavu.
-    *{\sbf Komunikace:} Digitální, obousměrná.
+    *{\sbf Komunikace:} Digitální, obousměrná, sériová.
     *{\sbf Typy příkazů:}
     \begitems\style o
         *{\sbf Ovládání:} Nastavení jasu, aktivace scén, vypnutí světel.
         *{\sbf Konfigurace:} Úprava délky stmívání, nastavení jasu ve scénách, přiřazení tlačítek ke skupinám.
-        *{\sbf Dotazy:} Zjištění konfigurace světel, aktuálního jasu, hlášení poruch světel.
+        *{\sbf Dotazy:} Zjištění konfigurace světel, aktuálního jasu, hlášení poruch zařízení.
     \enditems
 \enditems
 
@@ -48,7 +48,8 @@ Norma IEC 62386, která definuje protokol \glref{DALI}, obsahuje řadu specifick
 * {\sbf Řídicí jednotka} (Control Device):
 
     \begitems
-    * Toto je obecný termín pro zařízení v systému \glref{DALI}, které odesílá řídicí příkazy a~dotazy.
+    * Toto je obecný termín pro zařízení v systému \glref{DALI}, které odesílá řídicí příkazy a~dotazy
+        ostatním zařízením v systému.
       Řídicí zařízení se dále dělí na dva typy:
         \begitems\style o
         * {\sbf Aplikační řadič} (Application Controller): Hlavní řídicí jednotka v systému \glref{DALI},
