@@ -1,46 +1,90 @@
 \nonum\chap Závěr
 
-Cílem diplomové práce byla navrhnout optimální ovládací panel pro učebnu biologie na gymnáziu U Libeňského zámku. Aktuální
-ovládání se skládá z dvanácti tlačítek a je velmi obtížné s ním zacházet. Bylo zapotřebí tento počet snížit na 3 tlačítka,
-která by zapínala konkretní světelné scény pro činnosti v učebně.
+V této diplomové práci byl navržen a implementován optimální ovládací panel pro učebnu
+biologie na gymnáziu U Libeňského zámku.
+Cílem práce bylo zjednodušit ovládání osvětlení v~učebně a navrhnout světelné scény pro různé aktivity studentů.
 
-V teoretické části proběhlo seznámení se s~legislativními požadavky na osvětlení ve školních prostorech, abychom podle toho mohli
-navrhnout optimální scény. Dále proběhlo seznámení se s fyziologii oka, abychom věděli jak se naše lidské oko chová při kontaktu
-se světlem a dále seznámení se s protokolem DALI, jelikož pomocí něho budeme ovládat nový navržený ovládací panel.
 
-V praktické části na začátku proběhla aktuální analýza osvětlenosti. Byla změřena osvětlenost a spektrální složení světla
-na horizontální rovině ve výšce pracovní plochy 800 mm a na vertikální rovině ve výšce oší průměrného žáka 1200 mm.
-Dále proběhlo měření jasových kontrastů pomocí jasového analyzátoru. Bylo zjištěno, že kontrasty jsou optimální i osvětlenost.
-Měřili se různé světelné scény při maximální intenzitě jasu světel. Byly změřené různé kombinace.
-Jen přímé osvětlení, nebo nepřímé nebo jejich kombinace a i zapínaní jen jednotlivých řad - řada u dveří, ve středu a u okna.
+V teoretické části se práce zabývala legislativními požadavky na osvětlení ve školních prostorech,
+fyziologií oka a protokolem DALI, používaným pro komunikaci mezi ovládacím panelem a světly.
 
-V softwaru DIALux proběhla simulace navržených světelných scén pro činnosti - Výklad, Písemka a Adaptace na denní světlo, abychom
-minimalizovali používaní umělého osvětleni. Z výsledků simulace byly navržené optimální scény,
-které se budou v budoucnu realizovat v učebně.
-Nyní realizace v učebně neproběhla z provozních důvodů, stále probíhá školní výuka.
 
-Proto navržené scény byly implementovány v laboratorních podmínkách.
-Tyto tři sceny se zapínají pomocí tři tlačítek a je tam další tlačítko
-off pro uplne vypnutí světel a dvě tlačítka pro regulaci jasu.
-Světla umí komunikovat přes DALI protokol, proto veškerá logika byla
-napsaná v jazyce C++ a ovládací panel byl realizován v laboratoři.
+V praktické části proběhla analýza aktuálního osvětlení v~učebně.
+Analýza ukázala dobrou rovnomernost osvětlení, nadstandardní osvětlenost a spektrální kvalitu.
+Na základě těchto výsledků byly navrženy tři světelné scény pro činnosti -
+Výklad, Písemka a Adaptace na denní světlo.
+Tyto scény byly implementovány v~laboratorních podmínkách a otestovány.
+Dále byl navržen a zkonstruován ovládací panel se třemi tlačítky pro zapínání scén,
+dvěma tlačítky pro regulaci jasu a jedním tlačítkem pro celkové vypnutí světel.
 
-Touto práci jsme chtěli poukazat na to, že i když se řeší inteligentni osvětleni,
-často se opomíjí intuitivní ovládaní a bez tohoto
-důležitého prvku může být instalace buď zbytečná, obtížně použitelná nebo dokonce nevyužitelná.
 
-Do navrženého systému by v budoucnu mohly být integrovány senzory pro automatické
-přizpůsobení osvětlení dennímu světlu,
-dotykový panel pro intuitivní regulaci jasu,
+Navržený ovládací panel a světelné scény splňují všechny požadavky na osvětlení v~učebně biologie.
+Ovládání panelu je intuitivní a snadné a světelné scény zajišťují optimální podmínky pro různé aktivity studentů.
+Implementace navrženého systému v~učebně by vedla ke zlepšení komfortu studentů a pedagogů a k úspoře energie.
+
+Do navrženého systému by v~budoucnu mohly být integrovány senzory pro automatické přizpůsobení
+osvětlení dennímu světlu, dotykový panel pro intuitivní regulaci jasu,
 Wi-Fi připojení pro vzdálené ovládání a aplikace pro chytré telefony.
-Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů
+Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů a k efektivnějšímu využití osvětlení.
 
----------------------------------------------
-\rfc{v tomto odstavci by mohla byt jedna/dve vety o tom, co analyza ukazala
-(dobrou rovnomernost, nadstandardni osvetlenost a spektralni kvalitu)
-nechcete zde ty navrzene sceny vyjmenovat nebo strucne popsat?
-}
----------------------------------------------
+
+Diplomová práce prokázala, že inteligentní osvětlení má značný potenciál
+pro zlepšení komfortu a produktivity v~učebnách.
+Zároveň však zdůrazňuje, že nedostatečná pozornost věnovaná
+intuitivnímu ovládání může vést k neefektivnímu využití inteligentního osvětlení a marnění jeho potenciálu.
+
+
+
+
+
+% Cílem diplomové práce byla navrhnout optimální ovládací panel pro učebnu biologie na gymnáziu U Libeňského zámku. Aktuální
+% ovládání se skládá z dvanácti tlačítek a je velmi obtížné s ním zacházet. Bylo zapotřebí tento počet snížit na 3 tlačítka,
+% která by zapínala konkretní světelné scény pro činnosti v učebně.
+
+% V teoretické části proběhlo seznámení se s~legislativními požadavky na osvětlení ve školních prostorech, abychom podle toho mohli
+% navrhnout optimální scény. Dále proběhlo seznámení se s fyziologii oka, abychom věděli jak se naše lidské oko chová při kontaktu
+% se světlem a dále seznámení se s protokolem DALI, jelikož pomocí něho budeme ovládat nový navržený ovládací panel.
+
+% V praktické části na začátku proběhla aktuální analýza osvětlenosti. Byla změřena osvětlenost a spektrální složení světla
+% na horizontální rovině ve výšce pracovní plochy 800 mm a na vertikální rovině ve výšce oší průměrného žáka 1200 mm.
+% Dále proběhlo měření jasových kontrastů pomocí jasového analyzátoru. Bylo zjištěno, že kontrasty jsou optimální i osvětlenost.
+% Měřili se různé světelné scény při maximální intenzitě jasu světel. Byly změřené různé kombinace.
+% Jen přímé osvětlení, nebo nepřímé nebo jejich kombinace a i zapínaní jen jednotlivých řad - řada u dveří, ve středu a u okna.
+
+% V softwaru DIALux proběhla simulace navržených světelných scén pro činnosti - Výklad, Písemka a Adaptace na denní světlo, abychom
+% minimalizovali používaní umělého osvětleni. Z výsledků simulace byly navržené optimální scény,
+% které se budou v budoucnu realizovat v učebně.
+% Nyní realizace v učebně neproběhla z provozních důvodů, stále probíhá školní výuka.
+
+% Proto navržené scény byly implementovány v laboratorních podmínkách.
+% Tyto tři sceny se zapínají pomocí tři tlačítek a je tam další tlačítko
+% off pro uplne vypnutí světel a dvě tlačítka pro regulaci jasu.
+% Světla umí komunikovat přes DALI protokol, proto veškerá logika byla
+% napsaná v jazyce C++ a ovládací panel byl realizován v laboratoři.
+
+% Touto práci jsme chtěli poukazat na to, že i když se řeší inteligentni osvětleni,
+% často se opomíjí intuitivní ovládaní a bez tohoto
+% důležitého prvku může být instalace buď zbytečná, obtížně použitelná nebo dokonce nevyužitelná.
+
+% Do navrženého systému by v budoucnu mohly být integrovány senzory pro automatické
+% přizpůsobení osvětlení dennímu světlu,
+% dotykový panel pro intuitivní regulaci jasu,
+% Wi-Fi připojení pro vzdálené ovládání a aplikace pro chytré telefony.
+% Implementace těchto vylepšení by vedla k ještě většímu pohodlí uživatelů
+
+
+
+% \rfc{v tomto odstavci by mohla byt jedna/dve vety o tom, co analyza ukazala
+% (dobrou rovnomernost, nadstandardni osvetlenost a spektralni kvalitu)
+% nechcete zde ty navrzene sceny vyjmenovat nebo strucne popsat?
+% }
+
+
+
+
+
+
+% ------------------------------------------------------------------------------------------------------------
 % Cílem diplomové práce bylo provést komplexní analýzu osvětlení ve školní učebně biologie na gymnáziu
 % U Libeňského zámku a~na základě získaných dat navrhnout nový ovládací panel pro regulaci navržených světelných scén
 % zjednodušující ovládání a~zlepšující uživatelský komfort.
