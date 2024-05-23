@@ -278,7 +278,7 @@ Datové pakety protokolu \glref{DALI} se dělí na \cite[iec101]:
 Datový paket {\sbf 8 bitů}:
 \begitems
  * tento datový rámec slouží k~odesílání odpovědí na zprávy řídicích a~vstupních jednotek,
- * norma IEC 62386 \cite[iec101,iec102,iec103].
+ * norma IEC 62386~\cite[iec101]\cite[iec102]\cite[iec103].
 \enditems
 
 
@@ -308,7 +308,7 @@ Datový paket {\sbf 32 bitů}:
 
 Na sběrnici \glref{DALI} mohou být zařízení identifikována pomocí adres a~skupin.
 Celkový počet adres na jedné sběrnici je~64 pro předřadníky a~64 pro řídicí jednotky,
-celkem 128 zařízení \cite[iec101,iec102,iec103].
+celkem 128 zařízení~\cite[iec101]\cite[iec102]\cite[iec103].
 
 Existuje 16 skupin pro předřadníky; každý předřadník může být členem libovolné kombinace těchto 16 skupin.
 Pro ovládací zařízení existuje 32 skupin; každé ovládací zařízení může být členem libovolné kombinace těchto 32 skupin.
@@ -386,7 +386,7 @@ Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou d
 Krátká adresa se každému zařízení na sběrnici \glref{DALI} přiřazuje podle postupu popsaného
 v příloze A.1~\cite[iec102].
 
-Postup nastavení krátkých adres:
+\noindent Postup nastavení krátkých adres:
 \begitems
     * Přepnutí do inicializačního režimu se provede příkazem INITIALISE.
     * Nastavení dlouhé adresy pro vyhledávání nejmenší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL.
@@ -423,7 +423,7 @@ Mezi příklady patří vypnutí zařízení (příkaz OFF), nastavení maximál
 a další.
 
 Pokud uživateli nevyhovují aktuálně nastavené krátké adresy, lze je změnit.
-K tomuto účelu slouží příkaz PROGRAM SHORT ADDRESS.
+K tomuto účelu slouží příkaz PROGRAM SHORT ADDRESS~\cite[iec102].
 
 
 \medskip \noindent
@@ -480,7 +480,7 @@ Scény se pak nastaví pomocí příkazu SET SCENE(device, value). Pokud světlo
 použije se příkaz REMOVE FROM SCENE.
 
 Aktivace scény se provede příkazem GO TO SCENE(broadcast). Tento příkaz nastaví všechna
-světla na hodnoty uložené v dané scéně.
+světla na hodnoty uložené v dané scéně~\cite[iec102].
 
 
 %  ############################################################################################################
@@ -689,7 +689,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \medskip \noindent
 {\sbf Inicializace sběrnice:}
 \begitems
-    * Po spuštění mikropočítače nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
+    * Po spuštění mikropočítače se nastaví výstupní port na 1, čímž uvede sběrnici do klidového stavu.
 \enditems
 
 \medskip \noindent
@@ -761,7 +761,7 @@ a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].  
 \noindent
 {\sbf Napájení řídicí jednotky:}
 \begitems
-    * Pravá strana rozhraní s IC2(\cite[tps4005x]) slouží jako zdroj napájení pro řídicí jednotku s~\glref{ESP32}.
+    * Pravá strana rozhraní s IC2~\cite[tps4005x] slouží jako zdroj napájení pro řídicí jednotku s~\glref{ESP32}.
     % * IC2 je modul synchronního step-down měniče napětí s obvodem TPS4005x~\cite[tps4005x],
     % který zajišťuje stabilní napájení 5~V pro \glref{ESP32}.   % zatim nechci
 \enditems
