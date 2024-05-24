@@ -87,7 +87,7 @@ tři základní typy zařízení, které se vyskytují na sběrnici v systému \
 V současné době rozlišujeme již několik verzi protokolu  \glref{DALI} jako například
 {\sbf DALI} (verze~1), {\sbf DALI-2}, {\sbf D4i} a~{\sbf DALI+}.
 Z hlediska zaměření diplomové práce se budeme zabývat protokolem \glref{DALI-2},
-který rozšiřuje původní verzi \glref{DALI} v1.
+který rozšiřuje původní verzi \glref{DALI} verze~1.
 
 Hlavním problémem původní verze \glref{DALI} (IEC 62386) byla nedostatečná specifikace chování
 řídicích jednotek. Norma definovala pouze fungování předřadníků~\cite[iec102],
@@ -95,7 +95,7 @@ Hlavním problémem původní verze \glref{DALI} (IEC 62386) byla nedostatečná
 To vedlo k~nekompatibilitě a~až k~nemožnosti vzájemného propojení zařízení od různých dodavatelů.
 
 Dalším problémem bylo omezení umístění vstupních zařízení, jako jsou tlačítka a~senzory.
-Norma \glref{DALI} v1 neumožňovala připojení těchto zařízení přímo na sběrnici.
+Norma \glref{DALI} verze~1 neumožňovala připojení těchto zařízení přímo na sběrnici.
 Musely být připojeny k~řídicí jednotce, která pak s nimi komunikovala
 a předávala informace předřadníkům.
 Nebo se volilo řešení s použitím další sběrnice, jako KNX~\cite[isoknx], Modbus~\cite[modbus] nebo jiné.
@@ -110,7 +110,7 @@ Možnost použití bezdrátové komunikace a~IP protokolu byla zavedena až v~no
 \medskip
 Aby se zachovala kompatibilita se staršími systémy, rozlišuje \glref{DALI-2} dva typy řídicích jednotek:
 \begitems
-    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s \glref{DALI} v1 a~slouží jako hlavní řídicí prvek v systému.
+    *{\sbf Single master:} Tyto jednotky jsou kompatibilní s \glref{DALI} verze~1 a~slouží jako hlavní řídicí prvek v systému.
     *{\sbf Multi master:} Modernější řídicí jednotky, které umožňují pokročilejší funkce a~flexibilitu v \glref{DALI-2} systémech.
 \enditems
 
@@ -207,7 +207,8 @@ Standard IEC 62386~101~\cite[iec101] specifikuje elektrické parametry sběrnice
     \enditems
     *{\sbf Odběr:} Každé zařízení připojené k~sběrnici by mělo v~klidovém stavu maximálně odebírat 2~mA.
     *{\sbf Proud:} Maximální povolený proud na sběrnici je 250~mA.
-    *{\sbf Aktivní stav:} Při nízkém stavu vysílače a~odběru 250 mA nesmí výstupní napětí překročit než 4,5~V.
+    *{\sbf Aktivní stav:} Při nízké úrovni napětí vysílače a~odběru 250 mA nesmí výstupní napětí
+    překročit 4,5~V (tab.10 \cite[iec101]).
     *{\sbf Hrana signálu:} Náběžná a~sestupní hrana signálu, by neměla být kratší než 3 µs,
            aby se minimalizovalo rušení  \glref{EMI}.
 \enditems
@@ -250,9 +251,9 @@ které slouží k~synchronizaci komunikace (viz obr.~\ref[paket]):
 \noindent
 Datový rámec obsahuje \cite[iec101]:
 \begitems
-* {\sbf Start bit:}
+* {\sbf Start bit}
 * {\sbf Data:} Data o~délce 1 až 32 bitů.
-* {\sbf Stop bit:}
+* {\sbf Stop bit}
 \enditems
 
 \medskip \clabel[paket]{Datový paket}
@@ -355,7 +356,7 @@ Operační mód 0x00 je standardní režim, ve kterém zařízení reagují na z
 podle normy IEC 62386-102~\cite[iec102].
 
 Ve všech operačních módech, musí zařízeni interpretovat požadavek na změny módu a~provést ho.
-Přepnutí se provádí pomocí broadcast zprávy SET OPERATING MODE, proto není nutné znát adresy zařízení.
+Přepnutí se provádí pomocí broadcast zprávy "SET OPERATING MODE", proto není nutné znát adresy zařízení.
 
 \medskip \noindent
 Operační módy:
@@ -375,8 +376,8 @@ aby bylo možné se do nich vrátit.
 Dalším krokem k~identifikaci jednotlivých světel je generování dlouhých adres.
 Je to mezikrok, který snižuje riziko kolizí při přiřazování krátkých adres.
 
-Před dalším postupem se musí zařízení přepnout do inicializačního režimu příkazem INITIALISE.
-Pak se pošle požadavek na vygenerování dlouhých adres pomocí broadcast zprávy RANDOMIZE.
+Před dalším postupem se musí zařízení přepnout do inicializačního režimu příkazem "INITIALISE".
+Pak se pošle požadavek na vygenerování dlouhých adres pomocí broadcast zprávy "RANDOMIZE".
 Po tomto požadavku si všechna zařízení na sběrnici vygenerují náhodnou dlouhou adresu o~délce 24 bitů.
 
 
@@ -388,42 +389,42 @@ v příloze A.1~\cite[iec102].
 
 \noindent Postup nastavení krátkých adres:
 \begitems
-    * Přepnutí do inicializačního režimu se provede příkazem INITIALISE.
-    * Nastavení dlouhé adresy pro vyhledávání nejmenší adresy, příkazy SEARCHADDRH, SEARCHADDRM, SEARCHADDRL.
-    * Dotazem COMPARE se zjistí jestli mají nějaká zařízení adresu menší rovnou nastavené SEARCHADDR.
-    * Postup se opakuje až najdeme jediné zařízení s adresou rovnou SEARCHADDR.
-    * Tomuto zařízení se přiřadí krátká adresa příkazem PROGRAM SHORT ADDRESS.
-    * Předřadník se vyloučí z dalšího hledání nejnižší adresy příkazem WITHDRAW.
+    * Přepnutí do inicializačního režimu se provede příkazem "INITIALISE".
+    * Nastavení dlouhé adresy pro vyhledávání nejmenší adresy, příkazy "SEARCHADDRH", "SEARCHADDRM", "SEARCHADDRL".
+    * Dotazem "COMPARE" se zjistí jestli mají nějaká zařízení adresu menší rovnou nastavené "SEARCHADDR".
+    * Postup se opakuje až najdeme jediné zařízení s adresou rovnou "SEARCHADDR".
+    * Tomuto zařízení se přiřadí krátká adresa příkazem "PROGRAM SHORT ADDRESS".
+    * Předřadník se vyloučí z dalšího hledání nejnižší adresy příkazem "WITHDRAW".
     * Proces se opakuje pro další zařízení.
-    * Inicializační režim se ukončí příkazem TERMINATE.
+    * Inicializační režim se ukončí příkazem "TERMINATE".
 \enditems
 
 Vyhledávaní nejnižší adresy se provádí binárním dělením intervalu možných adres. Počáteční adresa je
 pro $2^{24}$ adres půlka intervalu tedy $2^{23}$, pak se interval dělí na poloviny až se najde hodnota pod kterou už
-žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz COMPARE odpovídají pouze
-zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě SEARCHADDR. Cyklus se opakuje maximálně 24 krát,
+žádné zařízení není. Tato hodnota je nejnižší adresa na sběrnici. Na dotaz "COMPARE" odpovídají pouze
+zařízení, jejichž dlouhá adresa je menší nebo rovna hodnotě "SEARCHADDR". Cyklus se opakuje maximálně 24 krát,
 pro jedno zařízení. % postupnym odpojovanim a~pripojovani svetelnych zarizeni --- nezapomenout doplnit
 
 Proces končí přiřazením krátkých adres všem zařízením v intervalu 0 až N, kde N je počet zařízení na sběrnici.
 
 Pozn: Je možné přiřadit krátkou adresu i~přímo, pokud víme, že na sběrnici máme pouze jedno zařízení.
-Použijeme příkaz SET SHORT ADDRESS(broadcast).
+Použijeme příkaz "SET SHORT ADDRESS(broadcast)".
 
 \medskip \noindent
 {\sbf Identifikace zařízení}
 
 Pokud jsou u všech zařízení na sběrnici \glref{DALI} nastaveny krátké adresy, lze provést jejich identifikaci.
-K identifikaci se používá příkaz IDENTIFY DEVICE.
-Po odeslání příkazu IDENTIFY DEVICE vybrané zařízení zareaguje blikáním po dobu 10 sekund.
+K identifikaci se používá příkaz "IDENTIFY DEVICE".
+Po odeslání příkazu "IDENTIFY DEVICE" vybrané zařízení zareaguje blikáním po dobu 10 sekund.
 Tímto způsobem lze identifikovat jednotlivá zařízení na sběrnici.
 
 
-Kromě příkazu IDENTIFY DEVICE je možné používat i~další příkazy pro identifikaci zařízení \glref{DALI}.
-Mezi příklady patří vypnutí zařízení (příkaz OFF), nastavení maximálního jasu (příkaz RECALL MAX LEVEL)
+Kromě příkazu "IDENTIFY DEVICE" je možné používat i~další příkazy pro identifikaci zařízení \glref{DALI}.
+Mezi příklady patří vypnutí zařízení (příkaz "OFF"), nastavení maximálního jasu (příkaz "RECALL MAX LEVEL")
 a další.
 
 Pokud uživateli nevyhovují aktuálně nastavené krátké adresy, lze je změnit.
-K tomuto účelu slouží příkaz PROGRAM SHORT ADDRESS~\cite[iec102].
+K tomuto účelu slouží příkaz "PROGRAM SHORT ADDRESS"~\cite[iec102].
 
 
 \medskip \noindent
@@ -450,8 +451,8 @@ Před samotným přiřazením zařízení do skupin je nutné naplánovat jejich
 
 
 Po naplánování skupin se zařízení do nich přiřadí pomocí příkazů
-přidat zařízení do vybrané skupiny (příkaz ADD TO GROUP),
-odstranit zařízení z vybrané skupiny (příkaz REMOVE FROM GROUP).
+přidat zařízení do vybrané skupiny (příkaz "ADD TO GROUP"),
+odstranit zařízení z vybrané skupiny (příkaz "REMOVE FROM GROUP").
 
 \noindent
 Po přiřazení zařízení do skupin je možné je ovládat najednou. To umožňuje:
@@ -476,10 +477,10 @@ Prvním krokem při práci se scénami je jejich naplánování.
 Určení požadovaných scén a~jejich funkcí (např. scéna 1 -- přednáška, scéna 2 -- písemka atd.).
 Definování nastavení osvětlení pro každou scénu (jas pro různé skupiny světel, barva, zapnutí/vypnutí).
 
-Scény se pak nastaví pomocí příkazu SET SCENE(device, value). Pokud světlo v~dané scéně má výt vypnuté
-použije se příkaz REMOVE FROM SCENE.
+Scény se pak nastaví pomocí příkazu "SET SCENE(device, value)". Pokud světlo v~dané scéně má výt vypnuté
+použije se příkaz "REMOVE FROM SCENE".
 
-Aktivace scény se provede příkazem GO TO SCENE(broadcast). Tento příkaz nastaví všechna
+Aktivace scény se provede příkazem "GO TO SCENE(broadcast)". Tento příkaz nastaví všechna
 světla na hodnoty uložené v dané scéně~\cite[iec102].
 
 
@@ -553,7 +554,7 @@ Příklad nastavení maximální úrovně jasu:
     * {\sbf SET MAX LEVEL(device):} Nastavení maximální úrovně jasu pro vybraná zařízení.
 \enditems
 
-Před odesláním příkazu SET MAX LEVEL je nutné nastavit proměnnou DTR0 na požadovanou hodnotu jasu.
+Před odesláním příkazu "SET MAX LEVEL" je nutné nastavit proměnnou DTR0 na požadovanou hodnotu jasu.
 Důvodem je omezení protokolu na dvoubajtové zprávy, kterými nelze v jednom kroku poslat všechny potřebné informace.
 
 \medskip \noindent
@@ -646,7 +647,7 @@ plný seznam je uveden v normě~\cite[iec102] v kapitole 11.
 % \medskip
 
 %  ############################################################################################################ odtud odremovat
-\sec Popis hardwaru
+\sec Popis hardvéru
 
 Pro komunikaci mikropočítače \glref{ESP32} po sběrnici \glref{DALI} byl použit interface podle schématu na obr.~\ref[schematic]
 a interface pro napájení sběrnice podle schématu na obr.~\ref[schematic2].   %rozhrani? misto interface?
